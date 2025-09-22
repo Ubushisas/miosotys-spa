@@ -220,6 +220,8 @@ footer {
   height: 60px;
   width: auto;
   transition: opacity 0.3s ease;
+  background: transparent !important;
+  mix-blend-mode: normal;
 }
 
 .logo img:hover {
