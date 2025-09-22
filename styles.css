@@ -284,6 +284,7 @@ footer {
   color: #fff;
   font-size: 15px;
   font-weight: lighter;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .count {
@@ -300,6 +301,7 @@ footer {
   will-change: transform;
   opacity: 1;
   color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .slider {
@@ -423,7 +425,7 @@ footer {
   font-family: "Waking", "Nature", serif;
   font-weight: 100;
   opacity: 0.9;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   line-height: 1;
   transform: translateY(0px);
   will-change: transform;
@@ -1400,19 +1402,20 @@ footer {
 .includes-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  transition: max-height 0.25s ease-out, padding 0.25s ease-out, opacity 0.2s ease-out;
   margin-top: 1rem;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  will-change: max-height, opacity;
 }
 
 .includes-content.active {
-  max-height: 1000px;
+  max-height: 300px;
   padding: 1.25rem;
   overflow-y: auto;
+  opacity: 1;
 }
 
 .includes-content p {
@@ -1628,6 +1631,17 @@ footer {
 
   .package-item p {
     font-size: 0.9rem;
+  }
+
+  /* Mobile optimized includes animation */
+  .includes-content {
+    transition: max-height 0.2s ease-out, padding 0.2s ease-out, opacity 0.15s ease-out;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  .includes-content.active {
+    max-height: 250px;
   }
 }
 
