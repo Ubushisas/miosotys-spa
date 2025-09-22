@@ -1050,25 +1050,34 @@ footer {
   }
 
   .slide-title {
-    width: 90vw;
-    max-width: 350px;
-    height: auto;
+    width: 350px;
+    height: 45px;
     margin: 0 auto;
+    margin-bottom: 0.25em;
   }
 
   .slide-title h1 {
-    font-size: 32px;
-    position: relative;
+    font-size: 32px !important;
+    position: absolute !important;
+    left: 50% !important;
+    margin-left: -50% !important;
+    white-space: nowrap !important;
+    width: max-content !important;
   }
 
   .slide-description {
-    width: 90vw;
-    max-width: 350px;
+    width: 350px;
+    height: 25px;
+    margin: 0 auto;
   }
 
   .slide-description p {
-    font-size: 16px;
-    position: relative;
+    font-size: 16px !important;
+    position: absolute !important;
+    left: 50% !important;
+    margin-left: -50% !important;
+    white-space: nowrap !important;
+    width: max-content !important;
   }
 
   /* Sticky Cards Mobile */
