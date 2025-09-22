@@ -217,11 +217,8 @@ footer {
 }
 
 .logo img {
-  height: 60px;
+  height: 100px;
   width: auto;
-  transition: opacity 0.3s ease;
-  background: transparent !important;
-  mix-blend-mode: normal;
 }
 
 .logo img:hover {
@@ -402,6 +399,7 @@ footer {
   font-size: 48px;
   font-weight: 600;
   font-family: "Gragio", "Nature", "Playfair Display", serif;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   line-height: 1;
   transform: translateY(0px);
@@ -630,7 +628,7 @@ footer {
   }
 
   .logo img {
-    height: 35px;
+    height: 60px;
   }
 
   .nav-items p {
@@ -819,13 +817,14 @@ footer {
   padding: 2em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
   gap: 1.5rem;
   position: absolute;
   width: 50%;
   top: 0;
+  padding-top: 30px;
 }
 
 .sticky-card-copy-title {
@@ -849,21 +848,22 @@ footer {
 
 .sticky-card-copy-description p {
   font-family: "Waking", "Montserrat", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.4;
   color: #000;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1rem 0;
   text-align: center;
   max-width: 100%;
   word-break: normal;
   overflow-wrap: normal;
   hyphens: none;
+  overflow: visible;
   white-space: normal;
   word-spacing: normal;
 }
 
 .sticky-card-button {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   position: relative;
   top: 0;
 }
@@ -996,7 +996,7 @@ footer {
   }
 
   .logo img {
-    height: 40px;
+    height: 70px;
   }
 
   .nav-items p {
@@ -1064,7 +1064,6 @@ footer {
   .slide-description {
     width: 90vw;
     max-width: 350px;
-    height: auto;
   }
 
   .slide-description p {
@@ -1114,11 +1113,12 @@ footer {
     height: 55vh;
     flex: 1;
     width: 100%;
-    padding: 1.5em 1em;
+    padding: 0.5em 1em;
     order: 2;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 30px;
   }
 
   .sticky-card-header {
