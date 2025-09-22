@@ -4,81 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Myosotis - Spa de Lujo</title>
+    <!-- Preload critical images -->
+    <link rel="preload" href="./Test_Images/Logo_Myosotis-Blanco.png?v=3" as="image" />
+    <link rel="preload" href="./Test_Images/Pictures_test /dos.jpg" as="image" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Seamless Music Player -->
-    <iframe id="musicPlayer" src="music-player.html" style="display: none; width: 0; height: 0; border: none;"></iframe>
 
-    <!-- Welcome Overlay - HIDDEN -->
-    <div class="welcome-overlay" id="welcomeOverlay" style="display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; z-index: -9999 !important;">
-      <div class="welcome-content">
-        <div class="welcome-logo">
-          <p>Myosotis</p>
-        </div>
-        <p>Explora en modo inmersivo</p>
-        <div class="music-buttons">
-          <button class="music-btn" onclick="selectMusic(true)">Con Música</button>
-          <button class="music-btn" onclick="selectMusic(false)">Sin Música</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Force Hide Welcome Overlay Script -->
-    <script>
-      // Immediately hide the welcome overlay
-      document.addEventListener('DOMContentLoaded', function() {
-        const overlay = document.getElementById('welcomeOverlay');
-        if (overlay) {
-          overlay.style.display = 'none !important';
-          overlay.style.visibility = 'hidden !important';
-          overlay.style.opacity = '0 !important';
-          overlay.style.pointerEvents = 'none !important';
-          overlay.style.zIndex = '-9999 !important';
-          overlay.style.position = 'absolute !important';
-          overlay.style.left = '-99999px !important';
-          overlay.style.top = '-99999px !important';
-
-          // Override any attempts to show it
-          const hideOverlay = function() {
-            overlay.style.display = 'none !important';
-            overlay.style.visibility = 'hidden !important';
-            overlay.style.opacity = '0 !important';
-          };
-
-          // Monitor for any changes and immediately hide again
-          const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
-              if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-                if (overlay.style.display !== 'none') {
-                  hideOverlay();
-                }
-              }
-            });
-          });
-
-          observer.observe(overlay, { attributes: true });
-
-          // Also override display property
-          Object.defineProperty(overlay.style, 'display', {
-            get: function() { return 'none'; },
-            set: function() { return 'none'; }
-          });
-        }
-
-        // Mark as already shown to prevent any script from showing it
-        sessionStorage.setItem('welcomeShown', 'true');
-      });
-
-      // Also hide immediately without waiting for DOM
-      if (document.getElementById('welcomeOverlay')) {
-        document.getElementById('welcomeOverlay').style.cssText = 'display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; z-index: -9999 !important; position: absolute !important; left: -99999px !important; top: -99999px !important;';
-      }
-    </script>
 
     <nav>
       <div class="logo">
-        <img src="./Test_Images/Logo_Myosotis-Blanco.png?v=2" alt="Myosotis Logo" />
+        <img src="./Test_Images/Logo_Myosotis-Blanco.png?v=3" alt="Myosotis Logo" />
       </div>
       <div class="nav-items">
         <p onclick="navigateToCatalogue()">Agendar</p>

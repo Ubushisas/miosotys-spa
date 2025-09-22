@@ -242,6 +242,7 @@ footer {
   border: 2px solid #fff;
   padding: 8px 20px;
   border-radius: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nav-items p:hover {
@@ -260,6 +261,7 @@ footer {
   cursor: pointer;
   color: #fff;
   transition: color 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .nosotros-btn:hover {
@@ -863,7 +865,6 @@ footer {
 }
 
 .sticky-card-button {
-  margin-top: 1.5rem;
   position: relative;
   top: 0;
 }
@@ -1043,41 +1044,47 @@ footer {
   }
 
   .slide-copy {
-    top: 24%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .slide-title {
-    width: 350px;
-    height: 45px;
-    margin: 0 auto;
-    margin-bottom: 0.25em;
+    width: 350px !important;
+    height: 45px !important;
+    margin: 0 auto !important;
+    margin-bottom: 0.25em !important;
+    position: relative !important;
   }
 
   .slide-title h1 {
-    font-size: 32px !important;
+    font-size: 28px !important;
     position: absolute !important;
     left: 50% !important;
-    margin-left: -50% !important;
     white-space: nowrap !important;
     width: max-content !important;
+    transform: translateX(-50%) translateY(0px);
   }
 
   .slide-description {
-    width: 350px;
-    height: 25px;
-    margin: 0 auto;
+    width: 350px !important;
+    height: 25px !important;
+    margin: 0 auto !important;
+    position: relative !important;
   }
 
   .slide-description p {
     font-size: 16px !important;
     position: absolute !important;
     left: 50% !important;
-    margin-left: -50% !important;
     white-space: nowrap !important;
     width: max-content !important;
+    transform: translateX(-50%) translateY(0px);
   }
 
   /* Sticky Cards Mobile */
@@ -1145,7 +1152,6 @@ footer {
 
   .sticky-card-button {
     text-align: center;
-    margin-top: 1.5rem;
   }
 
   .sticky-card-button button {

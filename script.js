@@ -11,28 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }*/
   // Overlay stays visible waiting for user interaction
 
-  // Handle seamless music
-  const musicPlayer = document.getElementById('musicPlayer');
-  const musicPreference = localStorage.getItem('musicPreference');
-  const savedTime = localStorage.getItem('musicTime');
-
-  if (musicPlayer) {
-    musicPlayer.onload = function() {
-      if (musicPreference === 'true') {
-        musicPlayer.contentWindow.postMessage({
-          action: 'play',
-          time: parseFloat(savedTime) || 0
-        }, '*');
-      }
-    };
-
-    // Listen for time updates from music player
-    window.addEventListener('message', function(event) {
-      if (event.data.action === 'timeUpdate') {
-        localStorage.setItem('musicTime', event.data.time);
-      }
-    });
-  }
 
   const totalSlides = 8;
   let currentSlide = 1;
@@ -66,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Pictures_test /dos.jpg",
     "Individual.jpg", 
     "Couples.jpg",
-    "Friends.jpg",
+    "Friends.jpg?v=2",
     "Kids.jpg",
     "Family.jpg",
     "Luxury.jpg",
@@ -127,17 +105,20 @@ document.addEventListener("DOMContentLoaded", () => {
     return wrapper;
   }
 
-  function createTextElements(slideNumber, direction) {
+  function createTextElements(slideNumber, direction, isMobile) {
     const newTitle = document.createElement("h1");
     newTitle.textContent = slideTitles[slideNumber - 1];
+
     gsap.set(newTitle, {
       y: direction === "down" ? 80 : -80,
+      x: isMobile ? "-50%" : "0%"
     });
 
     const newDescription = document.createElement("p");
     newDescription.textContent = slideDescriptions[slideNumber - 1];
     gsap.set(newDescription, {
       y: direction === "down" ? 40 : -40,
+      x: isMobile ? "-50%" : "0%"
     });
 
     const newCounter = document.createElement("p");
@@ -154,6 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     isAnimating = true;
     scrollAllowed = false;
+
+    // Check if mobile for centering
+    const isMobile = window.innerWidth <= 768;
 
     const slider = document.querySelector(".slider");
     const currentSlideElement = slider.querySelector(".slide");
@@ -180,7 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const newMainWrapper = createMainImageWrapper(currentSlide, direction);
     const { newTitle, newDescription, newCounter } = createTextElements(
       currentSlide,
-      direction
+      direction,
+      isMobile
     );
 
     slider.appendChild(newSlide);
@@ -277,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         newTitle,
         {
           y: 0,
+          x: isMobile ? "-50%" : "0%",
           duration: 0.5,
           ease: "power2.out",
         },
@@ -295,6 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
         newDescription,
         {
           y: 0,
+          x: isMobile ? "-50%" : "0%",
           duration: 0.5,
           ease: "power2.out",
         },
@@ -420,38 +407,4 @@ function navigateToCatalogue() {
   window.location.href = 'catalogo.html';
 }
 
-// Music Selection Function
-function selectMusic(withMusic) {
-  const overlay = document.getElementById('welcomeOverlay');
-  const musicPlayer = document.getElementById('musicPlayer');
-
-  // Store music preference for later use
-  localStorage.setItem('musicPreference', withMusic);
-
-  // Mark that welcome overlay has been shown in this session
-  sessionStorage.setItem('welcomeShown', 'true');
-
-  // Play or pause music based on selection
-  if (musicPlayer) {
-    if (withMusic) {
-      musicPlayer.contentWindow.postMessage({
-        action: 'play',
-        time: 0
-      }, '*');
-    } else {
-      musicPlayer.contentWindow.postMessage({
-        action: 'pause'
-      }, '*');
-    }
-  }
-
-  // Fade out the overlay
-  overlay.style.transition = 'opacity 0.8s ease-out';
-  overlay.style.opacity = '0';
-
-  // Remove overlay after animation
-  setTimeout(() => {
-    overlay.style.display = 'none';
-  }, 800);
-}
 
