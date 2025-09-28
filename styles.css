@@ -1645,3 +1645,18 @@ footer {
   }
 }
 
+/* Calendly specific styles */
+#calendlyContent {
+  overflow: hidden;
+  position: relative;
+}
+
+#calendlyContent .calendly-inline-widget {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#calendlyContent iframe {
+  max-height: 700px !important;
+}
+
