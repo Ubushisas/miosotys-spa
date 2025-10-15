@@ -800,17 +800,16 @@
       // Book package function
       function bookPackage(packageName) {
         // Special handling for services with booking links
-        // Open SimplyBook in new tab for better functionality
         if (packageName === 'Limpieza Facial') {
-          window.open('https://miosotystest.simplybook.me/v2/#book/service/2', '_blank');
+          showBookingCalendar('Limpieza Facial', 'https://miosotystest.simplybook.me/v2/#book/service/2');
         } else if (packageName === 'Baño de Luna') {
-          window.open('https://miosotystest.simplybook.me/v2/#book/service/3', '_blank');
+          showBookingCalendar('Baño de Luna', 'https://miosotystest.simplybook.me/v2/#book/service/3');
         } else if (packageName === 'Exfoliación Corporal') {
-          window.open('https://miosotystest.simplybook.me/v2/#book/service/4', '_blank');
+          showBookingCalendar('Exfoliación Corporal', 'https://miosotystest.simplybook.me/v2/#book/service/4');
         } else if (packageName === 'Masaje con Aceite Caliente') {
-          window.open('https://miosotystest.simplybook.me/v2/#book/service/5', '_blank');
+          showBookingCalendar('Masaje con Aceite Caliente', 'https://miosotystest.simplybook.me/v2/#book/service/5');
         } else if (packageName === 'Masaje con Piedras Calientes') {
-          window.open('https://miosotystest.simplybook.me/v2/#book/service/6', '_blank');
+          showBookingCalendar('Masaje con Piedras Calientes', 'https://miosotystest.simplybook.me/v2/#book/service/6');
         } else {
           alert('Por favor contacta con nosotros para agendar: ' + packageName);
         }
@@ -832,11 +831,14 @@
         // Clear any existing content
         calendlyContent.innerHTML = '';
 
-        // Add the SimplyBook iframe - BACK TO ORIGINAL
+        // Add the SimplyBook iframe with proper sandbox and allow attributes
         calendlyContent.innerHTML = `
           <iframe src="${bookingUrl}"
                   style="width: 100%; height: 700px; border: none; border-radius: 8px;"
-                  title="Agendar ${serviceName}">
+                  title="Agendar ${serviceName}"
+                  allow="payment; geolocation"
+                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
+                  loading="eager">
           </iframe>
         `;
 
