@@ -800,16 +800,17 @@
       // Book package function
       function bookPackage(packageName) {
         // Special handling for services with booking links
+        // Open SimplyBook in new tab for better functionality
         if (packageName === 'Limpieza Facial') {
-          showBookingCalendar('Limpieza Facial', 'https://miosotystest.simplybook.me/v2/#book/service/2');
+          window.open('https://miosotystest.simplybook.me/v2/#book/service/2', '_blank');
         } else if (packageName === 'Baño de Luna') {
-          showBookingCalendar('Baño de Luna', 'https://miosotystest.simplybook.me/v2/#book/service/3');
+          window.open('https://miosotystest.simplybook.me/v2/#book/service/3', '_blank');
         } else if (packageName === 'Exfoliación Corporal') {
-          showBookingCalendar('Exfoliación Corporal', 'https://miosotystest.simplybook.me/v2/#book/service/4');
+          window.open('https://miosotystest.simplybook.me/v2/#book/service/4', '_blank');
         } else if (packageName === 'Masaje con Aceite Caliente') {
-          showBookingCalendar('Masaje con Aceite Caliente', 'https://miosotystest.simplybook.me/v2/#book/service/5');
+          window.open('https://miosotystest.simplybook.me/v2/#book/service/5', '_blank');
         } else if (packageName === 'Masaje con Piedras Calientes') {
-          showBookingCalendar('Masaje con Piedras Calientes', 'https://miosotystest.simplybook.me/v2/#book/service/6');
+          window.open('https://miosotystest.simplybook.me/v2/#book/service/6', '_blank');
         } else {
           alert('Por favor contacta con nosotros para agendar: ' + packageName);
         }
@@ -831,16 +832,11 @@
         // Clear any existing content
         calendlyContent.innerHTML = '';
 
-        // Extract service ID from URL
-        const serviceMatch = bookingUrl.match(/service\/(\d+)/);
-        const serviceId = serviceMatch ? serviceMatch[1] : '2';
-
-        // Use SimplyBook widget embed
+        // Add the SimplyBook iframe - BACK TO ORIGINAL
         calendlyContent.innerHTML = `
-          <iframe src="https://miosotystest.simplybook.me/v2/widget/service/${serviceId}"
+          <iframe src="${bookingUrl}"
                   style="width: 100%; height: 700px; border: none; border-radius: 8px;"
-                  title="Agendar ${serviceName}"
-                  allow="payment">
+                  title="Agendar ${serviceName}">
           </iframe>
         `;
 
