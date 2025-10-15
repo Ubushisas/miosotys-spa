@@ -1738,6 +1738,30 @@ footer {
   height: 100%;
 }
 
+/* Hide Google Translate in SimplyBook Widget */
+.goog-te-banner-frame,
+.goog-te-gadget,
+#google_translate_element,
+.skiptranslate,
+iframe[src*="translate.google.com"],
+body > .skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Remove top spacing caused by Google Translate */
+body {
+  top: 0 !important;
+}
+
+/* Hide language selector in SimplyBook iframe */
+#sbWidget iframe {
+  margin-top: 0 !important;
+}
+
 #calendlyContent .calendly-inline-widget {
   position: relative !important;
   overflow: visible !important;
