@@ -1479,13 +1479,15 @@ footer {
 .includes-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.25s ease-out, padding 0.25s ease-out, opacity 0.2s ease-out;
+  transition: max-height 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.2s ease-out;
   margin-top: 1rem;
   background: rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   opacity: 0;
-  will-change: max-height, opacity;
+  will-change: max-height;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .includes-content.active {
@@ -1710,15 +1712,30 @@ footer {
     font-size: 0.9rem;
   }
 
-  /* Mobile optimized includes animation */
+  /* Mobile optimized includes animation - Ultra smooth */
   .includes-content {
-    transition: max-height 0.2s ease-out, padding 0.2s ease-out, opacity 0.15s ease-out;
+    transition: max-height 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    will-change: max-height;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .includes-content.active {
     max-height: 250px;
+  }
+
+  /* Remove heavy effects on mobile for better performance */
+  .includes-content {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  /* Faster button response on mobile */
+  .btn-includes {
+    transition: background 0.15s ease, transform 0.1s ease;
   }
 }
 
