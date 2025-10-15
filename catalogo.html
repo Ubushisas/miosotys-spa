@@ -292,6 +292,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="//widget.simplybook.me/v2/widget/widget.js"></script>
     <script>
       // Smooth Fade Animation Function (same as info.html)
       function slideOutIn() {
@@ -835,18 +836,46 @@
         const serviceMatch = bookingUrl.match(/service\/(\d+)/);
         const serviceId = serviceMatch ? serviceMatch[1] : '2';
 
-        // Use SimplyBook widget without hash - cleaner URL
-        const embedUrl = `https://miosotystest.simplybook.me/v2/?widget-type=iframe&theme=default&timeline=modern&datepicker=top_calendar&service=${serviceId}`;
+        // Create container for SimplyBook widget
+        calendlyContent.innerHTML = '<div id="sbWidget"></div>';
 
-        calendlyContent.innerHTML = `
-          <iframe src="${embedUrl}"
-                  style="width: 100%; height: 700px; border: none; border-radius: 8px;"
-                  title="Agendar ${serviceName}"
-                  allow="payment; geolocation"
-                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox"
-                  loading="eager">
-          </iframe>
-        `;
+        // Initialize SimplyBook widget with official code
+        new SimplybookWidget({
+          "widget_type": "iframe",
+          "url": "https://miosotystest.simplybook.me",
+          "theme": "default",
+          "theme_settings": {
+            "timeline_hide_unavailable": "1",
+            "hide_past_days": "1",
+            "timeline_show_end_time": "0",
+            "timeline_modern_display": "as_table",
+            "sb_base_color": "#9aa6b2",
+            "display_item_mode": "block",
+            "booking_nav_bg_color": "#bbdce5",
+            "body_bg_color": "#f7f7f7",
+            "sb_review_image": "3",
+            "dark_font_color": "#0c3942",
+            "light_font_color": "#ffffff",
+            "btn_color_1": "#9aa6b2",
+            "sb_company_label_color": "#ffffff",
+            "hide_img_mode": "1",
+            "show_sidebar": "1",
+            "sb_busy": "#c7b3b3",
+            "sb_available": "#e5f2ff"
+          },
+          "timeline": "modern_week",
+          "datepicker": "top_calendar",
+          "is_rtl": false,
+          "app_config": {
+            "clear_session": 0,
+            "allow_switch_to_ada": 0,
+            "predefined": {
+              "provider": "4",
+              "service": serviceId
+            }
+          },
+          "container_id": "sbWidget"
+        });
 
         // Show the calendar window with slide animation
         calendlyWindow.classList.add('active');
