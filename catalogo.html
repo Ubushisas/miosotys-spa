@@ -843,6 +843,10 @@
         const serviceMatch = bookingUrl.match(/service\/(\d+)/);
         const serviceId = serviceMatch ? serviceMatch[1] : '2';
 
+        // Determine provider based on service ID
+        // Service 3 (Baño de Luna) uses provider 3, others use provider 4
+        const providerId = (serviceId === '3') ? '3' : '4';
+
         // Create container for SimplyBook widget
         calendlyContent.innerHTML = '<div id="sbWidget"></div>';
 
@@ -876,7 +880,7 @@
             "allow_switch_to_ada": 0,
             "locale": "es_ES",
             "predefined": {
-              "provider": "4",
+              "provider": providerId,
               "service": serviceId
             }
           },
