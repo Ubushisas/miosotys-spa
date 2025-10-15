@@ -831,13 +831,19 @@
         // Clear any existing content
         calendlyContent.innerHTML = '';
 
-        // Add the SimplyBook iframe with proper sandbox and allow attributes
+        // Extract service ID from URL
+        const serviceMatch = bookingUrl.match(/service\/(\d+)/);
+        const serviceId = serviceMatch ? serviceMatch[1] : '2';
+
+        // Use SimplyBook widget without hash - cleaner URL
+        const embedUrl = `https://miosotystest.simplybook.me/v2/?widget-type=iframe&theme=default&timeline=modern&datepicker=top_calendar&service=${serviceId}`;
+
         calendlyContent.innerHTML = `
-          <iframe src="${bookingUrl}"
+          <iframe src="${embedUrl}"
                   style="width: 100%; height: 700px; border: none; border-radius: 8px;"
                   title="Agendar ${serviceName}"
                   allow="payment; geolocation"
-                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"
+                  sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox"
                   loading="eager">
           </iframe>
         `;
