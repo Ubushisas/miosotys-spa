@@ -1722,18 +1722,29 @@ footer {
   }
 }
 
-/* Calendly specific styles */
+/* Calendar Container Styles (SimplyBook & Calendly) */
 #calendlyContent {
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+/* SimplyBook Widget Container */
+#sbWidget {
+  width: 100%;
+  min-height: 600px;
+  height: 100%;
 }
 
 #calendlyContent .calendly-inline-widget {
   position: relative !important;
-  overflow: hidden !important;
+  overflow: visible !important;
 }
 
 #calendlyContent iframe {
-  max-height: 700px !important;
+  min-height: 800px !important;
+  width: 100% !important;
 }
 
