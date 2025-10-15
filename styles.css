@@ -1712,9 +1712,9 @@ footer {
     font-size: 0.9rem;
   }
 
-  /* Mobile optimized includes animation - Ultra smooth */
+  /* Tablet optimizations (iPad) - Keep smooth */
   .includes-content {
-    transition: max-height 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: max-height 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     will-change: max-height;
@@ -1726,16 +1726,62 @@ footer {
     max-height: 250px;
   }
 
-  /* Remove heavy effects on mobile for better performance */
+  /* Remove heavy effects on tablet for better performance */
   .includes-content {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: rgba(255, 255, 255, 0.15) !important;
   }
 
-  /* Faster button response on mobile */
+  /* Faster button response on tablet */
   .btn-includes {
     transition: background 0.15s ease, transform 0.1s ease;
+  }
+}
+
+/* Ultra-aggressive optimizations for phones only */
+@media (max-width: 480px) {
+  /* Instant animation on phones - no lag */
+  .includes-content {
+    transition: max-height 0.1s linear !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    will-change: max-height !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    perspective: 1000px !important;
+    -webkit-perspective: 1000px !important;
+  }
+
+  .includes-content.active {
+    max-height: 200px !important;
+  }
+
+  /* Remove ALL heavy effects on phones */
+  .includes-content {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Ultra-fast button on phones */
+  .btn-includes {
+    transition: none !important;
+  }
+
+  .btn-includes:active {
+    transform: scale(0.98);
+  }
+
+  /* Remove card hover effects on phones */
+  .modern-card {
+    transition: none !important;
+  }
+
+  .modern-card:hover {
+    transform: none !important;
   }
 }
 
