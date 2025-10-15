@@ -192,6 +192,11 @@ body {
   width: 100%;
 }
 
+body.window-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
 nav {
   position: fixed;
   top: 0;

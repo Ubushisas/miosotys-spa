@@ -563,6 +563,9 @@
 
       // Show packages window
       function showPackages(serviceId) {
+        // Prevent body scroll
+        document.body.classList.add('window-open');
+
         const packageWindow = document.getElementById('packageWindow');
         const packageTitle = document.getElementById('packageTitle');
         const packageContent = document.getElementById('packageContent');
@@ -818,8 +821,12 @@
 
       // Show SimplyBook calendar in sliding window
       function showBookingCalendar(serviceName, bookingUrl) {
+        // Prevent body scroll
+        document.body.classList.add('window-open');
+
         // First hide the packages window if it's open
-        hidePackages();
+        const packageWindow = document.getElementById('packageWindow');
+        packageWindow.classList.remove('active');
 
         // Get the window elements
         const calendlyWindow = document.getElementById('calendlyWindow');
@@ -885,6 +892,9 @@
       function hideCalendly() {
         const calendlyWindow = document.getElementById('calendlyWindow');
         calendlyWindow.classList.remove('active');
+
+        // Re-enable body scroll
+        document.body.classList.remove('window-open');
       }
 
       // Toggle includes/benefits section
@@ -905,6 +915,12 @@
       function hidePackages() {
         const packageWindow = document.getElementById('packageWindow');
         packageWindow.classList.remove('active');
+
+        // Re-enable body scroll only if calendar window is also closed
+        const calendlyWindow = document.getElementById('calendlyWindow');
+        if (!calendlyWindow.classList.contains('active')) {
+          document.body.classList.remove('window-open');
+        }
       }
 
       // Register ScrollTrigger plugin
