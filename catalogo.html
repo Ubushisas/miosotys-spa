@@ -831,11 +831,16 @@
         // Clear any existing content
         calendlyContent.innerHTML = '';
 
-        // Add the SimplyBook iframe
+        // Extract service ID from URL
+        const serviceMatch = bookingUrl.match(/service\/(\d+)/);
+        const serviceId = serviceMatch ? serviceMatch[1] : '2';
+
+        // Use SimplyBook widget embed
         calendlyContent.innerHTML = `
-          <iframe src="${bookingUrl}"
+          <iframe src="https://miosotystest.simplybook.me/v2/widget/service/${serviceId}"
                   style="width: 100%; height: 700px; border: none; border-radius: 8px;"
-                  title="Agendar ${serviceName}">
+                  title="Agendar ${serviceName}"
+                  allow="payment">
           </iframe>
         `;
 
