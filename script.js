@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const imageNames = [
     "Pictures_test /dos.jpg",
-    "Individual.jpg", 
+    "Individual.jpg?v=2",
     "Couples.jpg",
     "Friends.jpg?v=2",
     "Kids.jpg",
@@ -180,21 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tl = gsap.timeline({
       onComplete: () => {
-        setTimeout(() => {
-          [
-            currentSlideElement,
-            currentMainWrapper,
-            currentTitle,
-            currentDescription,
-            currentCounter,
-          ].forEach((el) => el?.remove());
-        }, 200);
+        [
+          currentSlideElement,
+          currentMainWrapper,
+          currentTitle,
+          currentDescription,
+          currentCounter,
+        ].forEach((el) => el?.remove());
 
         isAnimating = false;
-        setTimeout(() => {
-          scrollAllowed = true;
-          lastScrollTime = Date.now();
-        }, 100);
+        scrollAllowed = true;
       },
     });
 
@@ -253,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
         currentTitle,
         {
           y: direction === "down" ? -80 : 80,
-          duration: 0.5,
+          duration: 0.3,
           ease: "power2.in",
         },
         0
@@ -263,16 +258,16 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           y: 0,
           x: isMobile ? "-50%" : "0%",
-          duration: 0.5,
+          duration: 0.3,
           ease: "power2.out",
         },
-        0.5
+        0.15
       )
       .to(
         currentDescription,
         {
           y: direction === "down" ? -40 : 40,
-          duration: 0.5,
+          duration: 0.3,
           ease: "power2.in",
         },
         0
@@ -282,16 +277,16 @@ document.addEventListener("DOMContentLoaded", () => {
         {
           y: 0,
           x: isMobile ? "-50%" : "0%",
-          duration: 0.5,
+          duration: 0.3,
           ease: "power2.out",
         },
-        0.5
+        0.15
       )
       .to(
         currentCounter,
         {
           y: direction === "down" ? -30 : 30,
-          duration: 0.3,
+          duration: 0.2,
           ease: "power2.in",
         },
         0
@@ -300,18 +295,15 @@ document.addEventListener("DOMContentLoaded", () => {
         newCounter,
         {
           y: 0,
-          duration: 0.3,
+          duration: 0.2,
           ease: "power2.out",
         },
-        0.3
+        0.1
       );
   }
 
   function handleScroll(direction) {
-    const now = Date.now();
     if (isAnimating || !scrollAllowed) return;
-    if (now - lastScrollTime < 800) return;
-    lastScrollTime = now;
     animateSlide(direction);
   }
 

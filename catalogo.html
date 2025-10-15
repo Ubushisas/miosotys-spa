@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Catálogo - Miosotys Spa</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.min.css?v=1" />
   </head>
   <body>
     <!-- Background Music -->
@@ -30,7 +30,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/Individual.jpg" alt="Spa Individual" />
+                <img src="./Test_Images/Test2/Individual.jpg?v=2" alt="Spa Individual" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Spa Individual</h1>
@@ -42,6 +42,11 @@
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(1)">Ver paquetes</button>
+                </div>
+                <div class="scroll-arrow" onclick="scrollToNextCard(1)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
                 </div>
               </div>
             </div>
@@ -66,6 +71,18 @@
                 <div class="sticky-card-button">
                   <button onclick="showPackages(2)">Ver paquetes</button>
                 </div>
+                <div class="scroll-arrows-container">
+                  <div class="scroll-arrow scroll-arrow-up" onclick="scrollToPrevCard(2)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </div>
+                  <div class="scroll-arrow scroll-arrow-down" onclick="scrollToNextCard(2)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -88,6 +105,18 @@
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(3)">Ver paquetes</button>
+                </div>
+                <div class="scroll-arrows-container">
+                  <div class="scroll-arrow scroll-arrow-up" onclick="scrollToPrevCard(3)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </div>
+                  <div class="scroll-arrow scroll-arrow-down" onclick="scrollToNextCard(3)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -112,6 +141,18 @@
                 <div class="sticky-card-button">
                   <button onclick="showPackages(4)">Ver paquetes</button>
                 </div>
+                <div class="scroll-arrows-container">
+                  <div class="scroll-arrow scroll-arrow-up" onclick="scrollToPrevCard(4)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </div>
+                  <div class="scroll-arrow scroll-arrow-down" onclick="scrollToNextCard(4)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -134,6 +175,18 @@
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(5)">Ver paquetes</button>
+                </div>
+                <div class="scroll-arrows-container">
+                  <div class="scroll-arrow scroll-arrow-up" onclick="scrollToPrevCard(5)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </div>
+                  <div class="scroll-arrow scroll-arrow-down" onclick="scrollToNextCard(5)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,6 +211,18 @@
                 <div class="sticky-card-button">
                   <button onclick="showPackages(6)">Ver paquetes</button>
                 </div>
+                <div class="scroll-arrows-container">
+                  <div class="scroll-arrow scroll-arrow-up" onclick="scrollToPrevCard(6)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </div>
+                  <div class="scroll-arrow scroll-arrow-down" onclick="scrollToNextCard(6)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -180,6 +245,13 @@
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(7)">Ver paquetes</button>
+                </div>
+                <div class="scroll-arrows-container">
+                  <div class="scroll-arrow scroll-arrow-up" onclick="scrollToPrevCard(7)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -269,6 +341,43 @@
         window.location.href = 'index.html';
       }
 
+      // Scroll to next card function
+      function scrollToNextCard(currentCardIndex) {
+        const stickyCards = document.querySelectorAll('.sticky-card');
+        const nextCard = stickyCards[currentCardIndex]; // currentCardIndex is 0-based, so card 1 -> index 1 (card 2)
+
+        if (nextCard) {
+          nextCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+
+      // Scroll to previous card function
+      function scrollToPrevCard(currentCardIndex) {
+        // Calculate scroll position based on viewport height
+        // Each card is 100vh tall
+        const viewportHeight = window.innerHeight;
+
+        // If we're on card 5, we want to go to card 4
+        // Card 4 is the 4th card, so it starts at 3 * viewportHeight
+        const targetCardNumber = currentCardIndex - 1;
+        const targetScrollPosition = (targetCardNumber - 1) * viewportHeight;
+
+        console.log('UP ARROW: From card', currentCardIndex, 'to card', targetCardNumber);
+        console.log('Scrolling to position:', targetScrollPosition);
+
+        if (targetCardNumber >= 1) {
+          window.scrollTo({
+            top: targetScrollPosition,
+            behavior: 'smooth'
+          });
+        } else {
+          console.log('Already at first card');
+        }
+      }
+
       // Package data for each service
       const packageData = {
         1: { // Spa Individual
@@ -310,19 +419,19 @@
           title: "Spa para Parejas - Paquetes",
           packages: [
             {
-              name: "Romantic Oasis for Two / Romántico Oasis para Dos",
+              name: "Romántico Oasis para Dos",
               description: "Un refugio íntimo diseñado para renovar la conexión y el amor en pareja.<br><br><strong>Incluye:</strong><br>• Masaje en pareja con aceites de rosas y lavanda, para relajar y estimular los sentidos<br>• Tiempo privado en jacuzzi con pétalos y velas aromáticas, en un ambiente íntimo<br>• Tabla de quesos acompañada de una copa de vino espumoso",
               duration: "2 horas 45 minutos",
               price: "$450.000 por pareja"
             },
             {
-              name: "Reconciliation Retreat for Two / Retiro de Reconciliación para Dos",
+              name: "Retiro de Reconciliación para Dos",
               description: "Un espacio de paz y calma pensado para fortalecer lazos y reconectar en pareja.<br><br><strong>Incluye:</strong><br>• Copa de vino de bienvenida<br>• Masaje en pareja para aliviar estrés y tensiones<br>• Sesión creativa con chocolate, fomentando diversión y conexión<br>• Hidroterapia y aromaterapia en pareja<br>• Tabla de quesos, chocolates gourmet y bebida fría (con o sin alcohol)",
               duration: "3 horas 15 minutos",
               price: "$540.000 por pareja"
             },
             {
-              name: "Anniversary Bliss Package / Paquete de Aniversario",
+              name: "Paquete de Aniversario",
               description: "Una experiencia diseñada para celebrar el amor y disfrutar en pareja de momentos de relajación total.<br><br><strong>Incluye:</strong><br>• Masajes en pareja<br>• Tratamientos faciales rejuvenecedores<br>• Tabla de quesos acompañada de una bebida (con o sin alcohol)",
               duration: "2 horas",
               price: "$400.000 por pareja"
@@ -333,13 +442,13 @@
           title: "Spa para Amigas - Paquetes",
           packages: [
             {
-              name: "Ladies' Time Retreat / Tarde de Chicas",
+              name: "Tarde de Chicas",
               description: "Vive un retiro fascinante con tus amigas en un ambiente de lujo y confort.<br><br><strong>Incluye:</strong><br>• Masaje de cuerpo completo con aceites esenciales aromáticos, diseñado para relajar y revitalizar los sentidos<br>• Mascarilla revitalizante para aportar un brillo natural a la piel<br>• Sesión de jacuzzi con sales minerales orgánicas para una experiencia de bienestar<br>• Acceso a sauna y turco para purificar y rejuvenecer el cuerpo<br>• Snack saludable acompañado de una bebida refrescante para cerrar la experiencia<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
               duration: "3 horas",
               price: "1 persona → $230.000<br>2 personas → $460.000<br>3 personas → $690.000<br>4 personas → $870.000<br>5 personas → $1.150.000<br>6 personas → $1.310.000"
             },
             {
-              name: "The Fast De-Stress Day Pass / Pasabordo Rápido de Desestrés",
+              name: "Pasabordo Rápido de Desestrés",
               description: "Para cambiar de rutina y aliviar el estrés del día a día, disfruta de un momento diseñado para relajar cuerpo y mente.<br><br><strong>Incluye:</strong><br>• Hidromasaje para liberar tensión acumulada<br>• Masaje corporal relajante con piedras calientes, ideal para aliviar la tensión localizada en los músculos<br><br>Una pausa perfecta para recargar energías.<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
               duration: "1 hora 20 minutos",
               price: "1 persona → $160.000<br>2 personas → $320.000<br>3 personas → $480.000<br>4 personas → $610.000<br>5 personas → $800.000<br>6 personas → $910.000"
@@ -350,13 +459,13 @@
           title: "Spa para Niñas - Paquetes",
           packages: [
             {
-              name: "Teen Harmony Spa Experience / Experiencia de Armonía para Adolescentes",
+              name: "Experiencia de Armonía para Adolescentes",
               description: "Un plan divertido y relajante para compartir con amigas, fortalecer amistades y disfrutar de un ambiente diseñado para el bienestar.<br><br><strong>Incluye:</strong><br>• Sesión en sauna para abrir poros y preparar la piel<br>• Ingreso al turco con esencias herbales que relajan los músculos<br>• Experiencia de chocolaterapia, ideal para expresarse y relajarse en grupo<br>• Masaje facial refrescante con limpieza y mascarilla calmante<br>• Masaje corporal relajante para aliviar tensión y promover calma<br>• Jacuzzi de relajación con aguas cálidas y burbujeantes<br>• Selección de snacks saludables para cerrar la experiencia<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
               duration: "2 horas 45 minutos",
               price: "1 persona → $240.000<br>2 personas → $480.000<br>3 personas → $720.000<br>4 personas → $910.000<br>5 personas → $1.200.000<br>6 personas → $1.370.000"
             },
             {
-              name: "Tween Spa Adventure / Aventura Spa para Preadolescentes",
+              name: "Aventura Spa para Preadolescentes",
               description: "Un plan diseñado para que los más jóvenes disfruten de una experiencia segura, divertida y relajante, con tratamientos adaptados a sus necesidades.<br><br><strong>Incluye:</strong><br>• Bebida natural de frutas y snack saludable de bienvenida<br>• Sesión en turco aromático con esencias herbales suaves<br>• Relajación en sauna, ideal para compartir y conversar<br>• Jacuzzi con burbujas y luces LED en un ambiente lúdico<br>• Mini facial refrescante: limpieza suave e hidratación ligera<br>• Masaje grupal de espalda y hombros para aliviar tensión<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
               duration: "3 horas 15 minutos",
               price: "1 persona → $270.000<br>2 personas → $540.000<br>3 personas → $810.000<br>4 personas → $1.020.000<br>5 personas → $1.350.000<br>6 personas → $1.540.000"
@@ -367,13 +476,13 @@
           title: "Spa Familiar - Paquetes",
           packages: [
             {
-              name: "Mother & Daughter Spa Day / Día de Spa para Mamá e Hija",
+              name: "Día de Spa para Mamá e Hija",
               description: "Un espacio íntimo diseñado para fortalecer el vínculo entre madre e hija, con tratamientos especiales y momentos de calidad en un entorno de bienestar.<br><br><strong>Incluye:</strong><br>• Bebida de bienvenida: té de hierbas o agua con frutas<br>• Masajes de cuerpo completo, diseñados para compartir y relajarse juntas<br>• Tina con sales minerales calmantes y burbujas suaves<br>• Acceso a áreas húmedas: baño de vapor y sauna<br>• Selección de bocadillos saludables con bebidas revitalizantes<br>• Recuerdo especial al finalizar la experiencia<br><br><strong>Detalles del paquete:</strong><br>• Máx. personas: Mamá e hija",
               duration: "2 horas 30 minutos",
               price: "Paquete para dos: $380.000"
             },
             {
-              name: "Family Day Relaxation and Fun / Tarde en Familia",
+              name: "Tarde en Familia",
               description: "Un día pensado para compartir en familia, con masajes personalizados, actividades especiales y momentos de relajación en el jacuzzi.<br><br><strong>Incluye:</strong><br>• Masajes adaptados para cada miembro de la familia<br>• Tiempo en jacuzzi para compartir y disfrutar juntos<br>• Actividades diseñadas para crear recuerdos inolvidables<br><br><strong>Detalles del paquete:</strong><br>• Máx. personas: 2 adultos y 3 a 4 niños",
               duration: "2 horas 30 minutos",
               price: "Paquete familiar: $620.000"
@@ -384,31 +493,31 @@
           title: "Spa Luxury - Paquetes",
           packages: [
             {
-              name: "Relaxation Massage / Masaje de Relajación",
+              name: "Masaje de Relajación",
               description: "Sumérgete en una experiencia de calma absoluta diseñada para aliviar el estrés y liberar la tensión acumulada.<br><br><strong>Beneficios:</strong><br>• Relajación profunda de cuerpo y mente<br>• Reducción del estrés y la ansiedad<br>• Sensación de paz y renovación total",
               duration: "1 hora",
               price: "$320.000"
             },
             {
-              name: "Lymphatic Drainage / Drenaje Linfático",
+              name: "Drenaje Linfático",
               description: "Un tratamiento especializado para desintoxicar y revitalizar el organismo de manera natural.<br><br><strong>Beneficios:</strong><br>• Estimula la circulación linfática<br>• Reduce la retención de líquidos e hinchazón<br>• Favorece la eliminación de toxinas<br>• Promueve una sensación de ligereza y bienestar",
               duration: "1 hora",
               price: "$320.000"
             },
             {
-              name: "Body Sculpting Session / Masaje de Modelación",
+              name: "Masaje de Modelación",
               description: "Tratamiento diseñado para redefinir la silueta y realzar tu confianza.<br><br><strong>Beneficios:</strong><br>• Moldea y tonifica zonas específicas del cuerpo<br>• Favorece la reducción de medidas<br>• Prepara el cuerpo para ocasiones especiales<br>• Te ayuda a lucir y sentirte espectacular",
               duration: "1 hora",
               price: "$320.000"
             },
             {
-              name: "Miracle Touch Integrated Therapy / Miracle Touch",
+              name: "Miracle Touch",
               description: "Una experiencia única que combina diferentes técnicas en un solo tratamiento para lograr resultados visibles y transformadores.<br><br><strong>Beneficios:</strong><br>• Ayuda a perder medidas y moldear el cuerpo<br>• Estimula la desintoxicación natural<br>• Rejuvenece y renueva la energía vital<br>• Efectos notables desde la primera sesión",
               duration: "1 hora",
               price: "$320.000"
             },
             {
-              name: "Miracle Face Treatment / Miracle Face",
+              name: "Miracle Face",
               description: "Tratamiento facial exclusivo para resaltar la belleza natural y devolver vitalidad a la piel.<br><br><strong>Beneficios:</strong><br>• Redefinición y tonificación de los rasgos faciales<br>• Revitalización de la piel, dejándola luminosa y fresca<br>• Estimula la juventud y firmeza natural del rostro",
               duration: "40 minutos",
               price: "$240.000"
@@ -419,19 +528,19 @@
           title: "Spa Fechas Especiales - Paquetes",
           packages: [
             {
-              name: "Quinceañera Friends Celebration / Feliz 15 Años con tus Mejores Amigas",
+              name: "Feliz 15 Años con tus Mejores Amigas",
               description: "Una celebración única para conmemorar un momento especial, combinando bienestar, diversión y recuerdos inolvidables.<br><br><strong>Incluye:</strong><br>• Bienvenida con bebida sin alcohol<br>• Sauna y turco con esencias herbales<br>• Masaje corporal relajante con aceites aromáticos<br>• Tratamiento facial con limpieza, exfoliación y mascarilla hidratante<br>• Jacuzzi con burbujas y luces LED<br>• Snack saludable con frutas y yogurt<br>• Brindis con mocktail y mini torta personalizada<br>• Obsequio especial: bata de baño personalizada para la quinceañera<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
               duration: "3 horas 30 minutos",
               price: "1 persona → $350.000<br>2 personas → $700.000<br>3 personas → $1.050.000<br>4 personas → $1.330.000<br>5 personas → $1.750.000<br>6 personas → $1.990.000"
             },
             {
-              name: "Birthday Spa Celebration / Celebración de Cumpleaños",
+              name: "Celebración de Cumpleaños",
               description: "Convierte tu cumpleaños en una experiencia única de relajación y alegría en un entorno sofisticado.<br><br><strong>Incluye:</strong><br>• Cóctel sin alcohol de bienvenida<br>• Sesión en sauna para desintoxicar y revitalizar<br>• Masaje corporal personalizado con aceites esenciales<br>• Sesión en turco herbal<br>• Jacuzzi de relajación<br>• Snack con tabla de quesos artesanales y frutas frescas<br>• Torta personalizada para la ocasión<br>• Obsequio especial: bata de baño bordada con iniciales de la cumpleañera<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
               duration: "2 horas 50 minutos",
               price: "1 persona → $270.000<br>2 personas → $540.000<br>3 personas → $810.000<br>4 personas → $1.020.000<br>5 personas → $1.350.000<br>6 personas → $1.540.000"
             },
             {
-              name: "Bridal Shower Spa Experience / Despedida de Soltera",
+              name: "Despedida de Soltera",
               description: "Celebra la etapa previa al gran día con una experiencia inolvidable de relajación y conexión entre amigas.<br><br><strong>Incluye:</strong><br>• Bebida de bienvenida<br>• Sesión en baño de vapor con aceites esenciales<br>• Masaje aromático personalizado con aceites premium<br>• Acceso a jacuzzi con ambiente musical y de iluminación<br>• Selección de snacks gourmet y bandejas de frutas frescas<br>• Té de hierbas o aguas saborizadas<br>• Obsequio: vela perfumada para cada asistente<br>• Regalo especial para la novia<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
               duration: "3 horas 30 minutos",
               price: "1 persona → $350.000<br>2 personas → $700.000<br>3 personas → $1.050.000<br>4 personas → $1.330.000<br>5 personas → $1.750.000<br>6 personas → $1.995.000"
@@ -442,7 +551,7 @@
 
       // Service images mapping
       const serviceImages = {
-        1: './Test_Images/Test2/Individual.jpg', // Spa Individual
+        1: './Test_Images/Test2/Individual.jpg?v=2', // Spa Individual
         2: './Test_Images/Test2/Couples.jpg',    // Spa para Parejas
         3: './Test_Images/Test2/Friends.jpg?v=2',    // Spa para Amigas
         4: './Test_Images/Test2/Kids.jpg',       // Spa para Niñas
@@ -471,33 +580,33 @@
           'Masaje con Piedras Calientes': './Test_Images/Catalogo/Spa_Individual/Masaje_con_piedras_calientes.jpg',
 
           // Spa para Parejas
-          'Romantic Oasis for Two / Romántico Oasis para Dos': './Test_Images/Catalogo/Spa_Parejas/Romantic Oasis for Two.jpg',
-          'Reconciliation Retreat for Two / Retiro de Reconciliación para Dos': './Test_Images/Catalogo/Spa_Parejas/Reconciliation Retreat for Two.jpg',
-          'Anniversary Bliss Package / Paquete de Aniversario': './Test_Images/Catalogo/Spa_Parejas/Anniversary Bliss Package.jpg',
+          'Romántico Oasis para Dos': './Test_Images/Catalogo/Spa_Parejas/Romantic Oasis for Two.jpg',
+          'Retiro de Reconciliación para Dos': './Test_Images/Catalogo/Spa_Parejas/Reconciliation Retreat for Two.jpg',
+          'Paquete de Aniversario': './Test_Images/Catalogo/Spa_Parejas/Anniversary Bliss Package.jpg',
 
           // Spa para Amigas
-          'Ladies\' Time Retreat / Tarde de Chicas': './Test_Images/Catalogo/Spa_para_Amigas/Tarde de Chicas.jpg',
-          'The Fast De-Stress Day Pass / Pasabordo Rápido de Desestrés': './Test_Images/Catalogo/Spa_para_Amigas/The Fast De-Stress Day Pass.jpg',
+          'Tarde de Chicas': './Test_Images/Catalogo/Spa_para_Amigas/Tarde de Chicas.jpg',
+          'Pasabordo Rápido de Desestrés': './Test_Images/Catalogo/Spa_para_Amigas/The Fast De-Stress Day Pass.jpg',
 
           // Spa para Niñas
-          'Teen Harmony Spa Experience / Experiencia de Armonía para Adolescentes': './Test_Images/Catalogo/Spa_para_Niñas/Teen Harmony Spa Experience.jpg',
-          'Tween Spa Adventure / Aventura Spa para Preadolescentes': './Test_Images/Catalogo/Spa_para_Niñas/Tween Spa Adventure.jpg',
+          'Experiencia de Armonía para Adolescentes': './Test_Images/Catalogo/Spa_para_Niñas/Teen Harmony Spa Experience.jpg',
+          'Aventura Spa para Preadolescentes': './Test_Images/Catalogo/Spa_para_Niñas/Tween Spa Adventure.jpg',
 
           // Spa para Familias
-          'Mother & Daughter Spa Day / Día de Spa para Mamá e Hija': './Test_Images/Catalogo/Spa_para_Familiar/Mother & Daughter Spa Day.jpg',
-          'Family Day Relaxation and Fun / Tarde en Familia': './Test_Images/Catalogo/Spa_para_Familiar/Family Day Relaxation and Fun.jpg',
+          'Día de Spa para Mamá e Hija': './Test_Images/Catalogo/Spa_para_Familiar/Mother & Daughter Spa Day.jpg',
+          'Tarde en Familia': './Test_Images/Catalogo/Spa_para_Familiar/Family Day Relaxation and Fun.jpg',
 
           // Spa Luxury
-          'Relaxation Massage / Masaje de Relajación': './Test_Images/Catalogo/Spa_Luxury/Relaxation Massage.jpg',
-          'Lymphatic Drainage / Drenaje Linfático': './Test_Images/Catalogo/Spa_Luxury/Lymphatic Drainage.jpg',
-          'Body Sculpting Session / Masaje de Modelación': './Test_Images/Catalogo/Spa_Luxury/Body Sculpting Session.jpg',
-          'Miracle Touch Integrated Therapy / Miracle Touch': './Test_Images/Catalogo/Spa_Luxury/Miracle Touch Integrated Therapy.jpg',
-          'Miracle Face Treatment / Miracle Face': './Test_Images/Catalogo/Spa_Luxury/Miracle Face Treatment.jpg',
+          'Masaje de Relajación': './Test_Images/Catalogo/Spa_Luxury/Relaxation Massage.jpg',
+          'Drenaje Linfático': './Test_Images/Catalogo/Spa_Luxury/Lymphatic Drainage.jpg',
+          'Masaje de Modelación': './Test_Images/Catalogo/Spa_Luxury/Body Sculpting Session.jpg',
+          'Miracle Touch': './Test_Images/Catalogo/Spa_Luxury/Miracle Touch Integrated Therapy.jpg',
+          'Miracle Face': './Test_Images/Catalogo/Spa_Luxury/Miracle Face Treatment.jpg',
 
           // Eventos Especiales
-          'Quinceañera Friends Celebration / Feliz 15 Años con tus Mejores Amigas': './Test_Images/Catalogo/Spa_fechas_Especiales/Quinceañera Friends Celebration.jpg',
-          'Birthday Spa Celebration / Celebración de Cumpleaños': './Test_Images/Catalogo/Spa_fechas_Especiales/Birthday Spa Celebration.jpg',
-          'Bridal Shower Spa Experience / Despedida de Soltera': './Test_Images/Catalogo/Spa_fechas_Especiales/Bridal Shower Spa Experience.jpg'
+          'Feliz 15 Años con tus Mejores Amigas': './Test_Images/Catalogo/Spa_fechas_Especiales/Quinceañera Friends Celebration.jpg',
+          'Celebración de Cumpleaños': './Test_Images/Catalogo/Spa_fechas_Especiales/Birthday Spa Celebration.jpg',
+          'Despedida de Soltera': './Test_Images/Catalogo/Spa_fechas_Especiales/Bridal Shower Spa Experience.jpg'
         };
 
         let packagesHTML = '';
@@ -690,44 +799,47 @@
 
       // Book package function
       function bookPackage(packageName) {
-        // Special handling for "Limpieza Facial"
+        // Special handling for services with booking links
         if (packageName === 'Limpieza Facial') {
-          showCalendly();
+          showBookingCalendar('Limpieza Facial', 'https://miosotystest.simplybook.me/v2/#book/service/2');
+        } else if (packageName === 'Baño de Luna') {
+          showBookingCalendar('Baño de Luna', 'https://miosotystest.simplybook.me/v2/#book/service/3');
+        } else if (packageName === 'Exfoliación Corporal') {
+          showBookingCalendar('Exfoliación Corporal', 'https://miosotystest.simplybook.me/v2/#book/service/4');
+        } else if (packageName === 'Masaje con Aceite Caliente') {
+          showBookingCalendar('Masaje con Aceite Caliente', 'https://miosotystest.simplybook.me/v2/#book/service/5');
+        } else if (packageName === 'Masaje con Piedras Calientes') {
+          showBookingCalendar('Masaje con Piedras Calientes', 'https://miosotystest.simplybook.me/v2/#book/service/6');
         } else {
           alert('Por favor contacta con nosotros para agendar: ' + packageName);
-          // You can replace this with actual booking functionality later
         }
       }
 
-      // Show Calendly in sliding window
-      function showCalendly() {
+      // Show SimplyBook calendar in sliding window
+      function showBookingCalendar(serviceName, bookingUrl) {
         // First hide the packages window if it's open
         hidePackages();
 
-        // Get the calendly window elements
+        // Get the window elements
         const calendlyWindow = document.getElementById('calendlyWindow');
+        const windowTitle = calendlyWindow.querySelector('.package-window-header h2');
         const calendlyContent = document.getElementById('calendlyContent');
+
+        // Update window title dynamically
+        windowTitle.textContent = `Agendar ${serviceName}`;
 
         // Clear any existing content
         calendlyContent.innerHTML = '';
 
-        // Add the exact Calendly inline widget code
+        // Add the SimplyBook iframe
         calendlyContent.innerHTML = `
-          <!-- Principio del widget integrado de Calendly -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/livadeldi/limpieza-facial?hide_event_type_details=1&hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
-          <!-- Final del widget integrado de Calendly -->
+          <iframe src="${bookingUrl}"
+                  style="width: 100%; height: 700px; border: none; border-radius: 8px;"
+                  title="Agendar ${serviceName}">
+          </iframe>
         `;
 
-        // Load Calendly script if not already loaded
-        if (!document.querySelector('script[src*="calendly.com"]')) {
-          const script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = 'https://assets.calendly.com/assets/external/widget.js';
-          script.async = true;
-          document.body.appendChild(script);
-        }
-
-        // Show the calendly window with slide animation
+        // Show the calendar window with slide animation
         calendlyWindow.classList.add('active');
       }
 
@@ -827,11 +939,13 @@
           if (index === 0) {
             // Prepare text for word-by-word animation on first card
             const button = card.querySelector('.sticky-card-button button');
+            const scrollArrow = card.querySelector('.scroll-arrow');
             if (description) prepareText(description);
             if (title) gsap.set(title, { opacity: 0, y: 30 });
             if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
             if (button) gsap.set(button, { opacity: 0, y: 20 });
-            
+            if (scrollArrow) gsap.set(scrollArrow, { opacity: 0, y: 10 });
+
             // Animate first card on load (like info.html)
             setTimeout(() => {
               // Animate title
@@ -844,7 +958,7 @@
                   delay: 0.3
                 });
               }
-              
+
               // Animate subtitle
               if (subtitle) {
                 gsap.to(subtitle, {
@@ -855,7 +969,7 @@
                   delay: 0.6
                 });
               }
-              
+
               // Animate description words (smooth typewriter)
               if (description && description.querySelectorAll('.word').length > 0) {
                 gsap.to(description.querySelectorAll('.word'), {
@@ -866,7 +980,7 @@
                   delay: 0.9
                 });
               }
-              
+
               // Animate button
               if (button) {
                 gsap.to(button, {
@@ -877,14 +991,27 @@
                   delay: 1.5
                 });
               }
+
+              // Animate scroll arrow
+              if (scrollArrow) {
+                gsap.to(scrollArrow, {
+                  opacity: 1,
+                  y: 0,
+                  duration: 0.8,
+                  ease: "power2.out",
+                  delay: 1.8
+                });
+              }
             }, 800);
           } else {
             // Prepare text elements with initial hidden state for other cards
             const button = card.querySelector('.sticky-card-button button');
+            const scrollArrows = card.querySelectorAll('.scroll-arrow');
             if (description) prepareText(description);
             if (title) gsap.set(title, { opacity: 0, y: 30 });
             if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
             if (button) gsap.set(button, { opacity: 0, y: 20 });
+            scrollArrows.forEach(arrow => gsap.set(arrow, { opacity: 0, y: 10 }));
           }
           
           // Pin all cards except the last one
@@ -922,14 +1049,15 @@
           // Smooth text animation that reacts to scroll progress (much slower, skip first card)
           if (index > 0) {
             const button = card.querySelector('.sticky-card-button button');
-            
+            const scrollArrows = card.querySelectorAll('.scroll-arrow');
+
             ScrollTrigger.create({
               trigger: card,
-              start: "top bottom", 
+              start: "top bottom",
               end: "bottom top",
               onUpdate: (self) => {
                 const progress = self.progress;
-                
+
                 // Animate title based on scroll progress (much faster)
                 if (title) {
                   const titleProgress = Math.max(0, Math.min(1, (progress - 0.1) / 0.3));
@@ -938,7 +1066,7 @@
                     y: 30 - (titleProgress * 30)
                   });
                 }
-                
+
                 // Animate subtitle based on scroll progress (much faster)
                 if (subtitle) {
                   const subtitleProgress = Math.max(0, Math.min(1, (progress - 0.2) / 0.3));
@@ -947,30 +1075,42 @@
                     y: 20 - (subtitleProgress * 20)
                   });
                 }
-                
+
                 // Animate description words based on scroll progress (fast typewriter)
                 if (description && description.querySelectorAll('.word').length > 0) {
                   const words = description.querySelectorAll('.word');
                   const descProgress = Math.max(0, Math.min(1, (progress - 0.3) / 0.4));
-                  
+
                   words.forEach((word, wordIndex) => {
                     const wordDelay = (wordIndex / words.length) * 0.2; // Smooth word progression
                     const wordProgress = Math.max(0, Math.min(1, (descProgress - wordDelay) * 3));
-                    
+
                     gsap.set(word, {
                       opacity: wordProgress
                     });
                   });
                 }
-                
+
                 // Animate button to appear quickly after text starts
                 if (button) {
                   // Button appears much earlier (when text is 30% visible) and stays visible
                   const buttonProgress = Math.max(0, Math.min(1, (progress - 0.35) / 0.15));
-                  
+
                   gsap.set(button, {
                     opacity: buttonProgress,
                     y: 20 - (buttonProgress * 20)
+                  });
+                }
+
+                // Animate scroll arrows to appear after button
+                if (scrollArrows.length > 0) {
+                  const arrowProgress = Math.max(0, Math.min(1, (progress - 0.4) / 0.15));
+
+                  scrollArrows.forEach(arrow => {
+                    gsap.set(arrow, {
+                      opacity: arrowProgress,
+                      y: 10 - (arrowProgress * 10)
+                    });
                   });
                 }
               }
