@@ -521,7 +521,7 @@ footer {
   font-weight: 100;
   font-size: 2rem;
   line-height: 1.4;
-  color: #000;
+  color: #BF9264;
   font-family: "Waking", "Nature", "Playfair Display", serif;
   max-width: 600px;
   text-align: center;
@@ -586,7 +586,7 @@ footer {
     font-size: 1.4rem;
     padding: 1em;
     text-align: center;
-    color: #000;
+    color: #BF9264;
     line-height: 1.5;
   }
 }
@@ -791,7 +791,7 @@ footer {
   font-family: "Gragio", "Nature", "Volkga", "Cormorant Garamond", serif;
   font-size: 3.5rem;
   font-weight: 600;
-  color: #000;
+  color: #BF9264;
   margin: 0 0 1.5rem 0;
   width: 100%;
   line-height: 1.2;
@@ -870,7 +870,7 @@ footer {
   font-family: "Gragio", "Nature", "Volkga", "Cormorant Garamond", serif;
   text-transform: uppercase;
   font-weight: 100;
-  color: #000;
+  color: #BF9264;
   font-size: 1.3rem;
 }
 
@@ -878,7 +878,7 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 1.1rem;
   line-height: 1.4;
-  color: #000;
+  color: #BF9264;
   margin: 0 0 1rem 0;
   text-align: center;
   max-width: 100%;
@@ -947,7 +947,7 @@ footer {
 .scroll-arrow svg {
   width: 36px;
   height: 36px;
-  color: #000;
+  color: #BF9264;
   stroke-width: 2.5;
   pointer-events: none;
 }
@@ -1349,7 +1349,7 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #000;
+  color: #BF9264;
   margin: 0;
 }
 
@@ -1365,7 +1365,7 @@ footer {
 }
 
 .close-btn:hover {
-  color: #000;
+  color: #BF9264;
 }
 
 .package-window-body {
@@ -1490,9 +1490,11 @@ footer {
 
 .btn-includes {
   flex: 1;
-  background: #fff;
-  color: #000;
-  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
@@ -1503,8 +1505,8 @@ footer {
 }
 
 .btn-includes:hover {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: #fff;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .includes-content {
@@ -1581,9 +1583,11 @@ footer {
 }
 
 .package-includes-btn {
-  background-color: black;
+  background: rgba(154, 166, 178, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: white;
-  border: 1px solid black;
+  border: 2px solid rgba(255, 255, 255, 0.7);
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1593,11 +1597,14 @@ footer {
   margin-top: 1rem;
   transition: all 0.3s ease;
   width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .package-includes-btn:hover {
-  background-color: rgba(0, 0, 0, 0.7) !important;
+  background: rgba(154, 166, 178, 0.95);
+  border-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .package-includes-content {
@@ -1633,7 +1640,7 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #000;
+  color: #BF9264;
   margin: 0 0 0.5rem 0;
 }
 
@@ -1641,7 +1648,7 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #000;
+  color: #BF9264;
   margin: 0 0 1rem 0;
 }
 
@@ -1649,14 +1656,14 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
-  color: #000;
+  color: #BF9264;
   margin-top: 1rem;
   line-height: 1.6;
 }
 
 .package-price-label {
   font-weight: 700;
-  color: #000;
+  color: #BF9264;
   display: inline-block;
   margin-bottom: 0.3rem;
 }
@@ -1665,14 +1672,16 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
-  color: #000;
+  color: #BF9264;
   margin: 0.5rem 0;
 }
 
 .package-book-btn {
-  background-color: white;
-  color: black;
-  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1680,12 +1689,15 @@ footer {
   border-radius: 25px;
   cursor: pointer;
   margin-top: 1rem;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .package-book-btn:hover {
-  background-color: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.7);
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
