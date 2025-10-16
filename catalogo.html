@@ -34,16 +34,14 @@
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Nuestros Servicios</h1>
-                <div class="sticky-card-copy-description" style="text-align: left; padding-left: 1rem;">
-                  <p style="line-height: 2.5;">
-                    • Spa Individual<br>
-                    • Spa para Parejas<br>
-                    • Spa para Amigas<br>
-                    • Spa para Niñas<br>
-                    • Spa para Familias<br>
-                    • Spa Luxury<br>
-                    • Eventos Especiales
-                  </p>
+                <div class="sticky-card-copy-description" style="text-align: left; padding-left: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+                  <p style="margin: 0;">• Spa Individual</p>
+                  <p style="margin: 0;">• Spa para Parejas</p>
+                  <p style="margin: 0;">• Spa para Amigas</p>
+                  <p style="margin: 0;">• Spa para Niñas</p>
+                  <p style="margin: 0;">• Spa para Familias</p>
+                  <p style="margin: 0;">• Spa Luxury</p>
+                  <p style="margin: 0;">• Eventos Especiales</p>
                 </div>
                 <div class="scroll-arrow" onclick="scrollToNextCard(1)">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1053,18 +1051,21 @@
           const title = card.querySelector('.sticky-card-header');
           const subtitle = card.querySelector('.sticky-card-copy-title p');
           
-          // Special handling for first card (like Nosotros window)
+          // Special handling for first card (intro services card)
           if (index === 0) {
-            // Prepare text for word-by-word animation on first card
             const button = card.querySelector('.sticky-card-button button');
             const scrollArrow = card.querySelector('.scroll-arrow');
-            if (description) prepareText(description);
+            const descriptionContainer = card.querySelector('.sticky-card-copy-description');
+            const serviceParagraphs = descriptionContainer ? descriptionContainer.querySelectorAll('p') : [];
+
+            // Set initial hidden state
             if (title) gsap.set(title, { opacity: 0, y: 30 });
             if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
             if (button) gsap.set(button, { opacity: 0, y: 20 });
             if (scrollArrow) gsap.set(scrollArrow, { opacity: 0, y: 10 });
+            serviceParagraphs.forEach(p => gsap.set(p, { opacity: 0, y: 20 }));
 
-            // Animate first card on load (faster but smooth)
+            // Animate first card on load (fast and smooth)
             setTimeout(() => {
               // Animate title
               if (title) {
@@ -1077,7 +1078,7 @@
                 });
               }
 
-              // Animate subtitle
+              // Animate subtitle (if exists)
               if (subtitle) {
                 gsap.to(subtitle, {
                   opacity: 1,
@@ -1088,12 +1089,13 @@
                 });
               }
 
-              // Animate description words (fast smooth typewriter)
-              if (description && description.querySelectorAll('.word').length > 0) {
-                gsap.to(description.querySelectorAll('.word'), {
+              // Animate service paragraphs one by one (smooth stagger)
+              if (serviceParagraphs.length > 0) {
+                gsap.to(serviceParagraphs, {
                   opacity: 1,
-                  duration: 0.2,
-                  stagger: 0.05,
+                  y: 0,
+                  duration: 0.3,
+                  stagger: 0.08,
                   ease: "power2.out",
                   delay: 0.4
                 });
