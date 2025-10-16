@@ -34,15 +34,15 @@
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Nuestros Servicios</h1>
-                <div class="sticky-card-copy-description">
+                <div class="sticky-card-copy-description" style="text-align: left;">
                   <p>
-                    • Spa Individual - Experiencia Personal<br><br>
-                    • Spa para Parejas - Conexión Romántica<br><br>
-                    • Spa para Amigas - Celebración de Amistad<br><br>
-                    • Spa para Niñas - Diversión y Cuidado<br><br>
-                    • Spa para Familias - Unión Familiar<br><br>
-                    • Spa Luxury - Experiencia Premium<br><br>
-                    • Eventos Especiales - Celebraciones Únicas
+                    • Spa Individual<br><br>
+                    • Spa para Parejas<br><br>
+                    • Spa para Amigas<br><br>
+                    • Spa para Niñas<br><br>
+                    • Spa para Familias<br><br>
+                    • Spa Luxury<br><br>
+                    • Eventos Especiales
                   </p>
                 </div>
                 <div class="scroll-arrow" onclick="scrollToNextCard(1)">
@@ -1064,16 +1064,16 @@
             if (button) gsap.set(button, { opacity: 0, y: 20 });
             if (scrollArrow) gsap.set(scrollArrow, { opacity: 0, y: 10 });
 
-            // Animate first card on load (like info.html)
+            // Animate first card on load (faster but smooth)
             setTimeout(() => {
               // Animate title
               if (title) {
                 gsap.to(title, {
                   opacity: 1,
                   y: 0,
-                  duration: 0.8,
+                  duration: 0.5,
                   ease: "power2.out",
-                  delay: 0.3
+                  delay: 0.2
                 });
               }
 
@@ -1082,20 +1082,20 @@
                 gsap.to(subtitle, {
                   opacity: 1,
                   y: 0,
-                  duration: 0.8,
+                  duration: 0.5,
                   ease: "power2.out",
-                  delay: 0.6
+                  delay: 0.4
                 });
               }
 
-              // Animate description words (smooth typewriter)
+              // Animate description words (fast smooth typewriter)
               if (description && description.querySelectorAll('.word').length > 0) {
                 gsap.to(description.querySelectorAll('.word'), {
                   opacity: 1,
-                  duration: 0.3,
-                  stagger: 0.1,
+                  duration: 0.2,
+                  stagger: 0.05,
                   ease: "power2.out",
-                  delay: 0.9
+                  delay: 0.4
                 });
               }
 
@@ -1104,9 +1104,9 @@
                 gsap.to(button, {
                   opacity: 1,
                   y: 0,
-                  duration: 0.8,
+                  duration: 0.5,
                   ease: "power2.out",
-                  delay: 1.5
+                  delay: 1.0
                 });
               }
 
@@ -1115,12 +1115,12 @@
                 gsap.to(scrollArrow, {
                   opacity: 1,
                   y: 0,
-                  duration: 0.8,
+                  duration: 0.5,
                   ease: "power2.out",
-                  delay: 1.8
+                  delay: 1.2
                 });
               }
-            }, 800);
+            }, 500);
           } else {
             // Prepare text elements with initial hidden state for other cards
             const button = card.querySelector('.sticky-card-button button');
