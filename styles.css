@@ -224,7 +224,7 @@ footer {
 }
 
 .logo img {
-  height: 120px;
+  height: 150px;
   width: auto;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
@@ -655,7 +655,7 @@ footer {
   }
 
   .logo img {
-    height: 100px;
+    height: 115px;
   }
 
   .nav-items p {
@@ -1104,7 +1104,7 @@ footer {
   }
 
   .logo img {
-    height: 90px;
+    height: 110px;
   }
 
   .nav-items p {
