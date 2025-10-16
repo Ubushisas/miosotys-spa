@@ -88,7 +88,16 @@
 }
 
 .music-btn {
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg,
+    rgba(154, 166, 178, 0.6) 0%,
+    rgba(168, 181, 200, 0.65) 15%,
+    rgba(154, 166, 178, 0.6) 30%,
+    rgba(181, 194, 213, 0.7) 45%,
+    rgba(154, 166, 178, 0.6) 60%,
+    rgba(168, 181, 200, 0.65) 75%,
+    rgba(154, 166, 178, 0.6) 100%);
+  background-size: 200% 200%;
+  animation: holographic 3s ease infinite;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -104,7 +113,15 @@
 }
 
 .music-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: linear-gradient(135deg,
+    rgba(122, 138, 153, 0.7) 0%,
+    rgba(136, 153, 170, 0.75) 15%,
+    rgba(122, 138, 153, 0.7) 30%,
+    rgba(149, 168, 187, 0.8) 45%,
+    rgba(122, 138, 153, 0.7) 60%,
+    rgba(136, 153, 170, 0.75) 75%,
+    rgba(122, 138, 153, 0.7) 100%);
+  background-size: 200% 200%;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
@@ -244,7 +261,16 @@ footer {
   transition: all 0.3s ease;
   text-transform: none;
   letter-spacing: 1px;
-  background-color: #9AA6B2;
+  background: linear-gradient(135deg,
+    #9AA6B2 0%,
+    #A8B5C8 15%,
+    #9AA6B2 30%,
+    #B5C2D5 45%,
+    #9AA6B2 60%,
+    #A8B5C8 75%,
+    #9AA6B2 100%);
+  background-size: 200% 200%;
+  animation: holographic 3s ease infinite;
   border: 2px solid #fff;
   padding: 8px 20px;
   border-radius: 25px;
@@ -253,8 +279,28 @@ footer {
 
 .nav-items p:hover {
   color: #fff;
-  background-color: #7A8A99;
+  background: linear-gradient(135deg,
+    #7A8A99 0%,
+    #8899AA 15%,
+    #7A8A99 30%,
+    #95A8BB 45%,
+    #7A8A99 60%,
+    #8899AA 75%,
+    #7A8A99 100%);
+  background-size: 200% 200%;
   border-color: #fff;
+}
+
+@keyframes holographic {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
@@ -948,7 +994,16 @@ footer {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 12px 30px;
-  background-color: #9AA6B2;
+  background: linear-gradient(135deg,
+    #9AA6B2 0%,
+    #A8B5C8 15%,
+    #9AA6B2 30%,
+    #B5C2D5 45%,
+    #9AA6B2 60%,
+    #A8B5C8 75%,
+    #9AA6B2 100%);
+  background-size: 200% 200%;
+  animation: holographic 3s ease infinite;
   color: white;
   border: 2px solid #fff;
   border-radius: 30px;
@@ -960,7 +1015,15 @@ footer {
 }
 
 .sticky-card-button button:hover {
-  background-color: #7A8A99;
+  background: linear-gradient(135deg,
+    #7A8A99 0%,
+    #8899AA 15%,
+    #7A8A99 30%,
+    #95A8BB 45%,
+    #7A8A99 60%,
+    #8899AA 75%,
+    #7A8A99 100%);
+  background-size: 200% 200%;
   border-color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(154, 166, 178, 0.4);
@@ -972,12 +1035,29 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   color: #fff !important;
   border-color: #fff !important;
-  background-color: #9AA6B2 !important;
+  background: linear-gradient(135deg,
+    #9AA6B2 0%,
+    #A8B5C8 15%,
+    #9AA6B2 30%,
+    #B5C2D5 45%,
+    #9AA6B2 60%,
+    #A8B5C8 75%,
+    #9AA6B2 100%) !important;
+  background-size: 200% 200% !important;
+  animation: holographic 3s ease infinite !important;
 }
 
 .catalogue-section nav .nav-items p:hover,
 .info-section nav .nav-items p:hover {
-  background-color: #7A8A99 !important;
+  background: linear-gradient(135deg,
+    #7A8A99 0%,
+    #8899AA 15%,
+    #7A8A99 30%,
+    #95A8BB 45%,
+    #7A8A99 60%,
+    #8899AA 75%,
+    #7A8A99 100%) !important;
+  background-size: 200% 200% !important;
   border-color: #fff !important;
 }
 
@@ -1108,7 +1188,16 @@ footer {
     color: #fff !important;
     border: 2px solid #fff !important;
     border-color: #fff !important;
-    background-color: #9AA6B2 !important;
+    background: linear-gradient(135deg,
+      #9AA6B2 0%,
+      #A8B5C8 15%,
+      #9AA6B2 30%,
+      #B5C2D5 45%,
+      #9AA6B2 60%,
+      #A8B5C8 75%,
+      #9AA6B2 100%) !important;
+    background-size: 200% 200% !important;
+    animation: holographic 3s ease infinite !important;
   }
 
   /* Footer Mobile Styles */
@@ -1440,7 +1529,16 @@ footer {
 
 .btn-book {
   flex: 1;
-  background: #9AA6B2;
+  background: linear-gradient(135deg,
+    #9AA6B2 0%,
+    #A8B5C8 15%,
+    #9AA6B2 30%,
+    #B5C2D5 45%,
+    #9AA6B2 60%,
+    #A8B5C8 75%,
+    #9AA6B2 100%);
+  background-size: 200% 200%;
+  animation: holographic 3s ease infinite;
   color: white;
   border: 2px solid #fff;
   padding: 14px 24px;
@@ -1453,7 +1551,15 @@ footer {
 }
 
 .btn-book:hover {
-  background: #7A8A99;
+  background: linear-gradient(135deg,
+    #7A8A99 0%,
+    #8899AA 15%,
+    #7A8A99 30%,
+    #95A8BB 45%,
+    #7A8A99 60%,
+    #8899AA 75%,
+    #7A8A99 100%);
+  background-size: 200% 200%;
   border-color: #fff;
 }
 
