@@ -88,27 +88,25 @@
 }
 
 .music-btn {
-  background: rgba(154, 166, 178, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: #BBDCE5;
+  border: 2px solid #BBDCE5;
   border-radius: 16px;
   padding: 16px 32px;
   font-family: 'Waking', 'Inter', sans-serif;
   font-size: 1rem;
   font-weight: 500;
-  color: white;
+  color: #4A3C32;
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 140px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .music-btn:hover {
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: #9FC6D1;
+  border-color: #9FC6D1;
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
@@ -241,26 +239,23 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.4rem;
   font-weight: 500;
-  color: #fff;
+  color: #CFAB8D;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: none;
   letter-spacing: 1px;
-  background: rgba(154, 166, 178, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  border: 2px solid #CFAB8D;
   padding: 8px 20px;
   border-radius: 25px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nav-items p:hover {
   color: #fff;
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: #CFAB8D;
+  border-color: #CFAB8D;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
@@ -272,23 +267,20 @@ footer {
   text-transform: none;
   letter-spacing: 1px;
   cursor: pointer;
-  color: #fff;
+  color: #CFAB8D;
   transition: all 0.3s ease;
-  background: rgba(154, 166, 178, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  border: 2px solid #CFAB8D;
   padding: 8px 20px;
   border-radius: 25px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nosotros-btn:hover {
   color: #fff;
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: #CFAB8D;
+  border-color: #CFAB8D;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
@@ -459,7 +451,7 @@ footer {
 .info-section {
   width: 100vw;
   height: 100vh;
-  background-color: #FBF8EF;
+  background-color: #ECEEDF;
   display: flex;
   margin: 0;
   padding: 0;
@@ -523,7 +515,7 @@ footer {
   font-weight: 100;
   font-size: 2rem;
   line-height: 1.4;
-  color: #BF9264;
+  color: #4A3C32;
   font-family: "Waking", "Nature", "Playfair Display", serif;
   max-width: 600px;
   text-align: center;
@@ -588,7 +580,7 @@ footer {
     font-size: 1.4rem;
     padding: 1em;
     text-align: center;
-    color: #BF9264;
+    color: #4A3C32;
     line-height: 1.5;
   }
 }
@@ -730,7 +722,7 @@ footer {
 .catalogue-section {
   width: 100vw;
   min-height: 100vh;
-  background-color: #FBF8EF;
+  background-color: #ECEEDF;
   padding: 0;
   overflow-x: hidden;
 }
@@ -739,7 +731,7 @@ footer {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #FBF8EF;
+  background-color: #ECEEDF;
 }
 
 
@@ -747,7 +739,7 @@ footer {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #FBF8EF;
+  background-color: #ECEEDF;
   color: #333;
   padding: 0;
   display: flex;
@@ -793,7 +785,7 @@ footer {
   font-family: "Gragio", "Nature", "Volkga", "Cormorant Garamond", serif;
   font-size: 3.5rem;
   font-weight: 600;
-  color: #BF9264;
+  color: #CFAB8D;
   margin: 0 0 1.5rem 0;
   width: 100%;
   line-height: 1.2;
@@ -872,7 +864,7 @@ footer {
   font-family: "Gragio", "Nature", "Volkga", "Cormorant Garamond", serif;
   text-transform: uppercase;
   font-weight: 100;
-  color: #BF9264;
+  color: #4A3C32;
   font-size: 1.3rem;
 }
 
@@ -880,7 +872,7 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 1.1rem;
   line-height: 1.4;
-  color: #BF9264;
+  color: #4A3C32;
   margin: 0 0 1rem 0;
   text-align: center;
   max-width: 100%;
@@ -949,7 +941,7 @@ footer {
 .scroll-arrow svg {
   width: 36px;
   height: 36px;
-  color: #BF9264;
+  color: #4A3C32;
   stroke-width: 2.5;
   pointer-events: none;
 }
@@ -968,43 +960,40 @@ footer {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 12px 30px;
-  background: rgba(154, 166, 178, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: #BBDCE5;
+  color: #4A3C32;
+  border: 2px solid #BBDCE5;
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(0);
   opacity: 0;
 }
 
 .sticky-card-button button:hover {
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: #9FC6D1;
+  border-color: #9FC6D1;
   transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Secondary Page Navigation Styles */
 .catalogue-section nav .nav-items p,
 .info-section nav .nav-items p {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
-  color: #fff !important;
-  background: rgba(154, 166, 178, 0.3) !important;
-  backdrop-filter: blur(15px) !important;
-  -webkit-backdrop-filter: blur(15px) !important;
-  border: 2px solid rgba(255, 255, 255, 0.5) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  color: #CFAB8D !important;
+  background: transparent !important;
+  border: 2px solid #CFAB8D !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .catalogue-section nav .nav-items p:hover,
 .info-section nav .nav-items p:hover {
-  background: rgba(154, 166, 178, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.8) !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  background: #CFAB8D !important;
+  color: #fff !important;
+  border-color: #CFAB8D !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-2px) !important;
 }
 
@@ -1077,7 +1066,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FBF8EF;
+    background-color: #ECEEDF;
   }
 
   .info-col img {
@@ -1112,32 +1101,6 @@ footer {
   .nav-items p {
     font-size: 1rem;
     padding: 6px 14px;
-    color: #fff !important;
-    border-color: #fff !important;
-  }
-
-  /* Override for all pages on mobile - make navigation white */
-  body .nav-items p {
-    color: #fff !important;
-    border-color: #fff !important;
-  }
-
-  /* Specific overrides for catalog and info pages on mobile */
-  .catalogue-section .nav-items p,
-  .info-section .nav-items p {
-    color: #fff !important;
-    border-color: #fff !important;
-  }
-
-  /* Force white navigation on catalog and info pages for mobile */
-  .catalogue-section nav .nav-items p,
-  .info-section nav .nav-items p {
-    color: #fff !important;
-    background: rgba(154, 166, 178, 0.85) !important;
-    backdrop-filter: blur(6px) !important;
-    -webkit-backdrop-filter: blur(6px) !important;
-    border: 2px solid rgba(255, 255, 255, 0.7) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   }
 
   /* Footer Mobile Styles */
@@ -1352,7 +1315,7 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #BF9264;
+  color: #CFAB8D;
   margin: 0;
 }
 
@@ -1368,7 +1331,7 @@ footer {
 }
 
 .close-btn:hover {
-  color: #BF9264;
+  color: #CFAB8D;
 }
 
 .package-window-body {
@@ -1470,11 +1433,9 @@ footer {
 
 .btn-book {
   flex: 1;
-  background: rgba(154, 166, 178, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: #BBDCE5;
+  color: #4A3C32;
+  border: 2px solid #BBDCE5;
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
@@ -1482,23 +1443,21 @@ footer {
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-book:hover {
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: #9FC6D1;
+  border-color: #9FC6D1;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
 .btn-includes {
   flex: 1;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #CFAB8D;
+  border: 2px solid #CFAB8D;
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
@@ -1506,13 +1465,14 @@ footer {
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-includes:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  background: #CFAB8D;
+  color: white;
+  border-color: #CFAB8D;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
@@ -1590,11 +1550,9 @@ footer {
 }
 
 .package-includes-btn {
-  background: rgba(154, 166, 178, 0.3);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: #CFAB8D;
+  border: 2px solid #CFAB8D;
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1604,14 +1562,15 @@ footer {
   margin-top: 1rem;
   transition: all 0.3s ease;
   width: 100%;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .package-includes-btn:hover {
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.8);
+  background: #CFAB8D;
+  color: white;
+  border-color: #CFAB8D;
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .package-includes-content {
@@ -1647,7 +1606,7 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #BF9264;
+  color: #D9C4B0;
   margin: 0 0 0.5rem 0;
 }
 
@@ -1655,7 +1614,7 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #BF9264;
+  color: #4A3C32;
   margin: 0 0 1rem 0;
 }
 
@@ -1663,14 +1622,14 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
-  color: #BF9264;
+  color: #4A3C32;
   margin-top: 1rem;
   line-height: 1.6;
 }
 
 .package-price-label {
   font-weight: 700;
-  color: #BF9264;
+  color: #4A3C32;
   display: inline-block;
   margin-bottom: 0.3rem;
 }
@@ -1679,16 +1638,14 @@ footer {
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
-  color: #BF9264;
+  color: #4A3C32;
   margin: 0.5rem 0;
 }
 
 .package-book-btn {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: #CFAB8D;
+  border: 2px solid #CFAB8D;
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1697,14 +1654,15 @@ footer {
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .package-book-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.6);
+  background: #CFAB8D;
+  color: white;
+  border-color: #CFAB8D;
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
