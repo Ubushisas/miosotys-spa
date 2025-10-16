@@ -88,10 +88,10 @@
 }
 
 .music-btn {
-  background: rgba(154, 166, 178, 0.85);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 16px;
   padding: 16px 32px;
   font-family: 'Waking', 'Inter', sans-serif;
@@ -101,14 +101,14 @@
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 140px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .music-btn:hover {
-  background: rgba(154, 166, 178, 0.95);
-  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -246,21 +246,22 @@ footer {
   transition: all 0.3s ease;
   text-transform: none;
   letter-spacing: 1px;
-  background: rgba(154, 166, 178, 0.85);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 8px 20px;
   border-radius: 25px;
-  text-shadow: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .nav-items p:hover {
   color: #fff;
-  background: rgba(154, 166, 178, 0.95);
-  border-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 
@@ -273,21 +274,22 @@ footer {
   cursor: pointer;
   color: #fff;
   transition: all 0.3s ease;
-  background: rgba(154, 166, 178, 0.7);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 8px 20px;
   border-radius: 25px;
-  text-shadow: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .nosotros-btn:hover {
   color: #fff;
-  background: rgba(154, 166, 178, 0.85);
+  background: rgba(154, 166, 178, 0.5);
   border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 .slider-counter {
@@ -966,24 +968,24 @@ footer {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 12px 30px;
-  background: rgba(154, 166, 178, 0.85);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transform: translateY(0);
   opacity: 0;
 }
 
 .sticky-card-button button:hover {
-  background: rgba(154, 166, 178, 0.95);
-  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* Secondary Page Navigation Styles */
@@ -991,18 +993,19 @@ footer {
 .info-section nav .nav-items p {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   color: #fff !important;
-  background: rgba(154, 166, 178, 0.85) !important;
-  backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  border: 2px solid rgba(255, 255, 255, 0.7) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  background: rgba(154, 166, 178, 0.3) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
 }
 
 .catalogue-section nav .nav-items p:hover,
 .info-section nav .nav-items p:hover {
-  background: rgba(154, 166, 178, 0.95) !important;
-  border-color: rgba(255, 255, 255, 0.9) !important;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
+  background: rgba(154, 166, 178, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(-2px) !important;
 }
 
 /* Logo image styles apply to all sections */
@@ -1467,32 +1470,9 @@ footer {
 
 .btn-book {
   flex: 1;
-  background: rgba(154, 166, 178, 0.85);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  padding: 14px 24px;
-  font-family: "Waking", "Montserrat", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.btn-book:hover {
-  background: rgba(154, 166, 178, 0.95);
-  border-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.btn-includes {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 14px 24px;
@@ -1502,11 +1482,38 @@ footer {
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.btn-book:hover {
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-includes {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: 14px 24px;
+  font-family: "Waking", "Montserrat", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .btn-includes:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 .includes-content {
@@ -1583,11 +1590,11 @@ footer {
 }
 
 .package-includes-btn {
-  background: rgba(154, 166, 178, 0.85);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1597,14 +1604,14 @@ footer {
   margin-top: 1rem;
   transition: all 0.3s ease;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .package-includes-btn:hover {
-  background: rgba(154, 166, 178, 0.95);
-  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .package-includes-content {
@@ -1677,11 +1684,11 @@ footer {
 }
 
 .package-book-btn {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1690,14 +1697,14 @@ footer {
   cursor: pointer;
   margin-top: 1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .package-book-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
