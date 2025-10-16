@@ -819,7 +819,7 @@
         }
       }
 
-      // Show SimplyBook calendar in sliding window
+      // Show booking calendar in sliding window (SimplyBook or AgendaPro)
       function showBookingCalendar(serviceName, bookingUrl) {
         // Prevent body scroll
         document.body.classList.add('window-open');
@@ -839,53 +839,67 @@
         // Clear any existing content
         calendlyContent.innerHTML = '';
 
-        // Extract service ID from URL
-        const serviceMatch = bookingUrl.match(/service\/(\d+)/);
-        const serviceId = serviceMatch ? serviceMatch[1] : '2';
+        // Special handling for "Baño de Luna" - use AgendaPro iframe
+        if (serviceName === 'Baño de Luna') {
+          // Create AgendaPro iframe for Baño de Luna
+          calendlyContent.innerHTML = `
+            <iframe
+              src="https://spadelisethdelgado1.site.agendapro.com/co/sucursal/422718"
+              style="width: 100%; height: 100%; border: none; min-height: 600px;"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          `;
+        } else {
+          // For all other services, use SimplyBook widget
+          // Extract service ID from URL
+          const serviceMatch = bookingUrl.match(/service\/(\d+)/);
+          const serviceId = serviceMatch ? serviceMatch[1] : '2';
 
-        // Determine provider based on service ID
-        // Service 3 (Baño de Luna) uses provider 3, others use provider 4
-        const providerId = (serviceId === '3') ? '3' : '4';
+          // Determine provider based on service ID
+          // Service 3 uses provider 3, others use provider 4
+          const providerId = (serviceId === '3') ? '3' : '4';
 
-        // Create container for SimplyBook widget
-        calendlyContent.innerHTML = '<div id="sbWidget"></div>';
+          // Create container for SimplyBook widget
+          calendlyContent.innerHTML = '<div id="sbWidget"></div>';
 
-        // Initialize SimplyBook widget with official code
-        new SimplybookWidget({
-          "widget_type": "iframe",
-          "url": "https://miosotystest.simplybook.me",
-          "theme": "blur",
-          "theme_settings": {
-            "timeline_hide_unavailable": "1",
-            "hide_past_days": "0",
-            "timeline_show_end_time": "0",
-            "timeline_modern_display": "as_slots",
-            "sb_base_color": "#60708c",
-            "display_item_mode": "block",
-            "body_bg_color": "#f6f6f8",
-            "dark_font_color": "#2f4858",
-            "light_font_color": "#ffffff",
-            "btn_color_1": "#a8bfe7",
-            "sb_company_label_color": "#50566b",
-            "hide_img_mode": "1",
-            "sb_busy": "#c7b3b3",
-            "sb_available": "#d1f0ff"
-          },
-          "timeline": "modern",
-          "datepicker": "top_calendar",
-          "is_rtl": false,
-          "locale": "es",
-          "app_config": {
-            "clear_session": 1,
-            "allow_switch_to_ada": 0,
-            "locale": "es_ES",
-            "predefined": {
-              "provider": providerId,
-              "service": serviceId
-            }
-          },
-          "container_id": "sbWidget"
-        });
+          // Initialize SimplyBook widget with official code
+          new SimplybookWidget({
+            "widget_type": "iframe",
+            "url": "https://miosotystest.simplybook.me",
+            "theme": "blur",
+            "theme_settings": {
+              "timeline_hide_unavailable": "1",
+              "hide_past_days": "0",
+              "timeline_show_end_time": "0",
+              "timeline_modern_display": "as_slots",
+              "sb_base_color": "#60708c",
+              "display_item_mode": "block",
+              "body_bg_color": "#f6f6f8",
+              "dark_font_color": "#2f4858",
+              "light_font_color": "#ffffff",
+              "btn_color_1": "#a8bfe7",
+              "sb_company_label_color": "#50566b",
+              "hide_img_mode": "1",
+              "sb_busy": "#c7b3b3",
+              "sb_available": "#d1f0ff"
+            },
+            "timeline": "modern",
+            "datepicker": "top_calendar",
+            "is_rtl": false,
+            "locale": "es",
+            "app_config": {
+              "clear_session": 1,
+              "allow_switch_to_ada": 0,
+              "locale": "es_ES",
+              "predefined": {
+                "provider": providerId,
+                "service": serviceId
+              }
+            },
+            "container_id": "sbWidget"
+          });
+        }
 
         // Show the calendar window with slide animation
         calendlyWindow.classList.add('active');
