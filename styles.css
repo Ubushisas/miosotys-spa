@@ -88,10 +88,10 @@
 }
 
 .music-btn {
-  background: rgba(154, 166, 178, 0.3);
+  background: rgba(154, 166, 178, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   padding: 16px 32px;
   font-family: 'Waking', 'Inter', sans-serif;
@@ -105,8 +105,8 @@
 }
 
 .music-btn:hover {
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(154, 166, 178, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
@@ -246,10 +246,10 @@ footer {
   transition: all 0.3s ease;
   text-transform: none;
   letter-spacing: 1px;
-  background: rgba(154, 166, 178, 0.3);
+  background: rgba(154, 166, 178, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   padding: 8px 20px;
   border-radius: 25px;
   text-shadow: none;
@@ -258,8 +258,8 @@ footer {
 
 .nav-items p:hover {
   color: #fff;
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(154, 166, 178, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
@@ -954,11 +954,11 @@ footer {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 12px 30px;
-  background: rgba(154, 166, 178, 0.3);
+  background: rgba(154, 166, 178, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -968,8 +968,8 @@ footer {
 }
 
 .sticky-card-button button:hover {
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(154, 166, 178, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
@@ -979,17 +979,17 @@ footer {
 .info-section nav .nav-items p {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   color: #fff !important;
-  background: rgba(154, 166, 178, 0.3) !important;
+  background: rgba(154, 166, 178, 0.6) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
-  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  border: 2px solid rgba(255, 255, 255, 0.4) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
 .catalogue-section nav .nav-items p:hover,
 .info-section nav .nav-items p:hover {
-  background: rgba(154, 166, 178, 0.5) !important;
-  border-color: rgba(255, 255, 255, 0.5) !important;
+  background: rgba(154, 166, 178, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.6) !important;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
 }
 
@@ -1118,10 +1118,10 @@ footer {
   .catalogue-section nav .nav-items p,
   .info-section nav .nav-items p {
     color: #fff !important;
-    background: rgba(154, 166, 178, 0.3) !important;
+    background: rgba(154, 166, 178, 0.6) !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
-    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    border: 2px solid rgba(255, 255, 255, 0.4) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   }
 
@@ -1454,11 +1454,11 @@ footer {
 
 .btn-book {
   flex: 1;
-  background: rgba(154, 166, 178, 0.3);
+  background: rgba(154, 166, 178, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
@@ -1470,8 +1470,8 @@ footer {
 }
 
 .btn-book:hover {
-  background: rgba(154, 166, 178, 0.5);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(154, 166, 178, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
