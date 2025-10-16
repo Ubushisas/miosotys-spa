@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="styles.min.css?v=1" />
   </head>
   <body>
-
+    <!-- Custom Cursor -->
+    <div id="customCursor">
+      <img src="./Test_Images/Flor-mouse.png" alt="Custom Cursor" />
+    </div>
 
     <nav>
       <div class="logo">
@@ -56,5 +59,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
     <script src="./script.min.js?v=1"></script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+      // Smooth custom cursor with GSAP
+      const cursor = document.getElementById('customCursor');
+      const cursorPos = { x: 0, y: 0 };
+      const mousePos = { x: 0, y: 0 };
+
+      // Track mouse position
+      document.addEventListener('mousemove', (e) => {
+        mousePos.x = e.clientX;
+        mousePos.y = e.clientY;
+      });
+
+      // Animate cursor to follow mouse smoothly with ease-out
+      gsap.to(cursorPos, {
+        duration: 0.5,
+        x: () => mousePos.x,
+        y: () => mousePos.y,
+        ease: "power2.out",
+        repeat: -1,
+        onUpdate: () => {
+          gsap.set(cursor, {
+            x: cursorPos.x,
+            y: cursorPos.y
+          });
+        }
+      });
+    </script>
   </body>
 </html>

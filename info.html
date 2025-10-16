@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="styles.min.css?v=1" />
   </head>
   <body>
+    <!-- Custom Cursor -->
+    <div id="customCursor">
+      <img src="./Test_Images/Flor-mouse.png" alt="Custom Cursor" />
+    </div>
+
     <!-- Background Music -->
     <audio id="backgroundMusic" loop>
       <source src="./Assets/4) Myosotis_compressed.mp3" type="audio/mpeg">
@@ -17,7 +22,7 @@
     <div class="info-section">
       <nav>
         <div class="logo">
-          <img src="./Test_Images/Logo_Myosotis-Blanco.png?v=2" alt="Miosotys Logo" onclick="goBack()" style="cursor: pointer; background: none !important;" />
+          <img src="./Test_Images/Logo_shadow.png" alt="Miosotys Logo" onclick="goBack()" style="cursor: pointer; background: none !important;" />
         </div>
         <div class="nav-items">
           <p onclick="goBack()">Inicio</p>
@@ -142,6 +147,35 @@
             duration: 1.5,
             ease: "power2.out",
             delay: 0.2
+          });
+        }
+      });
+    </script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+      // Smooth custom cursor with GSAP
+      const cursor = document.getElementById('customCursor');
+      const cursorPos = { x: 0, y: 0 };
+      const mousePos = { x: 0, y: 0 };
+
+      // Track mouse position
+      document.addEventListener('mousemove', (e) => {
+        mousePos.x = e.clientX;
+        mousePos.y = e.clientY;
+      });
+
+      // Animate cursor to follow mouse smoothly with ease-out
+      gsap.to(cursorPos, {
+        duration: 0.5,
+        x: () => mousePos.x,
+        y: () => mousePos.y,
+        ease: "power2.out",
+        repeat: -1,
+        onUpdate: () => {
+          gsap.set(cursor, {
+            x: cursorPos.x,
+            y: cursorPos.y
           });
         }
       });
