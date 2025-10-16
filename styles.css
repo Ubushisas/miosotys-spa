@@ -239,23 +239,26 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.4rem;
   font-weight: 500;
-  color: #CFAB8D;
+  color: #fff;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: none;
   letter-spacing: 1px;
-  background: transparent;
-  border: 2px solid #CFAB8D;
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 8px 20px;
   border-radius: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .nav-items p:hover {
   color: #fff;
-  background: #CFAB8D;
-  border-color: #CFAB8D;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
@@ -267,20 +270,23 @@ footer {
   text-transform: none;
   letter-spacing: 1px;
   cursor: pointer;
-  color: #CFAB8D;
+  color: #fff;
   transition: all 0.3s ease;
-  background: transparent;
-  border: 2px solid #CFAB8D;
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   padding: 8px 20px;
   border-radius: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .nosotros-btn:hover {
   color: #fff;
-  background: #CFAB8D;
-  border-color: #CFAB8D;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
