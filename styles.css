@@ -88,19 +88,10 @@
 }
 
 .music-btn {
-  background: linear-gradient(135deg,
-    rgba(154, 166, 178, 0.6) 0%,
-    rgba(168, 181, 200, 0.65) 15%,
-    rgba(154, 166, 178, 0.6) 30%,
-    rgba(181, 194, 213, 0.7) 45%,
-    rgba(154, 166, 178, 0.6) 60%,
-    rgba(168, 181, 200, 0.65) 75%,
-    rgba(154, 166, 178, 0.6) 100%);
-  background-size: 200% 200%;
-  animation: holographic 3s ease infinite;
+  background: rgba(154, 166, 178, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 16px;
   padding: 16px 32px;
   font-family: 'Waking', 'Inter', sans-serif;
@@ -110,18 +101,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 140px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .music-btn:hover {
-  background: linear-gradient(135deg,
-    rgba(122, 138, 153, 0.7) 0%,
-    rgba(136, 153, 170, 0.75) 15%,
-    rgba(122, 138, 153, 0.7) 30%,
-    rgba(149, 168, 187, 0.8) 45%,
-    rgba(122, 138, 153, 0.7) 60%,
-    rgba(136, 153, 170, 0.75) 75%,
-    rgba(122, 138, 153, 0.7) 100%);
-  background-size: 200% 200%;
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
@@ -261,46 +246,21 @@ footer {
   transition: all 0.3s ease;
   text-transform: none;
   letter-spacing: 1px;
-  background: linear-gradient(135deg,
-    #9AA6B2 0%,
-    #A8B5C8 15%,
-    #9AA6B2 30%,
-    #B5C2D5 45%,
-    #9AA6B2 60%,
-    #A8B5C8 75%,
-    #9AA6B2 100%);
-  background-size: 200% 200%;
-  animation: holographic 3s ease infinite;
-  border: 2px solid #fff;
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 8px 20px;
   border-radius: 25px;
   text-shadow: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .nav-items p:hover {
   color: #fff;
-  background: linear-gradient(135deg,
-    #7A8A99 0%,
-    #8899AA 15%,
-    #7A8A99 30%,
-    #95A8BB 45%,
-    #7A8A99 60%,
-    #8899AA 75%,
-    #7A8A99 100%);
-  background-size: 200% 200%;
-  border-color: #fff;
-}
-
-@keyframes holographic {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -994,39 +954,24 @@ footer {
   font-size: 1.2rem;
   font-weight: 500;
   padding: 12px 30px;
-  background: linear-gradient(135deg,
-    #9AA6B2 0%,
-    #A8B5C8 15%,
-    #9AA6B2 30%,
-    #B5C2D5 45%,
-    #9AA6B2 60%,
-    #A8B5C8 75%,
-    #9AA6B2 100%);
-  background-size: 200% 200%;
-  animation: holographic 3s ease infinite;
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
-  border: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(154, 166, 178, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(0);
   opacity: 0;
 }
 
 .sticky-card-button button:hover {
-  background: linear-gradient(135deg,
-    #7A8A99 0%,
-    #8899AA 15%,
-    #7A8A99 30%,
-    #95A8BB 45%,
-    #7A8A99 60%,
-    #8899AA 75%,
-    #7A8A99 100%);
-  background-size: 200% 200%;
-  border-color: #fff;
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(154, 166, 178, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Secondary Page Navigation Styles */
@@ -1034,31 +979,18 @@ footer {
 .info-section nav .nav-items p {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   color: #fff !important;
-  border-color: #fff !important;
-  background: linear-gradient(135deg,
-    #9AA6B2 0%,
-    #A8B5C8 15%,
-    #9AA6B2 30%,
-    #B5C2D5 45%,
-    #9AA6B2 60%,
-    #A8B5C8 75%,
-    #9AA6B2 100%) !important;
-  background-size: 200% 200% !important;
-  animation: holographic 3s ease infinite !important;
+  background: rgba(154, 166, 178, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
 .catalogue-section nav .nav-items p:hover,
 .info-section nav .nav-items p:hover {
-  background: linear-gradient(135deg,
-    #7A8A99 0%,
-    #8899AA 15%,
-    #7A8A99 30%,
-    #95A8BB 45%,
-    #7A8A99 60%,
-    #8899AA 75%,
-    #7A8A99 100%) !important;
-  background-size: 200% 200% !important;
-  border-color: #fff !important;
+  background: rgba(154, 166, 178, 0.5) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
 }
 
 /* Logo image styles apply to all sections */
@@ -1186,18 +1118,11 @@ footer {
   .catalogue-section nav .nav-items p,
   .info-section nav .nav-items p {
     color: #fff !important;
-    border: 2px solid #fff !important;
-    border-color: #fff !important;
-    background: linear-gradient(135deg,
-      #9AA6B2 0%,
-      #A8B5C8 15%,
-      #9AA6B2 30%,
-      #B5C2D5 45%,
-      #9AA6B2 60%,
-      #A8B5C8 75%,
-      #9AA6B2 100%) !important;
-    background-size: 200% 200% !important;
-    animation: holographic 3s ease infinite !important;
+    background: rgba(154, 166, 178, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   }
 
   /* Footer Mobile Styles */
@@ -1529,18 +1454,11 @@ footer {
 
 .btn-book {
   flex: 1;
-  background: linear-gradient(135deg,
-    #9AA6B2 0%,
-    #A8B5C8 15%,
-    #9AA6B2 30%,
-    #B5C2D5 45%,
-    #9AA6B2 60%,
-    #A8B5C8 75%,
-    #9AA6B2 100%);
-  background-size: 200% 200%;
-  animation: holographic 3s ease infinite;
+  background: rgba(154, 166, 178, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
-  border: 2px solid #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
@@ -1548,19 +1466,13 @@ footer {
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .btn-book:hover {
-  background: linear-gradient(135deg,
-    #7A8A99 0%,
-    #8899AA 15%,
-    #7A8A99 30%,
-    #95A8BB 45%,
-    #7A8A99 60%,
-    #8899AA 75%,
-    #7A8A99 100%);
-  background-size: 200% 200%;
-  border-color: #fff;
+  background: rgba(154, 166, 178, 0.5);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .btn-includes {
