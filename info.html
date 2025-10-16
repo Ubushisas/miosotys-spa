@@ -156,28 +156,29 @@
     <script>
       // Smooth custom cursor with GSAP
       const cursor = document.getElementById('customCursor');
-      const cursorPos = { x: 0, y: 0 };
-      const mousePos = { x: 0, y: 0 };
+      let mouseX = 0;
+      let mouseY = 0;
+      let cursorX = 0;
+      let cursorY = 0;
 
       // Track mouse position
       document.addEventListener('mousemove', (e) => {
-        mousePos.x = e.clientX;
-        mousePos.y = e.clientY;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
       });
 
-      // Animate cursor to follow mouse smoothly with ease-out
-      gsap.to(cursorPos, {
-        duration: 0.5,
-        x: () => mousePos.x,
-        y: () => mousePos.y,
-        ease: "power2.out",
-        repeat: -1,
-        onUpdate: () => {
-          gsap.set(cursor, {
-            x: cursorPos.x,
-            y: cursorPos.y
-          });
-        }
+      // Smooth cursor animation with lerp (linear interpolation)
+      gsap.ticker.add(() => {
+        // Lerp factor - lower = smoother/slower, higher = faster
+        const speed = 0.15;
+
+        cursorX += (mouseX - cursorX) * speed;
+        cursorY += (mouseY - cursorY) * speed;
+
+        gsap.set(cursor, {
+          x: cursorX,
+          y: cursorY
+        });
       });
     </script>
   </body>
