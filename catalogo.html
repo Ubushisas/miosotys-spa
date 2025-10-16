@@ -839,8 +839,18 @@
         // Clear any existing content
         calendlyContent.innerHTML = '';
 
-        // Special handling for "Baño de Luna" - use AgendaPro iframe
-        if (serviceName === 'Baño de Luna') {
+        // Special handling for specific services with alternative booking systems
+        if (serviceName === 'Limpieza Facial') {
+          // Create Reservio iframe for Limpieza Facial
+          calendlyContent.innerHTML = `
+            <iframe
+              src="https://liseth-delgado-diaz.reservio.com/services/8389c527-31af-4944-833a-70c09fed7614"
+              style="width: 100%; height: 100%; border: none; min-height: 600px;"
+              frameborder="0"
+              allowfullscreen>
+            </iframe>
+          `;
+        } else if (serviceName === 'Baño de Luna') {
           // Create AgendaPro iframe for Baño de Luna
           calendlyContent.innerHTML = `
             <iframe
