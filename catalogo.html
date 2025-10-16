@@ -34,9 +34,6 @@
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Nuestros Servicios</h1>
-                <div class="sticky-card-copy-title">
-                  <p>(Experiencias de Bienestar)</p>
-                </div>
                 <div class="sticky-card-copy-description">
                   <p>• Spa Individual - Experiencia Personal<br>• Spa para Parejas - Conexión Romántica<br>• Spa para Amigas - Celebración de Amistad<br>• Spa para Niñas - Diversión y Cuidado<br>• Spa para Familias - Unión Familiar<br>• Spa Luxury - Experiencia Premium<br>• Eventos Especiales - Celebraciones Únicas</p>
                 </div>
@@ -68,10 +65,17 @@
                 <div class="sticky-card-button">
                   <button onclick="showPackages(1)">Ver paquetes</button>
                 </div>
-                <div class="scroll-arrow" onclick="scrollToNextCard(1)">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
+                <div class="scroll-arrows-container">
+                  <div class="scroll-arrow scroll-arrow-up" onclick="scrollToPrevCard(1)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </div>
+                  <div class="scroll-arrow scroll-arrow-down" onclick="scrollToNextCard(1)">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
