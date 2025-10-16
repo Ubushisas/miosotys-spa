@@ -226,7 +226,6 @@ footer {
 .logo img {
   height: 130px;
   width: auto;
-  filter: drop-shadow(6px 6px 20px rgba(0, 0, 0, 0.95));
 }
 
 .logo img:hover {
