@@ -840,6 +840,17 @@ footer {
   margin-right: 50% !important;
 }
 
+/* Last card (Eventos Especiales) - Override to match odd cards layout */
+.sticky-card:last-child .sticky-card-img {
+  left: 0 !important;
+  right: auto !important;
+}
+
+.sticky-card:last-child .sticky-card-copy {
+  margin-left: 50% !important;
+  margin-right: 0 !important;
+}
+
 .sticky-card-copy {
   flex: 1;
   padding: 2em;
@@ -1183,7 +1194,8 @@ footer {
   }
 
   .sticky-card-img,
-  .sticky-card:nth-child(even) .sticky-card-img {
+  .sticky-card:nth-child(even) .sticky-card-img,
+  .sticky-card:last-child .sticky-card-img {
     position: relative;
     left: 0 !important;
     right: auto !important;
@@ -1204,7 +1216,8 @@ footer {
   }
 
   .sticky-card-copy,
-  .sticky-card:nth-child(even) .sticky-card-copy {
+  .sticky-card:nth-child(even) .sticky-card-copy,
+  .sticky-card:last-child .sticky-card-copy {
     position: relative !important;
     margin-left: 0 !important;
     margin-right: 0 !important;

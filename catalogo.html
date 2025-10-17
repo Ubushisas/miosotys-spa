@@ -397,25 +397,14 @@
 
       // Scroll to previous card function
       function scrollToPrevCard(currentCardIndex) {
-        // Calculate scroll position based on viewport height
-        // Each card is 100vh tall
-        const viewportHeight = window.innerHeight;
+        const stickyCards = document.querySelectorAll('.sticky-card');
+        const prevCard = stickyCards[currentCardIndex - 1];
 
-        // If we're on card 5, we want to go to card 4
-        // Card 4 is the 4th card, so it starts at 3 * viewportHeight
-        const targetCardNumber = currentCardIndex - 1;
-        const targetScrollPosition = (targetCardNumber - 1) * viewportHeight;
-
-        console.log('UP ARROW: From card', currentCardIndex, 'to card', targetCardNumber);
-        console.log('Scrolling to position:', targetScrollPosition);
-
-        if (targetCardNumber >= 1) {
-          window.scrollTo({
-            top: targetScrollPosition,
-            behavior: 'smooth'
+        if (prevCard) {
+          prevCard.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
           });
-        } else {
-          console.log('Already at first card');
         }
       }
 
