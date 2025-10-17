@@ -1413,7 +1413,7 @@ footer {
 
 .card-description {
   font-family: "Waking", "Montserrat", sans-serif;
-  font-size: 1.4rem;
+  font-size: 0.95rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
@@ -1717,7 +1717,7 @@ footer {
   }
 
   .card-description {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
   }
 
   .card-buttons {
@@ -1864,10 +1864,11 @@ body {
 
 /* Custom Cursor Styles */
 body, html, * {
-  cursor: none !important;
+  cursor: auto !important;
 }
 
 #customCursor {
+  display: none !important;
   position: fixed;
   top: 0;
   left: 0;
