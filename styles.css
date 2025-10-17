@@ -791,7 +791,7 @@ footer {
   font-family: "Gragio", "Nature", "Volkga", "Cormorant Garamond", serif;
   font-size: 3.5rem;
   font-weight: 600;
-  color: #CFAB8D;
+  color: #B87C4C;
   margin: 0 0 1.5rem 0;
   width: 100%;
   line-height: 1.2;
@@ -871,12 +871,12 @@ footer {
   text-transform: uppercase;
   font-weight: 100;
   color: #4A3C32;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .sticky-card-copy-description p {
   font-family: "Waking", "Montserrat", sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   line-height: 1.4;
   color: #4A3C32;
   margin: 0 0 1rem 0;
