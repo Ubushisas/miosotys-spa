@@ -1400,8 +1400,8 @@ footer {
 
 .card-description {
   font-family: "Waking", "Montserrat", sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.6;
+  font-size: 1.4rem;
+  line-height: 1.7;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
@@ -1612,14 +1612,14 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #8B6F4F;
+  color: #B87C4C;
   margin: 0 0 0.5rem 0;
 }
 
 .package-item p {
   font-family: "Waking", "Montserrat", sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.7;
+  font-size: 1.4rem;
+  line-height: 1.8;
   color: #4A3C32;
   margin: 0 0 1rem 0;
 }
@@ -1704,7 +1704,7 @@ footer {
   }
 
   .card-description {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
   }
 
   .card-buttons {
@@ -1723,7 +1723,7 @@ footer {
   }
 
   .package-item p {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
   }
 
   /* Tablet optimizations (iPad) - Keep smooth */
