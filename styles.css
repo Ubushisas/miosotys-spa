@@ -988,17 +988,17 @@ footer {
 .catalogue-section nav .nav-items p,
 .info-section nav .nav-items p {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
-  color: #CFAB8D !important;
+  color: #B87C4C !important;
   background: transparent !important;
-  border: 2px solid #CFAB8D !important;
+  border: 2px solid #B87C4C !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .catalogue-section nav .nav-items p:hover,
 .info-section nav .nav-items p:hover {
-  background: #CFAB8D !important;
+  background: #B87C4C !important;
   color: #fff !important;
-  border-color: #CFAB8D !important;
+  border-color: #B87C4C !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-2px) !important;
 }
@@ -1321,7 +1321,7 @@ footer {
   font-family: "Gragio", "Nature", "Cormorant Garamond", serif;
   font-size: 1.8rem;
   font-weight: 600;
-  color: #CFAB8D;
+  color: #B87C4C;
   margin: 0;
 }
 
@@ -1337,7 +1337,7 @@ footer {
 }
 
 .close-btn:hover {
-  color: #CFAB8D;
+  color: #B87C4C;
 }
 
 .package-window-body {
@@ -1462,8 +1462,8 @@ footer {
 .btn-includes {
   flex: 1;
   background: transparent;
-  color: #CFAB8D;
-  border: 2px solid #CFAB8D;
+  color: #B87C4C;
+  border: 2px solid #B87C4C;
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
@@ -1475,9 +1475,9 @@ footer {
 }
 
 .btn-includes:hover {
-  background: #CFAB8D;
+  background: #B87C4C;
   color: white;
-  border-color: #CFAB8D;
+  border-color: #B87C4C;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
@@ -1557,8 +1557,8 @@ footer {
 
 .package-includes-btn {
   background: transparent;
-  color: #CFAB8D;
-  border: 2px solid #CFAB8D;
+  color: #B87C4C;
+  border: 2px solid #B87C4C;
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1572,9 +1572,9 @@ footer {
 }
 
 .package-includes-btn:hover {
-  background: #CFAB8D;
+  background: #B87C4C;
   color: white;
-  border-color: #CFAB8D;
+  border-color: #B87C4C;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -1650,8 +1650,8 @@ footer {
 
 .package-book-btn {
   background: transparent;
-  color: #CFAB8D;
-  border: 2px solid #CFAB8D;
+  color: #B87C4C;
+  border: 2px solid #B87C4C;
   padding: 10px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.9rem;
@@ -1664,9 +1664,9 @@ footer {
 }
 
 .package-book-btn:hover {
-  background: #CFAB8D;
+  background: #B87C4C;
   color: white;
-  border-color: #CFAB8D;
+  border-color: #B87C4C;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
