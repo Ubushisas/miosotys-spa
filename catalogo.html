@@ -385,12 +385,12 @@
       // Scroll to next card function
       function scrollToNextCard(currentCardIndex) {
         const stickyCards = document.querySelectorAll('.sticky-card');
-        const nextCard = stickyCards[currentCardIndex]; // currentCardIndex is 0-based, so card 1 -> index 1 (card 2)
+        const nextCard = stickyCards[currentCardIndex];
 
         if (nextCard) {
-          nextCard.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          window.scrollTo({
+            top: nextCard.offsetTop,
+            behavior: 'smooth'
           });
         }
       }
@@ -401,9 +401,9 @@
         const prevCard = stickyCards[targetCardIndex];
 
         if (prevCard) {
-          prevCard.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
+          window.scrollTo({
+            top: prevCard.offsetTop,
+            behavior: 'smooth'
           });
         }
       }
