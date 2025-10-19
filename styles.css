@@ -946,13 +946,18 @@ footer {
 
 .scroll-arrow:hover {
   transform: scale(1.15);
-  background-color: transparent;
-  border-color: transparent;
+  background-color: rgba(74, 60, 50, 0.15);
+  border-color: rgba(74, 60, 50, 0.3);
+}
+
+.scroll-arrow:hover svg {
+  color: #2A1C12;
+  stroke-width: 3;
 }
 
 .scroll-arrow:active {
   transform: scale(1.05);
-  background-color: transparent;
+  background-color: rgba(74, 60, 50, 0.25);
 }
 
 .scroll-arrow svg {
@@ -961,6 +966,7 @@ footer {
   color: #4A3C32;
   stroke-width: 2.5;
   pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 @keyframes bounce {
