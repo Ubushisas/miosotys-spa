@@ -946,18 +946,20 @@ footer {
 
 .scroll-arrow:hover {
   transform: scale(1.15);
-  background-color: rgba(74, 60, 50, 0.15);
-  border-color: rgba(74, 60, 50, 0.3);
 }
 
 .scroll-arrow:hover svg {
-  color: #2A1C12;
-  stroke-width: 3;
+  color: #1a0f08;
+  stroke-width: 3.5;
 }
 
 .scroll-arrow:active {
   transform: scale(1.05);
-  background-color: rgba(74, 60, 50, 0.25);
+}
+
+.scroll-arrow:active svg {
+  color: #0a0503;
+  stroke-width: 4;
 }
 
 .scroll-arrow svg {
