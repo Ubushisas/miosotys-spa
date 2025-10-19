@@ -383,13 +383,18 @@
       }
 
       // Scroll to next card function
-      function scrollToNextCard(currentCardIndex) {
+      function scrollToNextCard(targetCardIndex) {
         const stickyCards = document.querySelectorAll('.sticky-card');
-        const nextCard = stickyCards[currentCardIndex];
+        const targetCard = stickyCards[targetCardIndex];
 
-        if (nextCard) {
+        if (targetCard) {
+          // Calculate absolute position from top of document
+          const rect = targetCard.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetPosition = rect.top + scrollTop;
+
           window.scrollTo({
-            top: nextCard.offsetTop,
+            top: targetPosition,
             behavior: 'smooth'
           });
         }
@@ -398,11 +403,16 @@
       // Scroll to previous card function
       function scrollToPrevCard(targetCardIndex) {
         const stickyCards = document.querySelectorAll('.sticky-card');
-        const prevCard = stickyCards[targetCardIndex];
+        const targetCard = stickyCards[targetCardIndex];
 
-        if (prevCard) {
+        if (targetCard) {
+          // Calculate absolute position from top of document
+          const rect = targetCard.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          const targetPosition = rect.top + scrollTop;
+
           window.scrollTo({
-            top: prevCard.offsetTop,
+            top: targetPosition,
             behavior: 'smooth'
           });
         }
