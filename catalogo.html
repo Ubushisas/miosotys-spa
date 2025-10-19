@@ -382,19 +382,14 @@
         window.location.href = 'index.html';
       }
 
+      // Store original card positions (will be set on page load)
+      let cardPositions = [];
+
       // Scroll to next card function
       function scrollToNextCard(targetCardIndex) {
-        const stickyCards = document.querySelectorAll('.sticky-card');
-        const targetCard = stickyCards[targetCardIndex];
-
-        if (targetCard) {
-          // Calculate absolute position from top of document
-          const rect = targetCard.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const targetPosition = rect.top + scrollTop;
-
+        if (cardPositions[targetCardIndex] !== undefined) {
           window.scrollTo({
-            top: targetPosition,
+            top: cardPositions[targetCardIndex],
             behavior: 'smooth'
           });
         }
@@ -402,17 +397,9 @@
 
       // Scroll to previous card function
       function scrollToPrevCard(targetCardIndex) {
-        const stickyCards = document.querySelectorAll('.sticky-card');
-        const targetCard = stickyCards[targetCardIndex];
-
-        if (targetCard) {
-          // Calculate absolute position from top of document
-          const rect = targetCard.getBoundingClientRect();
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          const targetPosition = rect.top + scrollTop;
-
+        if (cardPositions[targetCardIndex] !== undefined) {
           window.scrollTo({
-            top: targetPosition,
+            top: cardPositions[targetCardIndex],
             behavior: 'smooth'
           });
         }
@@ -1048,6 +1035,12 @@
         }
 
         const stickyCards = document.querySelectorAll('.sticky-card');
+
+        // Store original positions of each card BEFORE ScrollTrigger pins them
+        cardPositions = [];
+        stickyCards.forEach((card) => {
+          cardPositions.push(card.offsetTop);
+        });
 
         stickyCards.forEach((card, index) => {
           // Prepare text for animation on each card
