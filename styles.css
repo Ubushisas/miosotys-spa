@@ -1091,7 +1091,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ECEEDF;
+    background-color: #FFFFFF;
   }
 
   .info-col img {
@@ -1335,7 +1335,7 @@ footer {
   align-items: center;
   padding: 2rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: #F0EDE4;
+  background-color: #F5F2E9;
 }
 
 .package-window-header h2 {
