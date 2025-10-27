@@ -49,3 +49,11 @@ GOOGLE_CLIENT_ID=your_client_id
 GOOGLE_CLIENT_SECRET=your_client_secret
 GOOGLE_REDIRECT_URI=https://your-domain.vercel.app/api/calendar/auth/callback
 ```
+
+## Important: After Deployment
+
+After deploying the booking system to Vercel:
+
+1. Update `GOOGLE_REDIRECT_URI` in Vercel environment variables with your actual domain
+2. Update the booking URL in `/docs/catalogo.html` (line 837) from `http://localhost:3002` to your Vercel URL
+3. Add the callback URL to Google Cloud Console OAuth credentials
