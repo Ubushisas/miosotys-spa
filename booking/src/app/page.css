@@ -67,9 +67,12 @@
 }
 
 .spa-hero-buttons {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
+  max-width: 900px;
+  width: 100%;
 }
 
 .spa-hero-buttons > div {

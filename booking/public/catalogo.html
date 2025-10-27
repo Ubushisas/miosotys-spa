@@ -827,14 +827,20 @@
         packageWindow.classList.add('active');
       }
 
-      // Book package function
+      // Book package function - redirects to custom booking calendar
       function bookPackage(packageName) {
-        // Use new integrated Next.js calendar for all services
-        showBookingCalendar(packageName);
+        // Encode the service name for URL
+        const encodedService = encodeURIComponent(packageName);
+
+        // TODO: Update this URL to your Vercel deployment URL after deploying
+        // For now using localhost for testing
+        const bookingUrl = `http://localhost:3002?service=${encodedService}`;
+
+        showBookingCalendar(packageName, bookingUrl);
       }
 
-      // Show booking calendar in sliding window (SimplyBook or AgendaPro)
-      function showBookingCalendar(serviceName) {
+      // Show booking calendar in sliding window with custom calendar
+      function showBookingCalendar(serviceName, bookingUrl) {
         // Prevent body scroll
         document.body.classList.add('window-open');
 
@@ -850,16 +856,13 @@
         // Update window title dynamically
         windowTitle.textContent = `Agendar ${serviceName}`;
 
-        // Use environment variable or default to localhost for development
-        // For production, this will be replaced with the Vercel URL
-        const baseUrl = window.location.hostname === 'localhost'
-          ? 'http://localhost:3002'
-          : 'https://miosotys-spa-booking.vercel.app';
+        // Clear any existing content
+        calendlyContent.innerHTML = '';
 
-        // Create iframe to our integrated Next.js calendar
+        // Create iframe with custom booking calendar
         calendlyContent.innerHTML = `
           <iframe
-            src="${baseUrl}?service=${encodeURIComponent(serviceName)}"
+            src="${bookingUrl}"
             style="width: 100%; height: 100%; border: none; min-height: 600px;"
             frameborder="0"
             allowfullscreen>

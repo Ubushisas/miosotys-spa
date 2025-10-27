@@ -77,6 +77,11 @@ textarea {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Hide Next.js dev indicator */
+button[aria-label="Notifications"] {
+  display: none !important;
+}
+
 /* Add subtle animation delay classes */
 @keyframes fadeInUp {
   from {

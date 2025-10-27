@@ -43,6 +43,27 @@ function HomeContent() {
                 <div onClick={() => setShowBooking(true)}>
                   <AnimatedButton label="Reservar" delay={1.2} />
                 </div>
+                <div onClick={() => window.location.href = 'https://ubushisas.github.io/miosotys-spa/#individual'}>
+                  <AnimatedButton label="Spa Individual" delay={1.3} />
+                </div>
+                <div onClick={() => window.location.href = 'https://ubushisas.github.io/miosotys-spa/#parejas'}>
+                  <AnimatedButton label="Spa para Parejas" delay={1.4} />
+                </div>
+                <div onClick={() => window.location.href = 'https://ubushisas.github.io/miosotys-spa/#amigas'}>
+                  <AnimatedButton label="Spa para Amigas" delay={1.5} />
+                </div>
+                <div onClick={() => window.location.href = 'https://ubushisas.github.io/miosotys-spa/#ninas'}>
+                  <AnimatedButton label="Spa para Niñas" delay={1.6} />
+                </div>
+                <div onClick={() => window.location.href = 'https://ubushisas.github.io/miosotys-spa/#familias'}>
+                  <AnimatedButton label="Spa para Familias" delay={1.7} />
+                </div>
+                <div onClick={() => window.location.href = 'https://ubushisas.github.io/miosotys-spa/#luxury'}>
+                  <AnimatedButton label="Spa Luxury" delay={1.8} />
+                </div>
+                <div onClick={() => window.location.href = 'https://ubushisas.github.io/miosotys-spa/#eventos'}>
+                  <AnimatedButton label="Eventos Especiales" delay={1.9} />
+                </div>
               </div>
             </div>
           </div>

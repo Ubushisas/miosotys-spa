@@ -226,9 +226,8 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   const handlePeopleCountSelect = (count) => {
     setPeopleCount(count);
-    // Initialize guest names array with empty strings
-    setGuestNames(Array(count).fill(''));
-    setDateTimeSubStep('guests');
+    // Skip guest names and go directly to date selection
+    setDateTimeSubStep('date');
   };
 
   // Handle guest names completion
@@ -520,8 +519,8 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                     <div className="calendly-people-selector">
                       <div className="calendly-people-grid">
                         {Array.from(
-                          { length: (selectedService.maxPeople || 6) - (selectedService.minPeople || 4) + 1 },
-                          (_, i) => (selectedService.minPeople || 4) + i
+                          { length: (selectedService.maxPeople || 6) - (selectedService.minPeople || 2) + 1 },
+                          (_, i) => (selectedService.minPeople || 2) + i
                         ).map((count) => (
                           <button
                             key={count}
