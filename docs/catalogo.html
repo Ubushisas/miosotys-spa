@@ -11,14 +11,34 @@
         height: auto !important;
         max-height: none !important;
         overflow: visible !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        max-width: 600px !important;
       }
       .sticky-card:first-child .sticky-card-button {
         opacity: 1 !important;
         display: block !important;
+        width: 100% !important;
       }
       .sticky-card:first-child .sticky-card-button button {
         opacity: 1 !important;
         display: block !important;
+        width: 100% !important;
+      }
+      /* Custom cursor */
+      body {
+        cursor: none !important;
+      }
+      #customCursor {
+        position: fixed !important;
+        pointer-events: none !important;
+        z-index: 99999 !important;
+        transform: translate(-50%, -50%) !important;
+      }
+      #customCursor img {
+        width: 40px !important;
+        height: 40px !important;
       }
     </style>
   </head>
