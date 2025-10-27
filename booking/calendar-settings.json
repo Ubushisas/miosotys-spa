@@ -1,0 +1,249 @@
+{
+  "calendarEnabled": true,
+  "rooms": {
+    "individual": {
+      "enabled": true,
+      "name": "Sala Individual",
+      "calendarId": "c_83f3b9184bb03652fe4f7b9858ba4dc022f6ae195245d233c9b7e3603d64dc9a@group.calendar.google.com"
+    },
+    "principal": {
+      "enabled": true,
+      "name": "Sala Principal",
+      "calendarId": "c_388f36cd098bb4f42b02cd43b728000ddb283db209570fc4e80c626a177d1f74@group.calendar.google.com"
+    }
+  },
+  "services": {
+    "individual": [
+      {
+        "id": "limpieza_facial",
+        "name": "Limpieza Facial",
+        "duration": 60,
+        "price": 120000,
+        "enabled": true
+      },
+      {
+        "id": "bano_luna",
+        "name": "Baño de Luna",
+        "duration": 75,
+        "price": 150000,
+        "enabled": true
+      },
+      {
+        "id": "exfoliacion",
+        "name": "Exfoliación Corporal",
+        "duration": 60,
+        "price": 130000,
+        "enabled": true
+      },
+      {
+        "id": "aceite_caliente",
+        "name": "Masaje con Aceite Caliente",
+        "duration": 60,
+        "price": 140000,
+        "enabled": true
+      },
+      {
+        "id": "piedras_calientes",
+        "name": "Masaje con Piedras Calientes",
+        "duration": 60,
+        "price": 160000,
+        "enabled": true
+      }
+    ],
+    "parejas": [
+      {
+        "id": "romantico_oasis",
+        "name": "Romántico Oasis para Dos",
+        "duration": 165,
+        "price": 450000,
+        "minPeople": 2,
+        "maxPeople": 2,
+        "enabled": true
+      },
+      {
+        "id": "reconciliacion",
+        "name": "Retiro de Reconciliación para Dos",
+        "duration": 195,
+        "price": 540000,
+        "minPeople": 2,
+        "maxPeople": 2,
+        "enabled": true
+      },
+      {
+        "id": "aniversario",
+        "name": "Paquete de Aniversario",
+        "duration": 120,
+        "price": 400000,
+        "minPeople": 2,
+        "maxPeople": 2,
+        "enabled": true
+      }
+    ],
+    "amigas": [
+      {
+        "id": "tarde_chicas",
+        "name": "Tarde de Chicas",
+        "duration": 180,
+        "price": 230000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      },
+      {
+        "id": "pasabordo",
+        "name": "Pasabordo Rápido de Desestrés",
+        "duration": 80,
+        "price": 160000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      }
+    ],
+    "ninas": [
+      {
+        "id": "teen_harmony",
+        "name": "Experiencia de Armonía para Adolescentes",
+        "duration": 165,
+        "price": 240000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      },
+      {
+        "id": "tween_adventure",
+        "name": "Aventura Spa para Preadolescentes",
+        "duration": 195,
+        "price": 270000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      }
+    ],
+    "familia": [
+      {
+        "id": "mama_hija",
+        "name": "Día de Spa para Mamá e Hija",
+        "duration": 150,
+        "price": 380000,
+        "minPeople": 2,
+        "maxPeople": 2,
+        "enabled": true
+      },
+      {
+        "id": "tarde_familia",
+        "name": "Tarde en Familia",
+        "duration": 150,
+        "price": 620000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      }
+    ],
+    "luxury": [
+      {
+        "id": "relajacion",
+        "name": "Masaje de Relajación",
+        "duration": 60,
+        "price": 320000,
+        "enabled": true
+      },
+      {
+        "id": "drenaje",
+        "name": "Drenaje Linfático",
+        "duration": 60,
+        "price": 320000,
+        "enabled": true
+      },
+      {
+        "id": "modelacion",
+        "name": "Masaje de Modelación",
+        "duration": 60,
+        "price": 320000,
+        "enabled": true
+      },
+      {
+        "id": "miracle_touch",
+        "name": "Miracle Touch",
+        "duration": 60,
+        "price": 320000,
+        "enabled": true
+      },
+      {
+        "id": "miracle_face",
+        "name": "Miracle Face",
+        "duration": 40,
+        "price": 240000,
+        "enabled": true
+      }
+    ],
+    "eventos": [
+      {
+        "id": "quince",
+        "name": "Feliz 15 Años con tus Mejores Amigas",
+        "duration": 210,
+        "price": 350000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      },
+      {
+        "id": "cumple",
+        "name": "Celebración de Cumpleaños",
+        "duration": 170,
+        "price": 270000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      },
+      {
+        "id": "despedida",
+        "name": "Despedida de Soltera",
+        "duration": 210,
+        "price": 350000,
+        "minPeople": 4,
+        "maxPeople": 6,
+        "enabled": true
+      }
+    ]
+  },
+  "workingHours": {
+    "monday": {
+      "enabled": false,
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "tuesday": {
+      "enabled": false,
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "wednesday": {
+      "enabled": true,
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "thursday": {
+      "enabled": true,
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "friday": {
+      "enabled": true,
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "saturday": {
+      "enabled": true,
+      "start": "09:00",
+      "end": "17:00"
+    },
+    "sunday": {
+      "enabled": true,
+      "start": "09:00",
+      "end": "17:00"
+    }
+  },
+  "blockedDates": [],
+  "bufferTime": 30,
+  "minimumAdvanceBookingHours": 13
+}

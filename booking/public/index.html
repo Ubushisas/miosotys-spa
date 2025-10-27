@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miosotys - Spa de Lujo</title>
+    <!-- Preload critical images -->
+    <link rel="preload" href="./Test_Images/Logo_shadow.png" as="image" />
+    <link rel="preload" href="./Test_Images/Pictures_test /dos.jpg" as="image" />
+    <link rel="stylesheet" href="styles.min.css?v=1" />
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div id="customCursor">
+      <img src="./Test_Images/Flor-mouse.png" alt="Custom Cursor" />
+    </div>
+
+    <nav>
+      <div class="logo">
+        <img src="./Test_Images/Logo_shadow.png" alt="Miosotys Logo" />
+      </div>
+      <div class="nav-items">
+        <p onclick="navigateToCatalogue()">Servicios</p>
+      </div>
+    </nav>
+
+    <footer>
+      <p onclick="navigateToInfo()" class="nosotros-btn">Nosotros</p>
+
+      <div class="slider-counter">
+        <div class="count"><p>1</p></div>
+        <p>/</p>
+        <p>8</p>
+      </div>
+    </footer>
+    <div class="slider">
+      <div class="slide">
+        <div class="slide-bg-img">
+          <img src="./Test_Images/Pictures_test /dos.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="slide-main-img">
+        <div class="slide-main-img-wrapper">
+          <img src="./Test_Images/Pictures_test /dos.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="slide-copy">
+        <div class="slide-title">
+          <h1>Bienvenida</h1>
+        </div>
+        <div class="slide-description">
+          <p>Tu oasis de tranquilidad</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+    <script src="./script.min.js?v=1"></script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+      // Smooth custom cursor with GSAP
+      const cursor = document.getElementById('customCursor');
+      let mouseX = 0;
+      let mouseY = 0;
+      let cursorX = 0;
+      let cursorY = 0;
+
+      // Track mouse position
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // Smooth cursor animation with lerp (linear interpolation)
+      gsap.ticker.add(() => {
+        // Lerp factor - lower = smoother/slower, higher = faster
+        const speed = 0.15;
+
+        cursorX += (mouseX - cursorX) * speed;
+        cursorY += (mouseY - cursorY) * speed;
+
+        gsap.set(cursor, {
+          x: cursorX,
+          y: cursorY
+        });
+      });
+    </script>
+  </body>
+</html>

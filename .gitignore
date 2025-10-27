@@ -1,3 +1,28 @@
+# OS files
 .DS_Store
 *.log
+
+# Dependencies
 node_modules/
+
+# Build output
+.next/
+out/
+dist/
+build/
+
+# Environment and sensitive files
+.env
+.env.local
+.env.production
+.env.development
+google-oauth-token.json
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.bak

@@ -1,0 +1,90 @@
+.btn {
+  position: relative;
+  display: inline-block;
+  width: 12rem;
+  height: auto;
+  padding: 0.15rem;
+  outline: none;
+  border: 2px solid #BBDCE5;
+  font-size: 0.9rem;
+  background: #BBDCE5;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 4rem;
+  cursor: pointer;
+  margin: 1rem 0;
+  transform: scale(0);
+  box-shadow: 0 4px 20px rgba(74, 60, 50, 0.15);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+.btn:hover {
+  box-shadow: 0 8px 32px rgba(74, 60, 50, 0.25);
+  transform: scale(1.05);
+  background: #9FC6D1;
+  border-color: #9FC6D1;
+}
+
+.btn .circle {
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #B87C4C;
+  border-radius: 4rem;
+  font-size: 1.5rem;
+  transform: scale(0);
+  overflow: hidden;
+  transition: width 0.5s cubic-bezier(0.65, 0, 0.076, 1);
+}
+
+.btn .icon {
+  position: absolute;
+  top: 0.775rem;
+  left: 0.95rem;
+  color: hsl(0 0% 100%);
+  font-size: 1.5rem;
+  transform: translateX(0);
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.076, 1);
+  will-change: transform;
+}
+
+.btn .button-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 0 0 1.25rem;
+  text-align: center;
+  color: #4A3C32;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: all 0.5s cubic-bezier(0.65, 0, 0.076, 1);
+  max-width: calc(100% - 3.5rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn .line {
+  position: relative;
+  transform: translateY(100%);
+  will-change: transform;
+  padding-bottom: 0.2em;
+  margin-bottom: -0.2em;
+}
+
+.btn:hover .circle {
+  width: 100%;
+}
+
+.btn:hover .icon {
+  transform: translate(0.75rem);
+}
+
+.btn:hover .button-text {
+  color: var(--base-100);
+}

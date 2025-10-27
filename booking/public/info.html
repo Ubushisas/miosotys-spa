@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Información - Miosotys Spa</title>
+    <link rel="stylesheet" href="styles.min.css?v=1" />
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div id="customCursor">
+      <img src="./Test_Images/Flor-mouse.png" alt="Custom Cursor" />
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+      <source src="./Assets/4) Myosotis_compressed.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <nav>
+        <div class="logo">
+          <img src="./Test_Images/Logo_shadow.png" alt="Miosotys Logo" onclick="goBack()" style="cursor: pointer; background: none !important;" />
+        </div>
+        <div class="nav-items">
+          <p onclick="goBack()">Inicio</p>
+        </div>
+      </nav>
+      
+      <div class="info-col">
+        <img src="./Test_Images/Pictures_test /tres.jpg" alt="Miosotys Spa" />
+      </div>
+      <div class="info-col">
+        <div class="info-content">
+          <p class="info-text">Miosotys es un santuario de bienestar donde la elegancia y la tranquilidad se unen. Ofrecemos experiencias personalizadas y tratamientos únicos en un ambiente de lujo, creando momentos de serenidad para todos.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script>
+      // Smooth Fade Animation Function
+      function slideOutIn() {
+        document.documentElement.animate(
+          [
+            {
+              opacity: 1,
+              transform: "translateY(0)",
+            },
+            {
+              opacity: 0.6,
+              transform: "translateY(15%)",
+            },
+          ],
+          {
+            duration: 2000,
+            easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+            fill: "forwards",
+            pseudoElement: "::view-transition-old(root)",
+          }
+        );
+
+        document.documentElement.animate(
+          [
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+            },
+            {
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            },
+          ],
+          {
+            duration: 2000,
+            easing: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+            fill: "forwards",
+            pseudoElement: "::view-transition-new(root)",
+          }
+        );
+      }
+
+      function goBack() {
+        // Save music position before navigation
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        if (backgroundMusic && !backgroundMusic.paused) {
+          localStorage.setItem('musicTime', backgroundMusic.currentTime);
+        }
+
+        const infoSection = document.querySelector('.info-section');
+        infoSection.classList.add('fade-out');
+
+        window.location.href = 'index.html';
+      }
+
+      // Animate text and image on load
+      document.addEventListener('DOMContentLoaded', () => {
+        // Handle background music continuity
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const musicPreference = localStorage.getItem('musicPreference');
+        const savedTime = localStorage.getItem('musicTime');
+
+        if (musicPreference === 'true' && backgroundMusic) {
+          backgroundMusic.volume = 0.5;
+          if (savedTime) {
+            backgroundMusic.currentTime = parseFloat(savedTime);
+          }
+          backgroundMusic.play().catch(e => {
+            console.log('Audio autoplay failed:', e);
+          });
+
+          // Save playback position every second
+          setInterval(() => {
+            if (!backgroundMusic.paused) {
+              localStorage.setItem('musicTime', backgroundMusic.currentTime);
+            }
+          }, 1000);
+        }
+
+        const text = document.querySelector('.info-text');
+        const image = document.querySelector('.info-col img');
+        
+        // Set initial states
+        if (image) {
+          gsap.set(image, { opacity: 0 });
+        }
+
+        if (text) {
+          // Split text into words for animation
+          const words = text.textContent.split(' ');
+          text.innerHTML = words.map(word => `<span class="word" style="display: inline-block; opacity: 0;">${word}</span>`).join(' ');
+
+          // Animate words
+          gsap.to('.word', {
+            opacity: 1,
+            duration: 5.5,
+            stagger: 0.04,
+            ease: "power2.out",
+            delay: 0.5
+          });
+        }
+
+        // Animate image
+        if (image) {
+          gsap.to(image, {
+            opacity: 1,
+            duration: 1.5,
+            ease: "power2.out",
+            delay: 0.2
+          });
+        }
+      });
+    </script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+      // Smooth custom cursor with GSAP
+      const cursor = document.getElementById('customCursor');
+      let mouseX = 0;
+      let mouseY = 0;
+      let cursorX = 0;
+      let cursorY = 0;
+
+      // Track mouse position
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      // Smooth cursor animation with lerp (linear interpolation)
+      gsap.ticker.add(() => {
+        // Lerp factor - lower = smoother/slower, higher = faster
+        const speed = 0.15;
+
+        cursorX += (mouseX - cursorX) * speed;
+        cursorY += (mouseY - cursorY) * speed;
+
+        gsap.set(cursor, {
+          x: cursorX,
+          y: cursorY
+        });
+      });
+    </script>
+  </body>
+</html>

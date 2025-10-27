@@ -1,0 +1,129 @@
+.spa-booking-page {
+  min-height: 100vh;
+  background: #F5F2E9;
+  color: #4A3C32;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.spa-booking-page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.015) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hero Section */
+.spa-hero {
+  position: relative;
+  width: 100vw;
+  height: 100%;
+  min-height: 100svh;
+  color: #4A3C32;
+  display: flex;
+  align-items: center;
+  padding: 10svh 0;
+  z-index: 1;
+}
+
+.spa-hero .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.spa-hero-content {
+  max-width: 900px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.spa-hero-content h1 {
+  font-size: 6rem;
+  letter-spacing: -0.3rem;
+  color: #B87C4C;
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.spa-hero-content p {
+  color: #4A3C32;
+  max-width: 700px;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.spa-hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.spa-hero-buttons > div {
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .spa-hero-content h1 {
+    font-size: 4rem;
+    letter-spacing: -0.2rem;
+  }
+
+  .spa-hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+/* Booking Section */
+.spa-booking-section {
+  position: relative;
+  width: 100vw;
+  min-height: 100svh;
+  padding: 5svh 0;
+  color: #4A3C32;
+}
+
+.spa-booking-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.back-to-hero {
+  background: #BBDCE5;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid #BBDCE5;
+  border-radius: 0.75rem;
+  color: #4A3C32;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.875rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.back-to-hero:hover {
+  color: #4A3C32;
+  background: #9FC6D1;
+  border-color: #9FC6D1;
+  transform: translateX(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
