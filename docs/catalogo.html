@@ -922,9 +922,8 @@
         // Encode the service name for URL
         const encodedService = encodeURIComponent(packageName);
 
-        // TODO: Update this URL to your Vercel deployment URL after deploying
-        // For now using localhost for testing
-        const bookingUrl = `http://localhost:3002?service=${encodedService}`;
+        // Vercel production URL
+        const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}`;
 
         showBookingCalendar(packageName, bookingUrl);
       }
