@@ -12,19 +12,23 @@
 .calendar-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  background-color: var(--base-450);
-  border: 1px solid rgba(242, 237, 230, 0.1);
+  gap: 2rem;
+  background-color: #ECEEDF;
+  border: 1px solid rgba(184, 124, 76, 0.2);
   border-radius: 1rem;
-  padding: 3rem;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .calendar-single-view {
   position: relative;
-  background-color: var(--base-450);
-  border: 1px solid rgba(242, 237, 230, 0.1);
+  background-color: #ECEEDF;
+  border: 1px solid rgba(184, 124, 76, 0.2);
   border-radius: 1rem;
-  padding: 3rem;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .loading-overlay {
@@ -57,8 +61,8 @@
 
 .back-button {
   background: none;
-  border: 1px solid rgba(242, 237, 230, 0.2);
-  color: var(--base-100);
+  border: 2px solid #BBDCE5;
+  color: #B87C4C;
   font-size: 1rem;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
@@ -72,15 +76,16 @@
 }
 
 .back-button:hover {
-  background-color: rgba(242, 237, 230, 0.05);
-  border-color: rgba(242, 237, 230, 0.4);
+  background-color: #BBDCE5;
+  border-color: #BBDCE5;
+  color: #4A3C32;
 }
 
 /* Calendly-style back button */
 .back-button-simple {
   background: none;
   border: none;
-  color: var(--base-100);
+  color: #BBDCE5;
   font-size: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -94,7 +99,7 @@
 }
 
 .back-button-simple:hover {
-  background-color: rgba(242, 237, 230, 0.1);
+  background-color: rgba(187, 220, 229, 0.2);
   transform: translateX(-2px);
 }
 
@@ -114,21 +119,21 @@
 .time-view-day {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--base-100);
+  color: #B87C4C;
   margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
 
 .time-view-date {
   font-size: 1rem;
-  color: var(--base-250);
+  color: #4A3C32;
   margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
 
 .time-view-duration {
   font-size: 0.9rem;
-  color: var(--base-300);
+  color: #4A3C32;
   font-family: "DM Mono", monospace;
 }
 
@@ -177,10 +182,10 @@
 .time-slot-calendly {
   width: 100%;
   padding: 0.75rem 1rem;
-  background-color: rgba(242, 237, 230, 0.02);
-  border: 2px solid rgba(242, 237, 230, 0.15);
+  background-color: rgba(187, 220, 229, 0.1);
+  border: 2px solid #BBDCE5;
   border-radius: 0.5rem;
-  color: var(--base-100);
+  color: #4A3C32;
   font-size: 0.95rem;
   font-family: "DM Mono", monospace;
   font-weight: 600;
@@ -190,15 +195,15 @@
 }
 
 .time-slot-calendly:hover {
-  background-color: rgba(242, 237, 230, 0.08);
-  border-color: rgba(242, 237, 230, 0.3);
+  background-color: rgba(187, 220, 229, 0.3);
+  border-color: #BBDCE5;
   transform: translateX(4px);
 }
 
 .time-slot-calendly.selected {
-  background-color: var(--base-100);
-  border-color: var(--base-100);
-  color: var(--base-500);
+  background-color: #BBDCE5;
+  border-color: #BBDCE5;
+  color: #4A3C32;
   transform: scale(1);
   animation: none;
 }
@@ -243,14 +248,14 @@
 
 .calendar-header h3 {
   font-size: 1.5rem;
-  color: var(--base-100);
+  color: #B87C4C;
   font-weight: 600;
 }
 
 .month-nav {
   background: none;
-  border: 1px solid rgba(242, 237, 230, 0.2);
-  color: var(--base-100);
+  border: 2px solid #BBDCE5;
+  color: #BBDCE5;
   font-size: 1.25rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -263,8 +268,9 @@
 }
 
 .month-nav:hover {
-  background-color: rgba(242, 237, 230, 0.05);
-  border-color: rgba(242, 237, 230, 0.4);
+  background-color: #BBDCE5;
+  border-color: #BBDCE5;
+  color: #4A3C32;
 }
 
 .calendar-days-header {
@@ -277,7 +283,7 @@
 .day-name {
   text-align: center;
   font-size: 0.85rem;
-  color: var(--base-300);
+  color: #4A3C32;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "DM Mono", monospace;
@@ -292,10 +298,10 @@
 
 .calendar-day {
   aspect-ratio: 1;
-  border: 1px solid rgba(242, 237, 230, 0.1);
-  background-color: rgba(242, 237, 230, 0.02);
+  border: 1px solid rgba(184, 124, 76, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0.5rem;
-  color: var(--base-100);
+  color: #4A3C32;
   font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -312,8 +318,8 @@
 }
 
 .calendar-day:not(.empty):not(.past):hover {
-  background-color: rgba(242, 237, 230, 0.1);
-  border-color: rgba(242, 237, 230, 0.3);
+  background-color: rgba(187, 220, 229, 0.3);
+  border-color: #BBDCE5;
   transform: scale(1.05);
 }
 
@@ -324,14 +330,14 @@
 }
 
 .calendar-day.today {
-  border-color: var(--base-250);
-  background-color: rgba(242, 237, 230, 0.05);
+  border-color: #BBDCE5;
+  background-color: rgba(187, 220, 229, 0.2);
 }
 
 .calendar-day.selected {
-  background-color: var(--base-300);
-  border-color: var(--base-100);
-  color: var(--base-500);
+  background-color: #BBDCE5;
+  border-color: #BBDCE5;
+  color: #4A3C32;
   font-weight: 700;
 }
 
@@ -346,14 +352,14 @@
 
 .time-header h3 {
   font-size: 1.5rem;
-  color: var(--base-100);
+  color: #B87C4C;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .selected-date-display {
   font-size: 0.9rem;
-  color: var(--base-250);
+  color: #4A3C32;
   text-transform: capitalize;
   margin-top: 0.5rem;
 }
@@ -367,7 +373,7 @@
 }
 
 .time-placeholder p {
-  color: var(--base-300);
+  color: #4A3C32;
   font-size: 1rem;
   text-align: center;
 }
@@ -376,7 +382,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
-  max-height: 600px;
+  max-height: 400px;
   overflow-y: auto;
   padding-right: 0.5rem;
 }
@@ -402,10 +408,10 @@
 
 .time-slot {
   padding: 0.75rem 1rem;
-  background-color: rgba(242, 237, 230, 0.02);
-  border: 1px solid rgba(242, 237, 230, 0.1);
+  background-color: rgba(187, 220, 229, 0.1);
+  border: 2px solid #BBDCE5;
   border-radius: 0.5rem;
-  color: var(--base-100);
+  color: #4A3C32;
   font-size: 1rem;
   font-family: "DM Mono", monospace;
   cursor: pointer;
@@ -414,15 +420,15 @@
 }
 
 .time-slot:hover {
-  background-color: rgba(242, 237, 230, 0.1);
-  border-color: rgba(242, 237, 230, 0.3);
+  background-color: rgba(187, 220, 229, 0.3);
+  border-color: #BBDCE5;
   transform: translateX(0.25rem);
 }
 
 .time-slot.selected {
-  background-color: var(--base-300);
-  border-color: var(--base-100);
-  color: var(--base-500);
+  background-color: #BBDCE5;
+  border-color: #BBDCE5;
+  color: #4A3C32;
   font-weight: 700;
   position: relative;
   animation: pulse 0.4s ease-out;
@@ -478,8 +484,8 @@
 
 /* Selection Summary */
 .selection-summary {
-  background-color: rgba(242, 237, 230, 0.05);
-  border: 1px solid rgba(242, 237, 230, 0.15);
+  background-color: rgba(187, 220, 229, 0.1);
+  border: 2px solid #BBDCE5;
   border-radius: 0.75rem;
   padding: 1.5rem 2rem;
   text-align: center;
@@ -498,18 +504,18 @@
 }
 
 .selection-summary .mono {
-  color: var(--base-300);
+  color: #4A3C32;
   margin-bottom: 0.75rem;
 }
 
 .summary-text {
   font-size: 1.1rem;
-  color: var(--base-200);
+  color: #4A3C32;
   text-transform: capitalize;
 }
 
 .summary-text strong {
-  color: var(--base-100);
+  color: #B87C4C;
   font-weight: 600;
 }
 
@@ -517,19 +523,20 @@
 @media (max-width: 1000px) {
   .calendar-grid {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 1.5rem;
+    max-width: 100%;
   }
 
   .time-section {
     border-left: none;
-    border-top: 1px solid rgba(242, 237, 230, 0.1);
+    border-top: 1px solid rgba(184, 124, 76, 0.2);
     padding-left: 0;
-    padding-top: 2rem;
+    padding-top: 1.5rem;
   }
 
   .time-slots {
     grid-template-columns: repeat(3, 1fr);
-    max-height: 400px;
+    max-height: 300px;
   }
 
   .calendar-day {
