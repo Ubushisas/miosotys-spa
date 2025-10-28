@@ -153,7 +153,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/Individual.jpg?v=2" alt="Spa Individual" />
+                <img src="./Test_Images/Test2/Individual.jpg?v=2" alt="Spa Individual" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Spa Individual</h1>
@@ -188,7 +188,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/Couples.jpg" alt="Spa para Parejas" />
+                <img src="./Test_Images/Test2/Couples.jpg" alt="Spa para Parejas" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Spa para Parejas</h1>
@@ -223,7 +223,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/Friends.jpg?v=2" alt="Spa para Amigas" />
+                <img src="./Test_Images/Test2/Friends.jpg?v=2" alt="Spa para Amigas" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Spa para Amigas</h1>
@@ -258,7 +258,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/Kids.jpg" alt="Spa para Niñas" />
+                <img src="./Test_Images/Test2/Kids.jpg" alt="Spa para Niñas" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Spa para Niñas</h1>
@@ -293,7 +293,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/Family.jpg" alt="Spa para Familias" />
+                <img src="./Test_Images/Test2/Family.jpg" alt="Spa para Familias" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Spa para Familias</h1>
@@ -328,7 +328,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/Luxury.jpg" alt="Spa Luxury" />
+                <img src="./Test_Images/Test2/Luxury.jpg" alt="Spa Luxury" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Spa Luxury</h1>
@@ -363,7 +363,7 @@
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
-                <img src="./Test_Images/Test2/SpecialEvents.jpg" alt="Eventos Especiales" />
+                <img src="./Test_Images/Test2/SpecialEvents.jpg" alt="Eventos Especiales" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Eventos Especiales</h1>
@@ -922,8 +922,9 @@
         // Encode the service name for URL
         const encodedService = encodeURIComponent(packageName);
 
-        // Vercel production URL
-        const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}`;
+        // Vercel production URL with cache busting
+        const timestamp = new Date().getTime();
+        const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}&v=${timestamp}`;
 
         showBookingCalendar(packageName, bookingUrl);
       }
