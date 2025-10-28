@@ -1305,6 +1305,29 @@ footer {
   margin-right: 0;
 }
 
+/* FIX FOR CENTERED TEXT - Cards 2-7 should match Eventos Especiales (card 8) */
+.sticky-card:nth-child(2) .sticky-card-copy-description,
+.sticky-card:nth-child(3) .sticky-card-copy-description,
+.sticky-card:nth-child(4) .sticky-card-copy-description,
+.sticky-card:nth-child(5) .sticky-card-copy-description,
+.sticky-card:nth-child(6) .sticky-card-copy-description,
+.sticky-card:nth-child(7) .sticky-card-copy-description {
+  display: block !important;
+  width: 600px !important;
+  max-width: 600px !important;
+}
+
+.sticky-card:nth-child(2) .sticky-card-copy-description p,
+.sticky-card:nth-child(3) .sticky-card-copy-description p,
+.sticky-card:nth-child(4) .sticky-card-copy-description p,
+.sticky-card:nth-child(5) .sticky-card-copy-description p,
+.sticky-card:nth-child(6) .sticky-card-copy-description p,
+.sticky-card:nth-child(7) .sticky-card-copy-description p {
+  width: 600px !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
 /* Package Window Styles */
 .package-window {
   position: fixed;

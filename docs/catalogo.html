@@ -6,39 +6,79 @@
     <title>Catálogo - Miosotys Spa</title>
     <link rel="stylesheet" href="styles.min.css?v=1" />
     <style>
-      /* Force all service buttons to be visible */
+      /* Navigation buttons in first card (Nuestros Servicios) - 3 columns */
       .sticky-card:first-child .sticky-card-copy-description {
         height: auto !important;
         max-height: none !important;
         overflow: visible !important;
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 1rem !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.75rem !important;
+        max-width: 650px !important;
+        padding-left: 0 !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+      }
+
+      /* FORCE cards 2-7 to match Eventos Especiales - HIGH SPECIFICITY */
+      .sticky-cards-container .sticky-card:nth-child(2) .sticky-card-copy-description,
+      .sticky-cards-container .sticky-card:nth-child(3) .sticky-card-copy-description,
+      .sticky-cards-container .sticky-card:nth-child(4) .sticky-card-copy-description,
+      .sticky-cards-container .sticky-card:nth-child(5) .sticky-card-copy-description,
+      .sticky-cards-container .sticky-card:nth-child(6) .sticky-card-copy-description,
+      .sticky-cards-container .sticky-card:nth-child(7) .sticky-card-copy-description {
+        display: block !important;
+        grid-template-columns: none !important;
+        width: 600px !important;
         max-width: 600px !important;
+      }
+
+      /* Force paragraph to be 600px wide */
+      .sticky-cards-container .sticky-card:nth-child(2) .sticky-card-copy-description p,
+      .sticky-cards-container .sticky-card:nth-child(3) .sticky-card-copy-description p,
+      .sticky-cards-container .sticky-card:nth-child(4) .sticky-card-copy-description p,
+      .sticky-cards-container .sticky-card:nth-child(5) .sticky-card-copy-description p,
+      .sticky-cards-container .sticky-card:nth-child(6) .sticky-card-copy-description p,
+      .sticky-cards-container .sticky-card:nth-child(7) .sticky-card-copy-description p {
+        width: 600px !important;
+        max-width: 100% !important;
+        margin: 0px 0px 16px !important;
+      }
+      /* Make last button span full width if needed */
+      .sticky-card:first-child .sticky-card-button:last-child {
+        grid-column: 1 / -1 !important;
+        max-width: 300px !important;
+        margin: 0 auto !important;
       }
       .sticky-card:first-child .sticky-card-button {
         opacity: 1 !important;
-        display: block !important;
+        display: flex !important;
+        justify-content: center !important;
         width: 100% !important;
       }
       .sticky-card:first-child .sticky-card-button button {
         opacity: 1 !important;
-        display: block !important;
-        width: 100% !important;
+        display: inline-block !important;
+        width: auto !important;
+        white-space: nowrap !important;
+        animation: none !important;
       }
-      /* Custom cursor */
-      body {
-        cursor: none !important;
+
+      /* Don't override anything for service cards - let them use default CSS like Eventos Especiales does */
+
+      /* Fix "Ver paquetes" buttons to fit content and remove animations */
+      .sticky-card-button button {
+        width: auto !important;
+        display: inline-block !important;
+        animation: none !important;
+      }
+
+      /* Custom cursor - DISABLED */
+      * {
+        cursor: auto !important;
       }
       #customCursor {
-        position: fixed !important;
-        pointer-events: none !important;
-        z-index: 99999 !important;
-        transform: translate(-50%, -50%) !important;
-      }
-      #customCursor img {
-        width: 40px !important;
-        height: 40px !important;
+        display: none !important;
       }
     </style>
   </head>
@@ -120,8 +160,8 @@
                 <div class="sticky-card-copy-title">
                   <p>(Experiencia Personal)</p>
                 </div>
-                <div class="sticky-card-copy-description">
-                  <p>Tratamientos personalizados para tu bienestar individual en un oasis de tranquilidad y renovación.</p>
+                <div class="sticky-card-copy-description" style="width: 600px; max-width: 600px; display: block; margin: 0 auto;">
+                  <p style="width: 600px; max-width: 100%; text-align: center; margin: 0;">Tratamientos personalizados para tu bienestar individual en un oasis de tranquilidad y renovación.</p>
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(1)">Ver paquetes</button>
@@ -155,8 +195,8 @@
                 <div class="sticky-card-copy-title">
                   <p>(Conexión Romántica)</p>
                 </div>
-                <div class="sticky-card-copy-description">
-                  <p>Fortalece tu vínculo con tratamientos íntimos y relajantes diseñados para reconectar en un ambiente romántico.</p>
+                <div class="sticky-card-copy-description" style="width: 600px; max-width: 600px; display: block; margin: 0 auto;">
+                  <p style="width: 600px; max-width: 100%; text-align: center; margin: 0;">Fortalece tu vínculo con tratamientos íntimos y relajantes diseñados para reconectar en un ambiente romántico.</p>
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(2)">Ver paquetes</button>
@@ -190,8 +230,8 @@
                 <div class="sticky-card-copy-title">
                   <p>(Celebración de Amistad)</p>
                 </div>
-                <div class="sticky-card-copy-description">
-                  <p>Celebra la amistad con tratamientos grupales llenos de diversión y relajación en un ambiente exclusivo.</p>
+                <div class="sticky-card-copy-description" style="width: 600px; max-width: 600px; display: block; margin: 0 auto;">
+                  <p style="width: 600px; max-width: 100%; text-align: center; margin: 0;">Celebra la amistad con tratamientos grupales llenos de diversión y relajación en un ambiente exclusivo.</p>
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(3)">Ver paquetes</button>
@@ -225,8 +265,8 @@
                 <div class="sticky-card-copy-title">
                   <p>(Diversión y Cuidado)</p>
                 </div>
-                <div class="sticky-card-copy-description">
-                  <p>Experiencias mágicas y seguras donde las niñas disfrutan tratamientos divertidos sintiéndose como princesas.</p>
+                <div class="sticky-card-copy-description" style="width: 600px; max-width: 600px; display: block; margin: 0 auto;">
+                  <p style="width: 600px; max-width: 100%; text-align: center; margin: 0;">Experiencias mágicas y seguras donde las niñas disfrutan tratamientos divertidos sintiéndose como princesas.</p>
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(4)">Ver paquetes</button>
@@ -260,8 +300,8 @@
                 <div class="sticky-card-copy-title">
                   <p>(Unión Familiar)</p>
                 </div>
-                <div class="sticky-card-copy-description">
-                  <p>Crea recuerdos inolvidables con experiencias adaptadas para todas las edades en un ambiente familiar acogedor.</p>
+                <div class="sticky-card-copy-description" style="width: 600px; max-width: 600px; display: block; margin: 0 auto;">
+                  <p style="width: 600px; max-width: 100%; text-align: center; margin: 0;">Crea recuerdos inolvidables con experiencias adaptadas para todas las edades en un ambiente familiar acogedor.</p>
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(5)">Ver paquetes</button>
@@ -295,8 +335,8 @@
                 <div class="sticky-card-copy-title">
                   <p>(Experiencia Premium)</p>
                 </div>
-                <div class="sticky-card-copy-description">
-                  <p>Máximo lujo y sofisticación con servicios VIP, productos premium y atención personalizada exclusiva.</p>
+                <div class="sticky-card-copy-description" style="width: 600px; max-width: 600px; display: block; margin: 0 auto;">
+                  <p style="width: 600px; max-width: 100%; text-align: center; margin: 0;">Máximo lujo y sofisticación con servicios VIP, productos premium y atención personalizada exclusiva.</p>
                 </div>
                 <div class="sticky-card-button">
                   <button onclick="showPackages(6)">Ver paquetes</button>
@@ -1040,7 +1080,7 @@
             // Set initial hidden state
             if (title) gsap.set(title, { opacity: 0, y: 30 });
             if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
-            if (button) gsap.set(button, { opacity: 0, y: 20 });
+            if (button) gsap.set(button, { opacity: 1, y: 0 }); // Button always visible, no animation
             if (scrollArrow) gsap.set(scrollArrow, { opacity: 0, y: 10 });
             serviceParagraphs.forEach(p => gsap.set(p, { opacity: 0, y: 20 }));
 
@@ -1080,16 +1120,7 @@
                 });
               }
 
-              // Animate button
-              if (button) {
-                gsap.to(button, {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.5,
-                  ease: "power2.out",
-                  delay: 1.0
-                });
-              }
+              // Button already visible, no animation needed
 
               // Animate scroll arrow
               if (scrollArrow) {
@@ -1106,9 +1137,11 @@
             // Prepare text elements with initial hidden state for other cards
             const button = card.querySelector('.sticky-card-button button');
             const scrollArrows = card.querySelectorAll('.scroll-arrow');
-            if (description) prepareText(description);
+            // DON'T prepareText - keep text intact like Eventos Especiales
+            // if (description) prepareText(description);
             if (title) gsap.set(title, { opacity: 0, y: 30 });
             if (subtitle) gsap.set(subtitle, { opacity: 0, y: 20 });
+            if (description) gsap.set(description, { opacity: 0, y: 20 });
             if (button) gsap.set(button, { opacity: 0, y: 20 });
             scrollArrows.forEach(arrow => gsap.set(arrow, { opacity: 0, y: 10 }));
           }
@@ -1175,18 +1208,12 @@
                   });
                 }
 
-                // Animate description words based on scroll progress (fast typewriter)
-                if (description && description.querySelectorAll('.word').length > 0) {
-                  const words = description.querySelectorAll('.word');
-                  const descProgress = Math.max(0, Math.min(1, (progress - 0.3) / 0.4));
-
-                  words.forEach((word, wordIndex) => {
-                    const wordDelay = (wordIndex / words.length) * 0.2; // Smooth word progression
-                    const wordProgress = Math.max(0, Math.min(1, (descProgress - wordDelay) * 3));
-
-                    gsap.set(word, {
-                      opacity: wordProgress
-                    });
+                // Animate description as a whole paragraph (like Eventos Especiales)
+                if (description) {
+                  const descProgress = Math.max(0, Math.min(1, (progress - 0.3) / 0.3));
+                  gsap.set(description, {
+                    opacity: descProgress,
+                    y: 20 - (descProgress * 20)
                   });
                 }
 
