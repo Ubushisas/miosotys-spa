@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 2rem;
-  background-color: #F9F5F0;
+  background-color: #FBF6E9;
   border: 1px solid rgba(184, 124, 76, 0.2);
   border-radius: 1rem;
   padding: 2rem;
@@ -23,7 +23,7 @@
 
 .calendar-single-view {
   position: relative;
-  background-color: #F9F5F0;
+  background-color: #FBF6E9;
   border: 1px solid rgba(184, 124, 76, 0.2);
   border-radius: 1rem;
   padding: 2rem;
