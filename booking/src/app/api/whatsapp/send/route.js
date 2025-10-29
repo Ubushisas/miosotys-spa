@@ -25,8 +25,10 @@ export async function POST(request) {
     }
 
     // Send message via WhatsApp Business API
+    // Note: In test mode, we can only use approved templates
+    // For now using hello_world template until custom template is approved
     const response = await fetch(
-      `https://graph.facebook.com/v18.0/${phoneNumberId}/messages`,
+      `https://graph.facebook.com/v22.0/${phoneNumberId}/messages`,
       {
         method: 'POST',
         headers: {
@@ -35,11 +37,14 @@ export async function POST(request) {
         },
         body: JSON.stringify({
           messaging_product: 'whatsapp',
-          to: phoneNumber,
-          type: 'text',
-          text: {
-            body: message,
-          },
+          to: phoneNumber.replace('+', ''), // Remove + from phone number
+          type: 'template',
+          template: {
+            name: 'hello_world',
+            language: {
+              code: 'en_US'
+            }
+          }
         }),
       }
     );
