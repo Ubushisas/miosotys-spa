@@ -73,6 +73,7 @@
   position: relative;
   z-index: 1;
   background: #FBF6E9;
+  padding-top: 0;
 }
 
 /* ===== LEFT SIDEBAR ===== */
@@ -82,7 +83,7 @@
   -webkit-backdrop-filter: none;
   border: none;
   border-radius: 0;
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem;
   box-shadow: none;
   height: fit-content;
   position: sticky;
@@ -207,7 +208,7 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: #6F4C31;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .calendly-back-btn:hover {
