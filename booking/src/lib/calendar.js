@@ -1,6 +1,7 @@
 import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
+import { getSettings } from './calendar-settings.js';
 
 // Calendar IDs for the two rooms
 const CALENDAR_IDS = {
@@ -124,7 +125,6 @@ export async function getUnavailableSlots(date, service) {
     });
 
     // Load buffer time from settings
-    const { getSettings } = await import('./calendar-settings');
     const settings = await getSettings();
     const bufferTime = settings.bufferTime || 0; // in minutes
 
