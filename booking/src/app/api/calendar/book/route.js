@@ -27,7 +27,7 @@ export async function POST(request) {
     dateObj.setHours(hours24, minutes, 0, 0);
 
     // Check if booking is allowed based on settings
-    const bookingCheck = isBookingAllowed(dateObj, service);
+    const bookingCheck = await isBookingAllowed(dateObj, service);
     if (!bookingCheck.allowed) {
       return NextResponse.json(
         { error: bookingCheck.reason },
