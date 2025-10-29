@@ -1,34 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
-import bcrypt from 'bcryptjs'
+import { promises as fs } from 'fs'
+import path from 'path'
+
+const SETTINGS_FILE = path.join(process.cwd(), 'calendar-settings.json')
 
 export async function GET() {
   try {
-    const settings = await prisma.settings.findFirst()
-
-    if (!settings) {
-      // Return default settings
-      return NextResponse.json({
-        bufferTime: 15,
-        calendarEnabled: true,
-        workingHours: JSON.stringify({
-          mon: { start: '09:00', end: '18:00' },
-          tue: { start: '09:00', end: '18:00' },
-          wed: { start: '09:00', end: '18:00' },
-          thu: { start: '09:00', end: '18:00' },
-          fri: { start: '09:00', end: '18:00' },
-          sat: { start: '10:00', end: '16:00' },
-          sun: { start: 'closed', end: 'closed' },
-        }),
-      })
-    }
+    const fileContent = await fs.readFile(SETTINGS_FILE, 'utf-8')
+    const settings = JSON.parse(fileContent)
 
     return NextResponse.json({
-      ...settings,
-      workingHours: JSON.parse(settings.workingHours),
+      bufferTime: settings.bufferTime || 30,
+      minimumAdvanceBookingHours: settings.minimumAdvanceBookingHours || 13,
+      calendarEnabled: settings.calendarEnabled ?? true,
+      workingHours: settings.workingHours || {},
+      rooms: settings.rooms || {},
+      services: settings.services || {},
+      blockedDates: settings.blockedDates || [],
     })
   } catch (error) {
-    console.error('Failed to fetch settings:', error)
+    console.error('Failed to read settings:', error)
     return NextResponse.json(
       { error: 'Failed to fetch settings' },
       { status: 500 }
@@ -39,39 +30,25 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { bufferTime, calendarEnabled, workingHours } = body
 
-    const existingSettings = await prisma.settings.findFirst()
+    // Read current settings
+    const fileContent = await fs.readFile(SETTINGS_FILE, 'utf-8')
+    const currentSettings = JSON.parse(fileContent)
 
-    if (existingSettings) {
-      const updated = await prisma.settings.update({
-        where: { id: existingSettings.id },
-        data: {
-          bufferTime,
-          calendarEnabled,
-          workingHours: JSON.stringify(workingHours),
-        },
-      })
-
-      return NextResponse.json(updated)
-    } else {
-      // Create initial settings with default password
-      const hashedPassword = await bcrypt.hash(
-        process.env.ADMIN_DEFAULT_PASSWORD || 'miosotys2025',
-        10
-      )
-
-      const created = await prisma.settings.create({
-        data: {
-          bufferTime,
-          calendarEnabled,
-          workingHours: JSON.stringify(workingHours),
-          adminPassword: hashedPassword,
-        },
-      })
-
-      return NextResponse.json(created)
+    // Merge with new data
+    const updatedSettings = {
+      ...currentSettings,
+      ...body,
     }
+
+    // Write back to file
+    await fs.writeFile(
+      SETTINGS_FILE,
+      JSON.stringify(updatedSettings, null, 2),
+      'utf-8'
+    )
+
+    return NextResponse.json(updatedSettings)
   } catch (error) {
     console.error('Failed to save settings:', error)
     return NextResponse.json(
