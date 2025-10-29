@@ -109,8 +109,8 @@
 }
 
 .calendly-selection-info {
-  padding-top: 0.75rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
   border-top: 0.5px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -180,7 +180,7 @@
   -webkit-backdrop-filter: none;
   border: none;
   border-radius: 0;
-  padding: 1.5rem;
+  padding: 0.5rem 1.5rem;
   box-shadow: none;
   overflow: visible;
   height: auto;
@@ -217,7 +217,8 @@
   font-size: 1.75rem;
   font-weight: 600;
   color: #4A3C32;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
   letter-spacing: -0.075rem;
 }
 
@@ -230,7 +231,7 @@
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(0, 0, 0, 0.08);
   border-radius: 1rem;
@@ -256,12 +257,12 @@
 
 .calendly-tab-trigger:hover {
   color: #6F4C31;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
 }
 
 .calendly-tab-trigger[data-state="active"] {
   color: #4A3C32;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
@@ -284,7 +285,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.875rem 1.125rem;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(30px) saturate(180%);
   border: 0.5px solid rgba(0, 0, 0, 0.06);
   border-radius: 0.875rem;
@@ -296,7 +297,7 @@
 }
 
 .calendly-service-card:hover {
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   border-color: rgba(0, 0, 0, 0.12);
   transform: translateX(0.5rem);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -497,7 +498,7 @@
 
 /* Time slots */
 .calendly-times {
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(0, 0, 0, 0.06);
   border-radius: 0.875rem;
@@ -572,7 +573,7 @@
 
 .calendly-time-slot {
   padding: 0.75rem 0.6rem;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(0, 0, 0, 0.06);
   border-radius: 0.5rem;
@@ -592,7 +593,7 @@
 }
 
 .calendly-time-slot:hover {
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   border-color: rgba(0, 0, 0, 0.12);
   color: #4A3C32;
   transform: translateY(-2px);
@@ -629,7 +630,7 @@
 
 .calendly-form-group input {
   padding: 1rem 1.25rem;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(0, 0, 0, 0.08);
   border-radius: 0.625rem;
@@ -645,7 +646,7 @@
 
 .calendly-form-group input:focus {
   outline: none;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
@@ -960,7 +961,7 @@
 }
 
 .calendly-people-option {
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 2px solid #BBDCE5;
@@ -1029,7 +1030,7 @@
 }
 
 .calendly-modal {
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 1rem;
@@ -1156,7 +1157,7 @@
 
 .calendly-guest-input {
   padding: 1rem 1.25rem;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 2px solid #BBDCE5;
@@ -1174,7 +1175,7 @@
 
 .calendly-guest-input:focus {
   outline: none;
-  background: rgba(245, 242, 233, 1);
+  background: rgba(251, 246, 233, 1);
   border-color: #B87C4C;
   box-shadow: 0 4px 16px rgba(184, 124, 76, 0.15);
 }
