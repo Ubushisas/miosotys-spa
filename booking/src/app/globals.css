@@ -30,16 +30,16 @@
   --color-chart-4: hsl(0 0% 65%);
   --color-chart-5: hsl(0 0% 80%);
 
-  /* Monochrome grayscale */
-  --base-50: hsl(0 0% 100%);
-  --base-100: hsl(0 0% 95%);
-  --base-200: hsl(0 0% 85%);
-  --base-250: hsl(0 0% 75%);
-  --base-300: hsl(0 0% 60%);
-  --base-350: hsl(0 0% 50%);
-  --base-400: hsl(0 0% 40%);
-  --base-450: hsl(0 0% 20%);
-  --base-500: hsl(0 0% 10%);
+  /* Brown color palette for text */
+  --base-50: #FBF6E9;
+  --base-100: #B87C4C;
+  --base-200: #A67043;
+  --base-250: #8B5E3A;
+  --base-300: #6F4C31;
+  --base-350: #5A3F28;
+  --base-400: #4A3C32;
+  --base-450: #3A2F28;
+  --base-500: #2A221E;
 
   --gradient-warm: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 100%) 100%);
   --gradient-luxury: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(0 0% 5%) 100%);

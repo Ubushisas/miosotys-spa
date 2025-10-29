@@ -79,13 +79,13 @@ function HomeContent() {
                 borderRadius: '1rem',
                 boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
               }}>
-                <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#333' }}>
+                <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: '#B87C4C' }}>
                   Calendario no disponible
                 </h2>
-                <p style={{ color: '#666', marginBottom: '2rem' }}>
+                <p style={{ color: '#4A3C32', marginBottom: '2rem' }}>
                   {calendarStatus.message || 'El sistema de reservas no está disponible en este momento.'}
                 </p>
-                <p style={{ color: '#999', fontSize: '0.9rem' }}>
+                <p style={{ color: '#6F4C31', fontSize: '0.9rem' }}>
                   Por favor intenta más tarde o contáctanos directamente.
                 </p>
               </div>
