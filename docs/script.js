@@ -51,6 +51,19 @@ document.addEventListener("DOMContentLoaded", () => {
     "SpecialEvents.jpg"
   ];
 
+  // Preload all images to prevent black screen bug
+  const preloadImages = () => {
+    imageNames.forEach((imageName, index) => {
+      const img = new Image();
+      if (imageName.includes("Pictures_test")) {
+        img.src = `./Test_Images/${imageName}`;
+      } else {
+        img.src = `./Test_Images/Test2/${imageName}`;
+      }
+    });
+  };
+  preloadImages();
+
   function createSlide(slideNumber, direction) {
     const slide = document.createElement("div");
     slide.className = "slide";
