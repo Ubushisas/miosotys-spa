@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
-import { getSettings } from './calendar-settings.js';
+import { getSettings } from './calendar-settings';
 
 // Calendar IDs for the two rooms
 const CALENDAR_IDS = {
