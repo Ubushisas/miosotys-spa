@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { getSettings } from './calendar-settings';
 import { zonedTimeToUtc, formatInTimeZone } from 'date-fns-tz';
+// Force rebuild for timezone fixes
 
 // Calendar IDs for the two rooms
 const CALENDAR_IDS = {
