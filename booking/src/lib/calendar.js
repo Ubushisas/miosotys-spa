@@ -25,8 +25,13 @@ function getOAuth2Client() {
 function getCalendarClient() {
   const oauth2Client = getOAuth2Client();
 
-  // Load token from file
-  if (fs.existsSync(TOKEN_PATH)) {
+  // Try to load token from environment variable first (for Vercel)
+  if (process.env.GOOGLE_OAUTH_TOKEN) {
+    const token = JSON.parse(process.env.GOOGLE_OAUTH_TOKEN);
+    oauth2Client.setCredentials(token);
+  }
+  // Fallback to file for local development
+  else if (fs.existsSync(TOKEN_PATH)) {
     const token = JSON.parse(fs.readFileSync(TOKEN_PATH, 'utf-8'));
     oauth2Client.setCredentials(token);
   } else {
