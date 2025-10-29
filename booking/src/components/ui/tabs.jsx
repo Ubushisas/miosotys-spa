@@ -46,7 +46,11 @@ const TabsTrigger = React.forwardRef(({ className, value, ...props }, ref) => {
       ref={ref}
       onClick={() => setActiveTab(value)}
       data-state={isActive ? "active" : "inactive"}
-      className={`inline-flex items-center justify-center whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm data-[state=inactive]:text-gray-500 hover:data-[state=inactive]:text-gray-700 ${className || ""}`}
+      className={`inline-flex items-center justify-center whitespace-nowrap rounded-lg px-4 py-2.5 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-white data-[state=active]:shadow-sm ${className || ""}`}
+      style={{
+        color: isActive ? '#4A3C32' : '#6F4C31',
+        opacity: isActive ? 1 : 0.7
+      }}
       {...props}
     />
   );

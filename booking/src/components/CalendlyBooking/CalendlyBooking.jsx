@@ -396,7 +396,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                         day: "numeric",
                       })}
                     </div>
-                    <div className="text-sm" style={{color: 'rgb(102, 102, 102)'}}>{selectedTime}</div>
+                    <div className="text-sm" style={{color: '#6F4C31'}}>{selectedTime}</div>
                   </div>
                 </div>
               )}
@@ -460,7 +460,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                                     <span>{formatPrice(service.price)}</span>
                                   </div>
                                 </div>
-                                <ChevronRight className="w-5 h-5" style={{color: 'rgb(136, 136, 136)'}} />
+                                <ChevronRight className="w-5 h-5" style={{color: '#6F4C31'}} />
                               </button>
                             ))}
                           </div>
@@ -815,7 +815,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                       day: "numeric",
                     })}
                   </p>
-                  <p style={{color: 'rgb(17, 17, 17)', fontWeight: 600}}>{selectedTime}</p>
+                  <p style={{color: '#4A3C32', fontWeight: 600}}>{selectedTime}</p>
                 </div>
                 <Button onClick={() => window.location.reload()} variant="outline">
                   Hacer otra reserva
