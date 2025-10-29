@@ -2,6 +2,7 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 import { getSettings } from './calendar-settings';
+import { zonedTimeToUtc, formatInTimeZone } from 'date-fns-tz';
 
 // Calendar IDs for the two rooms
 const CALENDAR_IDS = {
@@ -206,7 +207,7 @@ export async function createBooking(date, time, service, guestNames, customerInf
   }
 }
 
-// Helper function to convert date and 12-hour time to ISO datetime
+// Helper function to convert date and 12-hour time to ISO datetime in Colombia timezone
 function convertToISODateTime(date, time12h) {
   // Parse 12-hour time format (e.g., "2:30 PM")
   const [timeStr, period] = time12h.split(' ');
@@ -224,5 +225,9 @@ function convertToISODateTime(date, time12h) {
   const dateTime = new Date(date);
   dateTime.setHours(hours24, minutes, 0, 0);
 
-  return dateTime.toISOString();
+  // Convert Colombia time to UTC properly
+  const colombiaTimeZone = 'America/Bogota';
+  const utcDate = zonedTimeToUtc(dateTime, colombiaTimeZone);
+
+  return utcDate.toISOString();
 }
