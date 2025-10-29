@@ -2,8 +2,7 @@ import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
 import { getSettings } from './calendar-settings';
-import { zonedTimeToUtc, formatInTimeZone } from 'date-fns-tz';
-// Force rebuild for timezone fixes
+import { toZonedTime, fromZonedTime } from 'date-fns-tz';
 
 // Calendar IDs for the two rooms
 const CALENDAR_IDS = {
@@ -226,9 +225,9 @@ function convertToISODateTime(date, time12h) {
   const dateTime = new Date(date);
   dateTime.setHours(hours24, minutes, 0, 0);
 
-  // Convert Colombia time to UTC properly
+  // Convert Colombia time to UTC properly using fromZonedTime
   const colombiaTimeZone = 'America/Bogota';
-  const utcDate = zonedTimeToUtc(dateTime, colombiaTimeZone);
+  const utcDate = fromZonedTime(dateTime, colombiaTimeZone);
 
   return utcDate.toISOString();
 }
