@@ -14,6 +14,11 @@ export async function POST(request) {
       );
     }
 
+    // Format phone number: add +57 if it doesn't have a country code
+    if (customerInfo.phone && !customerInfo.phone.startsWith('+')) {
+      customerInfo.phone = '+57' + customerInfo.phone.replace(/\D/g, '');
+    }
+
     // Convert date string to Date object and incorporate the time
     const dateObj = new Date(date);
 

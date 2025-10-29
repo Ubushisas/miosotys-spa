@@ -481,7 +481,7 @@ const BookingFlow = () => {
             </div>
 
             <div className={`form-group ${customerErrors.includes('phone') ? 'error' : ''}`}>
-              <label>Teléfono</label>
+              <label>Teléfono (WhatsApp)</label>
               <input
                 type="tel"
                 value={customerInfo.phone}
@@ -491,12 +491,15 @@ const BookingFlow = () => {
                     setCustomerErrors(customerErrors.filter(f => f !== 'phone'));
                   }
                 }}
-                placeholder="Tu número de teléfono"
+                placeholder="3213582608"
                 required
               />
               {customerErrors.includes('phone') && (
                 <span className="error-message">* Campo obligatorio</span>
               )}
+              <small style={{ color: '#666', fontSize: '0.85em', marginTop: '4px', display: 'block' }}>
+                Solo el número sin +57
+              </small>
             </div>
 
             <div className={`form-group ${customerErrors.includes('email') ? 'error' : ''}`}>
