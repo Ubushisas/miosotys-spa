@@ -65,7 +65,7 @@
 
 .calendly-layout {
   max-width: 720px;
-  margin: 0 auto;
+  margin: -3rem auto 0;
   display: grid;
   grid-template-columns: 230px 1fr;
   gap: 1.2rem;
@@ -83,7 +83,7 @@
   -webkit-backdrop-filter: none;
   border: none;
   border-radius: 0;
-  padding: 0.5rem 1.5rem;
+  padding: 0 1.5rem;
   box-shadow: none;
   height: fit-content;
   position: sticky;
@@ -183,7 +183,8 @@
   -webkit-backdrop-filter: none;
   border: none;
   border-radius: 0;
-  padding: 0 1.5rem;
+  padding: 0;
+  margin: 0;
   box-shadow: none;
   overflow: visible;
   height: auto;
@@ -336,7 +337,7 @@
   backdrop-filter: none;
   border: none;
   border-radius: 0;
-  padding: 0.5rem 0.8rem;
+  padding: 0 0.8rem;
   display: flex;
   gap: 0.8rem;
   align-items: flex-start;
