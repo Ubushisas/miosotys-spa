@@ -83,7 +83,12 @@ export async function POST(request) {
       const confirmationMessage = `¡Hola ${customerInfo.name}! ✨\n\nTu reserva ha sido confirmada:\n\n📅 Servicio: ${service.name}\n⏰ Fecha: ${formattedDate}\n🕐 Hora: ${time}\n📍 Miosotys Spa, Colombia\n\n¡Te esperamos! 🌿`;
 
       const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || process.env.VERCEL_URL || 'http://localhost:3002'
-      await fetch(`${baseUrl.startsWith('http') ? baseUrl : `https://${baseUrl}`}/api/whatsapp/send`, {
+      const whatsappUrl = `${baseUrl.startsWith('http') ? baseUrl : `https://${baseUrl}`}/api/whatsapp/send`;
+
+      console.log('Sending WhatsApp to:', customerInfo.phone);
+      console.log('WhatsApp URL:', whatsappUrl);
+
+      const whatsappResponse = await fetch(whatsappUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -91,6 +96,14 @@ export async function POST(request) {
           message: confirmationMessage,
         }),
       });
+
+      const whatsappData = await whatsappResponse.json();
+
+      if (whatsappResponse.ok) {
+        console.log('✅ WhatsApp sent successfully:', whatsappData);
+      } else {
+        console.error('❌ WhatsApp failed:', whatsappData);
+      }
     } catch (whatsappError) {
       console.error('Error sending WhatsApp confirmation:', whatsappError);
       // Don't fail the booking if WhatsApp fails

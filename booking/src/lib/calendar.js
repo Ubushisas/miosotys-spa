@@ -194,11 +194,17 @@ export async function createBooking(date, time, service, guestNames, customerInf
       },
     };
 
+    console.log('Creating event with attendees:', event.attendees);
+    console.log('SendUpdates:', 'all');
+
     const response = await calendar.events.insert({
       calendarId,
       resource: event,
       sendUpdates: 'all', // Send email to attendees
     });
+
+    console.log('✅ Event created:', response.data.id);
+    console.log('Event attendees:', response.data.attendees);
 
     return response.data;
   } catch (error) {
