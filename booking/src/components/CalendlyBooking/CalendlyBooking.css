@@ -73,7 +73,7 @@
   position: relative;
   z-index: 1;
   background: #FBF6E9;
-  padding-top: 1rem;
+  padding-top: 5.5rem;
 }
 
 /* ===== LEFT SIDEBAR ===== */
@@ -114,7 +114,8 @@
 .calendly-selection-info {
   padding-top: 0;
   padding-bottom: 0;
-  border-top: 0.5px solid rgba(0, 0, 0, 0.08);
+  margin-top: -1rem;
+  border-top: none;
 }
 
 .calendly-selection-info h3 {
@@ -197,6 +198,7 @@
   position: relative;
   overflow: visible;
   background: #FBF6E9;
+  margin-top: -1rem;
 }
 
 .calendly-back-btn {
