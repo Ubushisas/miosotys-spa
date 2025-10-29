@@ -1,11 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useSession, signOut } from 'next-auth/react'
-import { Save, ChevronDown, ChevronUp, LogOut, User, Eye, EyeOff } from 'lucide-react'
+import { Save, ChevronDown, ChevronUp, Eye, EyeOff } from 'lucide-react'
 
 export default function SettingsPage() {
-  const { data: session } = useSession()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -131,12 +129,6 @@ export default function SettingsPage() {
               <p className="text-sm text-gray-500 mt-1">Gestiona la disponibilidad del calendario</p>
             </div>
             <div className="flex items-center gap-3">
-              {session?.user && !isMobile && (
-                <div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg">
-                  <User className="w-4 h-4 text-gray-600" />
-                  <span className="text-sm text-gray-700">{session.user.name}</span>
-                </div>
-              )}
               {!isMobile && (
                 <button
                   onClick={() => setShowPreview(!showPreview)}
@@ -153,14 +145,6 @@ export default function SettingsPage() {
               >
                 <Save className="w-4 h-4" />
                 {saving ? 'Guardando...' : 'Guardar'}
-              </button>
-              <button
-                onClick={() => signOut({ callbackUrl: '/admin/login' })}
-                className="flex items-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
-                title="Cerrar sesión"
-              >
-                <LogOut className="w-4 h-4" />
-                <span className="hidden sm:inline">Salir</span>
               </button>
             </div>
           </div>
