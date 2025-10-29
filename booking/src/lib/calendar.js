@@ -124,8 +124,8 @@ export async function getUnavailableSlots(date, service) {
     });
 
     // Load buffer time from settings
-    const settingsPath = path.join(process.cwd(), 'calendar-settings.json');
-    const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf-8'));
+    const { getSettings } = await import('./calendar-settings');
+    const settings = await getSettings();
     const bufferTime = settings.bufferTime || 0; // in minutes
 
     // Extract booked time ranges and add buffer time
