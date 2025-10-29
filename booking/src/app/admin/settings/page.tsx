@@ -15,7 +15,7 @@ export default function SettingsPage() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  const [settings, setSettings] = useState(null)
+  const [settings, setSettings] = useState<any>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -87,7 +87,7 @@ export default function SettingsPage() {
     setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }))
   }
 
-  if (loading) {
+  if (loading || !settings) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
