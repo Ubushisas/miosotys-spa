@@ -1357,6 +1357,24 @@ footer {
   top: 0;
 }
 
+/* Make the calendar content area (lower section) smaller */
+#calendlyWindow .package-window-body {
+  padding: 1rem;
+  max-height: 70vh;
+}
+
+#calendlyWindow #calendlyContent {
+  transform: scale(0.85);
+  transform-origin: top center;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Ensure title "Selecciona una fecha" matches package title size (already 1.8rem) */
+#calendlyWindow .package-window-header h2 {
+  font-size: 1.8rem;
+}
+
 .package-window-content {
   height: 100%;
   display: flex;
