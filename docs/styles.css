@@ -1350,37 +1350,25 @@ footer {
   top: 20px;
 }
 
-/* Container 2 - Custom Calendar: Move 100px HIGHER and make much smaller */
+/* Container 2 - Custom Calendar: WINDOW stays big (50vw), move HIGHER, but CONTENT inside is smaller */
 #calendlyWindow {
   top: -100px;
-  width: 30vw;
-  height: 60vh;
+  width: 50vw;
+  height: 100vh;
 }
 
-/* Scale down everything inside the calendar window */
-#calendlyWindow .package-window-header {
-  padding: 1rem;
+/* Scale down CONTENT inside the calendar window (not the window itself) */
+#calendlyWindow .package-window-content {
+  transform: scale(0.8);
+  transform-origin: top center;
 }
 
 #calendlyWindow .package-window-header h2 {
-  font-size: 1.2rem;
-}
-
-#calendlyWindow .package-window-body {
-  padding: 1rem;
-  font-size: 0.85rem;
+  font-size: 1.4rem;
 }
 
 #calendlyWindow .close-btn {
-  font-size: 1.5rem;
-}
-
-/* Scale down iframe content inside calendar window */
-#calendlyWindow iframe {
-  transform: scale(0.85);
-  transform-origin: top left;
-  width: 117.6% !important;
-  height: 117.6% !important;
+  font-size: 1.8rem;
 }
 
 .package-window-content {
@@ -1759,20 +1747,20 @@ footer {
     right: -100vw;
   }
 
-  /* Mobile: Make custom calendar window much smaller */
+  /* Mobile: WINDOW stays full width, but CONTENT inside is smaller */
   #calendlyWindow {
-    width: 65vw;
-    right: -65vw;
-    height: 60vh;
+    width: 100vw;
+    right: -100vw;
+    height: 100vh;
+  }
+
+  #calendlyWindow .package-window-content {
+    transform: scale(0.85);
+    transform-origin: top center;
   }
 
   #calendlyWindow .package-window-header h2 {
-    font-size: 1rem;
-  }
-
-  #calendlyWindow .package-window-body {
-    padding: 0.75rem;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 
   .package-window-header {
