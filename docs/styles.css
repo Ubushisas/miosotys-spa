@@ -699,11 +699,11 @@ footer {
   /* Sticky Cards Small Screens */
   .sticky-card-img,
   .sticky-card:nth-child(even) .sticky-card-img {
-    height: 30vh;
+    height: 35vh;
   }
 
   .sticky-card-img img {
-    height: 30vh;
+    height: 35vh;
   }
 
   .sticky-card-header {
@@ -1208,8 +1208,8 @@ footer {
     left: 0 !important;
     right: auto !important;
     width: 100%;
-    height: 30vh;
-    flex: 0 0 30vh;
+    height: 35vh;
+    flex: 0 0 35vh;
     margin: 0;
     order: 1;
     border-radius: 20px;
@@ -1229,7 +1229,7 @@ footer {
     position: relative !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    height: 70vh;
+    height: 65vh;
     flex: 1;
     width: 100%;
     padding: 0.5em 1em;
@@ -1248,10 +1248,11 @@ footer {
     font-size: 1.1rem;
   }
 
+  /* Make all text description containers consistent size */
   .sticky-card-copy-description p {
     font-size: 1rem;
     padding: 0;
-    max-width: 70%;
+    max-width: 75%;
     margin: 0 auto;
     text-align: center;
   }
@@ -1908,10 +1909,10 @@ footer {
 
 /* Ultra-aggressive optimizations for phones only */
 @media (max-width: 480px) {
-  /* Text descriptions - even smaller on small phones */
+  /* Text descriptions - consistent with tablets */
   .sticky-card-copy-description p {
     padding: 0;
-    max-width: 65%;
+    max-width: 75%;
     margin: 0 auto;
   }
 
