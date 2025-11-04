@@ -216,9 +216,10 @@
   font-family: 'Gragio', sans-serif;
 }
 
-/* Add spacing between container 1 and container 2 on DESKTOP only */
+/* DESKTOP ONLY - Move container 2 (calendar) down 40px and increase text sizes */
 @media (min-width: 769px) {
-  .calendly-card + .calendly-card {
+  /* Move calendar container (container 2) down 40px */
+  .calendly-main {
     margin-top: 40px;
   }
 
