@@ -1070,9 +1070,9 @@
         // Encode the service name for URL
         const encodedService = encodeURIComponent(packageName);
 
-        // PRODUCTION - Vercel deployment
+        // PRODUCTION - Vercel deployment (public URL)
         const timestamp = new Date().getTime();
-        const bookingUrl = `https://booking-32zv9az4t-hello-ubushicoms-projects.vercel.app?service=${encodedService}&v=${timestamp}`;
+        const bookingUrl = `https://booking-beryl-eta.vercel.app?service=${encodedService}&v=${timestamp}`;
 
         showBookingCalendar(packageName, bookingUrl);
       }
