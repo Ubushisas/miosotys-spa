@@ -1252,7 +1252,7 @@ footer {
   .sticky-card-copy-description p {
     font-size: 1rem;
     padding: 0;
-    max-width: 75%;
+    max-width: 65%;
     margin: 0 auto;
     text-align: center;
   }
@@ -1912,7 +1912,7 @@ footer {
   /* Text descriptions - consistent with tablets */
   .sticky-card-copy-description p {
     padding: 0;
-    max-width: 75%;
+    max-width: 65%;
     margin: 0 auto;
   }
 

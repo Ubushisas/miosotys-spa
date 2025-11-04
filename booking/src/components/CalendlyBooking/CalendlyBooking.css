@@ -219,7 +219,54 @@
 /* Add spacing between container 1 and container 2 on DESKTOP only */
 @media (min-width: 769px) {
   .calendly-card + .calendly-card {
-    margin-top: 35px;
+    margin-top: 40px;
+  }
+
+  /* Increase text size on DESKTOP - all windows in iframe */
+  .calendly-selection-info h3 {
+    font-size: 1.85rem;
+  }
+
+  .calendly-info-item {
+    font-size: 1.25rem;
+  }
+
+  .calendly-datetime-display .font-semibold {
+    font-size: 1.35rem;
+  }
+
+  .calendly-datetime-display .text-sm {
+    font-size: 1.05rem;
+  }
+
+  /* Calendar header and labels */
+  .calendly-month-header {
+    font-size: 1.35rem;
+  }
+
+  .calendly-weekday {
+    font-size: 1.05rem;
+  }
+
+  /* Time slots */
+  .calendly-time-button,
+  .calendly-time-slot {
+    font-size: 1.1rem;
+  }
+
+  /* Form labels and inputs */
+  .calendly-form label {
+    font-size: 1.1rem;
+  }
+
+  .calendly-form input,
+  .calendly-form textarea {
+    font-size: 1.05rem;
+  }
+
+  /* Buttons */
+  .calendly-confirm-btn {
+    font-size: 1.15rem;
   }
 }
 
