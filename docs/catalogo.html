@@ -1070,9 +1070,9 @@
         // Encode the service name for URL
         const encodedService = encodeURIComponent(packageName);
 
-        // LOCAL DEVELOPMENT - Next.js dev server
+        // PRODUCTION - Vercel deployment
         const timestamp = new Date().getTime();
-        const bookingUrl = `http://localhost:3003?service=${encodedService}&v=${timestamp}`;
+        const bookingUrl = `https://booking-32zv9az4t-hello-ubushicoms-projects.vercel.app?service=${encodedService}&v=${timestamp}`;
 
         showBookingCalendar(packageName, bookingUrl);
       }

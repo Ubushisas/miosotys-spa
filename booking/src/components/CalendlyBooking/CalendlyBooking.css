@@ -216,6 +216,13 @@
   font-family: 'Gragio', sans-serif;
 }
 
+/* Add spacing between container 1 and container 2 on DESKTOP only */
+@media (min-width: 769px) {
+  .calendly-card + .calendly-card {
+    margin-top: 35px;
+  }
+}
+
 .calendly-step {
   position: relative;
   overflow: visible;
