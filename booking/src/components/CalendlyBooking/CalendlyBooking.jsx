@@ -213,21 +213,16 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   const handleServiceSelect = (service) => {
     setSelectedService(service);
-    // If service requires people count, show people selector first
-    if (requiresPeopleCount(service)) {
-      setDateTimeSubStep('people');
-      setPeopleCount(null); // Reset count
-    } else {
-      setDateTimeSubStep('date');
-      setPeopleCount(null); // Not needed for this service
-    }
+    // Always start with date selection
+    setDateTimeSubStep('date');
+    setPeopleCount(null); // Reset count
     setStep(2);
   };
 
   const handlePeopleCountSelect = (count) => {
     setPeopleCount(count);
-    // Skip guest names and go directly to date selection
-    setDateTimeSubStep('date');
+    // After selecting people count, go to form
+    setStep(3);
   };
 
   // Handle guest names completion
@@ -274,7 +269,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time);
-    // If service requires people count, go to people selection, otherwise go to details
+    // If service requires people count, show people selector, otherwise go to form
     if (selectedService && requiresPeopleCount(selectedService)) {
       setDateTimeSubStep('people');
     } else {
@@ -373,22 +368,22 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
           {selectedService && (
             <div className="calendly-selection-info">
-              <h3>{selectedService.name}</h3>
+              <h3 style={{fontFamily: "'Cormorant Garamond', serif"}}>{selectedService.name}</h3>
               <div className="calendly-info-items">
                 <div className="calendly-info-item">
                   <Clock className="w-4 h-4" />
-                  <span>{selectedService.duration} minutos</span>
+                  <span style={{fontFamily: "'Gragio', sans-serif"}}>{selectedService.duration} minutos</span>
                 </div>
                 <div className="calendly-info-item">
                   <MapPin className="w-4 h-4" />
-                  <span>Miosotys Spa, Colombia</span>
+                  <span style={{fontFamily: "'Gragio', sans-serif"}}>Miosotys Spa, Colombia</span>
                 </div>
               </div>
               {selectedDate && selectedTime && (
                 <div className="calendly-datetime-display">
                   <CalendarIcon className="w-5 h-5" />
                   <div>
-                    <div className="font-semibold">
+                    <div className="font-semibold" style={{fontFamily: "'Gragio', sans-serif"}}>
                       {selectedDate.toLocaleDateString("es-CO", {
                         weekday: "long",
                         year: "numeric",
@@ -396,7 +391,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                         day: "numeric",
                       })}
                     </div>
-                    <div className="text-sm" style={{color: '#6F4C31'}}>{selectedTime}</div>
+                    <div className="text-sm" style={{color: '#6F4C31', fontFamily: "'Gragio', sans-serif"}}>{selectedTime}</div>
                   </div>
                 </div>
               )}
@@ -476,18 +471,12 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
             {step === 2 && (
               <div className="calendly-step">
                 {/* Back button logic based on current substep */}
-                {dateTimeSubStep === 'time' && (
+                {dateTimeSubStep === 'people' && selectedTime && (
                   <button
-                    onClick={() => setDateTimeSubStep('date')}
-                    className="calendly-back-btn"
-                    title="Volver a selección de fecha"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                )}
-                {dateTimeSubStep === 'people' && (
-                  <button
-                    onClick={() => setDateTimeSubStep('time')}
+                    onClick={() => {
+                      setDateTimeSubStep('time');
+                      setSelectedTime(null);
+                    }}
                     className="calendly-back-btn"
                     title="Volver a selección de hora"
                   >
@@ -663,14 +652,10 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                 {dateTimeSubStep === 'time' && selectedDate && (
                   <div className="calendly-unified-picker">
                     <div className="calendly-unified-times" style={{ width: '100%' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
                         <button
-                          onClick={() => {
-                            setDateTimeSubStep('date');
-                            setSelectedTime(null);
-                          }}
+                          onClick={() => setDateTimeSubStep('date')}
                           className="calendly-back-btn"
-                          style={{ marginRight: '0.5rem' }}
                           title="Volver a selección de fecha"
                         >
                           <ChevronLeft className="w-5 h-5" />
@@ -722,9 +707,10 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                 <button
                   onClick={() => {
                     setStep(2);
-                    // Go back to guest names if service requires people count, otherwise to time selection
+                    // Go back to people selection if service requires people count, otherwise to time selection
                     if (selectedService && requiresPeopleCount(selectedService)) {
-                      setDateTimeSubStep('guests');
+                      setDateTimeSubStep('people');
+                      setPeopleCount(null);
                     } else {
                       setDateTimeSubStep('time');
                       setSelectedTime(null);
@@ -732,6 +718,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                   }}
                   className="calendly-back-btn"
                   title="Volver"
+                  style={{marginTop: '-9.8125rem'}}
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
@@ -739,7 +726,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
                 <form onSubmit={handleSubmit} className="calendly-form">
                   <div className="calendly-form-group">
-                    <label htmlFor="name">Nombre completo *</label>
+                    <label htmlFor="name" style={{fontFamily: "'Gragio', sans-serif"}}>
+                      Nombre completo <span className="asterisk">*</span>
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -747,30 +736,35 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Tu nombre"
+                      style={{fontFamily: "'Gragio', sans-serif"}}
                     />
                   </div>
 
                   <div className="calendly-form-group">
-                    <label htmlFor="email">Correo electrónico *</label>
+                    <label htmlFor="email" style={{fontFamily: "'Gragio', sans-serif"}}>Correo electrónico</label>
                     <input
                       type="email"
                       id="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="tu@email.com"
+                      placeholder="Tu email"
+                      style={{fontFamily: "'Gragio', sans-serif"}}
                     />
                   </div>
 
                   <div className="calendly-form-group">
-                    <label htmlFor="phone">Teléfono (WhatsApp) *</label>
+                    <label htmlFor="phone" style={{fontFamily: "'Gragio', sans-serif"}}>
+                      Teléfono (WhatsApp) <span className="asterisk">*</span>
+                    </label>
                     <input
                       type="tel"
                       id="phone"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="3001234567"
+                      placeholder="Tu número de celular"
+                      style={{fontFamily: "'Gragio', sans-serif"}}
                     />
                   </div>
 
@@ -778,9 +772,10 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                     type="submit"
                     className={`calendly-submit-btn ${isFormComplete && !isSubmitting ? 'calendly-submit-btn-active' : ''}`}
                     disabled={!isFormComplete || isSubmitting}
+                    style={{fontFamily: "'Gragio', sans-serif"}}
                   >
                     {isSubmitting ? (
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: "'Gragio', sans-serif" }}>
                         <div className="calendly-spinner" style={{ width: '20px', height: '20px', borderWidth: '3px' }}></div>
                         <span>Confirmando reserva...</span>
                       </div>

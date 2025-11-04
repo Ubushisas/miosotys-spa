@@ -75,7 +75,7 @@ function HomeContent() {
               <div style={{
                 padding: '3rem',
                 textAlign: 'center',
-                background: '#fff',
+                background: '#fbf6e9',
                 borderRadius: '1rem',
                 boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
               }}>

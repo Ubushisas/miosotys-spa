@@ -654,7 +654,7 @@ footer {
   }
 
   .logo img {
-    height: 115px;
+    height: 95px;
   }
 
   .nav-items p {
@@ -1120,7 +1120,7 @@ footer {
   }
 
   .logo img {
-    height: 115px;
+    height: 95px;
   }
 
   .nav-items p {
@@ -1250,7 +1250,17 @@ footer {
 
   .sticky-card-copy-description p {
     font-size: 1rem;
-    padding: 0 1em;
+    padding: 0;
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .sticky-card .sticky-card-copy-description {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .sticky-card-button {
@@ -1363,13 +1373,14 @@ footer {
 }
 
 #calendlyWindow .package-window-header h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 /* Make calendar BIGGER - fill the full 50% space */
 #calendlyWindow .package-window-body {
   padding: 2rem 3rem;
   overflow-y: auto;
+  background-color: #FBF6E9;
 }
 
 /* Scale up the calendar content to fill more space */
@@ -1384,7 +1395,7 @@ footer {
   width: 100% !important;
   height: 100% !important;
   min-height: 700px !important;
-  transform: scale(1.15);
+  transform: scale(1.0);
   transform-origin: top center;
 }
 
@@ -1393,6 +1404,7 @@ footer {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background-color: #FBF6E9;
 }
 
 .package-window-header {
@@ -1431,12 +1443,13 @@ footer {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
+  background-color: #FBF6E9;
 }
 
 /* Modern Glassmorphism Card Styles */
 .modern-card {
   position: relative;
-  background: transparent;
+  background: #FBF6E9;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 24px;
@@ -1584,9 +1597,9 @@ footer {
 }
 
 .includes-content.active {
-  max-height: 300px;
+  max-height: none;
   padding: 1.25rem;
-  overflow-y: auto;
+  overflow-y: visible;
   opacity: 1;
 }
 
@@ -1633,7 +1646,7 @@ footer {
 }
 
 .package-item {
-  background-color: #fff;
+  background-color: #fbf6e9;
   border-radius: 12px;
   padding: 0;
   margin-bottom: 1.5rem;
@@ -1761,7 +1774,19 @@ footer {
 @media (max-width: 768px) {
   .package-window {
     width: 100vw;
+    height: 100vh;
+    top: 0;
     right: -100vw;
+  }
+
+  /* Adjust "Ver paquetes" window position */
+  #packageWindow .package-window-content {
+    padding-top: 0;
+    margin-top: -22px;
+  }
+
+  #packageWindow .package-window-header {
+    padding-top: 1rem;
   }
 
   /* Mobile: Calendar window same as package window */
@@ -1769,6 +1794,39 @@ footer {
     width: 100vw;
     right: -100vw;
     height: 100vh;
+  }
+
+  /* Center the iframe in mobile */
+  #calendlyWindow .package-window-body {
+    padding: 0.5rem 0;
+    padding-top: 0;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  #calendlyWindow .package-window-header {
+    margin-bottom: -40px;
+    z-index: 1000;
+    position: relative;
+  }
+
+  #calendlyWindow #calendlyContent {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    transform: translateY(-5px);
+  }
+
+  #calendlyWindow iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    margin: 0 auto;
+    display: block;
+    transform: translateX(-30px) translateY(35px);
   }
 
   .package-window-header {
@@ -1831,7 +1889,8 @@ footer {
   }
 
   .includes-content.active {
-    max-height: 250px;
+    max-height: none;
+    overflow-y: visible;
   }
 
   /* Remove heavy effects on tablet for better performance */
@@ -1849,6 +1908,17 @@ footer {
 
 /* Ultra-aggressive optimizations for phones only */
 @media (max-width: 480px) {
+  /* Text descriptions - even smaller on small phones */
+  .sticky-card-copy-description p {
+    padding: 0;
+    max-width: 65%;
+    margin: 0 auto;
+  }
+
+  .sticky-card .sticky-card-copy-description {
+    padding: 0;
+  }
+
   /* Instant animation on phones - no lag */
   .includes-content {
     transition: max-height 0.1s linear !important;
@@ -1862,7 +1932,8 @@ footer {
   }
 
   .includes-content.active {
-    max-height: 200px !important;
+    max-height: none !important;
+    overflow-y: visible !important;
   }
 
   /* Remove ALL heavy effects on phones */

@@ -1,21 +1,21 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
 
 @theme {
   /* Clean monochromatic black and white palette */
-  --color-background: hsl(0 0% 100%);
+  --color-background: #FBF6E9;
   --color-foreground: hsl(0 0% 10%);
-  --color-card: hsl(0 0% 100%);
+  --color-card: #FBF6E9;
   --color-card-foreground: hsl(0 0% 10%);
-  --color-popover: hsl(0 0% 100%);
+  --color-popover: #FBF6E9;
   --color-popover-foreground: hsl(0 0% 10%);
   --color-primary: hsl(0 0% 10%);
   --color-primary-foreground: hsl(0 0% 100%);
-  --color-secondary: hsl(0 0% 96%);
+  --color-secondary: #fbf6e9;
   --color-secondary-foreground: hsl(0 0% 10%);
-  --color-muted: hsl(0 0% 96%);
+  --color-muted: #fbf6e9;
   --color-muted-foreground: hsl(0 0% 45%);
   --color-accent: hsl(0 0% 10%);
   --color-accent-foreground: hsl(0 0% 100%);
