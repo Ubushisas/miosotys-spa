@@ -195,6 +195,16 @@
           margin: 0 auto !important;
           display: block !important;
           transform: translateX(-30px) translateY(35px) !important;
+          overflow: hidden !important;
+        }
+
+        /* Prevent double scrollbar on mobile - hide iframe internal scrollbar */
+        body {
+          overflow-x: hidden !important;
+        }
+
+        #calendlyWindow.active {
+          overflow-y: auto !important;
         }
       }
 

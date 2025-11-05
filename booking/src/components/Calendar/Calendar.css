@@ -247,15 +247,15 @@
 
   /* Make text SIGNIFICANTLY bigger on desktop only */
   .calendar-header h3 {
-    font-size: 3.5rem !important;
+    font-size: 3.675rem !important;
   }
 
   .day-name {
-    font-size: 1.8rem !important;
+    font-size: 1.854rem !important;
   }
 
   .calendar-day {
-    font-size: 2.2rem !important;
+    font-size: 2.31rem !important;
   }
 
   .time-header h3 {
@@ -285,7 +285,7 @@
   }
 
   .summary-text {
-    font-size: 2.3rem !important;
+    font-size: 2.415rem !important;
   }
 
   .selection-summary .mono {

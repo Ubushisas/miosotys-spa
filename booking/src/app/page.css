@@ -6,6 +6,18 @@
   overflow-x: hidden;
 }
 
+/* Prevent double scrollbar on mobile when inside iframe */
+@media (max-width: 1000px) {
+  body {
+    overflow: visible !important;
+  }
+
+  .spa-booking-page {
+    overflow: visible !important;
+    overflow-x: hidden !important;
+  }
+}
+
 .spa-booking-page::before {
   content: '';
   position: fixed;
