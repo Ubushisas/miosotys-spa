@@ -110,7 +110,7 @@
 
 .time-view-header {
   text-align: left; /* Align left for arrow placement */
-  margin-bottom: 2rem;
+  margin-bottom: 60px; /* Add 60px gap between service info and calendar */
   padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(242, 237, 230, 0.1);
   position: relative;
@@ -127,7 +127,7 @@
 }
 
 .time-view-date {
-  font-size: 1.1rem; /* Just slightly bigger than normal (was 1rem) */
+  font-size: 1.25rem; /* Bigger but not too big */
   color: var(--base-250);
   font-weight: 300; /* Lighter font weight */
   margin-bottom: 0.5rem;
