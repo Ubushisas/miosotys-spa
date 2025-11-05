@@ -1,8 +1,6 @@
 import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
-import { getSettings } from './calendar-settings';
-import { toZonedTime, fromZonedTime } from 'date-fns-tz';
 
 // Calendar IDs for the two rooms
 const CALENDAR_IDS = {
@@ -26,13 +24,8 @@ function getOAuth2Client() {
 function getCalendarClient() {
   const oauth2Client = getOAuth2Client();
 
-  // Try to load token from environment variable first (for Vercel)
-  if (process.env.GOOGLE_OAUTH_TOKEN) {
-    const token = JSON.parse(process.env.GOOGLE_OAUTH_TOKEN);
-    oauth2Client.setCredentials(token);
-  }
-  // Fallback to file for local development
-  else if (fs.existsSync(TOKEN_PATH)) {
+  // Load token from file
+  if (fs.existsSync(TOKEN_PATH)) {
     const token = JSON.parse(fs.readFileSync(TOKEN_PATH, 'utf-8'));
     oauth2Client.setCredentials(token);
   } else {
@@ -131,7 +124,8 @@ export async function getUnavailableSlots(date, service) {
     });
 
     // Load buffer time from settings
-    const settings = await getSettings();
+    const settingsPath = path.join(process.cwd(), 'calendar-settings.json');
+    const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf-8'));
     const bufferTime = settings.bufferTime || 0; // in minutes
 
     // Extract booked time ranges and add buffer time
@@ -194,17 +188,11 @@ export async function createBooking(date, time, service, guestNames, customerInf
       },
     };
 
-    console.log('Creating event with attendees:', event.attendees);
-    console.log('SendUpdates:', 'all');
-
     const response = await calendar.events.insert({
       calendarId,
       resource: event,
       sendUpdates: 'all', // Send email to attendees
     });
-
-    console.log('✅ Event created:', response.data.id);
-    console.log('Event attendees:', response.data.attendees);
 
     return response.data;
   } catch (error) {
@@ -213,7 +201,7 @@ export async function createBooking(date, time, service, guestNames, customerInf
   }
 }
 
-// Helper function to convert date and 12-hour time to ISO datetime in Colombia timezone
+// Helper function to convert date and 12-hour time to ISO datetime
 function convertToISODateTime(date, time12h) {
   // Parse 12-hour time format (e.g., "2:30 PM")
   const [timeStr, period] = time12h.split(' ');
@@ -231,9 +219,5 @@ function convertToISODateTime(date, time12h) {
   const dateTime = new Date(date);
   dateTime.setHours(hours24, minutes, 0, 0);
 
-  // Convert Colombia time to UTC properly using fromZonedTime
-  const colombiaTimeZone = 'America/Bogota';
-  const utcDate = fromZonedTime(dateTime, colombiaTimeZone);
-
-  return utcDate.toISOString();
+  return dateTime.toISOString();
 }

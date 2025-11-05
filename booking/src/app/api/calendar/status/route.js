@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
-import { getSettings } from '@/lib/db';
+import { getSettings } from '@/lib/calendar-settings';
 
 export async function GET() {
   try {
-    const settings = await getSettings();
+    const settings = getSettings();
 
     return NextResponse.json({
-      enabled: settings?.calendarEnabled ?? true,
-      message: settings?.calendarEnabled
+      enabled: settings.calendarEnabled,
+      message: settings.calendarEnabled
         ? null
         : 'El calendario no está disponible en este momento. Por favor intenta más tarde.',
     });

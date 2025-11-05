@@ -1,5 +1,4 @@
 {
-  "alias": ["booking-beryl-eta.vercel.app"],
   "crons": [
     {
       "path": "/api/cron/send-reminders",

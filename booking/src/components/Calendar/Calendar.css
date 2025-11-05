@@ -12,23 +12,19 @@
 .calendar-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 2rem;
-  background-color: #FBF6E9;
-  border: 1px solid rgba(184, 124, 76, 0.2);
+  gap: 3rem;
+  background-color: var(--base-450);
+  border: 1px solid rgba(242, 237, 230, 0.1);
   border-radius: 1rem;
-  padding: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 3rem;
 }
 
 .calendar-single-view {
   position: relative;
-  background-color: #FBF6E9;
-  border: 1px solid rgba(184, 124, 76, 0.2);
+  background-color: var(--base-450);
+  border: 1px solid rgba(242, 237, 230, 0.1);
   border-radius: 1rem;
-  padding: 2rem;
-  max-width: 600px;
-  margin: 0 auto;
+  padding: 3rem;
 }
 
 .loading-overlay {
@@ -61,8 +57,8 @@
 
 .back-button {
   background: none;
-  border: 2px solid #BBDCE5;
-  color: #B87C4C;
+  border: 1px solid rgba(242, 237, 230, 0.2);
+  color: var(--base-100);
   font-size: 1rem;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
@@ -76,16 +72,15 @@
 }
 
 .back-button:hover {
-  background-color: #BBDCE5;
-  border-color: #BBDCE5;
-  color: #4A3C32;
+  background-color: rgba(242, 237, 230, 0.05);
+  border-color: rgba(242, 237, 230, 0.4);
 }
 
 /* Calendly-style back button */
 .back-button-simple {
   background: none;
   border: none;
-  color: #BBDCE5;
+  color: var(--base-100);
   font-size: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -95,11 +90,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0; /* Align arrow to the left */
 }
 
 .back-button-simple:hover {
-  background-color: rgba(187, 220, 229, 0.2);
+  background-color: rgba(242, 237, 230, 0.1);
   transform: translateX(-2px);
 }
 
@@ -107,33 +104,37 @@
 .calendly-style {
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 150px; /* Move container 150px lower */
 }
 
 .time-view-header {
-  text-align: center;
+  text-align: left; /* Align left for arrow placement */
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(242, 237, 230, 0.1);
+  position: relative;
+  padding-top: 70px; /* Move content 70px lower for arrow space */
 }
 
 .time-view-day {
-  font-size: 2.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  color: #B87C4C;
+  color: var(--base-100);
   margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
 
 .time-view-date {
-  font-size: 1.5rem;
-  color: #4A3C32;
+  font-size: 1.35rem; /* Made bigger from 1rem to 1.35rem */
+  color: var(--base-250);
+  font-weight: 300; /* Lighter font weight */
   margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
 
 .time-view-duration {
-  font-size: 1rem;
-  color: #4A3C32;
+  font-size: 0.9rem;
+  color: var(--base-300);
   font-family: "DM Mono", monospace;
 }
 
@@ -182,11 +183,11 @@
 .time-slot-calendly {
   width: 100%;
   padding: 0.75rem 1rem;
-  background-color: rgba(187, 220, 229, 0.1);
-  border: 2px solid #BBDCE5;
+  background-color: rgba(242, 237, 230, 0.02);
+  border: 2px solid rgba(242, 237, 230, 0.15);
   border-radius: 0.5rem;
-  color: #4A3C32;
-  font-size: 1.4rem;
+  color: var(--base-100);
+  font-size: 0.95rem;
   font-family: "DM Mono", monospace;
   font-weight: 600;
   cursor: pointer;
@@ -195,15 +196,15 @@
 }
 
 .time-slot-calendly:hover {
-  background-color: rgba(187, 220, 229, 0.3);
-  border-color: #BBDCE5;
+  background-color: rgba(242, 237, 230, 0.08);
+  border-color: rgba(242, 237, 230, 0.3);
   transform: translateX(4px);
 }
 
 .time-slot-calendly.selected {
-  background-color: #BBDCE5;
-  border-color: #BBDCE5;
-  color: #4A3C32;
+  background-color: var(--base-100);
+  border-color: var(--base-100);
+  color: var(--base-500);
   transform: scale(1);
   animation: none;
 }
@@ -239,68 +240,6 @@
   gap: 1.5rem;
 }
 
-/* Desktop only: Move calendar section lower and increase text sizes */
-@media (min-width: 1001px) {
-  .calendar-section {
-    margin-top: 50px;
-  }
-
-  /* Make text bigger on desktop only */
-  .calendar-header h3 {
-    font-size: 2rem !important;
-  }
-
-  .day-name {
-    font-size: 1.1rem !important;
-  }
-
-  .calendar-day {
-    font-size: 1.4rem !important;
-  }
-
-  .time-header h3 {
-    font-size: 2rem !important;
-  }
-
-  .time-view-day {
-    font-size: 3rem !important;
-  }
-
-  .time-view-date {
-    font-size: 1.8rem !important;
-  }
-
-  .time-view-duration {
-    font-size: 1.2rem !important;
-  }
-
-  .time-slot-calendly {
-    font-size: 1.5rem !important;
-    padding: 1rem 1.5rem !important;
-  }
-
-  .time-slot {
-    font-size: 1.3rem !important;
-    padding: 1rem 1.5rem !important;
-  }
-
-  .summary-text {
-    font-size: 1.8rem !important;
-  }
-
-  .selection-summary .mono {
-    font-size: 1.1rem !important;
-  }
-
-  .time-placeholder p {
-    font-size: 1.3rem !important;
-  }
-
-  .selected-date-display {
-    font-size: 1.2rem !important;
-  }
-}
-
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -309,15 +248,15 @@
 }
 
 .calendar-header h3 {
-  font-size: 2.5rem;
-  color: #B87C4C;
+  font-size: 1.5rem;
+  color: var(--base-100);
   font-weight: 600;
 }
 
 .month-nav {
   background: none;
-  border: 2px solid #BBDCE5;
-  color: #BBDCE5;
+  border: 1px solid rgba(242, 237, 230, 0.2);
+  color: var(--base-100);
   font-size: 1.25rem;
   width: 2.5rem;
   height: 2.5rem;
@@ -330,9 +269,8 @@
 }
 
 .month-nav:hover {
-  background-color: #BBDCE5;
-  border-color: #BBDCE5;
-  color: #4A3C32;
+  background-color: rgba(242, 237, 230, 0.05);
+  border-color: rgba(242, 237, 230, 0.4);
 }
 
 .calendar-days-header {
@@ -344,8 +282,8 @@
 
 .day-name {
   text-align: center;
-  font-size: 1.4rem;
-  color: #4A3C32;
+  font-size: 0.85rem;
+  color: var(--base-300);
   font-weight: 600;
   text-transform: uppercase;
   font-family: "DM Mono", monospace;
@@ -360,11 +298,11 @@
 
 .calendar-day {
   aspect-ratio: 1;
-  border: 1px solid rgba(184, 124, 76, 0.2);
-  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(242, 237, 230, 0.1);
+  background-color: rgba(242, 237, 230, 0.02);
   border-radius: 0.5rem;
-  color: #4A3C32;
-  font-size: 1.6rem;
+  color: var(--base-100);
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -380,8 +318,8 @@
 }
 
 .calendar-day:not(.empty):not(.past):hover {
-  background-color: rgba(187, 220, 229, 0.3);
-  border-color: #BBDCE5;
+  background-color: rgba(242, 237, 230, 0.1);
+  border-color: rgba(242, 237, 230, 0.3);
   transform: scale(1.05);
 }
 
@@ -392,14 +330,14 @@
 }
 
 .calendar-day.today {
-  border-color: #BBDCE5;
-  background-color: rgba(187, 220, 229, 0.2);
+  border-color: var(--base-250);
+  background-color: rgba(242, 237, 230, 0.05);
 }
 
 .calendar-day.selected {
-  background-color: #BBDCE5;
-  border-color: #BBDCE5;
-  color: #4A3C32;
+  background-color: var(--base-300);
+  border-color: var(--base-100);
+  color: var(--base-500);
   font-weight: 700;
 }
 
@@ -413,15 +351,15 @@
 }
 
 .time-header h3 {
-  font-size: 1.7rem;
-  color: #B87C4C;
+  font-size: 1.5rem;
+  color: var(--base-100);
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .selected-date-display {
-  font-size: 1rem;
-  color: #4A3C32;
+  font-size: 0.9rem;
+  color: var(--base-250);
   text-transform: capitalize;
   margin-top: 0.5rem;
 }
@@ -435,8 +373,8 @@
 }
 
 .time-placeholder p {
-  color: #4A3C32;
-  font-size: 1.1rem;
+  color: var(--base-300);
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -444,7 +382,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
-  max-height: 400px;
+  max-height: 600px;
   overflow-y: auto;
   padding-right: 0.5rem;
 }
@@ -470,11 +408,11 @@
 
 .time-slot {
   padding: 0.75rem 1rem;
-  background-color: rgba(187, 220, 229, 0.1);
-  border: 2px solid #BBDCE5;
+  background-color: rgba(242, 237, 230, 0.02);
+  border: 1px solid rgba(242, 237, 230, 0.1);
   border-radius: 0.5rem;
-  color: #4A3C32;
-  font-size: 1.1rem;
+  color: var(--base-100);
+  font-size: 1rem;
   font-family: "DM Mono", monospace;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -482,15 +420,15 @@
 }
 
 .time-slot:hover {
-  background-color: rgba(187, 220, 229, 0.3);
-  border-color: #BBDCE5;
+  background-color: rgba(242, 237, 230, 0.1);
+  border-color: rgba(242, 237, 230, 0.3);
   transform: translateX(0.25rem);
 }
 
 .time-slot.selected {
-  background-color: #BBDCE5;
-  border-color: #BBDCE5;
-  color: #4A3C32;
+  background-color: var(--base-300);
+  border-color: var(--base-100);
+  color: var(--base-500);
   font-weight: 700;
   position: relative;
   animation: pulse 0.4s ease-out;
@@ -546,8 +484,8 @@
 
 /* Selection Summary */
 .selection-summary {
-  background-color: rgba(187, 220, 229, 0.1);
-  border: 2px solid #BBDCE5;
+  background-color: rgba(242, 237, 230, 0.05);
+  border: 1px solid rgba(242, 237, 230, 0.15);
   border-radius: 0.75rem;
   padding: 1.5rem 2rem;
   text-align: center;
@@ -566,19 +504,18 @@
 }
 
 .selection-summary .mono {
-  color: #4A3C32;
+  color: var(--base-300);
   margin-bottom: 0.75rem;
-  font-size: 1rem;
 }
 
 .summary-text {
-  font-size: 1.6rem;
-  color: #4A3C32;
+  font-size: 1.1rem;
+  color: var(--base-200);
   text-transform: capitalize;
 }
 
 .summary-text strong {
-  color: #B87C4C;
+  color: var(--base-100);
   font-weight: 600;
 }
 
@@ -586,20 +523,19 @@
 @media (max-width: 1000px) {
   .calendar-grid {
     grid-template-columns: 1fr;
-    padding: 1.5rem;
-    max-width: 100%;
+    padding: 2rem;
   }
 
   .time-section {
     border-left: none;
-    border-top: 1px solid rgba(184, 124, 76, 0.2);
+    border-top: 1px solid rgba(242, 237, 230, 0.1);
     padding-left: 0;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
   }
 
   .time-slots {
     grid-template-columns: repeat(3, 1fr);
-    max-height: 300px;
+    max-height: 400px;
   }
 
   .calendar-day {

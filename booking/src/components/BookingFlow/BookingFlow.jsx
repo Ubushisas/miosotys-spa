@@ -40,19 +40,14 @@ const BookingFlow = () => {
 
   const handleServiceSelect = (svc) => {
     setService(svc);
-    if (svc.minPeople) {
-      // Grupal service
-      setStep(3);
-    } else {
-      // Individual service - skip to calendar
-      setStep(4);
-    }
+    // Always go to calendar first
+    setStep(3);
   };
 
   const handlePeopleSelect = (num) => {
     setNumPeople(num);
-    setGuestNames(Array(num).fill("")); // All people including main person
-    setStep(3.5); // Guest names step
+    setGuestNames([]); // No need to collect guest names
+    setStep(4.5); // Go to contact info
   };
 
   const handleGuestNameChange = (index, value) => {
@@ -264,41 +259,34 @@ const BookingFlow = () => {
         </div>
       )}
 
-      {/* Step 3: Number of People (for group services) */}
-      {step === 3 && service && service.minPeople && (
+      {/* Step 3: Calendar (for all services) */}
+      {step === 3 && service && (
         <div className="booking-step">
           <Copy delay={0.1}>
-            <p className="mono">Paso 3 de 4</p>
+            <p className="mono">Paso 3 de {service.minPeople ? '5' : '4'}</p>
           </Copy>
           {service && (
             <p className="service-name-indicator">{service.name}</p>
           )}
           <Copy delay={0.2}>
-            <h2>¿Cuántas personas asistirán?</h2>
+            <h2>Selecciona fecha y hora</h2>
           </Copy>
-          <p className="step-subtitle">
-            {service.minPeople} a {service.maxPeople} personas
-          </p>
 
-          <p className="selector-label">¿Cuántas personas asistirán?</p>
+          <Calendar
+            service={service}
+            onSelectDateTime={(dateTime) => setSelectedDateTime(dateTime)}
+          />
 
-          <div className="people-selector">
-            {Array.from(
-              { length: service.maxPeople - service.minPeople + 1 },
-              (_, i) => service.minPeople + i
-            ).map((num) => (
-              <button
-                key={num}
-                className={`people-option ${numPeople === num ? "active" : ""}`}
-                onClick={() => handlePeopleSelect(num)}
-              >
-                <span className="people-number">{num}</span>
-                <span className="people-label">
-                  {num === 1 ? "persona" : "personas"}
-                </span>
-              </button>
-            ))}
-          </div>
+          {selectedDateTime && (
+            <div className="confirmation-actions">
+              <div onClick={() => setStep(service.minPeople ? 4 : 4.5)}>
+                <AnimatedButton
+                  label="Continuar"
+                  animate={false}
+                />
+              </div>
+            </div>
+          )}
 
           <button className="back-button" onClick={() => setStep(2)}>
             ← Volver a servicios
@@ -360,88 +348,42 @@ const BookingFlow = () => {
         </div>
       )}
 
-      {/* Step 4: Calendar & Confirmation (Placeholder) */}
-      {step === 4 && service && (
+      {/* Step 4: Number of People (for group services only) */}
+      {step === 4 && service && service.minPeople && selectedDateTime && (
         <div className="booking-step">
           <Copy delay={0.1}>
-            <p className="mono">Paso 4 de 4</p>
+            <p className="mono">Paso 4 de 5</p>
           </Copy>
           {service && (
             <p className="service-name-indicator">{service.name}</p>
           )}
           <Copy delay={0.2}>
-            <h2>Selecciona fecha y hora</h2>
+            <h2>¿Cuántas personas asistirán?</h2>
           </Copy>
+          <p className="step-subtitle">
+            {service.minPeople} a {service.maxPeople} personas
+          </p>
 
-          <Calendar
-            service={service}
-            onSelectDateTime={(dateTime) => setSelectedDateTime(dateTime)}
-          />
+          <div className="people-selector">
+            {Array.from(
+              { length: service.maxPeople - service.minPeople + 1 },
+              (_, i) => service.minPeople + i
+            ).map((num) => (
+              <button
+                key={num}
+                className={`people-option ${numPeople === num ? "active" : ""}`}
+                onClick={() => handlePeopleSelect(num)}
+              >
+                <span className="people-number">{num}</span>
+                <span className="people-label">
+                  {num === 1 ? "persona" : "personas"}
+                </span>
+              </button>
+            ))}
+          </div>
 
-          {selectedDateTime && (
-            <>
-              <div className="booking-summary">
-                <h3>Resumen de tu reserva</h3>
-                <div className="summary-item">
-                  <span>Servicio:</span>
-                  <span>{service.name}</span>
-                </div>
-                <div className="summary-item">
-                  <span>Fecha:</span>
-                  <span>
-                    {selectedDateTime.date.toLocaleDateString('es-CO', {
-                      weekday: 'long',
-                      day: 'numeric',
-                      month: 'long',
-                      year: 'numeric'
-                    })}
-                  </span>
-                </div>
-                <div className="summary-item">
-                  <span>Hora:</span>
-                  <span>{selectedDateTime.time}</span>
-                </div>
-                <div className="summary-item">
-                  <span>Duración:</span>
-                  <span>{service.duration} minutos</span>
-                </div>
-                {service.minPeople && (
-                  <>
-                    <div className="summary-item">
-                      <span>Personas:</span>
-                      <span>{numPeople}</span>
-                    </div>
-                    {guestNames.length > 0 && (
-                      <div className="summary-item">
-                        <span>Nombres:</span>
-                        <span>{guestNames.filter((n) => n).join(", ")}</span>
-                      </div>
-                    )}
-                  </>
-                )}
-                <div className="summary-item total">
-                  <span>Total:</span>
-                  <span>{formatPrice(service.price)}</span>
-                </div>
-                <div className="summary-item deposit">
-                  <span>Depósito requerido (50%):</span>
-                  <span>{formatPrice(service.price * 0.5)}</span>
-                </div>
-              </div>
-
-              <div className="confirmation-actions">
-                <div onClick={() => setStep(4.5)}>
-                  <AnimatedButton
-                    label="Continuar"
-                    animate={false}
-                  />
-                </div>
-              </div>
-            </>
-          )}
-
-          <button className="back-button" onClick={() => setStep(service.minPeople ? 3.5 : 2)}>
-            ← Volver
+          <button className="back-button" onClick={() => setStep(3)}>
+            ← Volver al calendario
           </button>
         </div>
       )}
@@ -450,7 +392,7 @@ const BookingFlow = () => {
       {step === 4.5 && service && selectedDateTime && (
         <div className="booking-step">
           <Copy delay={0.1}>
-            <p className="mono">Paso 5 de 5</p>
+            <p className="mono">Paso {service.minPeople ? '5' : '4'} de {service.minPeople ? '5' : '4'}</p>
           </Copy>
           {service && (
             <p className="service-name-indicator">{service.name}</p>
@@ -483,7 +425,7 @@ const BookingFlow = () => {
             </div>
 
             <div className={`form-group ${customerErrors.includes('phone') ? 'error' : ''}`}>
-              <label>Teléfono (WhatsApp)</label>
+              <label>Teléfono</label>
               <input
                 type="tel"
                 value={customerInfo.phone}
@@ -493,15 +435,12 @@ const BookingFlow = () => {
                     setCustomerErrors(customerErrors.filter(f => f !== 'phone'));
                   }
                 }}
-                placeholder="3213582608"
+                placeholder="Tu número de teléfono"
                 required
               />
               {customerErrors.includes('phone') && (
                 <span className="error-message">* Campo obligatorio</span>
               )}
-              <small style={{ color: '#666', fontSize: '0.85em', marginTop: '4px', display: 'block' }}>
-                Solo el número sin +57
-              </small>
             </div>
 
             <div className={`form-group ${customerErrors.includes('email') ? 'error' : ''}`}>
@@ -525,7 +464,7 @@ const BookingFlow = () => {
           </div>
 
           <div className="step-actions">
-            <button className="back-button" onClick={() => setStep(4)}>
+            <button className="back-button" onClick={() => setStep(service.minPeople ? 4 : 3)}>
               ← Volver
             </button>
             <div onClick={handleContinueToConfirmation}>
