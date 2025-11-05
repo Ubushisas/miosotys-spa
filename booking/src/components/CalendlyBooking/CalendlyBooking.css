@@ -216,11 +216,11 @@
   font-family: 'Gragio', sans-serif;
 }
 
-/* DESKTOP ONLY - Move container 2 (calendar) down 40px and increase text sizes */
+/* DESKTOP ONLY - Move container 2 (calendar) down 90px and increase text sizes */
 @media (min-width: 769px) {
-  /* Move calendar container (container 2) down 40px */
+  /* Move calendar container (container 2) down 90px */
   .calendly-main {
-    margin-top: 40px;
+    margin-top: 90px;
   }
 
   /* Increase text size on DESKTOP - all windows in iframe */
