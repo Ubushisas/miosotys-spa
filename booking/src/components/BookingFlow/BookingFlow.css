@@ -236,15 +236,17 @@
 
 /* Selector Label - title above people selector */
 .selector-label {
-  color: var(--base-100);
-  font-size: 1.2rem;
-  font-weight: 600;
+  color: #FF0000;
+  font-size: 2.5rem;
+  font-weight: 900;
   text-align: center;
   margin-top: 1.5rem;
-  margin-bottom: -0.5rem;
-  text-transform: none;
-  letter-spacing: 0.02rem;
-  /* Auto-deploy test comment */
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border: 5px solid #FF0000;
+  padding: 1rem;
+  background: #FFFF00;
 }
 
 /* People Selector */
