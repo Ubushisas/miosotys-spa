@@ -218,11 +218,11 @@
   font-family: 'Gragio', sans-serif;
 }
 
-/* DESKTOP ONLY - Move container 2 (calendar) down 110px and increase text sizes */
+/* DESKTOP ONLY - Move container 2 (calendar) down 180px and increase text sizes */
 @media (min-width: 769px) {
-  /* Move calendar container (container 2) down 110px */
+  /* Move calendar container (container 2) down 180px */
   .calendly-main {
-    margin-top: 110px;
+    margin-top: 180px;
   }
 
   /* Increase text size on DESKTOP - all windows in iframe */
@@ -236,10 +236,12 @@
 
   .calendly-datetime-display .font-semibold {
     font-size: 1.7rem !important;
+    font-weight: 400 !important;
   }
 
   .calendly-datetime-display .text-sm {
-    font-size: 1.5rem !important;
+    font-size: 1.7rem !important;
+    font-weight: 600 !important;
   }
 
   /* Calendar header and labels */
@@ -295,6 +297,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   color: #BBDCE5;
   margin-bottom: 0;
+  margin-top: -30px;
 }
 
 .calendly-back-btn:hover {
@@ -459,7 +462,7 @@
 
 /* Time selection view - moved MUCH higher and no max height */
 .calendly-unified-picker:has(.calendly-unified-times[style*="width: 100%"]) {
-  margin-top: -190px;
+  margin-top: -140px;
   max-height: none;
 }
 
