@@ -127,7 +127,7 @@
 }
 
 .time-view-date {
-  font-size: 1.35rem; /* Made bigger from 1rem to 1.35rem */
+  font-size: 1.1rem; /* Just slightly bigger than normal (was 1rem) */
   color: var(--base-250);
   font-weight: 300; /* Lighter font weight */
   margin-bottom: 0.5rem;
