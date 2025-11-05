@@ -245,48 +245,56 @@
     margin-top: 600px;
   }
 
-  /* Make text bigger on desktop only */
+  /* Make text MUCH bigger on desktop only */
   .calendar-header h3 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
 
   .day-name {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .calendar-day {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 
-  .time-view-day {
+  .time-header h3 {
     font-size: 2.5rem;
   }
 
+  .time-view-day {
+    font-size: 3.2rem;
+  }
+
   .time-view-date {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
   }
 
   .time-view-duration {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   .time-slot-calendly {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   .time-slot {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
 
   .summary-text {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
   }
 
   .selection-summary .mono {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .time-placeholder p {
+    font-size: 1.8rem;
+  }
+
+  .selected-date-display {
     font-size: 1.4rem;
   }
 }
