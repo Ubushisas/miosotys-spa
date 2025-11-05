@@ -14,18 +14,18 @@
 
 .calendly-container {
   min-height: 100vh;
-  background: #FBF6E9;
+  background: #FF0000 !important;
   padding: 0;
   position: relative;
   overflow: visible;
   font-family: 'Gragio', sans-serif;
-  font-size: 200% !important;
+  font-size: 500% !important;
   margin-top: -70px;
 }
 
 .calendly-container * {
   font-family: 'Gragio', sans-serif;
-  font-size: 200% !important;
+  font-size: 500% !important;
 }
 
 .calendly-container::before {
