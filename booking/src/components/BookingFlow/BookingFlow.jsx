@@ -280,6 +280,8 @@ const BookingFlow = () => {
             {service.minPeople} a {service.maxPeople} personas
           </p>
 
+          <p className="selector-label">¿Cuántas personas asistirán?</p>
+
           <div className="people-selector">
             {Array.from(
               { length: service.maxPeople - service.minPeople + 1 },

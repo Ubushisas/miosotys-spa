@@ -242,62 +242,62 @@
 /* Desktop only: Move calendar section lower and increase text sizes */
 @media (min-width: 1001px) {
   .calendar-section {
-    margin-top: 600px;
+    margin-top: 50px;
   }
 
-  /* Make text MASSIVELY bigger on desktop only */
+  /* Make text bigger on desktop only */
   .calendar-header h3 {
-    font-size: 5rem !important;
+    font-size: 2rem !important;
   }
 
   .day-name {
-    font-size: 2.5rem !important;
+    font-size: 1.1rem !important;
   }
 
   .calendar-day {
-    font-size: 3rem !important;
+    font-size: 1.4rem !important;
   }
 
   .time-header h3 {
-    font-size: 4.5rem !important;
+    font-size: 2rem !important;
   }
 
   .time-view-day {
-    font-size: 5.5rem !important;
+    font-size: 3rem !important;
   }
 
   .time-view-date {
-    font-size: 3.2rem !important;
+    font-size: 1.8rem !important;
   }
 
   .time-view-duration {
-    font-size: 2.8rem !important;
+    font-size: 1.2rem !important;
   }
 
   .time-slot-calendly {
-    font-size: 2.8rem !important;
-    padding: 1.5rem 2rem !important;
+    font-size: 1.5rem !important;
+    padding: 1rem 1.5rem !important;
   }
 
   .time-slot {
-    font-size: 3rem !important;
-    padding: 1.5rem 2rem !important;
+    font-size: 1.3rem !important;
+    padding: 1rem 1.5rem !important;
   }
 
   .summary-text {
-    font-size: 3.5rem !important;
+    font-size: 1.8rem !important;
   }
 
   .selection-summary .mono {
-    font-size: 2.5rem !important;
+    font-size: 1.1rem !important;
   }
 
   .time-placeholder p {
-    font-size: 3rem !important;
+    font-size: 1.3rem !important;
   }
 
   .selected-date-display {
-    font-size: 2.5rem !important;
+    font-size: 1.2rem !important;
   }
 }
 

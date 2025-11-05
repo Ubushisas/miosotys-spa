@@ -234,6 +234,18 @@
   letter-spacing: 0.05rem;
 }
 
+/* Selector Label - title above people selector */
+.selector-label {
+  color: var(--base-100);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1.5rem;
+  margin-bottom: -0.5rem;
+  text-transform: none;
+  letter-spacing: 0.02rem;
+}
+
 /* People Selector */
 .people-selector {
   display: flex;
@@ -508,6 +520,91 @@
 
 .step-actions > div {
   cursor: pointer;
+}
+
+/* Desktop text sizing - make text bigger on desktop only */
+@media (min-width: 1001px) {
+  .booking-step .mono {
+    font-size: 1rem;
+  }
+
+  .booking-step h2 {
+    font-size: 3rem;
+  }
+
+  .step-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .service-name-indicator {
+    font-size: 1.1rem;
+  }
+
+  .category-card h3 {
+    font-size: 2rem;
+  }
+
+  .category-card p {
+    font-size: 1.1rem;
+  }
+
+  .service-option h3 {
+    font-size: 1.8rem;
+  }
+
+  .service-option-details {
+    font-size: 1.1rem;
+  }
+
+  .people-number {
+    font-size: 3.5rem;
+  }
+
+  .people-label {
+    font-size: 1rem;
+  }
+
+  .selector-label {
+    font-size: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+  }
+
+  .form-group input {
+    font-size: 1.2rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .booking-summary h3 {
+    font-size: 1.8rem;
+  }
+
+  .summary-item {
+    font-size: 1.2rem;
+  }
+
+  .summary-item.total {
+    font-size: 1.6rem;
+  }
+
+  .summary-item.deposit {
+    font-size: 1.1rem;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 1rem 1.75rem;
+  }
+
+  .confirmation-message h3 {
+    font-size: 2.5rem;
+  }
+
+  .confirmation-message p {
+    font-size: 1.2rem;
+  }
 }
 
 /* Responsive */
