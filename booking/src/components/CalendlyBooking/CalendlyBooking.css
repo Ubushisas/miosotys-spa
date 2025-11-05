@@ -19,12 +19,13 @@
   position: relative;
   overflow: visible;
   font-family: 'Gragio', sans-serif;
-  font-size: 60%;
+  font-size: 200% !important;
   margin-top: -70px;
 }
 
 .calendly-container * {
   font-family: 'Gragio', sans-serif;
+  font-size: 200% !important;
 }
 
 .calendly-container::before {
@@ -134,7 +135,7 @@
 }
 
 .calendly-selection-info h3 {
-  font-size: 1.7000000000000004rem;
+  font-size: 5rem !important;
   font-weight: 600;
   color: #4A3C32;
   margin-bottom: 0.2rem;
@@ -154,7 +155,7 @@
   align-items: center;
   gap: 0.5rem;
   color: #6F4C31;
-  font-size: 1.1500000000000001rem;
+  font-size: 3rem !important;
   font-family: 'Gragio', sans-serif;
 }
 
@@ -533,7 +534,7 @@
 }
 
 .calendly-calendar-header h3 {
-  font-size: 1.5rem;
+  font-size: 4rem !important;
   font-weight: 600;
   color: #4A3C32;
   text-transform: capitalize;
@@ -552,7 +553,7 @@
 }
 
 .calendly-weekday {
-  font-size: 0.95rem;
+  font-size: 3rem !important;
   text-align: center;
   font-weight: 600;
   color: #8B5E3A;
@@ -578,7 +579,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 3rem !important;
   font-weight: 600;
   color: #4A3C32;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
