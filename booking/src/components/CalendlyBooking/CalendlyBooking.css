@@ -225,49 +225,49 @@
 
   /* Increase text size on DESKTOP - all windows in iframe */
   .calendly-selection-info h3 {
-    font-size: 1.85rem;
+    font-size: 2.5rem;
   }
 
   .calendly-info-item {
-    font-size: 1.25rem;
+    font-size: 1.8rem;
   }
 
   .calendly-datetime-display .font-semibold {
-    font-size: 1.35rem;
+    font-size: 1.9rem;
   }
 
   .calendly-datetime-display .text-sm {
-    font-size: 1.05rem;
+    font-size: 1.6rem;
   }
 
   /* Calendar header and labels */
   .calendly-month-header {
-    font-size: 1.35rem;
+    font-size: 1.9rem;
   }
 
   .calendly-weekday {
-    font-size: 1.05rem;
+    font-size: 1.5rem;
   }
 
   /* Time slots */
   .calendly-time-button,
   .calendly-time-slot {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
   }
 
   /* Form labels and inputs */
   .calendly-form label {
-    font-size: 1.1rem;
+    font-size: 1.6rem;
   }
 
   .calendly-form input,
   .calendly-form textarea {
-    font-size: 1.05rem;
+    font-size: 1.5rem;
   }
 
   /* Buttons */
   .calendly-confirm-btn {
-    font-size: 1.15rem;
+    font-size: 1.7rem;
   }
 }
 
