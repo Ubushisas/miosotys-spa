@@ -117,7 +117,7 @@
 }
 
 .time-view-day {
-  font-size: 1.75rem;
+  font-size: 1.95rem;
   font-weight: 700;
   color: #B87C4C;
   margin-bottom: 0.5rem;
@@ -125,14 +125,14 @@
 }
 
 .time-view-date {
-  font-size: 1rem;
+  font-size: 1.15rem;
   color: #4A3C32;
   margin-bottom: 0.5rem;
   text-transform: capitalize;
 }
 
 .time-view-duration {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #4A3C32;
   font-family: "DM Mono", monospace;
 }
@@ -186,7 +186,7 @@
   border: 2px solid #BBDCE5;
   border-radius: 0.5rem;
   color: #4A3C32;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-family: "DM Mono", monospace;
   font-weight: 600;
   cursor: pointer;
@@ -239,6 +239,58 @@
   gap: 1.5rem;
 }
 
+/* Desktop only: Move calendar section lower and increase text sizes */
+@media (min-width: 1001px) {
+  .calendar-section {
+    margin-top: 600px;
+  }
+
+  /* Make text bigger on desktop only */
+  .calendar-header h3 {
+    font-size: 2.2rem;
+  }
+
+  .day-name {
+    font-size: 1.2rem;
+  }
+
+  .calendar-day {
+    font-size: 1.4rem;
+  }
+
+  .time-view-day {
+    font-size: 2.5rem;
+  }
+
+  .time-view-date {
+    font-size: 1.5rem;
+  }
+
+  .time-view-duration {
+    font-size: 1.3rem;
+  }
+
+  .time-slot-calendly {
+    font-size: 1.3rem;
+  }
+
+  .time-slot {
+    font-size: 1.4rem;
+  }
+
+  .summary-text {
+    font-size: 1.5rem;
+  }
+
+  .selection-summary .mono {
+    font-size: 1.2rem;
+  }
+
+  .time-placeholder p {
+    font-size: 1.4rem;
+  }
+}
+
 .calendar-header {
   display: flex;
   justify-content: space-between;
@@ -247,7 +299,7 @@
 }
 
 .calendar-header h3 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #B87C4C;
   font-weight: 600;
 }
@@ -282,7 +334,7 @@
 
 .day-name {
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #4A3C32;
   font-weight: 600;
   text-transform: uppercase;
@@ -302,7 +354,7 @@
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0.5rem;
   color: #4A3C32;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -351,14 +403,14 @@
 }
 
 .time-header h3 {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #B87C4C;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .selected-date-display {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #4A3C32;
   text-transform: capitalize;
   margin-top: 0.5rem;
@@ -374,7 +426,7 @@
 
 .time-placeholder p {
   color: #4A3C32;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-align: center;
 }
 
@@ -412,7 +464,7 @@
   border: 2px solid #BBDCE5;
   border-radius: 0.5rem;
   color: #4A3C32;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-family: "DM Mono", monospace;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -506,10 +558,11 @@
 .selection-summary .mono {
   color: #4A3C32;
   margin-bottom: 0.75rem;
+  font-size: 1rem;
 }
 
 .summary-text {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #4A3C32;
   text-transform: capitalize;
 }
