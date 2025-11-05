@@ -256,6 +256,9 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 2rem;
+  background: #0000FF;
+  padding: 3rem;
+  border-radius: 1rem;
 }
 
 .people-option {
