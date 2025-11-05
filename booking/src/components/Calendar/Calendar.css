@@ -245,57 +245,59 @@
     margin-top: 600px;
   }
 
-  /* Make text MUCH bigger on desktop only */
+  /* Make text SIGNIFICANTLY bigger on desktop only */
   .calendar-header h3 {
-    font-size: 2.8rem;
+    font-size: 3.5rem !important;
   }
 
   .day-name {
-    font-size: 1.5rem;
+    font-size: 1.8rem !important;
   }
 
   .calendar-day {
-    font-size: 1.8rem;
+    font-size: 2.2rem !important;
   }
 
   .time-header h3 {
-    font-size: 2.5rem;
+    font-size: 3rem !important;
   }
 
   .time-view-day {
-    font-size: 3.2rem;
+    font-size: 4rem !important;
   }
 
   .time-view-date {
-    font-size: 1.9rem;
+    font-size: 2.3rem !important;
   }
 
   .time-view-duration {
-    font-size: 1.6rem;
+    font-size: 2rem !important;
   }
 
   .time-slot-calendly {
-    font-size: 1.6rem;
+    font-size: 2rem !important;
+    padding: 1rem 1.5rem !important;
   }
 
   .time-slot {
-    font-size: 1.7rem;
+    font-size: 2.1rem !important;
+    padding: 1rem 1.5rem !important;
   }
 
   .summary-text {
-    font-size: 1.9rem;
+    font-size: 2.3rem !important;
   }
 
   .selection-summary .mono {
-    font-size: 1.5rem;
+    font-size: 1.8rem !important;
   }
 
   .time-placeholder p {
-    font-size: 1.8rem;
+    font-size: 2.2rem !important;
   }
 
   .selected-date-display {
-    font-size: 1.4rem;
+    font-size: 1.8rem !important;
   }
 }
 
@@ -307,7 +309,7 @@
 }
 
 .calendar-header h3 {
-  font-size: 1.7rem;
+  font-size: 2rem;
   color: #B87C4C;
   font-weight: 600;
 }
@@ -342,7 +344,7 @@
 
 .day-name {
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #4A3C32;
   font-weight: 600;
   text-transform: uppercase;
@@ -362,7 +364,7 @@
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 0.5rem;
   color: #4A3C32;
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
