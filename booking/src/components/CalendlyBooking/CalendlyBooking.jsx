@@ -378,23 +378,23 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                   <MapPin className="w-4 h-4" />
                   <span style={{fontFamily: "'Gragio', sans-serif"}}>Miosotys Spa, Colombia</span>
                 </div>
-              </div>
-              {selectedDate && selectedTime && (
-                <div className="calendly-datetime-display">
-                  <CalendarIcon className="w-5 h-5" />
-                  <div>
-                    <div className="font-semibold" style={{fontFamily: "'Gragio', sans-serif"}}>
-                      {selectedDate.toLocaleDateString("es-CO", {
-                        weekday: "long",
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
+                {selectedDate && selectedTime && (
+                  <div className="calendly-datetime-display">
+                    <CalendarIcon className="w-5 h-5" />
+                    <div>
+                      <div className="font-semibold" style={{fontFamily: "'Gragio', sans-serif"}}>
+                        {selectedDate.toLocaleDateString("es-CO", {
+                          weekday: "long",
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </div>
+                      <div className="text-sm" style={{color: '#6F4C31', fontFamily: "'Gragio', sans-serif"}}>{selectedTime}</div>
                     </div>
-                    <div className="text-sm" style={{color: '#6F4C31', fontFamily: "'Gragio', sans-serif"}}>{selectedTime}</div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           )}
         </div>
