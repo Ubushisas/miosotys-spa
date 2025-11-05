@@ -17,7 +17,7 @@
   border: 1px solid rgba(242, 237, 230, 0.1);
   border-radius: 1rem;
   padding: 3rem;
-  margin-top: 90px; /* Move calendar container 90px lower */
+  margin-top: 200px; /* Move calendar container WAY LOWER - 200px! */
 }
 
 .calendar-single-view {
