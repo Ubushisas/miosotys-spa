@@ -134,7 +134,7 @@
 }
 
 .calendly-selection-info h3 {
-  font-size: 1.7rem;
+  font-size: 2.4rem;
   font-weight: 600;
   color: #4A3C32;
   margin-bottom: 0.2rem;
@@ -154,7 +154,7 @@
   align-items: center;
   gap: 0.5rem;
   color: #6F4C31;
-  font-size: 1.15rem;
+  font-size: 1.6rem;
   font-family: 'Gragio', sans-serif;
 }
 
@@ -225,49 +225,49 @@
 
   /* Increase text size on DESKTOP - all windows in iframe */
   .calendly-selection-info h3 {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
 
   .calendly-info-item {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 
   .calendly-datetime-display .font-semibold {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .calendly-datetime-display .text-sm {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   /* Calendar header and labels */
   .calendly-month-header {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
   }
 
   .calendly-weekday {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   /* Time slots */
   .calendly-time-button,
   .calendly-time-slot {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
   }
 
   /* Form labels and inputs */
   .calendly-form label {
-    font-size: 1.3rem;
+    font-size: 1.7rem;
   }
 
   .calendly-form input,
   .calendly-form textarea {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   /* Buttons */
   .calendly-confirm-btn {
-    font-size: 1.4rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -533,7 +533,7 @@
 }
 
 .calendly-calendar-header h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 600;
   color: #4A3C32;
   text-transform: capitalize;
@@ -552,7 +552,7 @@
 }
 
 .calendly-weekday {
-  font-size: 0.95rem;
+  font-size: 1.4rem;
   text-align: center;
   font-weight: 600;
   color: #8B5E3A;
@@ -578,7 +578,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: #4A3C32;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -731,7 +731,7 @@
   border-radius: 0.5rem;
   text-align: center;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #4A3C32;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -778,7 +778,7 @@
 }
 
 .calendly-form-group label {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: #6F4C31;
   letter-spacing: 0.01rem;
@@ -797,7 +797,7 @@
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(0, 0, 0, 0.08);
   border-radius: 0.625rem;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   color: #4A3C32;
   transition: all 0.3s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
@@ -822,7 +822,7 @@
   color: rgba(0, 0, 0, 0.3);
   padding: 1rem 2rem;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   border-radius: 0.75rem;
   cursor: not-allowed;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
