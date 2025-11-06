@@ -342,38 +342,29 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
       });
 
       if (response.ok) {
-        // Format date for WhatsApp message
-        const formattedDate = selectedDate.toLocaleDateString('es-CO', {
-          weekday: 'long',
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        });
+        // Format date in simple format for WhatsApp
+        const day = selectedDate.getDate();
+        const month = selectedDate.getMonth() + 1;
+        const year = selectedDate.getFullYear();
+        const formattedDate = `${day}/${month}/${year}`;
 
-        const formatPrice = (price) => {
-          return new Intl.NumberFormat("es-CO", {
-            style: "currency",
-            currency: "COP",
-            minimumFractionDigits: 0,
-          }).format(price);
-        };
+        // Calculate deposit (50% of price)
+        const deposit = Math.round(selectedService.price * 0.5);
 
-        const depositAmount = formatPrice(selectedService.price * 0.5);
-
-        const whatsappMessage = `Hola! Acabo de hacer una reserva en Miosotys Spa:\n\n` +
-          `Servicio: ${selectedService.name}\n` +
-          `Fecha: ${formattedDate}\n` +
-          `Hora: ${selectedTime}\n` +
-          `Nombre: ${formData.name}\n` +
-          `Telefono: ${formData.phone}\n` +
-          `Email: ${formData.email}\n\n` +
-          `Deposito requerido: ${depositAmount} (50%)\n\n` +
-          `Por favor confirma mi reserva y enviame los detalles de pago. Gracias!`;
+        // Create simple WhatsApp message
+        const whatsappMessage = `Hola! Reserva en Miosotys Spa:%0A%0A` +
+          `Servicio: ${selectedService.name}%0A` +
+          `Fecha: ${formattedDate}%0A` +
+          `Hora: ${selectedTime}%0A` +
+          `Nombre: ${formData.name}%0A` +
+          `Telefono: ${formData.phone}%0A%0A` +
+          `Deposito 50%: $${deposit.toLocaleString('es-CO')}%0A%0A` +
+          `Por favor confirma y envia detalles de pago`;
 
         const spaWhatsAppNumber = '573337224223';
-        const whatsappUrl = `https://wa.me/${spaWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+        const whatsappUrl = `https://wa.me/${spaWhatsAppNumber}?text=${whatsappMessage}`;
 
-        // Redirect to WhatsApp (opens in same tab so user sends the message)
+        // Redirect to WhatsApp
         window.location.href = whatsappUrl;
       } else {
         const error = await response.json();
