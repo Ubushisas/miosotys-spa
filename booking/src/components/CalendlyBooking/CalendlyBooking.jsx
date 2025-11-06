@@ -364,8 +364,12 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
         const spaWhatsAppNumber = '573337224223';
         const whatsappUrl = `https://wa.me/${spaWhatsAppNumber}?text=${whatsappMessage}`;
 
-        // Redirect to WhatsApp
-        window.location.href = whatsappUrl;
+        // Redirect to WhatsApp - use window.top to break out of iframe
+        if (window.top) {
+          window.top.location.href = whatsappUrl;
+        } else {
+          window.location.href = whatsappUrl;
+        }
       } else {
         const error = await response.json();
         console.error("Booking error:", error);
