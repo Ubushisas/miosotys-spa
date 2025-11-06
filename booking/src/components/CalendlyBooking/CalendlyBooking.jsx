@@ -342,7 +342,39 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
       });
 
       if (response.ok) {
-        setStep(4);
+        // Format date for WhatsApp message
+        const formattedDate = selectedDate.toLocaleDateString('es-CO', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        });
+
+        const formatPrice = (price) => {
+          return new Intl.NumberFormat("es-CO", {
+            style: "currency",
+            currency: "COP",
+            minimumFractionDigits: 0,
+          }).format(price);
+        };
+
+        const depositAmount = formatPrice(selectedService.price * 0.5);
+
+        const whatsappMessage = `Hola! Acabo de hacer una reserva en Miosotys Spa:\n\n` +
+          `Servicio: ${selectedService.name}\n` +
+          `Fecha: ${formattedDate}\n` +
+          `Hora: ${selectedTime}\n` +
+          `Nombre: ${formData.name}\n` +
+          `Telefono: ${formData.phone}\n` +
+          `Email: ${formData.email}\n\n` +
+          `Deposito requerido: ${depositAmount} (50%)\n\n` +
+          `Por favor confirma mi reserva y enviame los detalles de pago. Gracias!`;
+
+        const spaWhatsAppNumber = '573337224223';
+        const whatsappUrl = `https://wa.me/${spaWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Redirect to WhatsApp (opens in same tab so user sends the message)
+        window.location.href = whatsappUrl;
       } else {
         const error = await response.json();
         console.error("Booking error:", error);
