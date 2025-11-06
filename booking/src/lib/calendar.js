@@ -145,7 +145,19 @@ export async function getUnavailableSlots(date, service) {
       };
     });
 
-    return bookedSlots;
+    // Add lunch break (12:30 PM - 2:00 PM) as an unavailable slot
+    const lunchStart = new Date(date);
+    lunchStart.setHours(12, 30, 0, 0);
+
+    const lunchEnd = new Date(date);
+    lunchEnd.setHours(14, 0, 0, 0);
+
+    const lunchSlot = {
+      start: lunchStart,
+      end: lunchEnd,
+    };
+
+    return [...bookedSlots, lunchSlot];
   } catch (error) {
     console.error('Error getting unavailable slots:', error);
     throw error;
