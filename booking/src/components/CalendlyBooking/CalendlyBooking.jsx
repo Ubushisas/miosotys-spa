@@ -226,13 +226,16 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   const handlePeopleCountSelect = (count) => {
     setPeopleCount(count);
-    // Skip guest names and go directly to date selection
-    setDateTimeSubStep('date');
+    // Initialize guest names array with empty strings
+    setGuestNames(Array(count).fill(''));
+    // Go to guest names collection
+    setDateTimeSubStep('guests');
   };
 
   // Handle guest names completion
   const handleGuestNamesComplete = () => {
-    setStep(3); // Go to contact details form
+    // Go to date selection after collecting guest names
+    setDateTimeSubStep('date');
   };
 
   // Set first category as active when settings load
@@ -383,6 +386,17 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                   <MapPin className="w-4 h-4" />
                   <span>Miosotys Spa, Colombia</span>
                 </div>
+                {peopleCount && (
+                  <div className="calendly-info-item">
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                    <span>{peopleCount} personas</span>
+                  </div>
+                )}
               </div>
               {selectedDate && selectedTime && (
                 <div className="calendly-datetime-display">
@@ -739,7 +753,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
                 <form onSubmit={handleSubmit} className="calendly-form">
                   <div className="calendly-form-group">
-                    <label htmlFor="name">Nombre completo *</label>
+                    <label htmlFor="name">Nombre completo <span className="required-asterisk">*</span></label>
                     <input
                       type="text"
                       id="name"
@@ -751,26 +765,26 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                   </div>
 
                   <div className="calendly-form-group">
-                    <label htmlFor="email">Correo electrónico *</label>
+                    <label htmlFor="email">Correo electrónico <span className="required-asterisk">*</span></label>
                     <input
                       type="email"
                       id="email"
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="tu@email.com"
+                      placeholder="Tu email"
                     />
                   </div>
 
                   <div className="calendly-form-group">
-                    <label htmlFor="phone">Teléfono (WhatsApp) *</label>
+                    <label htmlFor="phone">Teléfono (WhatsApp) <span className="required-asterisk">*</span></label>
                     <input
                       type="tel"
                       id="phone"
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="3001234567"
+                      placeholder="Tu número de celular"
                     />
                   </div>
 

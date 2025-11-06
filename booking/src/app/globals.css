@@ -3,6 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
+@font-face {
+  font-family: 'Gragio';
+  src: url('/fonts/Gragio-Font/Gragio.woff2') format('woff2'),
+       url('/fonts/Gragio-Font/Gragio.woff') format('woff'),
+       url('/fonts/Gragio-Font/Gragio.ttf') format('truetype'),
+       url('/fonts/Gragio-Font/Gragio.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @theme {
   /* Clean monochromatic black and white palette */
   --color-background: hsl(0 0% 100%);

@@ -981,6 +981,14 @@
                       </svg>
                       <span>${displayPrice}</span>
                     </div>
+                    <div class="info-item">
+                      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+                        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+                        <line x1="18" y1="12" x2="18" y2="12.01"/>
+                      </svg>
+                      <span>Abono: 50%</span>
+                    </div>
                   </div>
 
                   <div class="card-buttons">
@@ -1055,6 +1063,14 @@
                       </svg>
                       <span>${displayPrice}</span>
                     </div>
+                    <div class="info-item">
+                      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
+                        <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
+                        <line x1="18" y1="12" x2="18" y2="12.01"/>
+                      </svg>
+                      <span>Abono: 50%</span>
+                    </div>
                   </div>
 
                   <div class="card-buttons">
@@ -1080,9 +1096,12 @@
         // Encode the service name for URL
         const encodedService = encodeURIComponent(packageName);
 
-        // PRODUCTION - Vercel deployment (public URL)
+        // LOCAL DEVELOPMENT - Use localhost
         const timestamp = new Date().getTime();
-        const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}&v=${timestamp}`;
+        const bookingUrl = `http://localhost:3002?service=${encodedService}&v=${timestamp}`;
+
+        // PRODUCTION - Vercel deployment (public URL)
+        // const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}&v=${timestamp}`;
 
         showBookingCalendar(packageName, bookingUrl);
       }

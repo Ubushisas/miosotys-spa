@@ -1087,7 +1087,7 @@ footer {
     height: 60vh;
     width: 100%;
     margin: 0;
-    padding: 1.5em;
+    padding: 1.5em 0.75em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1104,7 +1104,7 @@ footer {
   .info-content {
     width: 100%;
     max-width: none;
-    padding: 0;
+    padding: 0 0.5em;
     margin-top: -5em;
   }
 
@@ -1400,6 +1400,27 @@ footer {
   transform-origin: top center;
 }
 
+/* Desktop only - center and shift iframe content */
+@media (min-width: 769px) {
+  #calendlyWindow #calendlyContent iframe {
+    position: relative;
+    left: -90px;
+    top: -110px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    display: block;
+    transform: scale(1.15) !important;
+    transform-origin: top center;
+    min-height: 1000px !important;
+  }
+
+  #calendlyWindow .package-window-body {
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    padding-bottom: 100px !important;
+  }
+}
+
 .package-window-content {
   height: 100%;
   display: flex;
@@ -1540,9 +1561,9 @@ footer {
 
 .btn-book {
   flex: 1;
-  background: #BBDCE5;
-  color: #B87C4C;
-  border: 2px solid #BBDCE5;
+  background: #9FC6D1;
+  color: #000000;
+  border: 2px solid #9FC6D1;
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
   font-size: 0.95rem;
@@ -1554,8 +1575,9 @@ footer {
 }
 
 .btn-book:hover {
-  background: #9FC6D1;
-  border-color: #9FC6D1;
+  background: #7FB0BD;
+  border-color: #7FB0BD;
+  color: #000000;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
@@ -1563,7 +1585,7 @@ footer {
 .btn-includes {
   flex: 1;
   background: transparent;
-  color: white;
+  color: #FFFFFF;
   border: 2px solid #B87C4C;
   padding: 14px 24px;
   font-family: "Waking", "Montserrat", sans-serif;
@@ -1577,7 +1599,7 @@ footer {
 
 .btn-includes:hover {
   background: #B87C4C;
-  color: white;
+  color: #FFFFFF;
   border-color: #B87C4C;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
@@ -1797,37 +1819,64 @@ footer {
     height: 100vh;
   }
 
-  /* Center the iframe in mobile */
+  /* Show only close button on mobile, hide title */
+  #calendlyWindow .package-window-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+    background: transparent;
+    border: none;
+    padding: 1rem;
+    width: auto;
+  }
+
+  #calendlyWindow .package-window-header h2 {
+    display: none;
+  }
+
+  #calendlyWindow .close-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Make iframe fullscreen on mobile */
   #calendlyWindow .package-window-body {
-    padding: 0.5rem 0;
-    padding-top: 0;
+    padding: 0;
     overflow-y: auto;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-  }
-
-  #calendlyWindow .package-window-header {
-    margin-bottom: -40px;
-    z-index: 1000;
-    position: relative;
+    align-items: center;
+    height: 100vh;
+    background: transparent;
   }
 
   #calendlyWindow #calendlyContent {
     width: 100%;
     max-width: 100%;
-    margin: 0 auto;
+    height: 100%;
+    margin: 0;
     padding: 0;
-    transform: translateY(-5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #calendlyWindow iframe {
-    width: 100%;
-    height: 100%;
-    min-height: 600px;
-    margin: 0 auto;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    margin: 0;
     display: block;
-    transform: translateX(-30px) translateY(35px);
+    transform: none;
+    border: none;
   }
 
   .package-window-header {
@@ -1849,7 +1898,7 @@ footer {
   }
 
   .card-content {
-    padding: 1.25rem;
+    padding: 1.25rem 0.5rem;
   }
 
   .card-title {
