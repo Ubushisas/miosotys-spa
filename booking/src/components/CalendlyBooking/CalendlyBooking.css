@@ -9,12 +9,10 @@
   position: relative;
   overflow: visible;
   font-family: 'Montserrat', sans-serif;
-  font-size: 200% !important;
 }
 
 .calendly-container * {
   font-family: 'Montserrat', sans-serif;
-  font-size: 200% !important;
 }
 
 .calendly-container::before {
@@ -65,14 +63,23 @@
 }
 
 .calendly-layout {
-  max-width: 720px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 230px 1fr;
-  gap: 1.2rem;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
   min-height: calc(100vh - 2.4rem);
   position: relative;
   z-index: 1;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .calendly-layout {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
 }
 
 /* ===== LEFT SIDEBAR ===== */
@@ -865,10 +872,12 @@
 @media (max-width: 1024px) {
   .calendly-layout {
     grid-template-columns: 1fr;
+    max-width: 800px;
   }
 
   .calendly-sidebar {
     position: static;
+    display: none;
   }
 
   .calendly-datetime-picker {
@@ -877,12 +886,13 @@
 
   .calendly-unified-picker {
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .calendly-unified-calendar {
     min-width: 100%;
     width: 100%;
+    max-width: 100%;
   }
 
   .calendly-unified-times {
@@ -891,39 +901,66 @@
     border-top: 0.5px solid rgba(0, 0, 0, 0.08);
     padding-left: 0;
     padding-right: 0;
-    padding-top: 2rem;
-    margin-top: 2rem;
-  }
-
-  .calendly-unified-picker {
-    padding: 1.5rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
   }
 
   .calendly-footer {
     flex-direction: column;
     gap: 1rem;
   }
+
+  .calendly-card {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 640px) {
   .calendly-container {
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
   }
 
   .calendly-card {
-    padding: 2rem 1.5rem;
+    padding: 1rem 0.75rem;
   }
 
   .calendly-sidebar {
-    padding: 2rem 1.5rem;
+    padding: 1rem;
+    display: none;
   }
 
   .calendly-step-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .calendly-time-slots {
     grid-template-columns: 1fr;
+  }
+
+  .calendly-unified-picker {
+    padding: 0.5rem;
+    min-height: auto;
+  }
+
+  .calendly-calendar-header h3 {
+    font-size: 1rem;
+  }
+
+  .calendly-weekday {
+    font-size: 0.7rem;
+  }
+
+  .calendly-day {
+    font-size: 0.85rem;
+  }
+
+  .calendly-form-group input {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .calendly-form-group label {
+    font-size: 0.85rem;
   }
 }
 

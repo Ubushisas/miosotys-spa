@@ -34,3 +34,4 @@ google-oauth-token.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env*.local

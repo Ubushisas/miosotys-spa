@@ -86,8 +86,50 @@
   }
 
   .spa-hero-buttons {
-    flex-direction: column;
-    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .spa-hero .container {
+    padding: 0 1rem;
+  }
+
+  .spa-hero-content h1 {
+    font-size: 3rem;
+    letter-spacing: -0.15rem;
+  }
+
+  .spa-hero-content p {
+    font-size: 1.1rem;
+  }
+
+  .spa-hero-buttons {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .spa-booking-section .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .spa-hero-content h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.1rem;
+  }
+
+  .spa-hero-content p {
+    font-size: 1rem;
+  }
+
+  .spa-hero .container {
+    padding: 0 0.75rem;
+  }
+
+  .spa-booking-section .container {
+    padding: 0 0.5rem;
   }
 }
 
