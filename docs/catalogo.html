@@ -1098,10 +1098,10 @@
 
         // LOCAL DEVELOPMENT - Use localhost
         const timestamp = new Date().getTime();
-        const bookingUrl = `http://localhost:3002?service=${encodedService}&v=${timestamp}`;
+        // const bookingUrl = `http://localhost:3002?service=${encodedService}&v=${timestamp}`;
 
         // PRODUCTION - Vercel deployment (public URL)
-        // const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}&v=${timestamp}`;
+        const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}&v=${timestamp}`;
 
         showBookingCalendar(packageName, bookingUrl);
       }
