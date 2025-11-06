@@ -1,11 +1,7 @@
 import { google } from 'googleapis';
-import fs from 'fs';
-import path from 'path';
 
 const APPOINTMENTS_SHEET_ID = '1DuM7pokDbek98srwPamsDGNVqD6hXafO3RHwj9gPTVw';
 const MESSAGES_SHEET_ID = '1LxE0we_tfkjr7I2TplF5VALGEQRz6-zjgZxdLcsteT4';
-
-const TOKEN_PATH = path.join(process.cwd(), 'google-oauth-token.json');
 
 function getOAuth2Client() {
   const oauth2Client = new google.auth.OAuth2(
@@ -14,11 +10,20 @@ function getOAuth2Client() {
     process.env.GOOGLE_REDIRECT_URI
   );
 
-  if (fs.existsSync(TOKEN_PATH)) {
-    const token = JSON.parse(fs.readFileSync(TOKEN_PATH, 'utf-8'));
-    oauth2Client.setCredentials(token);
+  // Load token from environment variable instead of file system
+  // This makes it work on Vercel serverless
+  const tokenJson = process.env.GOOGLE_OAUTH_TOKEN;
+
+  if (tokenJson) {
+    try {
+      const token = JSON.parse(tokenJson);
+      oauth2Client.setCredentials(token);
+    } catch (error) {
+      console.error('Error parsing GOOGLE_OAUTH_TOKEN:', error);
+      throw new Error('Invalid OAuth token format. Please check GOOGLE_OAUTH_TOKEN environment variable.');
+    }
   } else {
-    throw new Error('OAuth token not found');
+    throw new Error('OAuth token not found. Please set GOOGLE_OAUTH_TOKEN environment variable.');
   }
 
   return oauth2Client;
