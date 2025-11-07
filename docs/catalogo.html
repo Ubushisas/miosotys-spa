@@ -1096,8 +1096,9 @@
         // Encode the service name for URL
         const encodedService = encodeURIComponent(packageName);
 
-        // LOCAL DEVELOPMENT - Use localhost
         const timestamp = new Date().getTime();
+
+        // LOCAL DEVELOPMENT - Use localhost
         // const bookingUrl = `http://localhost:3002?service=${encodedService}&v=${timestamp}`;
 
         // PRODUCTION - Vercel deployment (public URL)
