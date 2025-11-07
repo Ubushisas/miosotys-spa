@@ -77,7 +77,12 @@ export async function POST(request) {
 
       const confirmationMessage = `¡Hola ${customerInfo.name}! ✨\n\nTu reserva ha sido confirmada:\n\n📅 Servicio: ${service.name}\n⏰ Fecha: ${formattedDate}\n🕐 Hora: ${time}\n📍 Miosotys Spa, Colombia\n\n¡Te esperamos! 🌿`;
 
-      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3002'}/api/whatsapp/send-message`, {
+      // Use correct production URL for Vercel deployment
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
+                      process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` :
+                      'http://localhost:3002';
+
+      await fetch(`${baseUrl}/api/whatsapp/send-message`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
