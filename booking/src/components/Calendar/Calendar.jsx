@@ -187,9 +187,17 @@ const Calendar = ({ service, onSelectDateTime }) => {
     const slotStart = new Date(selectedDate);
     slotStart.setHours(hours24, minutes, 0, 0);
 
-    // Check if slot is in the past
     const now = new Date();
+
+    // Check if slot is in the past
     if (slotStart <= now) {
+      return false;
+    }
+
+    // Check minimum advance booking time (12 hours)
+    const minimumAdvanceHours = settings?.minimumAdvanceBookingHours || 12;
+    const hoursUntilBooking = (slotStart - now) / (1000 * 60 * 60);
+    if (hoursUntilBooking < minimumAdvanceHours) {
       return false;
     }
 
@@ -259,15 +267,31 @@ const Calendar = ({ service, onSelectDateTime }) => {
               const dateStr = date.toISOString().split('T')[0];
               const isBlocked = settings && settings.blockedDates.includes(dateStr);
 
-              const isDisabled = isPast || isDayDisabled || isBlocked;
+              // Check if all times on this day are within the minimum advance booking window
+              // Calculate hours until the LAST possible slot of the day (e.g., 5:30pm)
+              const minimumAdvanceHours = settings?.minimumAdvanceBookingHours || 13;
+              const dayEnd = new Date(date);
+              const dayHours = settings?.workingHours[dayName];
+              if (dayHours?.end) {
+                const [endHour, endMin] = dayHours.end.split(':').map(Number);
+                dayEnd.setHours(endHour, endMin, 0, 0);
+              } else {
+                dayEnd.setHours(17, 30, 0, 0); // Default to 5:30pm
+              }
+              const now = new Date();
+              const hoursUntilLastSlot = (dayEnd - now) / (1000 * 60 * 60);
+              // Block the ENTIRE day if even the last slot is within the advance window
+              const isWithinAdvanceWindow = hoursUntilLastSlot < minimumAdvanceHours && hoursUntilLastSlot > 0;
+
+              const isDisabled = isPast || isDayDisabled || isBlocked || isWithinAdvanceWindow;
 
               return (
                 <button
                   key={date.toISOString()}
-                  className={`calendar-day ${isPast ? 'past' : ''} ${isSelected ? 'selected' : ''} ${isToday ? 'today' : ''} ${isDayDisabled || isBlocked ? 'disabled' : ''}`}
+                  className={`calendar-day ${isPast ? 'past' : ''} ${isSelected ? 'selected' : ''} ${isToday ? 'today' : ''} ${isDayDisabled || isBlocked || isWithinAdvanceWindow ? 'disabled' : ''}`}
                   onClick={() => !isDisabled && handleDateClick(date)}
                   disabled={isDisabled}
-                  style={isDayDisabled || isBlocked ? { opacity: 0.3, cursor: 'not-allowed' } : {}}
+                  style={isDayDisabled || isBlocked || isWithinAdvanceWindow ? { opacity: 0.3, cursor: 'not-allowed' } : {}}
                 >
                   {date.getDate()}
                 </button>
