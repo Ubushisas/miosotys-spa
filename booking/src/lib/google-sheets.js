@@ -126,8 +126,20 @@ export async function saveAppointmentToSheet(appointmentData) {
     const now = new Date();
     const appointmentDate = new Date(date);
 
+    // Format creation date/time in Colombia timezone
+    const creationDateTime = now.toLocaleString('es-CO', {
+      timeZone: 'America/Bogota',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    });
+
     const row = [
-      now.toLocaleString('es-CO'),
+      creationDateTime,
       appointmentDate.toLocaleDateString('es-CO'),
       time,
       customerInfo.name,
@@ -207,6 +219,52 @@ export async function saveMessageToSheet(messageData) {
   } catch (error) {
     console.error('Error saving message to sheets:', error);
     return { success: false, error: error.message };
+  }
+}
+
+// Get all appointments from sheet (for webhook sync)
+export async function getAppointmentsFromSheet() {
+  try {
+    const sheets = getSheetsClient();
+
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: APPOINTMENTS_SHEET_ID,
+      range: 'A:R',
+    });
+
+    const rows = response.data.values || [];
+
+    if (rows.length <= 1) {
+      return []; // No appointments (only header row)
+    }
+
+    // Skip header row, map to appointment objects
+    const appointments = rows.slice(1).map((row, idx) => ({
+      rowIndex: idx + 2, // +2 because: +1 for skipping header, +1 for 1-based index
+      createdAt: row[0] || '',
+      date: row[1] || '',
+      time: row[2] || '',
+      customerName: row[3] || '',
+      phone: row[4] || '',
+      email: row[5] || '',
+      serviceName: row[6] || '',
+      duration: row[7] || '',
+      price: row[8] || '',
+      peopleCount: row[9] || '',
+      guests: row[10] || '',
+      status: row[11] || '',
+      depositPaid: row[12] || '',
+      depositAmount: row[13] || '',
+      reminder24h: row[14] || '',
+      reminder1h: row[15] || '',
+      googleEventId: row[16] || '',
+      notes: row[17] || '',
+    }));
+
+    return appointments;
+  } catch (error) {
+    console.error('Error getting appointments from sheet:', error);
+    throw error;
   }
 }
 

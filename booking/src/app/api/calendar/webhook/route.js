@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
-import { getEventById } from '@/lib/calendar';
+import { getEventById, getRecentEvents } from '@/lib/calendar';
 import {
   deleteAppointmentFromSheet,
   updateAppointmentDetails,
+  getAppointmentsFromSheet,
 } from '@/lib/google-sheets';
 
 // Google Calendar Push Notification Webhook
@@ -28,8 +29,8 @@ export async function POST(request) {
       return NextResponse.json({ success: true, message: 'Sync acknowledged' });
     }
 
-    // For 'exists' or 'not_exists' states, we need to fetch recent changes
-    if (resourceState === 'exists' || resourceState === 'not_exists') {
+    // For 'exists' state, calendar changed - fetch recent updates
+    if (resourceState === 'exists') {
       // Get the calendar ID from the channel ID (format: miosotys-{room}-{timestamp})
       const [, room] = channelId.split('-');
       const calendarIds = {
@@ -43,21 +44,8 @@ export async function POST(request) {
         return NextResponse.json({ success: false, error: 'Unknown calendar' });
       }
 
-      // Parse the request body to get the event ID if provided
-      let eventId = null;
-      try {
-        const body = await request.json();
-        eventId = body.eventId;
-      } catch (e) {
-        // Body might be empty, that's okay
-      }
-
-      // If we have an event ID, process it
-      if (eventId) {
-        await processEventChange(eventId, calendarId, resourceState);
-      } else {
-        console.log('⚠️ No event ID in webhook payload, skipping sync');
-      }
+      // Fetch recent changes from the calendar
+      await syncRecentChanges(calendarId);
     }
 
     return NextResponse.json({
@@ -82,60 +70,80 @@ export async function GET(request) {
   });
 }
 
-// Process an event change (created, updated, or deleted)
-async function processEventChange(eventId, calendarId, resourceState) {
+// Sync recent changes from calendar to sheet
+async function syncRecentChanges(calendarId) {
   try {
-    console.log(`🔄 Processing event ${eventId} (state: ${resourceState})`);
+    console.log('🔄 Syncing recent calendar changes...');
 
-    // If the resource doesn't exist, the event was deleted
-    if (resourceState === 'not_exists') {
-      console.log('🗑️ Event deleted, removing from Google Sheets...');
-      await deleteAppointmentFromSheet(eventId);
-      return;
+    // Get all appointments from the sheet
+    const sheetAppointments = await getAppointmentsFromSheet();
+    console.log(`Found ${sheetAppointments.length} appointments in sheet`);
+
+    // Get events from the last 24 hours (to catch recent changes)
+    const updatedMin = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+    const calendarEvents = await getRecentEvents(calendarId, updatedMin);
+    console.log(`Found ${calendarEvents.length} recent events in calendar`);
+
+    // Create a map of calendar event IDs for quick lookup
+    const calendarEventIds = new Set();
+    const calendarEventMap = new Map();
+
+    for (const event of calendarEvents) {
+      if (event.status !== 'cancelled') {
+        calendarEventIds.add(event.id);
+        calendarEventMap.set(event.id, event);
+      }
     }
 
-    // Try to get the event details
-    try {
-      const event = await getEventById(eventId, calendarId);
+    // Check each sheet appointment
+    for (const appointment of sheetAppointments) {
+      const googleEventId = appointment.googleEventId;
 
-      // Check if event was cancelled
-      if (event.status === 'cancelled') {
-        console.log('❌ Event cancelled, removing from Google Sheets...');
-        await deleteAppointmentFromSheet(eventId);
-        return;
+      if (!googleEventId) {
+        // No calendar ID, skip
+        continue;
       }
 
-      // Check if event was rescheduled (start time changed)
-      console.log('📝 Event updated, checking for time changes...');
+      // Check if event still exists in calendar
+      if (!calendarEventIds.has(googleEventId)) {
+        // Event was deleted or cancelled
+        console.log(`🗑️ Event ${googleEventId} no longer exists, deleting from sheet`);
+        await deleteAppointmentFromSheet(googleEventId);
+        continue;
+      }
 
-      // Extract new date and time
-      const startDateTime = new Date(event.start.dateTime || event.start.date);
+      // Event exists, check if it was rescheduled
+      const calendarEvent = calendarEventMap.get(googleEventId);
+      const startDateTime = new Date(calendarEvent.start.dateTime || calendarEvent.start.date);
 
-      // Format date
-      const newDate = startDateTime.toISOString().split('T')[0];
+      // Format date to DD/MM/YYYY (Colombia format) for comparison
+      const day = String(startDateTime.getDate()).padStart(2, '0');
+      const month = String(startDateTime.getMonth() + 1).padStart(2, '0');
+      const year = startDateTime.getFullYear();
+      const calendarDate = `${day}/${month}/${year}`;
 
       // Format time to 12-hour format
       let hours = startDateTime.getHours();
       const minutes = startDateTime.getMinutes();
       const period = hours >= 12 ? 'PM' : 'AM';
       hours = hours % 12 || 12;
-      const newTime = `${hours}:${String(minutes).padStart(2, '0')} ${period}`;
+      const calendarTime = `${hours}:${String(minutes).padStart(2, '0')} ${period}`;
 
-      // Update the appointment in Google Sheets
-      await updateAppointmentDetails(eventId, newDate, newTime);
+      // Compare with sheet data
+      const sheetDate = appointment.date;
+      const sheetTime = appointment.time;
 
-      console.log('✅ Event updated in Google Sheets');
-    } catch (eventError) {
-      // If we can't fetch the event, it was probably deleted
-      if (eventError.code === 404 || eventError.message?.includes('404')) {
-        console.log('🗑️ Event not found (deleted), removing from Google Sheets...');
-        await deleteAppointmentFromSheet(eventId);
-      } else {
-        throw eventError;
+      if (sheetDate !== calendarDate || sheetTime !== calendarTime) {
+        console.log(`📝 Event ${googleEventId} was rescheduled from ${sheetDate} ${sheetTime} to ${calendarDate} ${calendarTime}`);
+        // updateAppointmentDetails expects YYYY-MM-DD format
+        const newDate = startDateTime.toISOString().split('T')[0];
+        await updateAppointmentDetails(googleEventId, newDate, calendarTime);
       }
     }
+
+    console.log('✅ Sync completed');
   } catch (error) {
-    console.error('Error processing event change:', error);
+    console.error('Error syncing calendar changes:', error);
     throw error;
   }
 }

@@ -258,6 +258,26 @@ export async function getEventById(eventId, calendarId) {
   }
 }
 
+// Get recent events from calendar (for webhook sync)
+export async function getRecentEvents(calendarId, updatedMin) {
+  try {
+    const calendar = getCalendarClient();
+
+    const response = await calendar.events.list({
+      calendarId: calendarId || CALENDAR_IDS.individual,
+      updatedMin,
+      singleEvents: true,
+      orderBy: 'updated',
+      maxResults: 250,
+    });
+
+    return response.data.items || [];
+  } catch (error) {
+    console.error('Error getting recent events:', error);
+    throw error;
+  }
+}
+
 // Register webhook for calendar changes
 export async function registerCalendarWebhook(webhookUrl) {
   try {
