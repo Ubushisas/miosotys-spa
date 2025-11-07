@@ -148,6 +148,12 @@ export default function SettingsPage() {
                   <span className="text-sm text-gray-700">{session.user.name}</span>
                 </div>
               )}
+              <a
+                href="/admin/add-booking"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition font-medium"
+              >
+                📞 Nueva Cita
+              </a>
               {!isMobile && (
                 <button
                   onClick={() => setShowPreview(!showPreview)}
