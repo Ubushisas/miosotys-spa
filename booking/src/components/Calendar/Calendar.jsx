@@ -13,10 +13,17 @@ const Calendar = ({ service, onSelectDateTime }) => {
 
   useEffect(() => {
     // Load settings
+    setLoadingAvailability(true);
     fetch('/api/settings')
       .then(res => res.json())
-      .then(data => setSettings(data))
-      .catch(err => console.error('Error loading settings:', err));
+      .then(data => {
+        setSettings(data);
+        setLoadingAvailability(false);
+      })
+      .catch(err => {
+        console.error('Error loading settings:', err);
+        setLoadingAvailability(false);
+      });
   }, []);
 
   // Generate calendar days
@@ -26,7 +33,10 @@ const Calendar = ({ service, onSelectDateTime }) => {
     const firstDay = new Date(year, month, 1);
     const lastDay = new Date(year, month + 1, 0);
     const daysInMonth = lastDay.getDate();
-    const startingDayOfWeek = firstDay.getDay();
+
+    // Convert Sunday=0 to Monday=0 format
+    let startingDayOfWeek = firstDay.getDay() - 1;
+    if (startingDayOfWeek === -1) startingDayOfWeek = 6; // Sunday becomes last day
 
     const days = [];
 
@@ -101,7 +111,7 @@ const Calendar = ({ service, onSelectDateTime }) => {
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
   ];
 
-  const dayNames = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+  const dayNames = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
 
   const handlePrevMonth = () => {
     setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1));
