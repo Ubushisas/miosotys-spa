@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { SessionProvider } from 'next-auth/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   IconLayoutDashboard,
@@ -44,10 +45,11 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="flex h-screen overflow-hidden">
-        {/* Sidebar */}
-        <motion.aside
+    <SessionProvider>
+      <div className="min-h-screen bg-background">
+        <div className="flex h-screen overflow-hidden">
+          {/* Sidebar */}
+          <motion.aside
           initial={{ x: -300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -122,7 +124,8 @@ export default function AdminLayout({
             </div>
           </motion.div>
         </main>
+        </div>
       </div>
-    </div>
+    </SessionProvider>
   )
 }
