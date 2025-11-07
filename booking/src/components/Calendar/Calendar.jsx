@@ -234,12 +234,16 @@ const Calendar = ({ service, onSelectDateTime }) => {
       {!showTimeSelection ? (
         /* Step 1: Date Selection */
         <div className="calendar-single-view">
-          {loadingAvailability && (
+          {!settings ? (
+            <div className="loading-overlay">
+              <div className="spinner"></div>
+            </div>
+          ) : loadingAvailability && (
             <div className="loading-overlay">
               <div className="spinner"></div>
             </div>
           )}
-          <div className="calendar-section">
+          {settings && <div className="calendar-section">
           <div className="calendar-header">
             <button className="month-nav" onClick={handlePrevMonth}>
               ←
@@ -308,7 +312,7 @@ const Calendar = ({ service, onSelectDateTime }) => {
               );
             })}
           </div>
-        </div>
+        </div>}
         </div>
       ) : (
         /* Step 2: Time Selection - Calendly Style */
