@@ -184,7 +184,7 @@ export async function createBooking(date, time, service, guestNames, customerInf
 
     const event = {
       summary: `${service.name}`,
-      description: `✨ RESERVA DE ${service.name.toUpperCase()} ✨\n\n📋 Detalles del Servicio:\n${durationText}\n${priceText}${peopleText}${guestsText}\n\n👤 Información de Contacto:\nNombre: ${customerInfo.name}\nTeléfono: ${customerInfo.phone}\nEmail: ${customerInfo.email}\n\n🏨 Miosotys Spa - Colombia`,
+      description: `[BOOKING]\n\n✨ RESERVA DE ${service.name.toUpperCase()} ✨\n\n📋 Detalles del Servicio:\n${durationText}\n${priceText}${peopleText}${guestsText}\n\n👤 Información de Contacto:\nNombre: ${customerInfo.name}\nTeléfono: ${customerInfo.phone}\nEmail: ${customerInfo.email}\n\n🏨 Miosotys Spa - Colombia`,
       start: {
         dateTime: startDateTime,
         timeZone: 'America/Bogota',
