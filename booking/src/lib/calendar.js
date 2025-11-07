@@ -216,7 +216,7 @@ export async function createBooking(date, time, service, guestNames, customerInf
   }
 }
 
-// Helper function to convert date and 12-hour time to ISO datetime
+// Helper function to convert date and 12-hour time to ISO datetime in Colombia timezone
 function convertToISODateTime(date, time12h) {
   // Parse 12-hour time format (e.g., "2:30 PM")
   const [timeStr, period] = time12h.split(' ');
@@ -230,9 +230,13 @@ function convertToISODateTime(date, time12h) {
     hours24 = 0;
   }
 
-  // Create date object and set time
-  const dateTime = new Date(date);
-  dateTime.setHours(hours24, minutes, 0, 0);
+  // Create date string in Colombia timezone format (YYYY-MM-DD)
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const hour = String(hours24).padStart(2, '0');
+  const minute = String(minutes).padStart(2, '0');
 
-  return dateTime.toISOString();
+  // Format as ISO string with Colombia timezone offset (-05:00)
+  return `${year}-${month}-${day}T${hour}:${minute}:00-05:00`;
 }
