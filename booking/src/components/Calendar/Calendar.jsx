@@ -17,6 +17,9 @@ const Calendar = ({ service, onSelectDateTime }) => {
     fetch('/api/settings')
       .then(res => res.json())
       .then(data => {
+        console.log('🔧 SETTINGS LOADED:', data);
+        console.log('📅 Buffer hours:', data.minimumAdvanceBookingHours);
+        console.log('🕐 Current Colombia time:', new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }));
         setSettings(data);
         setLoadingAvailability(false);
       })
@@ -208,6 +211,15 @@ const Calendar = ({ service, onSelectDateTime }) => {
     const now = new Date();
     const minimumAdvanceHours = settings.minimumAdvanceBookingHours || 12;
 
+    const dayNum = date.getDate();
+    if (dayNum === 7 || dayNum === 8) {
+      console.log(`🔍 Checking Nov ${dayNum}:`, {
+        now: now.toLocaleString('es-CO'),
+        minimumAdvanceHours,
+        firstSlot: `${startHour}:${currentMin.toString().padStart(2, '0')}`
+      });
+    }
+
     while (currentHour < endHour || (currentHour === endHour && currentMin < endMin)) {
       // Create slot datetime
       const slotStart = new Date(date);
@@ -217,8 +229,21 @@ const Calendar = ({ service, onSelectDateTime }) => {
       if (slotStart > now) {
         // Check minimum advance booking time
         const hoursUntilBooking = (slotStart - now) / (1000 * 60 * 60);
+
+        if (dayNum === 7 || dayNum === 8) {
+          console.log(`  Slot ${currentHour}:${currentMin.toString().padStart(2, '0')}`, {
+            slotStart: slotStart.toLocaleString('es-CO'),
+            hoursUntil: hoursUntilBooking.toFixed(2),
+            needsAtLeast: minimumAdvanceHours,
+            available: hoursUntilBooking >= minimumAdvanceHours
+          });
+        }
+
         if (hoursUntilBooking >= minimumAdvanceHours) {
           // At least one slot is available
+          if (dayNum === 7 || dayNum === 8) {
+            console.log(`✅ Nov ${dayNum} HAS available slots`);
+          }
           return true;
         }
       }
@@ -232,6 +257,9 @@ const Calendar = ({ service, onSelectDateTime }) => {
     }
 
     // No slots available
+    if (dayNum === 7 || dayNum === 8) {
+      console.log(`❌ Nov ${dayNum} has NO available slots`);
+    }
     return false;
   };
 
