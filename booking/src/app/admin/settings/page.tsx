@@ -304,7 +304,10 @@ export default function SettingsPage() {
             </button>
             {expandedSections.hours && (
               <div className="px-6 pb-6 space-y-3 border-t border-gray-100 pt-6">
-                {Object.entries(settings?.workingHours).map(([day, hours]: [string, any]) => (
+                {['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].map((day) => {
+                  const hours = settings?.workingHours[day];
+                  if (!hours) return null;
+                  return (
                   <div key={day} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 p-3 bg-gray-50 rounded-lg">
                     <div className="flex items-center gap-3 w-full sm:w-auto">
                       <label className="relative inline-flex items-center cursor-pointer flex-shrink-0">
@@ -336,7 +339,8 @@ export default function SettingsPage() {
                       />
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>

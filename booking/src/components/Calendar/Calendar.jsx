@@ -291,7 +291,7 @@ const Calendar = ({ service, onSelectDateTime }) => {
               const now = new Date();
               const hoursUntilLastSlot = (dayEnd - now) / (1000 * 60 * 60);
               // Block the ENTIRE day if even the last slot is within the advance window OR has passed
-              const isWithinAdvanceWindow = hoursUntilLastSlot < minimumAdvanceHours;
+              const isWithinAdvanceWindow = hoursUntilLastSlot <= minimumAdvanceHours;
 
               const isDisabled = isPast || isDayDisabled || isBlocked || isWithinAdvanceWindow;
 
