@@ -17,9 +17,11 @@ const Calendar = ({ service, onSelectDateTime }) => {
     fetch('/api/settings')
       .then(res => res.json())
       .then(data => {
+        const colombiaTime = new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' });
         console.log('🔧 SETTINGS LOADED:', data);
         console.log('📅 Buffer hours:', data.minimumAdvanceBookingHours);
-        console.log('🕐 Current Colombia time:', new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' }));
+        console.log('🕐 Current Colombia time:', colombiaTime);
+        console.log('🌎 Your browser time:', new Date().toLocaleString());
         setSettings(data);
         setLoadingAvailability(false);
       })
@@ -185,6 +187,12 @@ const Calendar = ({ service, onSelectDateTime }) => {
            date1.getFullYear() === date2.getFullYear();
   };
 
+  // Get current time in Colombia timezone
+  const getColombiaTime = () => {
+    const colombiaTime = new Date().toLocaleString('en-US', { timeZone: 'America/Bogota' });
+    return new Date(colombiaTime);
+  };
+
   // Check if a specific day has ANY available time slots
   const dayHasAvailableSlots = (date) => {
     if (!settings) return false;
@@ -208,7 +216,7 @@ const Calendar = ({ service, onSelectDateTime }) => {
     // Generate all 30-min slots for this day
     let currentHour = startHour;
     let currentMin = 0;
-    const now = new Date();
+    const now = getColombiaTime(); // Use Colombia time!
     const minimumAdvanceHours = settings.minimumAdvanceBookingHours || 12;
 
     const dayNum = date.getDate();
@@ -278,7 +286,7 @@ const Calendar = ({ service, onSelectDateTime }) => {
     const slotStart = new Date(selectedDate);
     slotStart.setHours(hours24, minutes, 0, 0);
 
-    const now = new Date();
+    const now = getColombiaTime(); // Use Colombia time!
 
     // Check if slot is in the past
     if (slotStart <= now) {
