@@ -23,8 +23,6 @@ export default function SettingsPage() {
   const [saved, setSaved] = useState(false)
   const [showPreview, setShowPreview] = useState(false)
   const [iframeKey, setIframeKey] = useState(0)
-  const [syncing, setSyncing] = useState(false)
-  const [syncMessage, setSyncMessage] = useState('')
 
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
     rooms: false,
@@ -69,43 +67,6 @@ export default function SettingsPage() {
       console.error('Failed to save settings:', error)
     } finally {
       setSaving(false)
-    }
-  }
-
-  const handleSync = async () => {
-    setSyncing(true)
-    setSyncMessage('Sincronizando...')
-
-    try {
-      // Trigger sync for both calendars
-      const promises = [
-        fetch('/api/calendar/webhook', {
-          method: 'POST',
-          headers: {
-            'x-goog-resource-state': 'exists',
-            'x-goog-channel-id': 'miosotys-individual-manual',
-            'x-goog-resource-id': 'manual-sync',
-          },
-        }),
-        fetch('/api/calendar/webhook', {
-          method: 'POST',
-          headers: {
-            'x-goog-resource-state': 'exists',
-            'x-goog-channel-id': 'miosotys-principal-manual',
-            'x-goog-resource-id': 'manual-sync',
-          },
-        }),
-      ]
-
-      await Promise.all(promises)
-      setSyncMessage('✓ Calendario sincronizado')
-      setTimeout(() => setSyncMessage(''), 3000)
-    } catch (error) {
-      console.error('Failed to sync calendar:', error)
-      setSyncMessage('✗ Error al sincronizar')
-      setTimeout(() => setSyncMessage(''), 5000)
-    } finally {
-      setSyncing(false)
     }
   }
 
@@ -193,14 +154,6 @@ export default function SettingsPage() {
               >
                 📞 Nueva Cita
               </a>
-              <button
-                onClick={handleSync}
-                disabled={syncing}
-                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-                title="Sincronizar calendario con Google Sheet"
-              >
-                {syncing ? '⏳' : '🔄'} {syncMessage || (syncing ? 'Sincronizando...' : 'Sync')}
-              </button>
               {!isMobile && (
                 <button
                   onClick={() => setShowPreview(!showPreview)}
