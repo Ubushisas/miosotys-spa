@@ -1,4 +1,6 @@
-// Default settings - used when no environment variable is set
+import { prisma } from './db';
+
+// Default settings - used when database has no settings
 const DEFAULT_SETTINGS = {
   calendarEnabled: true,
   rooms: {
@@ -27,21 +29,28 @@ const DEFAULT_SETTINGS = {
   minimumAdvanceBookingHours: 12, // Minimum hours in advance required to book
 };
 
-// Get current settings from environment variable or use defaults
-// This works on Vercel serverless without file system
-export function getSettings() {
-  const settingsJson = process.env.CALENDAR_SETTINGS;
+// Get current settings from database
+export async function getSettings() {
+  try {
+    const settings = await prisma.calendarSettings.findFirst();
 
-  if (settingsJson) {
-    try {
-      return JSON.parse(settingsJson);
-    } catch (error) {
-      console.error('Error parsing CALENDAR_SETTINGS:', error);
-      return DEFAULT_SETTINGS;
+    if (settings) {
+      return {
+        calendarEnabled: settings.calendarEnabled,
+        bufferTime: settings.bufferTime,
+        minimumAdvanceBookingHours: settings.minimumAdvanceBookingHours,
+        rooms: settings.rooms,
+        services: settings.services,
+        workingHours: settings.workingHours,
+        blockedDates: settings.blockedDates,
+      };
     }
-  }
 
-  return DEFAULT_SETTINGS;
+    return DEFAULT_SETTINGS;
+  } catch (error) {
+    console.error('Error fetching settings from database:', error);
+    return DEFAULT_SETTINGS;
+  }
 }
 
 // Update settings - NOTE: On Vercel, you need to manually update the environment variable
@@ -55,35 +64,35 @@ export function updateSettings(newSettings) {
 }
 
 // Check if calendar is accepting bookings
-export function isCalendarEnabled() {
-  const settings = getSettings();
+export async function isCalendarEnabled() {
+  const settings = await getSettings();
   return settings.calendarEnabled;
 }
 
 // Check if a specific room is available
-export function isRoomEnabled(roomKey) {
-  const settings = getSettings();
+export async function isRoomEnabled(roomKey) {
+  const settings = await getSettings();
   return settings.rooms[roomKey]?.enabled || false;
 }
 
 // Check if a date is blocked
-export function isDateBlocked(date) {
-  const settings = getSettings();
+export async function isDateBlocked(date) {
+  const settings = await getSettings();
   const dateStr = new Date(date).toISOString().split('T')[0];
   return settings.blockedDates.includes(dateStr);
 }
 
 // Get working hours for a specific day
-export function getWorkingHours(dayOfWeek) {
-  const settings = getSettings();
+export async function getWorkingHours(dayOfWeek) {
+  const settings = await getSettings();
   const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
   const dayName = days[dayOfWeek];
   return settings.workingHours[dayName];
 }
 
 // Check if booking is allowed at specific time
-export function isBookingAllowed(date, service) {
-  const settings = getSettings();
+export async function isBookingAllowed(date, service) {
+  const settings = await getSettings();
 
   // Check if calendar is globally enabled
   if (!settings.calendarEnabled) {
@@ -104,20 +113,20 @@ export function isBookingAllowed(date, service) {
   }
 
   // Check if date is blocked
-  if (isDateBlocked(date)) {
+  if (await isDateBlocked(date)) {
     return { allowed: false, reason: 'Esta fecha está bloqueada' };
   }
 
   // Check day working hours
   const dayOfWeek = new Date(date).getDay();
-  const hours = getWorkingHours(dayOfWeek);
+  const hours = await getWorkingHours(dayOfWeek);
   if (!hours.enabled) {
     return { allowed: false, reason: 'No hay servicio este día' };
   }
 
   // Check if appropriate room is enabled
   const roomKey = service.minPeople ? 'principal' : 'individual';
-  if (!isRoomEnabled(roomKey)) {
+  if (!(await isRoomEnabled(roomKey))) {
     return { allowed: false, reason: `La ${settings.rooms[roomKey].name} está deshabilitada` };
   }
 
