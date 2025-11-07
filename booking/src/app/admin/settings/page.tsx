@@ -125,10 +125,10 @@ export default function SettingsPage() {
     <div className="min-h-screen bg-gray-50">
       {/* Success Banner */}
       {saved && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-green-600 text-white px-4 py-3 shadow-lg">
-          <div className="max-w-5xl mx-auto flex items-center justify-center gap-2">
-            <span className="text-lg">✅</span>
-            <span className="font-medium">Configuración guardada exitosamente</span>
+        <div className="fixed top-0 left-0 right-0 z-50 bg-green-500 text-white px-4 py-4 shadow-2xl animate-slide-down" style={{backgroundColor: 'rgba(34, 197, 94, 0.95)'}}>
+          <div className="max-w-5xl mx-auto flex items-center justify-center gap-3">
+            <span className="text-2xl">✅</span>
+            <span className="font-semibold text-lg">Cambios guardados exitosamente</span>
           </div>
         </div>
       )}
