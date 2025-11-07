@@ -240,3 +240,71 @@ function convertToISODateTime(date, time12h) {
   // Format as ISO string with Colombia timezone offset (-05:00)
   return `${year}-${month}-${day}T${hour}:${minute}:00-05:00`;
 }
+
+// Get event details by ID
+export async function getEventById(eventId, calendarId) {
+  try {
+    const calendar = getCalendarClient();
+
+    const response = await calendar.events.get({
+      calendarId: calendarId || CALENDAR_IDS.individual,
+      eventId,
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error('Error getting event:', error);
+    throw error;
+  }
+}
+
+// Register webhook for calendar changes
+export async function registerCalendarWebhook(webhookUrl) {
+  try {
+    const calendar = getCalendarClient();
+
+    // Register for both calendars
+    const channels = [];
+
+    for (const [roomName, calendarId] of Object.entries(CALENDAR_IDS)) {
+      const response = await calendar.events.watch({
+        calendarId,
+        requestBody: {
+          id: `miosotys-${roomName}-${Date.now()}`,
+          type: 'web_hook',
+          address: webhookUrl,
+        },
+      });
+
+      channels.push({
+        room: roomName,
+        calendarId,
+        channel: response.data,
+      });
+    }
+
+    return channels;
+  } catch (error) {
+    console.error('Error registering webhook:', error);
+    throw error;
+  }
+}
+
+// Stop watching a calendar channel
+export async function stopCalendarWatch(channelId, resourceId) {
+  try {
+    const calendar = getCalendarClient();
+
+    await calendar.channels.stop({
+      requestBody: {
+        id: channelId,
+        resourceId,
+      },
+    });
+
+    return { success: true };
+  } catch (error) {
+    console.error('Error stopping watch:', error);
+    throw error;
+  }
+}

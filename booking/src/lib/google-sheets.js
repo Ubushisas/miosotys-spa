@@ -295,3 +295,140 @@ export async function updateAppointmentStatus(googleEventId, status, updates = {
     return { success: false, error: error.message };
   }
 }
+
+// Delete appointment from Google Sheets (only future appointments)
+export async function deleteAppointmentFromSheet(googleEventId) {
+  try {
+    const sheets = getSheetsClient();
+
+    // Get all rows
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: APPOINTMENTS_SHEET_ID,
+      range: 'A:R',
+    });
+
+    const rows = response.data.values || [];
+
+    // Find row with matching Google Calendar ID (column Q = index 16)
+    const rowIndex = rows.findIndex((row, idx) => idx > 0 && row[16] === googleEventId);
+
+    if (rowIndex === -1) {
+      console.log('Appointment not found in sheet');
+      return { success: false };
+    }
+
+    // Check if appointment is in the future
+    const appointmentDateStr = rows[rowIndex][1]; // Column B = Fecha Cita
+    const appointmentTimeStr = rows[rowIndex][2]; // Column C = Hora
+
+    // Parse appointment date and time
+    const [day, month, year] = appointmentDateStr.split('/');
+    const appointmentDate = new Date(`${year}-${month}-${day}`);
+
+    // Parse time (e.g., "2:30 PM")
+    const [timeStr, period] = appointmentTimeStr.split(' ');
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    let hours24 = hours;
+    if (period === 'PM' && hours !== 12) hours24 = hours + 12;
+    else if (period === 'AM' && hours === 12) hours24 = 0;
+
+    appointmentDate.setHours(hours24, minutes, 0, 0);
+
+    const now = new Date();
+
+    // Only delete future appointments
+    if (appointmentDate < now) {
+      console.log('Cannot delete past appointment from sheet');
+      return { success: false, reason: 'past_appointment' };
+    }
+
+    // Delete the row using batchUpdate
+    await sheets.spreadsheets.batchUpdate({
+      spreadsheetId: APPOINTMENTS_SHEET_ID,
+      requestBody: {
+        requests: [
+          {
+            deleteDimension: {
+              range: {
+                sheetId: 0, // First sheet
+                dimension: 'ROWS',
+                startIndex: rowIndex,
+                endIndex: rowIndex + 1,
+              },
+            },
+          },
+        ],
+      },
+    });
+
+    console.log('✅ Appointment deleted from Google Sheets');
+    return { success: true };
+  } catch (error) {
+    console.error('Error deleting appointment from sheet:', error);
+    return { success: false, error: error.message };
+  }
+}
+
+// Update appointment details when rescheduled
+export async function updateAppointmentDetails(googleEventId, newDate, newTime) {
+  try {
+    const sheets = getSheetsClient();
+
+    // Get all rows
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: APPOINTMENTS_SHEET_ID,
+      range: 'A:R',
+    });
+
+    const rows = response.data.values || [];
+
+    // Find row with matching Google Calendar ID (column Q = index 16)
+    const rowIndex = rows.findIndex((row, idx) => idx > 0 && row[16] === googleEventId);
+
+    if (rowIndex === -1) {
+      console.log('Appointment not found in sheet');
+      return { success: false };
+    }
+
+    // Update date (column B = index 1)
+    if (newDate) {
+      const appointmentDate = new Date(newDate);
+      await sheets.spreadsheets.values.update({
+        spreadsheetId: APPOINTMENTS_SHEET_ID,
+        range: `B${rowIndex + 1}`,
+        valueInputOption: 'RAW',
+        requestBody: {
+          values: [[appointmentDate.toLocaleDateString('es-CO')]],
+        },
+      });
+    }
+
+    // Update time (column C = index 2)
+    if (newTime) {
+      await sheets.spreadsheets.values.update({
+        spreadsheetId: APPOINTMENTS_SHEET_ID,
+        range: `C${rowIndex + 1}`,
+        valueInputOption: 'RAW',
+        requestBody: {
+          values: [[newTime]],
+        },
+      });
+    }
+
+    // Reset reminder flags when rescheduled
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: APPOINTMENTS_SHEET_ID,
+      range: `O${rowIndex + 1}:P${rowIndex + 1}`,
+      valueInputOption: 'RAW',
+      requestBody: {
+        values: [['No', 'No']],
+      },
+    });
+
+    console.log('✅ Appointment details updated in Google Sheets');
+    return { success: true };
+  } catch (error) {
+    console.error('Error updating appointment details:', error);
+    return { success: false, error: error.message };
+  }
+}
