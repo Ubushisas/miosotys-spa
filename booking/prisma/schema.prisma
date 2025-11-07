@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model CalendarSettings {
+  id                          String   @id @default(cuid())
+  calendarEnabled             Boolean  @default(true)
+  bufferTime                  Int      @default(30)
+  minimumAdvanceBookingHours  Int      @default(13)
+  rooms                       Json
+  services                    Json
+  workingHours                Json
+  blockedDates                Json
+  createdAt                   DateTime @default(now())
+  updatedAt                   DateTime @updatedAt
+
+  @@map("calendar_settings")
+}
