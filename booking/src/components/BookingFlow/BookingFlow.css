@@ -478,16 +478,14 @@
 
 /* Navigation Buttons */
 .back-button {
-  background: rgba(242, 237, 230, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(242, 237, 230, 0.15);
-  border-radius: 0.75rem;
-  color: var(--base-200);
-  font-size: 0.95rem;
+  background: none;
+  border: 2px solid #BBDCE5;
+  color: #BBDCE5;
+  font-size: 1rem;
   cursor: pointer;
   padding: 0.75rem 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
   text-align: left;
   margin-top: -30px; /* Move arrow 30px HIGHER - changed from 2rem */
   font-family: "Manrope", sans-serif;
@@ -498,11 +496,11 @@
 }
 
 .back-button:hover {
-  color: var(--base-50);
-  background: rgba(242, 237, 230, 0.1);
-  border-color: rgba(242, 237, 230, 0.3);
+  background-color: #BBDCE5;
+  border-color: #BBDCE5;
+  color: #4A3C32;
   transform: translateX(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(187, 220, 229, 0.3);
 }
 
 .step-actions {

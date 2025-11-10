@@ -26,6 +26,8 @@
   border: 1px solid rgba(242, 237, 230, 0.1);
   border-radius: 1rem;
   padding: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .loading-overlay {
@@ -278,8 +280,8 @@
 .calendar-days-header {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .day-name {
@@ -295,7 +297,7 @@
 .calendar-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.5rem;
+  gap: 1.2rem;
 }
 
 .calendar-day {
