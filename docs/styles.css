@@ -1166,9 +1166,11 @@ footer {
   top: 0;
 }
 
-/* Move "Ver paquetes" button lower in service cards (not first card) */
+/* Desktop: equal spacing for Ver paquetes button (7px top and bottom) */
 .sticky-card:not(:first-child) .sticky-card-button {
-  top: 10px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  top: 0;
 }
 
 /* Mobile: center button between description and arrows with equal spacing */
