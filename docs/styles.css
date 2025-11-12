@@ -290,19 +290,44 @@ footer {
   transform: translateY(-2px);
 }
 
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.slider-counter {
+  display: flex;
+}
+
+.slider-counter p,
+.slider-counter > div {
+  width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-counter p {
+  opacity: 0.35;
+  color: #fff;
+  font-size: 15px;
+  font-weight: lighter;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .social-icons {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
 }
 
 .social-icon {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
   text-decoration: none;
   cursor: pointer;
@@ -689,9 +714,18 @@ footer {
     padding: 5px 12px;
   }
 
+  .footer-right {
+    gap: 12px;
+  }
+
+  .slider-counter p,
+  .slider-counter > div {
+    font-size: 14px;
+  }
+
   .social-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 
   /* Main Slider Small Screens */
