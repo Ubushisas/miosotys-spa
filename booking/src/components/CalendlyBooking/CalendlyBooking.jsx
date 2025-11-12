@@ -709,11 +709,13 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
                         <button
                           onClick={() => {
+                            console.log('🔙 Back button clicked');
                             setDateTimeSubStep('date');
                             setSelectedTime(null);
                           }}
                           className="calendly-back-btn"
                           title="Volver a selección de fecha"
+                          aria-label="Volver a selección de fecha"
                         >
                           <ChevronLeft />
                         </button>
