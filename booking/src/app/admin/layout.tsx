@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { SessionProvider } from 'next-auth/react'
+import { SessionProvider, useSession, signIn } from 'next-auth/react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   IconLayoutDashboard,
@@ -16,6 +16,46 @@ import {
   IconCalendarEvent,
   IconMessageCircle,
 } from '@tabler/icons-react'
+
+// Auth guard component
+function AdminAuthGuard({ children }: { children: React.ReactNode }) {
+  const { data: session, status } = useSession()
+  const pathname = usePathname()
+
+  useEffect(() => {
+    // Redirect to Google login if not authenticated (except on login page)
+    if (status === 'unauthenticated' && pathname !== '/admin/login') {
+      signIn('google', { callbackUrl: pathname || '/admin/settings' })
+    }
+  }, [status, pathname])
+
+  // Show loading while checking authentication
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+          <p className="mt-4 text-gray-600">Verificando autenticación...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Show loading while redirecting to login
+  if (status === 'unauthenticated') {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+          <p className="mt-4 text-gray-600">Redirigiendo al inicio de sesión...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // User is authenticated, show the protected content
+  return <>{children}</>
+}
 
 export default function AdminLayout({
   children,
@@ -46,15 +86,16 @@ export default function AdminLayout({
 
   return (
     <SessionProvider>
-      <div className="min-h-screen bg-background">
-        <div className="flex h-screen overflow-hidden">
-          {/* Sidebar */}
-          <motion.aside
-          initial={{ x: -300, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="w-64 bg-card border-r border-border flex flex-col"
-        >
+      <AdminAuthGuard>
+        <div className="min-h-screen bg-background">
+          <div className="flex h-screen overflow-hidden">
+            {/* Sidebar */}
+            <motion.aside
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className="w-64 bg-card border-r border-border flex flex-col"
+          >
           {/* Header */}
           <div className="p-6 border-b border-border">
             <motion.div
@@ -126,6 +167,7 @@ export default function AdminLayout({
         </main>
         </div>
       </div>
+      </AdminAuthGuard>
     </SessionProvider>
   )
 }
