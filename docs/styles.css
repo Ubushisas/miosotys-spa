@@ -1166,9 +1166,16 @@ footer {
   top: 0;
 }
 
-/* Move "Ver paquetes" button 10px lower in service cards (not first card) */
+/* Move "Ver paquetes" button lower in service cards (not first card) */
 .sticky-card:not(:first-child) .sticky-card-button {
   top: 10px;
+}
+
+/* Mobile: move button even lower for better spacing */
+@media (max-width: 768px) {
+  .sticky-card:not(:first-child) .sticky-card-button {
+    top: 25px;
+  }
 }
 
 .scroll-arrows-container {
