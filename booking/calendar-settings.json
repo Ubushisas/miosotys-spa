@@ -15,38 +15,52 @@
   "services": {
     "individual": [
       {
-        "id": "limpieza_facial",
-        "name": "Limpieza Facial",
+        "id": "limpieza_facial_basica",
+        "name": "Limpieza Facial Básica",
         "duration": 60,
+        "price": 90000,
+        "enabled": true
+      },
+      {
+        "id": "limpieza_facial_completa",
+        "name": "Limpieza Facial Completa",
+        "duration": 80,
         "price": 120000,
+        "enabled": true
+      },
+      {
+        "id": "limpieza_facial_elixir",
+        "name": "Limpieza Facial Elixir de la Juventud",
+        "duration": 100,
+        "price": 170000,
         "enabled": true
       },
       {
         "id": "bano_luna",
         "name": "Baño de Luna",
-        "duration": 75,
-        "price": 150000,
+        "duration": 70,
+        "price": 140000,
         "enabled": true
       },
       {
         "id": "exfoliacion",
         "name": "Exfoliación Corporal",
-        "duration": 60,
+        "duration": 80,
         "price": 130000,
         "enabled": true
       },
       {
-        "id": "aceite_caliente",
-        "name": "Masaje con Aceite Caliente",
-        "duration": 60,
-        "price": 140000,
+        "id": "veloterapia",
+        "name": "Veloterapia",
+        "duration": 70,
+        "price": 110000,
         "enabled": true
       },
       {
         "id": "piedras_calientes",
         "name": "Masaje con Piedras Calientes",
-        "duration": 60,
-        "price": 160000,
+        "duration": 70,
+        "price": 110000,
         "enabled": true
       }
     ],
@@ -55,7 +69,7 @@
         "id": "romantico_oasis",
         "name": "Romántico Oasis para Dos",
         "duration": 165,
-        "price": 450000,
+        "price": 470000,
         "minPeople": 2,
         "maxPeople": 2,
         "enabled": true
@@ -84,7 +98,7 @@
         "id": "tarde_chicas",
         "name": "Tarde de Chicas",
         "duration": 180,
-        "price": 230000,
+        "price": 240000,
         "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
@@ -93,8 +107,17 @@
         "id": "pasabordo",
         "name": "Pasabordo Rápido de Desestrés",
         "duration": 80,
-        "price": 160000,
+        "price": 130000,
         "minPeople": 3,
+        "maxPeople": 6,
+        "enabled": true
+      },
+      {
+        "id": "renovacion_corporal",
+        "name": "Experiencia de Renovación Corporal",
+        "duration": 140,
+        "price": 210000,
+        "minPeople": 4,
         "maxPeople": 6,
         "enabled": true
       }
@@ -102,10 +125,10 @@
     "ninas": [
       {
         "id": "teen_harmony",
-        "name": "Experiencia de Armonía para Adolescentes",
+        "name": "Día de Spa para Adolescentes",
         "duration": 165,
         "price": 240000,
-        "minPeople": 3,
+        "minPeople": 4,
         "maxPeople": 6,
         "enabled": true
       },
@@ -113,8 +136,8 @@
         "id": "tween_adventure",
         "name": "Aventura Spa para Preadolescentes",
         "duration": 195,
-        "price": 270000,
-        "minPeople": 3,
+        "price": 250000,
+        "minPeople": 4,
         "maxPeople": 6,
         "enabled": true
       }
@@ -127,15 +150,6 @@
         "price": 380000,
         "minPeople": 2,
         "maxPeople": 2,
-        "enabled": true
-      },
-      {
-        "id": "tarde_familia",
-        "name": "Tarde en Familia",
-        "duration": 150,
-        "price": 620000,
-        "minPeople": 3,
-        "maxPeople": 6,
         "enabled": true
       }
     ],
@@ -181,8 +195,8 @@
         "id": "quince",
         "name": "Feliz 15 Años con tus Mejores Amigas",
         "duration": 210,
-        "price": 350000,
-        "minPeople": 3,
+        "price": 370000,
+        "minPeople": 4,
         "maxPeople": 6,
         "enabled": true
       },
@@ -190,8 +204,8 @@
         "id": "cumple",
         "name": "Celebración de Cumpleaños",
         "duration": 170,
-        "price": 270000,
-        "minPeople": 3,
+        "price": 280000,
+        "minPeople": 4,
         "maxPeople": 6,
         "enabled": true
       },
@@ -200,7 +214,7 @@
         "name": "Despedida de Soltera",
         "duration": 210,
         "price": 350000,
-        "minPeople": 3,
+        "minPeople": 4,
         "maxPeople": 6,
         "enabled": true
       }

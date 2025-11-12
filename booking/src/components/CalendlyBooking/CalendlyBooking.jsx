@@ -81,6 +81,15 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
           // Generate time slots and filter out unavailable ones
           const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
           const dayName = dayNames[selectedDate.getDay()];
+
+          // Safety check: ensure settings and workingHours exist
+          if (!settings || !settings.workingHours || !settings.workingHours[dayName]) {
+            console.error('Settings or workingHours not loaded properly:', settings);
+            setAvailableTimes([]);
+            setLoadingTimes(false);
+            return;
+          }
+
           const daySettings = settings.workingHours[dayName];
 
           if (!daySettings?.enabled) {
@@ -204,9 +213,10 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
   };
 
   const isDateAvailable = (date) => {
-    if (!date || !settings) return false;
+    if (!date || !settings || !settings.workingHours) return false;
     const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
     const dayName = dayNames[date.getDay()];
+    if (!settings.workingHours[dayName]) return false;
     const daySettings = settings.workingHours[dayName];
     return daySettings?.enabled === true;
   };
@@ -248,14 +258,17 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
   // Auto-select service when preselectedService is provided
   useEffect(() => {
     if (settings && preselectedService && !selectedService) {
+      console.log('🔍 Searching for service:', preselectedService);
       // Search for the service across all categories
       for (const categoryId of Object.keys(settings.services)) {
         const services = settings.services[categoryId].filter(s => s.enabled);
+        console.log(`Checking category "${categoryId}":`, services.map(s => s.name));
         const matchingService = services.find(s =>
           s.name.toLowerCase() === preselectedService.toLowerCase()
         );
 
         if (matchingService) {
+          console.log('✅ Found matching service:', matchingService);
           setSelectedService(matchingService);
           setSelectedCategory(categoryId);
           setActiveCategory(categoryId);
@@ -265,6 +278,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
           break;
         }
+      }
+      if (!selectedService) {
+        console.log('❌ No matching service found for:', preselectedService);
       }
     }
   }, [settings, preselectedService]);

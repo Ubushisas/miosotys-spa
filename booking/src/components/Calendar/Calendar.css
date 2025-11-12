@@ -81,12 +81,13 @@
 
 /* Calendly-style back button */
 .back-button-simple {
-  background: none;
-  border: none;
-  color: var(--base-100);
-  font-size: 1.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  background: rgba(187, 220, 229, 0.2);
+  border: 2px solid #BBDCE5;
+  color: #BBDCE5;
+  font-size: 1.8rem;
+  font-weight: bold;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -96,11 +97,14 @@
   position: absolute;
   top: 0;
   left: 0; /* Align arrow to the left */
+  box-shadow: 0 2px 8px rgba(187, 220, 229, 0.3);
 }
 
 .back-button-simple:hover {
-  background-color: rgba(242, 237, 230, 0.1);
+  background-color: #BBDCE5;
+  color: #4A3C32;
   transform: translateX(-2px);
+  box-shadow: 0 4px 12px rgba(187, 220, 229, 0.5);
 }
 
 /* Calendly-style time view */

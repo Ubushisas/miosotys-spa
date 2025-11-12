@@ -48,12 +48,6 @@
         max-width: 100% !important;
         margin: 0px 0px 16px !important;
       }
-      /* Make last button span full width if needed */
-      .sticky-card:first-child .sticky-card-button:last-child {
-        grid-column: 1 / -1 !important;
-        max-width: 300px !important;
-        margin: 0 auto !important;
-      }
       .sticky-card:first-child .sticky-card-button {
         opacity: 1 !important;
         display: flex !important;
@@ -274,27 +268,26 @@
               </div>
               <div class="sticky-card-copy">
                 <h1 class="sticky-card-header">Nuestros Servicios</h1>
-                <div class="sticky-card-copy-description" style="text-align: center; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; max-width: 450px; align-items: center; margin: 0 auto; height: auto; max-height: none; overflow: visible;">
-                  <div class="sticky-card-button" style="width: 100%;">
-                    <button onclick="scrollToNextCard(1)">Spa Individual</button>
-                  </div>
-                  <div class="sticky-card-button" style="width: 100%;">
-                    <button onclick="scrollToNextCard(2)">Spa para Parejas</button>
-                  </div>
-                  <div class="sticky-card-button" style="width: 100%;">
-                    <button onclick="scrollToNextCard(3)">Spa para Amigas</button>
-                  </div>
-                  <div class="sticky-card-button" style="width: 100%;">
-                    <button onclick="scrollToNextCard(4)">Spa para Niñas</button>
-                  </div>
-                  <div class="sticky-card-button" style="width: 100%;">
-                    <button onclick="scrollToNextCard(5)">Spa para Familias</button>
-                  </div>
-                  <div class="sticky-card-button" style="width: 100%;">
-                    <button onclick="scrollToNextCard(6)">Spa Luxury</button>
-                  </div>
-                  <div class="sticky-card-button" style="width: 100%;">
-                    <button onclick="scrollToNextCard(7)">Eventos Especiales</button>
+                <div class="sticky-card-copy-description" style="text-align: center; padding-left: 0; display: flex; flex-direction: column; gap: 1rem; max-width: 800px; align-items: center; margin: 0 auto; height: auto; max-height: none; overflow: visible;">
+                  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; width: 100%;">
+                    <div class="sticky-card-button">
+                      <button onclick="scrollToNextCard(1)">Spa Individual</button>
+                    </div>
+                    <div class="sticky-card-button">
+                      <button onclick="scrollToNextCard(2)">Spa para Parejas</button>
+                    </div>
+                    <div class="sticky-card-button">
+                      <button onclick="scrollToNextCard(3)">Spa para Amigas</button>
+                    </div>
+                    <div class="sticky-card-button">
+                      <button onclick="scrollToNextCard(4)">Spa para Niñas</button>
+                    </div>
+                    <div class="sticky-card-button">
+                      <button onclick="scrollToNextCard(5)">Spa para Familias</button>
+                    </div>
+                    <div class="sticky-card-button">
+                      <button onclick="scrollToNextCard(7)">Eventos Especiales</button>
+                    </div>
                   </div>
                 </div>
                 <div class="scroll-arrow" onclick="scrollToNextCard(1)" style="margin-top: 1.5rem;">
@@ -482,8 +475,8 @@
           </div>
         </div>
 
-        <!-- Card 6 - Spa Luxury -->
-        <div class="sticky-card">
+        <!-- Card 6 - Spa Luxury - HIDDEN -->
+        <div class="sticky-card" style="display: none;">
           <div class="sticky-card-content">
             <div class="sticky-card-content-wrapper">
               <div class="sticky-card-img">
@@ -660,34 +653,46 @@
           title: "Spa Individual - Paquetes",
           packages: [
             {
-              name: "Limpieza Facial",
-              description: "Tratamiento especializado para revitalizar la piel y restaurar su equilibrio natural.<br><br><strong>Beneficios:</strong><br>• Eliminación de impurezas profundas<br>• Renovación celular y mejora de la oxigenación de la piel<br>• Regulación del pH e hidratación intensiva<br>• Prevención del envejecimiento prematuro<br>• Reducción de imperfecciones como poros dilatados, manchas y cicatrices<br>• Relajación y bienestar para el rostro",
-              duration: "Consultar duración",
-              price: "Consultar precio"
+              name: "Limpieza Facial Básica",
+              description: "Permítenos consentirte con un tratamiento facial sencillo pero revitalizante diseñado para refrescar y nutrir tu piel.<br><br><strong>Incluye:</strong><br>• Una exfoliación suave para eliminar las células muertas y preparar la piel para esta experiencia.<br>• Disfruta de una mascarilla personalizada que se aplica para nutrir e hidratar tu piel, adaptada siempre a tu necesidad.<br>• Déjanos ayudarte a lograr una piel hermosa y radiante.<br><br>Reserva tu cita en Myosotis Spa hoy mismo y dale a tu piel el cuidado que se merece!",
+              duration: "1 hora / 60 minutos",
+              price: "$90.000"
+            },
+            {
+              name: "Limpieza Facial Completa",
+              description: "Date un capricho con nuestro tratamiento facial diseñado para rejuvenecer y renovar tu piel.<br><br><strong>Incluye:</strong><br>• Exfoliación profunda que deja tu piel tersa y fresca.<br>• Disfruta de la sensación calmante del vapor de ozono, que ayuda a abrir los poros para una limpieza exhaustiva.<br>• Extracción manual para eliminar puntos negros y otras impurezas, asegurando un cutis más limpio y radiante.<br>• Finaliza la experiencia con un hidratante para asegurar una piel saludable y luminosa.",
+              duration: "1 hora 20 minutos / 80 minutos",
+              price: "$120.000"
+            },
+            {
+              name: "Limpieza Facial Elixir de la Juventud",
+              description: "Revitaliza tu piel con nuestro exclusivo tratamiento facial diseñado para devolver la juventud y el brillo a tu rostro.<br><br><strong>Incluye:</strong><br>• Sumérgete en una experiencia única, donde cada paso está pensado para nutrir, iluminar y rejuvenecer tu piel.<br>• Desde la limpieza inicial que prepara tu piel para el cuidado óptimo, hasta la aplicación de activos potentes como la vitamina C, bioretinol y ácido hialurónico; este tratamiento restaura la vitalidad de tu piel.<br>• Con una combinación de productos de primera calidad y la aplicación de un eficaz protector solar, saldrás luciendo una tez visiblemente más luminosa y saludable.<br><br>Te invitamos a disfrutar de esta indulgente experiencia en Myosotis Spa y descubrir el secreto de una piel eternamente joven!",
+              duration: "1 hora 40 minutos / 100 minutos",
+              price: "$170.000"
             },
             {
               name: "Baño de Luna",
-              description: "Un ritual corporal relajante que unifica, ilumina y suaviza la piel.<br><br><strong>Incluye:</strong><br>• Exfoliación completa para renovar la piel<br>• Hidratación profunda que devuelve suavidad y frescura<br>• Opción de aclaramiento de vello corporal (según solicitud del cliente)<br>• Resultado: piel luminosa, uniforme y aterciopelada",
-              duration: "Consultar duración",
-              price: "Consultar precio"
+              description: "Descubre la magia del Baño de Luna, un tratamiento exclusivo pensado para iluminar tu piel y elevar tu bienestar.<br><br><strong>Incluye:</strong><br>• Esta experiencia comienza con una delicada exfoliación corporal que prepara tu piel para la máxima absorción de nutrientes.<br>• A continuación aplicamos hidratantes para revitalizar y suavizar tu piel.<br>• En algunos casos, incluimos tratamientos aclarantes para homogenizar el tono de la piel.<br>• El Baño de Luna es una ceremonia de cuidado que conecta el cuerpo con la naturaleza; ideal para una piel luminosa y resplandeciente.<br><br>Programa tu cita en Myosotis Spa y abraza la transformación hoy mismo.",
+              duration: "1 hora 10 minutos / 70 minutos",
+              price: "$140.000"
             },
             {
               name: "Exfoliación Corporal",
-              description: "Terapia de renovación que elimina células muertas y transforma la textura de la piel.<br><br><strong>Beneficios:</strong><br>• Mejora notable de la apariencia y suavidad de la piel<br>• Estimulación de la circulación<br>• Preparación ideal para posteriores tratamientos de hidratación o nutrición<br>• Uso de exfoliantes físicos o químicos, seleccionados según las necesidades de cada cliente",
-              duration: "Consultar duración",
-              price: "Consultar precio"
+              description: "Sumérgete en una experiencia de renovación total.<br><br><strong>Incluye:</strong><br>• Nuestro tratamiento de exfoliación corporal utiliza cremas exfoliantes de alta calidad que eliminan suavemente las células muertas de la piel, dejando una textura notablemente más suave.<br>• Disfruta de un agradable aroma, ya sea frutal, herbal o cítrico; para una experiencia sensorial completa.<br>• Además, empleamos una manta térmica para optimizar los beneficios del tratamiento y asegurar que tu piel quede revitalizada y sedosa.",
+              duration: "1 hora 20 minutos / 80 minutos",
+              price: "$130.000"
             },
             {
-              name: "Masaje con Aceite Caliente",
-              description: "Un masaje terapéutico y sensorial que armoniza cuerpo y mente.<br><br><strong>Incluye:</strong><br>• Aplicación de aceites herbales tibios en todo el cuerpo<br>• Estimulación profunda para liberar tensiones<br>• Nutrición de la piel a través de aceites naturales<br>• Promueve el equilibrio físico y mental<br>• Favorece la eliminación de toxinas",
-              duration: "Consultar duración",
-              price: "Consultar precio"
+              name: "Veloterapia",
+              description: "Es una técnica de masajes que implica la aplicación de aceites herbales calientes (tibios) en todo el cuerpo.<br><br><strong>Objetivo:</strong><br>• Promover el equilibrio físico y mental a través de la nutrición, relajación y eliminación de toxinas.",
+              duration: "1 hora 10 minutos / 70 minutos",
+              price: "$110.000"
             },
             {
               name: "Masaje con Piedras Calientes",
-              description: "Terapia ancestral que combina calor y masaje para aliviar tensiones.<br><br><strong>Incluye:</strong><br>• Aplicación de piedras calientes de basalto en puntos específicos del cuerpo<br>• Relajación muscular profunda y localizada<br>• Reducción de dolores y contracturas<br>• Técnica que permite liberar tensión sin necesidad de presión excesiva<br>• Una experiencia que equilibra energía y bienestar",
-              duration: "Consultar duración",
-              price: "Consultar precio"
+              description: "Es una terapia donde se utilizan piedras calientes generalmente de basalto, con el fin de relajar los músculos y focalizar la tensión y por ende aliviar dicho dolor.<br><br><strong>Incluye:</strong><br>• Al permitir que el calor se localice en los puntos específicos, permite que el terapeuta no tenga que aplicar tanta presión en dicho punto y su calor realice una función dilatadora y vascularizante en los músculos.",
+              duration: "1 hora 10 minutos / 70 minutos",
+              price: "$110.000"
             }
           ]
         },
@@ -696,20 +701,20 @@
           packages: [
             {
               name: "Romántico Oasis para Dos",
-              description: "Un refugio íntimo diseñado para renovar la conexión y el amor en pareja.<br><br><strong>Incluye:</strong><br>• Masaje en pareja con aceites de rosas y lavanda, para relajar y estimular los sentidos<br>• Tiempo privado en jacuzzi con pétalos y velas aromáticas, en un ambiente íntimo<br>• Tabla de quesos acompañada de una copa de vino espumoso",
-              duration: "2 horas 45 minutos",
-              price: "$450.000 por pareja"
+              description: "Escápate junto a tu pareja a nuestro refugio romántico pensado para renovar la conexión y el amor.<br><br><strong>Incluye:</strong><br>• Un masaje en pareja con aceites esenciales de rosas y lavanda, para relajar y estimular los sentidos.<br>• Tiempo privado en nuestro jacuzzi con pétalos flotantes y velas aromáticas, creando un ambiente perfecto para una velada íntima.<br>• Una tabla de quesos, acompañada de una copa de vino espumoso para brindar por el amor.",
+              duration: "2 horas 45 minutos / 165 min",
+              price: "$470.000 por pareja"
             },
             {
               name: "Retiro de Reconciliación para Dos",
-              description: "Un espacio de paz y calma pensado para fortalecer lazos y reconectar en pareja.<br><br><strong>Incluye:</strong><br>• Copa de vino de bienvenida<br>• Masaje en pareja para aliviar estrés y tensiones<br>• Sesión creativa con chocolate, fomentando diversión y conexión<br>• Hidroterapia y aromaterapia en pareja<br>• Tabla de quesos, chocolates gourmet y bebida fría (con o sin alcohol)",
-              duration: "3 horas 15 minutos",
+              description: "Fortalece tus lazos y reconecta con tu pareja en un ambiente de paz y tranquilidad.<br><br><strong>Incluye:</strong><br>• Una copa de Vino para iniciar la sesión y desinhibirse un poco.<br>• Un masaje en pareja diseñado para aliviar el estrés y las tensiones, promoviendo la calma y la comunicación abierta.<br>• Una sesión de juego creativo, en la cual las parejas pueden aplicarse chocolate el uno al otro, creando patrones o mensajes sobre la piel y disfrutando momentos de alegría compartida.<br>• Una sesión de hidroterapia y aromaterapia para disfrutar de momentos de conexión y relajación.<br>• Bebida Fría con/sin alcohol, Tabla de Quesos y chocolates gourmet para completar la experiencia romántica.",
+              duration: "3 horas 15 minutos / 195 min",
               price: "$540.000 por pareja"
             },
             {
               name: "Paquete de Aniversario",
-              description: "Una experiencia diseñada para celebrar el amor y disfrutar en pareja de momentos de relajación total.<br><br><strong>Incluye:</strong><br>• Masajes en pareja<br>• Tratamientos faciales rejuvenecedores<br>• Tabla de quesos acompañada de una bebida (con o sin alcohol)",
-              duration: "2 horas",
+              description: "Celebra tu aniversario con una experiencia de relajación total.<br><br><strong>Incluye:</strong><br>• Masajes en pareja.<br>• Tratamientos faciales rejuvenecedores.<br>• Una tabla de queso con una bebida con o sin alcohol al final de la experiencia.",
+              duration: "2 horas / 120 min",
               price: "$400.000 por pareja"
             }
           ]
@@ -719,15 +724,21 @@
           packages: [
             {
               name: "Tarde de Chicas",
-              description: "Vive un retiro fascinante con tus amigas en un ambiente de lujo y confort.<br><br><strong>Incluye:</strong><br>• Masaje de cuerpo completo con aceites esenciales aromáticos, diseñado para relajar y revitalizar los sentidos<br>• Mascarilla revitalizante para aportar un brillo natural a la piel<br>• Sesión de jacuzzi con sales minerales orgánicas para una experiencia de bienestar<br>• Acceso a sauna y turco para purificar y rejuvenecer el cuerpo<br>• Snack saludable acompañado de una bebida refrescante para cerrar la experiencia<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
-              duration: "3 horas",
-              price: "1 persona → $230.000<br>2 personas → $460.000<br>3 personas → $690.000<br>4 personas → $870.000<br>5 personas → $1.150.000<br>6 personas → $1.310.000"
+              description: "Disfruta de un retiro fascinante con tus amigas en un ambiente de lujo y confort.<br><br><strong>Incluye:</strong><br>• Un masaje de cuerpo completo utilizando aceites esenciales con propiedades aromáticas seleccionadas para relajar y revitalizar tus sentidos.<br>• Un masaje facial e hidratación con velo para dar un brillo natural a tu piel.<br>• Una sesión de jacuzzi con sales minerales orgánicas para una experiencia de bienestar.<br>• Acceso a nuestro sauna y turco para purificar y rejuvenecer el cuerpo.<br>• Un snack saludable acompañado de una bebida refrescante para finalizar tu experiencia.",
+              duration: "3 horas / 180 min",
+              price: "1 persona → $240.000<br>2 personas → $480.000<br>3 personas → $720.000<br>4 personas → $930.000<br>5 personas → $1.200.000<br>6 personas → $1.368.000"
             },
             {
               name: "Pasabordo Rápido de Desestrés",
-              description: "Para cambiar de rutina y aliviar el estrés del día a día, disfruta de un momento diseñado para relajar cuerpo y mente.<br><br><strong>Incluye:</strong><br>• Hidromasaje para liberar tensión acumulada<br>• Masaje corporal relajante con piedras calientes, ideal para aliviar la tensión localizada en los músculos<br><br>Una pausa perfecta para recargar energías.<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
-              duration: "1 hora 20 minutos",
-              price: "1 persona → $160.000<br>2 personas → $320.000<br>3 personas → $480.000<br>4 personas → $610.000<br>5 personas → $800.000<br>6 personas → $910.000"
+              description: "Para cambiar de rutina y aliviar el estrés del día a día.<br><br><strong>Incluye:</strong><br>• Escápate un ratito para brindarte un hidromasaje que destensione tu cuerpo.<br>• Masaje relajante corporal utilizando piedras calientes para aliviar la tensión localizada en los músculos.<br><br>¡Una forma perfecta de recargar energías!",
+              duration: "1 hora 20 minutos / 80 min",
+              price: "1 persona → $130.000<br>2 personas → $260.000<br>3 personas → $390.000<br>4 personas → $504.000<br>5 personas → $650.000<br>6 personas → $740.000"
+            },
+            {
+              name: "Experiencia de Renovación Corporal",
+              description: "Si te sientes cansado, regálate una experiencia completa de rejuvenecimiento.<br><br><strong>Incluye:</strong><br>• Ingreso al Turco, donde eliminarás toxinas, relajarás los músculos, reducirás el estrés y mejorarás tus vías respiratorias.<br>• Continúa la experiencia de spa con un baño sereno en el jacuzzi: siente las suaves burbujas y el agua tibia, la cual relaja el cuerpo y la mente.<br>• Masaje facial que incluye preparación de la piel, seguido de técnicas manuales.<br>• Masaje relajante de cuerpo completo con aceites aromáticos adaptado a tu preferencia.<br>• Al terminar la sesión te espera un té de hierbas, permitiéndote regresar activamente a tu día con energía renovada.",
+              duration: "2 horas 20 minutos / 140 min",
+              price: "1 persona → $210.000<br>2 personas → $420.000<br>3 personas → $630.000<br>4 personas → $815.000<br>5 personas → $1.050.000<br>6 personas → $1.190.000"
             }
           ]
         },
@@ -735,16 +746,16 @@
           title: "Spa para Niñas - Paquetes",
           packages: [
             {
-              name: "Experiencia de Armonía para Adolescentes",
-              description: "Un plan divertido y relajante para compartir con amigas, fortalecer amistades y disfrutar de un ambiente diseñado para el bienestar.<br><br><strong>Incluye:</strong><br>• Sesión en sauna para abrir poros y preparar la piel<br>• Ingreso al turco con esencias herbales que relajan los músculos<br>• Experiencia de chocolaterapia, ideal para expresarse y relajarse en grupo<br>• Masaje facial refrescante con limpieza y mascarilla calmante<br>• Masaje corporal relajante para aliviar tensión y promover calma<br>• Jacuzzi de relajación con aguas cálidas y burbujeantes<br>• Selección de snacks saludables para cerrar la experiencia<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
-              duration: "2 horas 45 minutos",
+              name: "Día de Spa para Adolescentes",
+              description: "Ideal para pasar un tiempo divertido con amigas, este paquete incluye acceso a todas las instalaciones del spa, además de actividades grupales para fortalecer las amistades en un ambiente relajado.<br><br><strong>Incluye:</strong><br>• Inicia con una sesión calmante en el sauna, donde el suave calor ayuda a abrir los poros y preparar la piel para tratamientos posteriores.<br>• Continúa con el ingreso al Turco donde el vapor te envolverá con suaves esencias de hierbas naturales, permitiendo relajar los músculos.<br>• Luego pasarás por la experiencia de la Chocolaterapia; esta alternativa al chocolate permite a los adolescentes expresarse y relajarse mientras interactúan con sus amigas.<br>• Continúa con un masaje facial refrescante que incluye limpieza y una mascarilla calmante, dejando la piel luminosa, suave y fresca.<br>• Disfruta de un masaje corporal relajante que se enfoca en aliviar la tensión y promover una sensación de calma en todo el cuerpo.<br>• Pasa al jacuzzi para una sesión de pura relajación. Las cálidas y burbujeantes aguas son perfectas para sumergirse después de los masajes, y permiten conversaciones agradables y fortalecimiento de lazos.<br>• Concluye el día de SPA con una selección de snacks saludables, asegurando que todas se sientan consentidas y complacidas.<br><br>Este paquete está diseñado para que las adolescentes disfruten de una experiencia divertida y relajante en el spa, fomentando la amistad y el bienestar personal.",
+              duration: "2 horas 45 minutos / 165 min",
               price: "1 persona → $240.000<br>2 personas → $480.000<br>3 personas → $720.000<br>4 personas → $910.000<br>5 personas → $1.200.000<br>6 personas → $1.370.000"
             },
             {
               name: "Aventura Spa para Preadolescentes",
-              description: "Un plan diseñado para que los más jóvenes disfruten de una experiencia segura, divertida y relajante, con tratamientos adaptados a sus necesidades.<br><br><strong>Incluye:</strong><br>• Bebida natural de frutas y snack saludable de bienvenida<br>• Sesión en turco aromático con esencias herbales suaves<br>• Relajación en sauna, ideal para compartir y conversar<br>• Jacuzzi con burbujas y luces LED en un ambiente lúdico<br>• Mini facial refrescante: limpieza suave e hidratación ligera<br>• Masaje grupal de espalda y hombros para aliviar tensión<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
-              duration: "3 horas 15 minutos",
-              price: "1 persona → $270.000<br>2 personas → $540.000<br>3 personas → $810.000<br>4 personas → $1.020.000<br>5 personas → $1.350.000<br>6 personas → $1.540.000"
+              description: "Ofrece a los chicos una aventura en el spa con tratamientos adaptados a sus necesidades, como mini faciales y masajes relajantes, combinados con tiempo para divertirse en un entorno seguro.<br><br><strong>Incluye:</strong><br>• Bebida fría y Snack saludable: Comiencen la aventura con unos refrescos de frutas naturales y snacks saludables que las llenen de energía.<br>• Turco Aromático: Una sesión en el turco con vapor infundido de hierbas y esencias suaves que calma los sentidos.<br>• Continúa con diversión en el Sauna: Momentos para compartir risas y conversaciones mientras se relajan en la calidez de ese espacio.<br>• Sigue con una Exploración Sensorial: Tiempo en el Jacuzzi: Disfruten del jacuzzi, donde las burbujas y luces LED crean una atmósfera mágica para charlar y relajarse.<br>• Seguido de un Mini Facial Refrescante, el cual es un tratamiento facial suave que limpia e hidrata, dejando la piel fresca y radiante.<br>• Ya por último, Masaje Relajante en Grupo: Una sesión de masaje de espalda y hombros para aliviar cualquier tensión que tengas.<br><br>Este paquete no solo se centra en el relax, sino también en crear un entorno donde las adolescentes puedan fortalecer su conexión y disfrutar plenamente de su tiempo juntas.",
+              duration: "3 horas 15 minutos / 195 min",
+              price: "1 persona → $250.000<br>2 personas → $500.000<br>3 personas → $750.000<br>4 personas → $970.000<br>5 personas → $1.250.000<br>6 personas → $1.420.000"
             }
           ]
         },
@@ -753,15 +764,9 @@
           packages: [
             {
               name: "Día de Spa para Mamá e Hija",
-              description: "Un espacio íntimo diseñado para fortalecer el vínculo entre madre e hija, con tratamientos especiales y momentos de calidad en un entorno de bienestar.<br><br><strong>Incluye:</strong><br>• Bebida de bienvenida: té de hierbas o agua con frutas<br>• Masajes de cuerpo completo, diseñados para compartir y relajarse juntas<br>• Tina con sales minerales calmantes y burbujas suaves<br>• Acceso a áreas húmedas: baño de vapor y sauna<br>• Selección de bocadillos saludables con bebidas revitalizantes<br>• Recuerdo especial al finalizar la experiencia<br><br><strong>Detalles del paquete:</strong><br>• Máx. personas: Mamá e hija",
-              duration: "2 horas 30 minutos",
-              price: "Paquete para dos: $380.000"
-            },
-            {
-              name: "Tarde en Familia",
-              description: "Un día pensado para compartir en familia, con masajes personalizados, actividades especiales y momentos de relajación en el jacuzzi.<br><br><strong>Incluye:</strong><br>• Masajes adaptados para cada miembro de la familia<br>• Tiempo en jacuzzi para compartir y disfrutar juntos<br>• Actividades diseñadas para crear recuerdos inolvidables<br><br><strong>Detalles del paquete:</strong><br>• Máx. personas: 2 adultos y 3 a 4 niños",
-              duration: "2 horas 30 minutos",
-              price: "Paquete familiar: $620.000"
+              description: "Fortalece el vínculo entre madre e hija(s) con un día de tratamientos especiales diseñados para las dos, incluyendo masajes relajantes, tratamientos faciales y tiempo de calidad juntas en nuestras instalaciones.<br><br><strong>Incluye:</strong><br>• Comienza con una bebida de bienvenida de té de hierbas o agua refrescante con frutas para establecer el ánimo de relajación.<br>• Disfruten de masajes de cuerpo completo, diseñados para relajar los músculos y nutrir el vínculo entre madre e hija(s).<br>• Sumérjanse en nuestra tina con sales minerales calmantes y suaves burbujas, brindando el ambiente perfecto para la conversación y el vínculo.<br>• Exploren las áreas húmedas que incluyen un tranquilo baño de vapor y una sauna refrescante. Estas instalaciones ofrecen momentos para relajarse, liberar el estrés y compartir tiempo de paz juntas.<br>• Disfruten de un delicioso surtido de bocadillos saludables, junto con una variedad de bebidas revitalizantes.<br>• Despídete con un recuerdo especial para atesorar la experiencia.<br><br>Este paquete asegura tanto la relajación como el tiempo de calidad, diseñado para fortalecer las conexiones y crear recuerdos duraderos entre Mamá e Hija(s).",
+              duration: "2 horas 30 minutos / 150 min",
+              price: "Paquete Mamá e Hija: $380.000"
             }
           ]
         },
@@ -805,21 +810,21 @@
           packages: [
             {
               name: "Feliz 15 Años con tus Mejores Amigas",
-              description: "Una celebración única para conmemorar un momento especial, combinando bienestar, diversión y recuerdos inolvidables.<br><br><strong>Incluye:</strong><br>• Bienvenida con bebida sin alcohol<br>• Sauna y turco con esencias herbales<br>• Masaje corporal relajante con aceites aromáticos<br>• Tratamiento facial con limpieza, exfoliación y mascarilla hidratante<br>• Jacuzzi con burbujas y luces LED<br>• Snack saludable con frutas y yogurt<br>• Brindis con mocktail y mini torta personalizada<br>• Obsequio especial: bata de baño personalizada para la quinceañera<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
+              description: "Celebra este hito especial con nuestro paquete Real de Quinceañera.<br><br><strong>Incluye:</strong><br>• Un lujoso tratamiento facial que ilumina y realza la belleza natural, seguido de un masaje suave y relajante para destensar cada músculo.<br>• Accede a nuestro jacuzzi aromático para compartir junto a tus amigas, creando un ambiente de relajación y diversión.<br>• Termina la experiencia con un brindis de mocktail, perfecto para una celebración sin igual.<br>• Comienza con una cálida bienvenida en el spa, ofreciendo una bebida de bienvenida sin alcohol para refrescarse.<br>• Una sesión en el sauna para desintoxicar y preparar el cuerpo para una experiencia de bienestar.<br>• Disfruta del turco con vapor infundido de esencias de hierbas que relajan y refrescan los sentidos.<br>• Sigue con un masaje corporal relajante que alivia las tensiones y reconforta la piel. Se utilizan aceites esenciales aromáticos para una experiencia sensorial completa.<br>• Un tratamiento facial que incluye limpieza, exfoliación y una mascarilla hidratante, dejando la piel de la quinceañera y sus invitadas radiante y luminosa para la celebración.<br>• Relájate en el jacuzzi, donde las burbujas y luces LED crean un ambiente mágico perfecto para reflexionar y disfrutar del momento.<br>• Deléitate con un snack saludable que incluya una selección de frutas frescas y un yogurt delicioso.<br>• Celebra con una mini torta personalizada para la ocasión, ideal para compartir con sus mejores amigas.<br>• Finaliza la experiencia con un obsequio especial.<br><br>Este paquete está diseñado para ofrecer un equilibrio perfecto de relajación, celebración y momentos memorables para la quinceañera y sus amigas.<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6<br><br><strong>Precio:</strong> $370.000 por persona",
               duration: "3 horas 30 minutos",
-              price: "1 persona → $350.000<br>2 personas → $700.000<br>3 personas → $1.050.000<br>4 personas → $1.330.000<br>5 personas → $1.750.000<br>6 personas → $1.990.000"
+              price: ""
             },
             {
               name: "Celebración de Cumpleaños",
-              description: "Convierte tu cumpleaños en una experiencia única de relajación y alegría en un entorno sofisticado.<br><br><strong>Incluye:</strong><br>• Cóctel sin alcohol de bienvenida<br>• Sesión en sauna para desintoxicar y revitalizar<br>• Masaje corporal personalizado con aceites esenciales<br>• Sesión en turco herbal<br>• Jacuzzi de relajación<br>• Snack con tabla de quesos artesanales y frutas frescas<br>• Torta personalizada para la ocasión<br>• Obsequio especial: bata de baño bordada con iniciales de la cumpleañera<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
+              description: "Haz de tu cumpleaños un día inolvidable con nuestros masajes especiales, acceso a las áreas de bienestar y un brindis de cortesía para celebrar tu día especial.<br><br><strong>Incluye:</strong><br>• Copa de bienvenida sin alcohol, un cóctel elegante a base de frutas frescas para dar inicio a la celebración.<br>• Sesión en el sauna, ideal para desintoxicar y preparar cuerpo y mente para una experiencia de bienestar completa.<br>• Masaje corporal personalizado que utiliza mezclas de aceites esenciales. Este tratamiento está diseñado para relajar los músculos y proporcionar una sensación de paz y bienestar.<br>• Vapor herbal en el turco, que ayuda a limpiar y revitalizar la piel, mientras relaja la tensión acumulada.<br>• Jacuzzi para una experiencia tranquila, donde se pueden compartir anécdotas y sonrisas.<br>• Snack nutritivo que incluye una tabla de quesos artesanales y frutas frescas, acompañados de una bebida refrescante.<br>• Torta personalizada diseñada para la ocasión, perfecta para compartir y disfrutar con amigos o seres queridos.<br>• Obsequio para la cumpleañera: una bata de baño de lujo bordada con las iniciales de la cumpleañera, como recuerdo de este día especial.<br><br>Este paquete está diseñado para ofrecer una experiencia de cumpleaños llena de relajación y alegría en un entorno de spa sofisticado.<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6<br><br><strong>Precios:</strong><br>1 persona → $280.000<br>2 personas → $560.000<br>3 personas → $840.000<br>4 personas → $1.070.000<br>5 personas → $1.400.000<br>6 personas → $1.600.000",
               duration: "2 horas 50 minutos",
-              price: "1 persona → $270.000<br>2 personas → $540.000<br>3 personas → $810.000<br>4 personas → $1.020.000<br>5 personas → $1.350.000<br>6 personas → $1.540.000"
+              price: ""
             },
             {
               name: "Despedida de Soltera",
-              description: "Celebra la etapa previa al gran día con una experiencia inolvidable de relajación y conexión entre amigas.<br><br><strong>Incluye:</strong><br>• Bebida de bienvenida<br>• Sesión en baño de vapor con aceites esenciales<br>• Masaje aromático personalizado con aceites premium<br>• Acceso a jacuzzi con ambiente musical y de iluminación<br>• Selección de snacks gourmet y bandejas de frutas frescas<br>• Té de hierbas o aguas saborizadas<br>• Obsequio: vela perfumada para cada asistente<br>• Regalo especial para la novia<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6",
+              description: "Celebra los últimos días de soltería con nuestra futura novia y tus amigas.<br><br><strong>Incluye:</strong><br>• Este paquete incluye un masaje grupal relajante, seguido de un facial iluminador para todas las invitadas. Además podrán disfrutar de nuestra zona húmeda con una bebida de bienvenida y una selección de snacks saludables. Perfecto para crear recuerdos inolvidables antes del gran día.<br>• Inicia con una sesión en el baño de vapor infundido con aceites esenciales vigorizantes para desintoxicar y despertar los sentidos.<br>• Seguido de un masaje aromático personalizado usando aceites premium que mejoran la relajación y calman los músculos, centrado en la relajación profunda.<br>• Relájate en el jacuzzi, donde la iluminación ambiental y la música suave crean el ambiente perfecto para descansar y compartir momentos memorables con tus amigas.<br>• Tómate un descanso con una selección de snacks gourmet y bandejas de frutas frescas, acompañadas de una variedad de tés de hierbas o aguas saborizadas.<br>• Concluye con un recuerdo de buen gusto: una exquisita vela perfumada para cada asistente, para recordar el armonioso día.<br>• Y para la futura novia un regalo personalizado, para recordar el día especial y las experiencias compartidas.<br><br>Este paquete está diseñado para ofrecer un equilibrio de relajación y experiencias sensoriales, ideal para una despedida de soltera.<br><br><strong>Detalles del paquete:</strong><br>• Número de personas: mínimo 4 – máximo 6<br><br><strong>Precios:</strong><br>1 persona → $350.000<br>2 personas → $700.000<br>3 personas → $1.050.000<br>4 personas → $1.330.000<br>5 personas → $1.750.000<br>6 personas → $1.995.000",
               duration: "3 horas 30 minutos",
-              price: "1 persona → $350.000<br>2 personas → $700.000<br>3 personas → $1.050.000<br>4 personas → $1.330.000<br>5 personas → $1.750.000<br>6 personas → $1.995.000"
+              price: ""
             }
           ]
         }
@@ -852,9 +857,13 @@
         // Get package-specific images
         const packageImageMap = {
           // Spa Individual
+          'Limpieza Facial Básica': './Test_Images/Catalogo/Spa_Individual/Limpieza-Facial-basica.jpg',
+          'Limpieza Facial Completa': './Test_Images/Catalogo/Spa_Individual/Limpieza-Facial-Completa.jpg',
+          'Limpieza Facial Elixir de la Juventud': './Test_Images/Catalogo/Spa_Individual/Limpieza-Facial-Elixir-de-la-Juventud.jpg',
           'Limpieza Facial': './Test_Images/Catalogo/Spa_Individual/Limpieza_Facial.jpg',
           'Baño de Luna': './Test_Images/Catalogo/Spa_Individual/Baño_de_luna.jpg',
           'Exfoliación Corporal': './Test_Images/Catalogo/Spa_Individual/Exfoliación_corporal.jpg',
+          'Veloterapia': './Test_Images/Catalogo/Spa_Individual/Veloterapia.jpg',
           'Masaje con Aceite Caliente': './Test_Images/Catalogo/Spa_Individual/Masaje_con_Aceite_Caliente.jpg',
           'Masaje con Piedras Calientes': './Test_Images/Catalogo/Spa_Individual/Masaje_con_piedras_calientes.jpg',
 
@@ -866,8 +875,10 @@
           // Spa para Amigas
           'Tarde de Chicas': './Test_Images/Catalogo/Spa_para_Amigas/Tarde de Chicas.jpg',
           'Pasabordo Rápido de Desestrés': './Test_Images/Catalogo/Spa_para_Amigas/The Fast De-Stress Day Pass.jpg',
+          'Experiencia de Renovación Corporal': './Test_Images/Catalogo/Spa_Individual/Experiencia-de-Renovacion-Corporal.jpg',
 
           // Spa para Niñas
+          'Día de Spa para Adolescentes': './Test_Images/Catalogo/Spa_Individual/Día-de-Spa-para-Adolescentes.jpg',
           'Experiencia de Armonía para Adolescentes': './Test_Images/Catalogo/Spa_para_Niñas/Teen Harmony Spa Experience.jpg',
           'Aventura Spa para Preadolescentes': './Test_Images/Catalogo/Spa_para_Niñas/Tween Spa Adventure.jpg',
 
@@ -937,11 +948,13 @@
               mainDescription = pkg.description.substring(0, splitIndex).trim();
               includesContent = pkg.description.substring(splitIndex);
 
-              // Add pricing information at the end
-              if (pkg.price.includes('→') || pkg.price.includes('<br>')) {
-                includesContent += `<br><br><strong>Precios:</strong><br>${pkg.price}`;
-              } else {
-                includesContent += `<br><br><strong>Precio:</strong> ${pkg.price}`;
+              // Add pricing information at the end only if price exists
+              if (pkg.price && pkg.price.trim() !== '') {
+                if (pkg.price.includes('→') || pkg.price.includes('<br>')) {
+                  includesContent += `<br><br><strong>Precios:</strong><br>${pkg.price}`;
+                } else {
+                  includesContent += `<br><br><strong>Precio:</strong> ${pkg.price}`;
+                }
               }
             } else {
               // If no includes/benefits found, create a basic includes section with pricing
@@ -1019,11 +1032,13 @@
               mainDescription = pkg.description.substring(0, splitIndex).trim();
               includesContent = pkg.description.substring(splitIndex);
 
-              // Add pricing information at the end
-              if (pkg.price.includes('→') || pkg.price.includes('<br>')) {
-                includesContent += `<br><br><strong>Precios:</strong><br>${pkg.price}`;
-              } else {
-                includesContent += `<br><br><strong>Precio:</strong> ${pkg.price}`;
+              // Add pricing information at the end only if price exists
+              if (pkg.price && pkg.price.trim() !== '') {
+                if (pkg.price.includes('→') || pkg.price.includes('<br>')) {
+                  includesContent += `<br><br><strong>Precios:</strong><br>${pkg.price}`;
+                } else {
+                  includesContent += `<br><br><strong>Precio:</strong> ${pkg.price}`;
+                }
               }
             } else {
               // If no includes/benefits found, create a basic includes section with pricing
