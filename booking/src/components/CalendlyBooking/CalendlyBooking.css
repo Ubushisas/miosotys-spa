@@ -67,6 +67,27 @@
   }
 }
 
+/* Mobile styles - smaller sidebar with more padding */
+@media (max-width: 768px) {
+  .calendly-sidebar {
+    padding: 1rem 2rem !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+  }
+
+  .calendly-service-title {
+    font-size: 1.3rem !important;
+  }
+
+  .calendly-selection-info h3 {
+    font-size: 1rem !important;
+  }
+
+  .calendly-info-item {
+    font-size: 0.9rem !important;
+  }
+}
+
 .calendly-container * {
   font-family: 'Gragio', 'Cormorant Garamond', serif;
 }
