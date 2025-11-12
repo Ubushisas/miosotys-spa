@@ -271,27 +271,35 @@ iframe[src*="calendly"] {
 
 .calendly-back-btn {
   background: #bcdce5;
-  border: 2px solid #bcdce5;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
+  border: 3px solid #a8cdd8;
+  border-radius: 12px;
+  width: 60px;
+  height: 60px;
   display: flex !important;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  color: #2c5f6f;
+  color: #1a4d5c;
   margin-bottom: 1.5rem;
   opacity: 1 !important;
   visibility: visible !important;
   z-index: 100;
+  box-shadow: 0 4px 12px rgba(188, 220, 229, 0.5);
+}
+
+.calendly-back-btn svg {
+  width: 32px !important;
+  height: 32px !important;
+  stroke-width: 3;
 }
 
 .calendly-back-btn:hover {
   background: #a8cdd8;
-  border-color: #9a6840;
-  color: #ffffff;
-  transform: scale(1.05);
+  border-color: #8bb5c2;
+  color: #0d2d3a;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(188, 220, 229, 0.7);
 }
 
 .calendly-step-title {
