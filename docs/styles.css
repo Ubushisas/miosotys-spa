@@ -1166,10 +1166,10 @@ footer {
   top: 0;
 }
 
-/* Desktop: equal spacing for Ver paquetes button (7px top and bottom) */
+/* Desktop: equal spacing for Ver paquetes button (8px top and bottom) */
 .sticky-card:not(:first-child) .sticky-card-button {
-  margin-top: 7px;
-  margin-bottom: 7px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   top: 0;
 }
 
