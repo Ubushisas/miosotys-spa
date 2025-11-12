@@ -1171,10 +1171,12 @@ footer {
   top: 10px;
 }
 
-/* Mobile: move button even lower for better spacing */
+/* Mobile: center button between description and arrows with equal spacing */
 @media (max-width: 768px) {
   .sticky-card:not(:first-child) .sticky-card-button {
-    top: 25px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    top: 0 !important;
   }
 }
 
