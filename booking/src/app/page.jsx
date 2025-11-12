@@ -11,9 +11,14 @@ function HomeContent() {
   const searchParams = useSearchParams();
   const serviceParam = searchParams.get('service');
 
+  // Decode and normalize the service name
+  const decodedService = serviceParam ? decodeURIComponent(serviceParam) : null;
+  console.log('📍 Page.jsx - Raw service param:', serviceParam);
+  console.log('📍 Page.jsx - Decoded service:', decodedService);
+
   const [showBooking, setShowBooking] = useState(!!serviceParam);
   const [calendarStatus, setCalendarStatus] = useState({ enabled: true, message: null });
-  const [preselectedService, setPreselectedService] = useState(serviceParam || null);
+  const [preselectedService, setPreselectedService] = useState(decodedService || null);
 
   useEffect(() => {
     // Check calendar status on load
