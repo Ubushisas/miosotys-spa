@@ -272,9 +272,9 @@ iframe[src*="calendly"] {
 .calendly-back-btn {
   background: rgba(188, 220, 229, 0.3);
   border: 1.5px solid rgba(188, 220, 229, 0.6);
-  border-radius: 12px;
-  width: 48px;
-  height: 48px;
+  border-radius: 10px;
+  width: 38px;
+  height: 38px;
   display: flex !important;
   align-items: center;
   justify-content: center;
@@ -289,8 +289,8 @@ iframe[src*="calendly"] {
 }
 
 .calendly-back-btn svg {
-  width: 24px !important;
-  height: 24px !important;
+  width: 20px !important;
+  height: 20px !important;
   stroke-width: 2;
 }
 
