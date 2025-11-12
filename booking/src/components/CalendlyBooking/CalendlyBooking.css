@@ -592,14 +592,22 @@ iframe[src*="calendly"] {
   overflow-y: auto;
 }
 
+.calendly-time-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+}
+
 .calendly-times-title {
   font-size: 1.15rem;
   font-weight: 600;
   color: rgb(17, 17, 17);
-  margin-bottom: 1rem;
   text-transform: capitalize;
-  padding-bottom: 1rem;
-  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  margin: 0;
+  flex: 1;
 }
 
 .calendly-loading-times {

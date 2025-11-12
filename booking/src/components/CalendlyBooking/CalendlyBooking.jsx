@@ -706,7 +706,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                 {dateTimeSubStep === 'time' && selectedDate && (
                   <div className="calendly-unified-picker">
                     <div className="calendly-unified-times" style={{ width: '100%' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
+                      <div className="calendly-time-header">
                         <button
                           onClick={() => {
                             console.log('🔙 Back button clicked');
@@ -719,7 +719,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                         >
                           <ChevronLeft />
                         </button>
-                        <h3 className="calendly-times-title" style={{ margin: 0 }}>
+                        <h3 className="calendly-times-title">
                           {selectedDate.toLocaleDateString("es-CO", {
                             weekday: "long",
                             day: "numeric",
