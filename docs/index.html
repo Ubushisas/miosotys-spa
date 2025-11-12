@@ -14,6 +14,24 @@
     <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
+    <!-- Coming Soon Announcement Modal -->
+    <div id="comingSoonModal" class="coming-soon-modal">
+      <div class="coming-soon-content">
+        <div class="modal-logo">
+          <img src="./Test_Images/Myosotis-by-monica-blanco-opt.png" alt="Myosotis Logo" />
+        </div>
+        <button class="close-modal-btn" onclick="closeComingSoonModal()">&times;</button>
+        <div class="coming-soon-image">
+          <img src="./Test_Images/Pictures_test /cuatro.jpg" alt="Spa ambience" />
+        </div>
+        <div class="coming-soon-text">
+          <h2>Muy pronto</h2>
+          <p>Un espacio de paz, amor propio y desconexión.</p>
+          <p class="opening-date">Noviembre 21, 2025</p>
+        </div>
+      </div>
+    </div>
+
     <!-- Custom Cursor -->
     <div id="customCursor">
       <img src="./Test_Images/Flor-mouse.png" alt="Custom Cursor" />
@@ -105,6 +123,45 @@
           x: cursorX,
           y: cursorY
         });
+      });
+    </script>
+
+    <!-- Coming Soon Modal Script -->
+    <script>
+      // Check if user has already seen the modal - ALWAYS SHOW ON INDEX PAGE
+      function checkComingSoonModal() {
+        const modal = document.getElementById('comingSoonModal');
+
+        // Always show modal on index page
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      // Close modal function
+      function closeComingSoonModal() {
+        const modal = document.getElementById('comingSoonModal');
+
+        // Add hidden class for fade out effect
+        modal.classList.add('hidden');
+
+        // After animation, hide and restore scrolling
+        setTimeout(() => {
+          modal.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        }, 500);
+      }
+
+      // Check modal on page load
+      window.addEventListener('DOMContentLoaded', checkComingSoonModal);
+
+      // Also allow closing with ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          const modal = document.getElementById('comingSoonModal');
+          if (modal.style.display !== 'none') {
+            closeComingSoonModal();
+          }
+        }
       });
     </script>
   </body>
