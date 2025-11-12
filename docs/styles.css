@@ -80,32 +80,28 @@
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
 }
 
-.close-modal-btn {
-  position: fixed;
-  top: 30px;
-  right: 30px;
+.continue-btn {
+  margin-top: 5px;
   background: #7FB0BD;
-  border: none;
-  border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  font-size: 2.2rem;
+  border: 2px solid #7FB0BD;
+  border-radius: 30px;
+  padding: 16px 40px;
+  font-family: 'Waking', 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
   color: #FFFFFF;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10001;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  line-height: 1;
-  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-transform: none;
+  letter-spacing: 0.5px;
 }
 
-.close-modal-btn:hover {
+.continue-btn:hover {
   background: #5A9AAA;
-  color: white;
-  transform: rotate(90deg) scale(1.15);
+  border-color: #5A9AAA;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .coming-soon-image {
@@ -134,7 +130,7 @@
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(127, 176, 189, 0.4);
-  padding: 60px 80px;
+  padding: 60px 80px 50px 80px;
   border-radius: 30px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   max-width: 90%;
@@ -181,16 +177,8 @@
     height: 200px;
   }
 
-  .close-modal-btn {
-    width: 50px;
-    height: 50px;
-    font-size: 2rem;
-    top: 20px;
-    right: 20px;
-  }
-
   .coming-soon-text {
-    padding: 40px 30px;
+    padding: 40px 30px 35px 30px;
     max-width: 85%;
   }
 
@@ -205,6 +193,12 @@
   .coming-soon-text .opening-date {
     font-size: 1.6rem;
   }
+
+  .continue-btn {
+    font-size: 1rem;
+    padding: 14px 32px;
+    margin-top: 5px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -217,16 +211,8 @@
     height: 150px;
   }
 
-  .close-modal-btn {
-    width: 45px;
-    height: 45px;
-    font-size: 1.8rem;
-    top: 15px;
-    right: 15px;
-  }
-
   .coming-soon-text {
-    padding: 30px 20px;
+    padding: 30px 20px 25px 20px;
     max-width: 90%;
   }
 
@@ -242,6 +228,12 @@
   .coming-soon-text .opening-date {
     font-size: 1.3rem;
     margin-top: 20px;
+  }
+
+  .continue-btn {
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    margin-top: 5px;
   }
 }
 
