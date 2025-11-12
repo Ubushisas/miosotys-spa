@@ -1167,10 +1167,18 @@ footer {
 }
 
 /* Desktop: equal spacing for Ver paquetes button (8px top and bottom) */
+.sticky-card:not(:first-child) .sticky-card-copy-description p {
+  margin-bottom: 8px !important;
+}
+
 .sticky-card:not(:first-child) .sticky-card-button {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
   top: 0;
+}
+
+.sticky-card:not(:first-child) .scroll-arrows-container {
+  margin-top: 8px !important;
 }
 
 /* Mobile: center button between description and arrows with equal spacing */
