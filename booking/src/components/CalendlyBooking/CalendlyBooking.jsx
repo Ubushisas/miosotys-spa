@@ -546,43 +546,6 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
             {/* Step 2: Select Date & Time */}
             {step === 2 && (
               <div className="calendly-step">
-                {/* Back button logic based on current substep */}
-                {dateTimeSubStep === 'date' && !preselectedService && (
-                  <button
-                    onClick={() => setStep(1)}
-                    className="calendly-back-btn"
-                    title="Volver a selección de servicio"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                )}
-                {dateTimeSubStep === 'time' && (
-                  <button
-                    onClick={() => setDateTimeSubStep('date')}
-                    className="calendly-back-btn"
-                    title="Volver a selección de fecha"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                )}
-                {dateTimeSubStep === 'people' && (
-                  <button
-                    onClick={() => setDateTimeSubStep('time')}
-                    className="calendly-back-btn"
-                    title="Volver a selección de hora"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                )}
-                {dateTimeSubStep === 'guests' && (
-                  <button
-                    onClick={() => setDateTimeSubStep('people')}
-                    className="calendly-back-btn"
-                    title="Volver a selección de personas"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                )}
                 <h2 className="calendly-step-title">
                   {dateTimeSubStep === 'people'
                     ? '¿Cuántas personas asistirán?'
@@ -743,17 +706,16 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                 {dateTimeSubStep === 'time' && selectedDate && (
                   <div className="calendly-unified-picker">
                     <div className="calendly-unified-times" style={{ width: '100%' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
                         <button
                           onClick={() => {
                             setDateTimeSubStep('date');
                             setSelectedTime(null);
                           }}
                           className="calendly-back-btn"
-                          style={{ marginRight: '0.5rem' }}
                           title="Volver a selección de fecha"
                         >
-                          <ChevronLeft className="w-5 h-5" />
+                          <ChevronLeft />
                         </button>
                         <h3 className="calendly-times-title" style={{ margin: 0 }}>
                           {selectedDate.toLocaleDateString("es-CO", {
@@ -799,22 +761,6 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
             {/* Step 3: Enter Details */}
             {step === 3 && (
               <div className="calendly-step">
-                <button
-                  onClick={() => {
-                    setStep(2);
-                    // Go back to guest names if service requires people count, otherwise to time selection
-                    if (selectedService && requiresPeopleCount(selectedService)) {
-                      setDateTimeSubStep('guests');
-                    } else {
-                      setDateTimeSubStep('time');
-                      setSelectedTime(null);
-                    }
-                  }}
-                  className="calendly-back-btn"
-                  title="Volver"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
                 <h2 className="calendly-step-title">Ingresa tus datos</h2>
 
                 <form onSubmit={handleSubmit} className="calendly-form">
