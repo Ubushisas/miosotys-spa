@@ -1166,6 +1166,11 @@ footer {
   top: 0;
 }
 
+/* Move "Ver paquetes" button 10px lower in service cards (not first card) */
+.sticky-card:not(:first-child) .sticky-card-button {
+  top: 10px;
+}
+
 .scroll-arrows-container {
   margin-top: 1.5rem;
   display: flex;
