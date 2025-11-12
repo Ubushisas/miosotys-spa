@@ -440,6 +440,7 @@ iframe[src*="calendly"] {
   max-height: 550px;
   overflow-y: auto;
   overflow-x: visible;
+  padding-top: 1.5rem;
   padding-left: 1.5rem;
   padding-right: 0.6rem;
   padding-bottom: 190px;
@@ -596,9 +597,13 @@ iframe[src*="calendly"] {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  background: rgb(250, 248, 246);
+  z-index: 10;
 }
 
 .calendly-times-title {
