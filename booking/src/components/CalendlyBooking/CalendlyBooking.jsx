@@ -422,6 +422,15 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
             <p>Experiencias de bienestar</p>
           </div>
 
+          {/* Debug info */}
+          {!selectedService && preselectedService && (
+            <div style={{padding: '1rem', background: '#fff3cd', borderRadius: '8px', marginTop: '1rem'}}>
+              <p style={{margin: 0, fontSize: '0.875rem'}}>
+                <strong>Debug:</strong> Buscando servicio "{preselectedService}"
+              </p>
+            </div>
+          )}
+
           {selectedService && (
             <div className="calendly-selection-info">
               <h3>{selectedService.name}</h3>
@@ -538,6 +547,15 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
             {step === 2 && (
               <div className="calendly-step">
                 {/* Back button logic based on current substep */}
+                {dateTimeSubStep === 'date' && !preselectedService && (
+                  <button
+                    onClick={() => setStep(1)}
+                    className="calendly-back-btn"
+                    title="Volver a selección de servicio"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                )}
                 {dateTimeSubStep === 'time' && (
                   <button
                     onClick={() => setDateTimeSubStep('date')}
