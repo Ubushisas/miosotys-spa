@@ -270,31 +270,35 @@ iframe[src*="calendly"] {
 }
 
 .calendly-back-btn {
-  background: transparent;
-  border: 2px solid #bcdce5;
+  background: transparent !important;
+  border: 2px solid #bcdce5 !important;
   border-radius: 8px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #5a9aad;
-  padding: 0;
-  flex-shrink: 0;
+  color: #5a9aad !important;
+  padding: 0 !important;
+  flex-shrink: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .calendly-back-btn svg {
-  width: 20px;
-  height: 20px;
-  stroke-width: 2;
-  color: #5a9aad;
+  width: 20px !important;
+  height: 20px !important;
+  stroke-width: 2 !important;
+  color: #5a9aad !important;
 }
 
 .calendly-back-btn:hover {
-  background: rgba(188, 220, 229, 0.2);
-  border-color: #5a9aad;
+  background: rgba(188, 220, 229, 0.2) !important;
+  border-color: #5a9aad !important;
   transform: translateX(-2px);
 }
 
@@ -594,16 +598,13 @@ iframe[src*="calendly"] {
 }
 
 .calendly-time-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 0;
-  background: rgb(250, 248, 246);
-  z-index: 10;
+  width: 100%;
 }
 
 .calendly-times-title {
