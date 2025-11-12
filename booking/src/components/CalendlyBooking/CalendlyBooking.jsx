@@ -259,6 +259,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
   useEffect(() => {
     if (settings && preselectedService && !selectedService) {
       console.log('🔍 Searching for service:', preselectedService);
+      let foundService = null;
+      let foundCategory = null;
+
       // Search for the service across all categories
       for (const categoryId of Object.keys(settings.services)) {
         const services = settings.services[categoryId].filter(s => s.enabled);
@@ -269,21 +272,23 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
         if (matchingService) {
           console.log('✅ Found matching service:', matchingService);
-          setSelectedService(matchingService);
-          setSelectedCategory(categoryId);
-          setActiveCategory(categoryId);
-
-          // Always start with date selection
-          setDateTimeSubStep('date');
-
+          foundService = matchingService;
+          foundCategory = categoryId;
           break;
         }
       }
-      if (!selectedService) {
+
+      if (foundService) {
+        setSelectedService(foundService);
+        setSelectedCategory(foundCategory);
+        setActiveCategory(foundCategory);
+        setDateTimeSubStep('date');
+      } else {
         console.log('❌ No matching service found for:', preselectedService);
+        console.log('Available categories:', Object.keys(settings.services));
       }
     }
-  }, [settings, preselectedService]);
+  }, [settings, preselectedService, selectedService]);
 
   const handleDateSelect = (date) => {
     if (isPastDate(date) || !isDateAvailable(date)) return;
