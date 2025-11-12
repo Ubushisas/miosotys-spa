@@ -1542,6 +1542,12 @@ footer {
     text-align: center;
   }
 
+  .sticky-card:not(:first-child) .sticky-card-button {
+    margin-top: 7px !important;
+    margin-bottom: 7px !important;
+    top: 0 !important;
+  }
+
   .sticky-card-button button {
     padding: 10px 24px;
     font-size: 1.1rem;
