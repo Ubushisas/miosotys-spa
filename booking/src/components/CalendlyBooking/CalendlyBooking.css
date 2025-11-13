@@ -1062,6 +1062,11 @@ iframe[src*="calendly"] {
     margin: 0;
   }
 
+  /* Move form 70px to the left on mobile only */
+  .calendly-form {
+    transform: translateX(-70px);
+  }
+
   .calendly-container::before,
   .calendly-container::after {
     display: none;
@@ -1076,6 +1081,7 @@ iframe[src*="calendly"] {
     max-width: 100%;
     position: relative;
     z-index: 10;
+    transform: translateX(-15px); /* Move sidebar 15px to the LEFT on mobile */
   }
 
   .calendly-layout {
