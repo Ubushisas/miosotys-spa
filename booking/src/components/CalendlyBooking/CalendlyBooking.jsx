@@ -248,17 +248,6 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
     setStep(3);
   };
 
-  // Handle back navigation from sidebar button
-  const handleBack = () => {
-    if (step > 1) {
-      setStep(step - 1);
-      // Reset substeps if going back to step 2
-      if (step === 3) {
-        setDateTimeSubStep('date');
-      }
-    }
-  };
-
   // Set first category as active when settings load
   useEffect(() => {
     if (settings && categories.length > 0 && !activeCategory) {
@@ -428,17 +417,6 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
       <div className="calendly-layout">
         {/* Left sidebar - Info panel */}
         <div className="calendly-sidebar">
-          {/* Back arrow button */}
-          {step > 1 && (
-            <button
-              onClick={handleBack}
-              className="calendly-sidebar-back-btn"
-              aria-label="Volver al paso anterior"
-            >
-              <ChevronLeft size={24} />
-            </button>
-          )}
-
           <div className="calendly-brand">
             <h1>Miosotys Spa</h1>
             <p>Experiencias de bienestar</p>
