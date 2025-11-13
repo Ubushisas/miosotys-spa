@@ -83,11 +83,11 @@
   }
 
   .calendly-form {
-    transform: translateX(570px) !important; /* Move 70px MORE to the RIGHT on desktop (500px + 70px = 570px) */
+    transform: translateX(500px) !important; /* Original desktop positioning - DO NOT CHANGE */
   }
 
   .calendly-step:has(.calendly-form) {
-    transform: translateX(570px) !important; /* Move 70px MORE to the RIGHT on desktop (500px + 70px = 570px) */
+    transform: translateX(500px) !important; /* Original desktop positioning - DO NOT CHANGE */
   }
 }
 
@@ -1062,9 +1062,9 @@ iframe[src*="calendly"] {
     margin: 0;
   }
 
-  /* Move form 70px to the left on ACTUAL mobile devices ONLY */
+  /* Move form 140px to the left on ACTUAL mobile devices ONLY */
   .calendly-form {
-    transform: translateX(-70px) !important;
+    transform: translateX(-140px) !important;
   }
 
   .calendly-container::before,
