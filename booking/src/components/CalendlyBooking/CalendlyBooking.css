@@ -1326,11 +1326,12 @@ iframe[src*="calendly"] {
 
 .calendly-people-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   max-width: 400px;
   margin: 0 auto;
   width: 100%;
+  justify-items: center;
 }
 
 .calendly-people-option {
@@ -1375,14 +1376,7 @@ iframe[src*="calendly"] {
   letter-spacing: 0.5px;
 }
 
-/* Center last item when there are 3 items (2+1 layout) */
-.calendly-people-grid:has(.calendly-people-option:nth-child(3):last-child) .calendly-people-option:nth-child(3) {
-  grid-column: 1 / -1;
-  max-width: 90px;
-  margin: 0 auto;
-  min-width: 90px;
-  aspect-ratio: 1;
-}
+/* Keep 3 items in a single row */
 
 @media (max-width: 640px) {
   .calendly-people-grid {
