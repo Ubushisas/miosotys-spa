@@ -126,9 +126,9 @@
     transform-origin: top center !important;
   }
 
-  /* Move form container to the left on mobile ONLY */
+  /* Move form container to the right on mobile ONLY */
   .calendly-step:has(.calendly-form) {
-    transform: translateX(-100px) !important;
+    transform: translateX(150px) !important;
   }
 
   .calendly-card {
