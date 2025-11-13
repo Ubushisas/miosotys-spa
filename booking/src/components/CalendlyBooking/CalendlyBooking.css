@@ -107,11 +107,21 @@
   }
 
   .calendly-selection-info h3 {
-    font-size: 1.1rem !important;
+    font-size: 0.75rem !important;
   }
 
   .calendly-info-item {
-    font-size: 1rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .calendly-info-item svg {
+    width: 0.75rem !important;
+    height: 0.75rem !important;
+  }
+
+  .calendly-selection-info {
+    padding: 0.5rem !important;
+    gap: 0.3rem !important;
   }
 
   .calendly-card {
