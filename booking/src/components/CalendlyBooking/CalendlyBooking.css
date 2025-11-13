@@ -83,21 +83,29 @@
 
   /* Calendar uses normal size now that container is full 50vw */
   .calendly-unified-picker {
-    transform: none !important;
+    transform: translateX(-300px) !important; /* MOVE CALENDAR 300px LEFT - VERY OBVIOUS */
     padding: 2rem 0 2rem 0 !important;
-    margin-left: 0 !important;
+    margin-left: -200px !important; /* ADDITIONAL 200px LEFT MARGIN */
     justify-content: flex-start !important;
     align-items: flex-start !important;
   }
 
   .calendly-unified-calendar {
-    margin-left: 0 !important;
+    margin-left: -150px !important; /* MOVE DATES GRID 150px LEFT */
     margin-right: auto !important;
   }
 
   .calendly-step-title {
     text-align: left !important;
-    margin-left: 0 !important;
+    margin-left: -100px !important; /* MOVE TITLE 100px LEFT */
+    transform: translateX(-100px) !important; /* EXTRA SHIFT LEFT */
+  }
+
+  /* Move "Selecciona una fecha" text left too */
+  .calendly-selection-info,
+  .calendly-sidebar {
+    margin-left: -150px !important;
+    transform: translateX(-150px) !important;
   }
 
   /* Form takes full width in expanded container */
