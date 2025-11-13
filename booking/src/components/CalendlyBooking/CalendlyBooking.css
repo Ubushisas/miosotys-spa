@@ -1230,7 +1230,7 @@ iframe[src*="calendly"] {
     display: flex !important;
     position: fixed !important;
     top: 62px !important;
-    left: -70px !important;
+    left: -50px !important;
     z-index: 1001 !important;
     background: rgba(251, 246, 233, 0.95) !important;
     border: 2px solid #bcdce5 !important;
