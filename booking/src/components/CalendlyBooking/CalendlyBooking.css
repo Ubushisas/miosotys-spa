@@ -1312,7 +1312,10 @@ iframe[src*="calendly"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
+  aspect-ratio: 1;
+  min-height: 120px;
 }
 
 .calendly-people-option:hover {
@@ -1343,6 +1346,8 @@ iframe[src*="calendly"] {
   grid-column: 1 / -1;
   max-width: 180px;
   margin: 0 auto;
+  min-width: 180px;
+  aspect-ratio: 1;
 }
 
 @media (max-width: 640px) {
