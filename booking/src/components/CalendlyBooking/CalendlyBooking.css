@@ -107,21 +107,17 @@
   }
 
   .calendly-selection-info h3 {
-    font-size: 0.75rem !important;
+    font-size: 1.1rem !important;
   }
 
   .calendly-info-item {
-    font-size: 0.7rem !important;
+    font-size: 1rem !important;
   }
 
-  .calendly-info-item svg {
-    width: 0.75rem !important;
-    height: 0.75rem !important;
-  }
-
-  .calendly-selection-info {
-    padding: 0.5rem !important;
-    gap: 0.3rem !important;
+  /* Make calendar container much smaller on mobile */
+  .calendly-unified-picker {
+    transform: scale(0.7) !important;
+    transform-origin: top center !important;
   }
 
   .calendly-card {
