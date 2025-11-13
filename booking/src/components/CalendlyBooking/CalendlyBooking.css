@@ -41,7 +41,7 @@
   }
 
   .calendly-main {
-    transform: none !important;
+    transform: translateX(-250px) !important; /* Move calendar MUCH MORE to the LEFT on desktop */
     position: relative !important;
   }
 
