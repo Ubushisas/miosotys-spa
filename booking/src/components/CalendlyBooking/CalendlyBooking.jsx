@@ -560,6 +560,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                 {dateTimeSubStep === 'people' && selectedService && (
                   <div className="calendly-unified-picker">
                     <div className="calendly-people-selector">
+                      <p className="calendly-people-description">
+                        ¿Cuántas personas asistirán?
+                      </p>
                       <div className="calendly-people-grid">
                         {Array.from(
                           { length: (selectedService.maxPeople || 6) - (selectedService.minPeople || 2) + 1 },
