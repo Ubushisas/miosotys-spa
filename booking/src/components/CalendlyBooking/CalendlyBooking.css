@@ -35,7 +35,7 @@
   }
 
   .calendly-sidebar {
-    transform: none !important;
+    transform: translateX(150px) !important;
     display: block !important;
     position: relative !important;
   }
