@@ -122,17 +122,8 @@
 
   /* Make calendar container slightly smaller on mobile */
   .calendly-unified-picker {
-    transform: scale(0.85) translateX(-200px) !important;
-    transform-origin: top left !important;
-  }
-
-  /* Move form container a lot to the left on mobile */
-  .calendly-step {
-    transform: translateX(-200px) !important;
-  }
-
-  .calendly-form {
-    transform: translateX(-200px) !important;
+    transform: scale(0.85) !important;
+    transform-origin: top center !important;
   }
 
   .calendly-card {
