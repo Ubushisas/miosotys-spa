@@ -11,38 +11,43 @@
   font-family: 'Gragio', 'Cormorant Garamond', serif;
 }
 
-/* Desktop-specific positioning */
+/* Desktop-specific positioning - FULL 50% VIEWPORT WIDTH */
 @media (min-width: 769px) {
   body .calendly-container {
-    position: relative !important;
-    left: 0 !important;
+    position: fixed !important;
+    right: 0 !important;
     top: 0 !important;
-    margin: 0 auto !important;
-    padding: 1.5rem 1rem !important;
-    max-width: 850px !important;
+    bottom: 0 !important;
+    width: 50vw !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 2rem !important;
+    height: 100vh !important;
+    overflow-y: auto !important;
   }
 
   .calendly-layout {
     max-width: 100% !important;
     width: 100% !important;
-    margin: 0 auto !important;
-    display: grid !important;
-    grid-template-columns: 25% 75% !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
     gap: 2rem !important;
-    align-items: start !important;
-    transform: scale(1.2) !important;
-    transform-origin: top center !important;
+    align-items: stretch !important;
+    transform: none !important;
   }
 
   .calendly-sidebar {
-    transform: translateX(350px) !important;
+    transform: none !important;
     display: block !important;
     position: relative !important;
+    width: 100% !important;
   }
 
   .calendly-main {
-    transform: translateX(-250px) !important; /* Move calendar MUCH MORE to the LEFT on desktop */
+    transform: none !important;
     position: relative !important;
+    width: 100% !important;
   }
 
   .calendly-service-title {
@@ -50,44 +55,40 @@
   }
 
   .calendly-calendar {
-    transform: scale(1.2);
-    transform-origin: top left;
+    transform: none;
   }
 
-  /* Make calendar and time slots bigger on desktop */
+  /* Calendar uses normal size now that container is full 50vw */
   .calendly-unified-picker {
-    transform: scale(2.2) !important;
-    transform-origin: top center !important;
+    transform: none !important;
   }
 
+  /* Form takes full width in expanded container */
   .calendly-form-group {
-    max-width: 220px !important;
+    max-width: 100% !important;
   }
 
   .calendly-form-group input {
-    max-width: 220px !important;
-    width: 220px !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
   .calendly-selected-slot {
-    max-width: 220px !important;
+    max-width: 100% !important;
   }
 
   .calendly-submit-btn {
-    max-width: 220px !important;
-    width: 220px !important;
+    max-width: 100% !important;
+    width: 100% !important;
   }
 
   .calendly-form {
-    max-width: 220px !important;
-  }
-
-  .calendly-form {
-    transform: translateX(500px) !important; /* Original desktop positioning - DO NOT CHANGE */
+    max-width: 600px !important;
+    transform: none !important;
   }
 
   .calendly-step:has(.calendly-form) {
-    transform: translateX(500px) !important; /* Original desktop positioning - DO NOT CHANGE */
+    transform: none !important;
   }
 }
 
