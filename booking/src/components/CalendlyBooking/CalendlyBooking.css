@@ -54,6 +54,12 @@
     transform-origin: top left;
   }
 
+  /* Make calendar and time slots bigger on desktop */
+  .calendly-unified-picker {
+    transform: scale(1.3) !important;
+    transform-origin: top center !important;
+  }
+
   .calendly-form-group {
     max-width: 220px !important;
   }
