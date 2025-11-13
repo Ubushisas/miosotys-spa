@@ -120,6 +120,13 @@
     transform-origin: top center !important;
   }
 
+  /* Move datetime display and form containers far to the left on mobile */
+  .calendly-datetime-display,
+  .calendly-form,
+  .calendly-step {
+    transform: translateX(-400px) !important;
+  }
+
   .calendly-card {
     font-size: 1.05rem !important;
   }
