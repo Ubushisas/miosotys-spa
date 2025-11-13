@@ -65,6 +65,10 @@
   .calendly-selected-slot {
     max-width: 450px !important;
   }
+
+  .calendly-form {
+    transform: translateX(200px) !important;
+  }
 }
 
 /* Mobile styles - smaller sidebar with more padding */
