@@ -417,6 +417,17 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
       <div className="calendly-layout">
         {/* Left sidebar - Info panel */}
         <div className="calendly-sidebar">
+          {/* Back arrow button */}
+          {step > 1 && (
+            <button
+              onClick={handleBack}
+              className="calendly-sidebar-back-btn"
+              aria-label="Volver al paso anterior"
+            >
+              <ChevronLeft size={24} />
+            </button>
+          )}
+
           <div className="calendly-brand">
             <h1>Miosotys Spa</h1>
             <p>Experiencias de bienestar</p>
