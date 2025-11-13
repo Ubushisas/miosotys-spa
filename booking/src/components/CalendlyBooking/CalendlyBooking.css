@@ -22,6 +22,8 @@
     max-width: none !important;
     margin: 0 !important;
     padding: 2rem !important;
+    padding-left: 2rem !important;
+    margin-left: -400px !important; /* Move entire container 400px LEFT */
     height: 100vh !important;
     overflow-y: auto !important;
   }
@@ -35,7 +37,7 @@
     flex-direction: column !important;
     gap: 2rem !important;
     align-items: flex-start !important;
-    transform: translateX(-400px) !important; /* Move entire calendar 400px to the LEFT on desktop */
+    transform: none !important;
   }
 
   .calendly-sidebar {
