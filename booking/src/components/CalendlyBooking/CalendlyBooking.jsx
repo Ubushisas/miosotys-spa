@@ -546,6 +546,32 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
             {/* Step 2: Select Date & Time */}
             {step === 2 && (
               <div className="calendly-step">
+                {/* Mobile back button - only visible on mobile */}
+                <button
+                  onClick={() => {
+                    if (dateTimeSubStep === 'time' || dateTimeSubStep === 'people') {
+                      setDateTimeSubStep('date');
+                      setSelectedTime(null);
+                    } else if (dateTimeSubStep === 'guests') {
+                      setDateTimeSubStep('people');
+                      setGuestNames([]);
+                    } else {
+                      setStep(1);
+                      setSelectedService(null);
+                      setSelectedDate(null);
+                      setSelectedTime(null);
+                      setPeopleCount(null);
+                      setGuestNames([]);
+                      setDateTimeSubStep('date');
+                    }
+                  }}
+                  className="calendly-mobile-back-btn"
+                  title="Volver"
+                  aria-label="Volver al paso anterior"
+                >
+                  <ChevronLeft />
+                </button>
+
                 <h2 className="calendly-step-title">
                   {dateTimeSubStep === 'people'
                     ? '¿Cuántas personas asistirán?'
@@ -766,6 +792,20 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
             {/* Step 3: Enter Details */}
             {step === 3 && (
               <div className="calendly-step" style={{ transform: 'translateX(80px)' }}>
+                {/* Mobile back button - only visible on mobile */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStep(2);
+                    setDateTimeSubStep(requiresPeopleCount(selectedService) ? 'guests' : 'time');
+                  }}
+                  className="calendly-mobile-back-btn"
+                  title="Volver"
+                  aria-label="Volver a selección de fecha y hora"
+                >
+                  <ChevronLeft />
+                </button>
+
                 <h2 className="calendly-step-title">Ingresa tus datos</h2>
 
                 <form onSubmit={handleSubmit} className="calendly-form">

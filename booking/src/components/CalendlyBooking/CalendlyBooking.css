@@ -428,6 +428,11 @@ iframe[src*="calendly"] {
   visibility: visible !important;
 }
 
+/* Mobile back button - hidden on desktop by default */
+.calendly-mobile-back-btn {
+  display: none !important;
+}
+
 .calendly-back-btn svg {
   width: 20px !important;
   height: 20px !important;
@@ -1214,10 +1219,40 @@ iframe[src*="calendly"] {
     z-index: 10;
   }
 
-  /* Hide back button and title on mobile */
+  /* Hide desktop back button and title on mobile */
   .calendly-back-btn,
   .calendly-step-title {
     display: none !important;
+  }
+
+  /* Mobile-specific back button - visible at top */
+  .calendly-mobile-back-btn {
+    display: flex !important;
+    position: fixed !important;
+    top: 20px !important;
+    left: 20px !important;
+    z-index: 1000 !important;
+    background: #FBF6E9 !important;
+    border: 2px solid #bcdce5 !important;
+    border-radius: 8px !important;
+    width: 44px !important;
+    height: 44px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .calendly-mobile-back-btn:active {
+    transform: scale(0.95) !important;
+    background: rgba(188, 220, 229, 0.3) !important;
+  }
+
+  .calendly-mobile-back-btn svg {
+    width: 24px !important;
+    height: 24px !important;
+    color: #5a9aad !important;
   }
 
   /* Hide tabs on mobile */
