@@ -1323,8 +1323,8 @@ iframe[src*="calendly"] {
 
   .calendly-form-group input {
     padding: 0.875rem 1rem;
-    max-width: 250px !important;
-    width: 250px !important;
+    max-width: 280px !important;
+    width: 280px !important;
   }
 
   .calendly-form {
@@ -1339,13 +1339,38 @@ iframe[src*="calendly"] {
 
   .calendly-form-group {
     width: 100% !important;
-    max-width: 250px !important;
+    max-width: 280px !important;
   }
 
   .calendly-submit-btn,
   .calendly-submit-btn-active {
-    max-width: 250px !important;
-    width: 250px !important;
+    max-width: 280px !important;
+    width: 280px !important;
+  }
+
+  /* People selector - 3 boxes in ONE ROW on mobile */
+  .calendly-people-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.75rem !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+
+  .calendly-people-option {
+    aspect-ratio: 1 !important;
+    min-height: 70px !important;
+    max-height: 70px !important;
+    max-width: 90px !important;
+    min-width: 90px !important;
+    padding: 0.5rem !important;
+  }
+
+  .calendly-people-count {
+    font-size: 1.5rem !important;
+  }
+
+  .calendly-people-label {
+    font-size: 0.85rem !important;
   }
 }
 
@@ -1486,23 +1511,27 @@ iframe[src*="calendly"] {
 /* Keep 3 items in a single row */
 
 @media (max-width: 640px) {
+  /* Keep 3 boxes in one row - DO NOT change to 2 columns */
   .calendly-people-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.5rem !important;
+    max-width: 280px !important;
   }
 
   .calendly-people-option {
-    padding: 0.625rem 0.375rem;
-    min-height: 65px;
-    max-width: 85px;
+    padding: 0.5rem 0.25rem !important;
+    min-height: 65px !important;
+    max-height: 65px !important;
+    max-width: 85px !important;
+    min-width: 85px !important;
   }
 
   .calendly-people-count {
-    font-size: 1.5rem;
+    font-size: 1.4rem !important;
   }
 
-  .calendly-people-grid:has(.calendly-people-option:nth-child(3):last-child) .calendly-people-option:nth-child(3) {
-    max-width: 85px;
-    min-width: 85px;
+  .calendly-people-label {
+    font-size: 0.8rem !important;
   }
 
   .calendly-selection-info h3 {
