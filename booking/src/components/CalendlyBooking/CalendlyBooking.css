@@ -1351,7 +1351,7 @@ iframe[src*="calendly"] {
   /* People selector - 3 boxes in ONE ROW on mobile */
   .calendly-people-selector {
     padding: 2rem 1.5rem !important;
-    gap: 1.5rem !important;
+    gap: 0.625rem !important;
     margin-top: 2rem !important;
   }
 
@@ -1360,7 +1360,7 @@ iframe[src*="calendly"] {
     font-size: 1.3rem !important;
     color: #B87C4C !important;
     font-weight: 600 !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 10px !important;
     text-align: center !important;
   }
 
@@ -1369,7 +1369,7 @@ iframe[src*="calendly"] {
     gap: 0.75rem !important;
     max-width: 300px !important;
     margin: 0 auto !important;
-    margin-top: 1rem !important;
+    margin-top: 0 !important;
   }
 
   .calendly-people-option {
@@ -1538,14 +1538,14 @@ iframe[src*="calendly"] {
     font-size: 1.2rem !important;
     color: #B87C4C !important;
     font-weight: 600 !important;
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 10px !important;
   }
 
   .calendly-people-grid {
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 0.5rem !important;
     max-width: 280px !important;
-    margin-top: 1rem !important;
+    margin-top: 0 !important;
   }
 
   .calendly-people-option {
