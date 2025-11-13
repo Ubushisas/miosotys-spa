@@ -775,7 +775,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Tu nombre"
-                      style={{ width: '400px', maxWidth: '400px' }}
+                      style={{ width: '450px', maxWidth: '450px' }}
                     />
                   </div>
 
@@ -788,7 +788,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="Tu email"
-                      style={{ width: '400px', maxWidth: '400px' }}
+                      style={{ width: '450px', maxWidth: '450px' }}
                     />
                   </div>
 
@@ -801,7 +801,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="Tu número de celular"
-                      style={{ width: '400px', maxWidth: '400px' }}
+                      style={{ width: '450px', maxWidth: '450px' }}
                     />
                   </div>
 
@@ -809,7 +809,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                     type="submit"
                     className={`calendly-submit-btn ${isFormComplete && !isSubmitting ? 'calendly-submit-btn-active' : ''}`}
                     disabled={!isFormComplete || isSubmitting}
-                    style={{ width: '400px', maxWidth: '400px' }}
+                    style={{ width: '450px', maxWidth: '450px' }}
                   >
                     {isSubmitting ? (
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
