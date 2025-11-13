@@ -69,6 +69,10 @@
   .calendly-form {
     transform: translateX(250px) !important;
   }
+
+  .calendly-step:has(.calendly-form) {
+    transform: translateX(250px) !important;
+  }
 }
 
 /* Mobile styles - smaller sidebar with more padding */
