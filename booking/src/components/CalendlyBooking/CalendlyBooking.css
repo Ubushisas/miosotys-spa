@@ -19,7 +19,7 @@
     top: 0 !important;
     margin: 0 auto !important;
     padding: 1.5rem 1rem !important;
-    max-width: 950px !important;
+    max-width: 900px !important;
   }
 
   .calendly-layout {
@@ -30,7 +30,7 @@
     grid-template-columns: 25% 75% !important;
     gap: 2rem !important;
     align-items: start !important;
-    transform: scale(1.18) !important;
+    transform: scale(1.15) !important;
     transform-origin: top center !important;
   }
 
@@ -74,7 +74,7 @@
   }
 
   .calendly-layout {
-    transform: scale(1.1) !important;
+    transform: scale(1.08) !important;
     transform-origin: top center !important;
   }
 
