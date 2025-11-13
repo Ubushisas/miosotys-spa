@@ -1225,13 +1225,13 @@ iframe[src*="calendly"] {
     display: none !important;
   }
 
-  /* Mobile-specific back button - positioned next to top container */
+  /* Mobile-specific back button - positioned at top next to service name */
   .calendly-mobile-back-btn {
     display: flex !important;
-    position: absolute !important;
-    top: 120px !important;
-    left: 15px !important;
-    z-index: 1000 !important;
+    position: fixed !important;
+    top: 115px !important;
+    left: 10px !important;
+    z-index: 1001 !important;
     background: rgba(251, 246, 233, 0.95) !important;
     border: 2px solid #bcdce5 !important;
     border-radius: 6px !important;
