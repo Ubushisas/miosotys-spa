@@ -126,11 +126,6 @@
     transform-origin: top center !important;
   }
 
-  /* Move form container on mobile ONLY */
-  .calendly-step:has(.calendly-form) {
-    transform: translateX(230px) !important;
-  }
-
   .calendly-card {
     font-size: 1.05rem !important;
   }
