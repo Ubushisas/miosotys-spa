@@ -357,11 +357,12 @@ iframe[src*="calendly"] {
 }
 
 .calendly-step-title {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #b77c4c;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   letter-spacing: -0.075rem;
+  text-align: center;
   font-family: 'Gragio', 'Cormorant Garamond', serif;
 }
 
@@ -1123,10 +1124,18 @@ iframe[src*="calendly"] {
     z-index: 10;
   }
 
-  /* Hide back button and title on mobile */
-  .calendly-back-btn,
-  .calendly-step-title {
+  /* Hide back button on mobile */
+  .calendly-back-btn {
     display: none !important;
+  }
+
+  /* Keep step title visible and prominent on mobile */
+  .calendly-step-title {
+    display: block !important;
+    font-size: 1.75rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
   }
 
   /* Hide tabs on mobile */
