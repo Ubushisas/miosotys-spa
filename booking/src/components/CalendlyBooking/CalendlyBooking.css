@@ -1245,10 +1245,9 @@ iframe[src*="calendly"] {
     transform: none !important;
   }
 
-  /* Ensure button stays in place even when parent has transform */
+  /* Hide back button on form step (step 3) - user should complete form */
   .calendly-step[style*="translateX"] .calendly-mobile-back-btn {
-    position: fixed !important;
-    transform: translateX(0) !important;
+    display: none !important;
   }
 
   .calendly-mobile-back-btn:active {
