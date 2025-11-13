@@ -128,7 +128,7 @@
 
   /* Move form container on mobile ONLY */
   .calendly-step:has(.calendly-form) {
-    transform: translateX(20px) !important;
+    transform: translateX(100px) !important;
   }
 
   .calendly-card {
