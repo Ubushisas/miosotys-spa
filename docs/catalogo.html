@@ -1111,13 +1111,15 @@
         // Encode the service name for URL
         const encodedService = encodeURIComponent(packageName);
 
+        // Strong cache buster with timestamp + random
         const timestamp = new Date().getTime();
+        const random = Math.random().toString(36).substring(7);
 
         // LOCAL DEVELOPMENT - Use localhost
-        // const bookingUrl = `http://localhost:3002?service=${encodedService}&v=${timestamp}`;
+        // const bookingUrl = `http://localhost:3002?service=${encodedService}&v=${timestamp}&r=${random}`;
 
-        // PRODUCTION - Vercel deployment (public URL)
-        const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}&v=${timestamp}`;
+        // PRODUCTION - Vercel deployment (public URL) with STRONG cache buster
+        const bookingUrl = `https://miosotys-spa.vercel.app?service=${encodedService}&v=${timestamp}&r=${random}&nocache=1`;
 
         showBookingCalendar(packageName, bookingUrl);
       }
