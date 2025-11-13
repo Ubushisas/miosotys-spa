@@ -56,7 +56,7 @@
 
   /* Make calendar and time slots bigger on desktop */
   .calendly-unified-picker {
-    transform: scale(1.8) !important;
+    transform: scale(2.2) !important;
     transform-origin: top center !important;
   }
 
