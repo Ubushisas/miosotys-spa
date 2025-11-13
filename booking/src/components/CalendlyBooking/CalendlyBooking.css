@@ -83,16 +83,16 @@
   }
 
   .calendly-form {
-    transform: translateX(500px) !important;
+    transform: translateX(570px) !important; /* Move 70px MORE to the RIGHT on desktop (500px + 70px = 570px) */
   }
 
   .calendly-step:has(.calendly-form) {
-    transform: translateX(500px) !important;
+    transform: translateX(570px) !important; /* Move 70px MORE to the RIGHT on desktop (500px + 70px = 570px) */
   }
 }
 
-/* Mobile styles - smaller sidebar with more padding */
-@media (max-width: 768px) {
+/* Tablet/Mid-size styles - DON'T apply mobile transforms here */
+@media (max-width: 768px) and (min-width: 601px) {
   .calendly-container {
     padding: 1.5rem 0.5rem !important;
   }
@@ -1046,8 +1046,8 @@ iframe[src*="calendly"] {
 /* ===== RESPONSIVE ===== */
 /* Desktop stays at default - no size changes needed above 768px */
 
-@media (max-width: 768px) {
-  /* On mobile: Show sidebar on top, calendar below */
+@media (max-width: 600px) {
+  /* On ACTUAL mobile devices ONLY: Show sidebar on top, calendar below */
   .calendly-container {
     padding: 0;
     padding-top: 100px;
@@ -1062,9 +1062,9 @@ iframe[src*="calendly"] {
     margin: 0;
   }
 
-  /* Move form 70px to the left on mobile only */
+  /* Move form 70px to the left on ACTUAL mobile devices ONLY */
   .calendly-form {
-    transform: translateX(-70px);
+    transform: translateX(-70px) !important;
   }
 
   .calendly-container::before,
@@ -1081,7 +1081,7 @@ iframe[src*="calendly"] {
     max-width: 100%;
     position: relative;
     z-index: 10;
-    transform: translateX(-15px); /* Move sidebar 15px to the LEFT on mobile */
+    transform: translateX(-15px) !important; /* Move sidebar 15px to the LEFT on ACTUAL mobile devices ONLY */
   }
 
   .calendly-layout {
@@ -1117,7 +1117,7 @@ iframe[src*="calendly"] {
 
   .calendly-sidebar {
     order: 1;
-    transform: none;
+    /* Keep the translateX(-15px) from above - don't override it */
   }
 
   .calendly-card {
