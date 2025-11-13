@@ -1352,7 +1352,9 @@ iframe[src*="calendly"] {
   .calendly-people-selector {
     padding: 2rem 1.5rem !important;
     gap: 0.625rem !important;
-    margin-top: 2rem !important;
+    margin-top: -20px !important;
+    position: relative !important;
+    top: -20px !important;
   }
 
   .calendly-people-description {
@@ -1470,6 +1472,7 @@ iframe[src*="calendly"] {
   color: #6B5D52;
   text-align: center;
   line-height: 1.6;
+  display: none;
 }
 
 .calendly-people-grid {
@@ -1530,7 +1533,9 @@ iframe[src*="calendly"] {
   /* Keep 3 boxes in one row - DO NOT change to 2 columns */
   .calendly-people-selector {
     padding: 2rem 1rem !important;
-    margin-top: 2.5rem !important;
+    margin-top: -20px !important;
+    position: relative !important;
+    top: -20px !important;
   }
 
   .calendly-people-description {
