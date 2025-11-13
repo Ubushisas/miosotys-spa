@@ -1323,6 +1323,8 @@ iframe[src*="calendly"] {
 
   .calendly-form-group input {
     padding: 0.875rem 1rem;
+    max-width: 250px !important;
+    width: 250px !important;
   }
 
   .calendly-form {
@@ -1330,6 +1332,20 @@ iframe[src*="calendly"] {
     max-width: 100%;
     padding: 1.5rem;
     background: #fbf6e9;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .calendly-form-group {
+    width: 100% !important;
+    max-width: 250px !important;
+  }
+
+  .calendly-submit-btn,
+  .calendly-submit-btn-active {
+    max-width: 250px !important;
+    width: 250px !important;
   }
 }
 
