@@ -126,6 +126,20 @@
     transform-origin: top center !important;
   }
 
+  /* Move form 30px to the left on mobile ONLY */
+  .calendly-step:has(.calendly-form) {
+    transform: translateX(-30px) !important;
+  }
+
+  /* Make input fields 100px shorter on the right on mobile ONLY */
+  .calendly-form-group input {
+    max-width: calc(100% - 100px) !important;
+  }
+
+  .calendly-submit-btn {
+    max-width: calc(100% - 100px) !important;
+  }
+
   .calendly-card {
     font-size: 1.05rem !important;
   }
