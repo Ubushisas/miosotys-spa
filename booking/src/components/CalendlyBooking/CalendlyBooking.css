@@ -1229,8 +1229,8 @@ iframe[src*="calendly"] {
   .calendly-mobile-back-btn {
     display: flex !important;
     position: fixed !important;
-    top: 65px !important;
-    left: -10px !important;
+    top: 62px !important;
+    left: 5px !important;
     z-index: 1001 !important;
     background: rgba(251, 246, 233, 0.95) !important;
     border: 2px solid #bcdce5 !important;
