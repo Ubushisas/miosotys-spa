@@ -244,8 +244,8 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   // Handle guest names completion
   const handleGuestNamesComplete = () => {
-    // Go to date selection after collecting guest names
-    setDateTimeSubStep('date');
+    // Go to Step 3 (personal information form) after collecting guest names
+    setStep(3);
   };
 
   // Set first category as active when settings load
