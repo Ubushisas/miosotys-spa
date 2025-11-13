@@ -114,9 +114,9 @@
     font-size: 1rem !important;
   }
 
-  /* Make calendar container much smaller on mobile */
+  /* Make calendar container slightly smaller on mobile */
   .calendly-unified-picker {
-    transform: scale(0.7) !important;
+    transform: scale(0.85) !important;
     transform-origin: top center !important;
   }
 
