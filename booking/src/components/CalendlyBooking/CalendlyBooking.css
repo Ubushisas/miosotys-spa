@@ -30,7 +30,7 @@
     grid-template-columns: 25% 75% !important;
     gap: 2rem !important;
     align-items: start !important;
-    transform: scale(1.08) !important;
+    transform: scale(1.2) !important;
     transform-origin: top center !important;
   }
 
