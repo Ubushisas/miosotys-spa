@@ -762,7 +762,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
             {/* Step 3: Enter Details */}
             {step === 3 && (
-              <div className="calendly-step">
+              <div className="calendly-step" style={{ transform: 'translateX(800px)' }}>
                 <h2 className="calendly-step-title">Ingresa tus datos</h2>
 
                 <form onSubmit={handleSubmit} className="calendly-form">
