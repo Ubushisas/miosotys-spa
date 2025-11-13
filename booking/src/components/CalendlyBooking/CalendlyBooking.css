@@ -55,15 +55,23 @@
   }
 
   .calendly-form-group {
-    max-width: 450px !important;
+    max-width: 380px !important;
   }
 
   .calendly-form-group input {
-    max-width: 450px !important;
+    max-width: 380px !important;
   }
 
   .calendly-selected-slot {
-    max-width: 450px !important;
+    max-width: 380px !important;
+  }
+
+  .calendly-submit-btn {
+    max-width: 380px !important;
+  }
+
+  .calendly-form {
+    max-width: 380px !important;
   }
 
   .calendly-form {
