@@ -1242,6 +1242,13 @@ iframe[src*="calendly"] {
     cursor: pointer !important;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
     transition: all 0.2s ease !important;
+    transform: none !important;
+  }
+
+  /* Ensure button stays in place even when parent has transform */
+  .calendly-step[style*="translateX"] .calendly-mobile-back-btn {
+    position: fixed !important;
+    transform: translateX(0) !important;
   }
 
   .calendly-mobile-back-btn:active {
