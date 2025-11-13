@@ -758,7 +758,7 @@ iframe[src*="calendly"] {
 }
 
 .calendly-form-group label {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #b77c4c;
   letter-spacing: 0.01rem;
@@ -772,12 +772,12 @@ iframe[src*="calendly"] {
 }
 
 .calendly-form-group input {
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
   background: rgba(251, 246, 233, 1);
   backdrop-filter: blur(20px);
   border: 0.5px solid rgba(0, 0, 0, 0.08);
   border-radius: 0.625rem;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: rgb(17, 17, 17);
   transition: all 0.3s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
@@ -800,9 +800,9 @@ iframe[src*="calendly"] {
   background: rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(20px);
   color: rgba(0, 0, 0, 0.3);
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.5rem;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-radius: 0.75rem;
   cursor: not-allowed;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
