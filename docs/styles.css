@@ -1690,24 +1690,23 @@ footer {
   transform-origin: top center;
 }
 
-/* Desktop only - center and shift iframe content */
+/* Desktop only - center iframe content properly */
 @media (min-width: 769px) {
   #calendlyWindow #calendlyContent iframe {
     position: relative;
-    left: -90px;
-    top: -110px;
+    left: 0;
+    top: 0;
     margin: 0 auto;
-    margin-bottom: 100px;
     display: block;
-    transform: scale(1.15) !important;
+    transform: scale(1.0) !important;
     transform-origin: top center;
-    min-height: 1000px !important;
+    min-height: 100vh !important;
   }
 
   #calendlyWindow .package-window-body {
-    overflow-y: hidden !important;
+    overflow-y: auto !important;
     overflow-x: hidden !important;
-    padding-bottom: 100px !important;
+    padding: 0 !important;
   }
 }
 

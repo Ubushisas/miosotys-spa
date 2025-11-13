@@ -11,40 +11,39 @@
   font-family: 'Gragio', 'Cormorant Garamond', serif;
 }
 
-/* Desktop-specific positioning - FULL 50% VIEWPORT WIDTH */
+/* Desktop-specific positioning - CENTER CONTENT IN IFRAME */
 @media (min-width: 769px) {
   body .calendly-container {
-    position: fixed !important;
-    left: 0 !important; /* CHANGED FROM right: 0 to left: 0 - MOVES TO LEFT SIDE */
-    top: 0 !important;
-    bottom: 0 !important;
-    width: 50vw !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 2rem !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 2rem 3rem !important;
     height: 100vh !important;
     overflow-y: auto !important;
-    background: #90EE90 !important; /* BRIGHT GREEN - IMPOSSIBLE TO MISS */
+    background: #fbf6e9 !important;
   }
 
   .calendly-layout {
-    max-width: 100% !important;
+    max-width: 1200px !important;
     width: 100% !important;
-    margin: 0 !important;
-    padding-left: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
+    margin: 0 auto !important;
+    padding: 2rem 1rem !important;
+    display: grid !important;
+    grid-template-columns: 35% 65% !important;
     gap: 2rem !important;
-    align-items: flex-start !important;
+    align-items: start !important;
     transform: none !important;
   }
 
   .calendly-sidebar {
-    /* REMOVED transform: none and margin-left: 0 - they were blocking the left shift */
     display: block !important;
-    position: relative !important;
+    position: sticky !important;
+    top: 2rem !important;
     width: 100% !important;
-    padding-left: 0 !important;
+    padding: 1.5rem !important;
+    transform: none !important;
+    margin: 0 !important;
   }
 
   .calendly-main {
@@ -52,21 +51,22 @@
     position: relative !important;
     width: 100% !important;
     display: flex !important;
-    justify-content: flex-start !important;
-    padding-left: 0 !important;
+    justify-content: center !important;
+    padding: 0 !important;
   }
 
   .calendly-card {
     width: 100% !important;
-    padding-left: 0 !important;
-    margin-left: 0 !important;
+    padding: 1.5rem !important;
+    margin: 0 !important;
   }
 
   .calendly-step {
     width: 100% !important;
     display: flex !important;
+    flex-direction: column !important;
     justify-content: flex-start !important;
-    padding-left: 0 !important;
+    padding: 0 !important;
   }
 
   .calendly-service-title {
@@ -75,40 +75,47 @@
   }
 
   .calendly-calendar {
-    transform: none;
-    margin-left: 0 !important;
+    transform: none !important;
+    margin: 0 !important;
   }
 
-  /* Calendar simplified - on left side now */
   .calendly-unified-picker {
     transform: none !important;
-    padding: 2rem !important;
+    padding: 2rem 1.5rem !important;
     margin: 0 !important;
     justify-content: flex-start !important;
     align-items: flex-start !important;
-    background: rgba(0, 255, 255, 0.2) !important; /* CYAN HIGHLIGHT */
+    background: transparent !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 2rem !important;
   }
 
   .calendly-unified-calendar {
     margin: 0 !important;
-    background: rgba(255, 0, 255, 0.2) !important; /* MAGENTA HIGHLIGHT */
+    background: transparent !important;
+    flex: 0 0 360px !important;
+  }
+
+  .calendly-unified-times {
+    flex: 1 !important;
+    max-height: 550px !important;
+    overflow-y: auto !important;
   }
 
   .calendly-step-title {
     text-align: left !important;
-    margin-left: -100px !important; /* MOVE TITLE 100px LEFT */
-    transform: translateX(-100px) !important; /* EXTRA SHIFT LEFT */
+    margin: 0 0 1.5rem 0 !important;
+    transform: none !important;
   }
 
-  /* Sidebar on left side now */
   .calendly-selection-info,
   .calendly-sidebar {
-    margin-left: 0 !important;
+    margin: 0 !important;
     transform: none !important;
-    background: rgba(255, 255, 0, 0.3) !important; /* YELLOW HIGHLIGHT TO SEE IT */
+    background: transparent !important;
   }
 
-  /* Form takes full width in expanded container */
   .calendly-form-group {
     max-width: 100% !important;
   }
@@ -128,12 +135,32 @@
   }
 
   .calendly-form {
-    max-width: 600px !important;
+    max-width: 500px !important;
     transform: none !important;
   }
 
   .calendly-step:has(.calendly-form) {
     transform: none !important;
+  }
+
+  /* People selector centered */
+  .calendly-people-selector {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 2rem !important;
+  }
+
+  .calendly-people-grid {
+    max-width: 500px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Guests form centered */
+  .calendly-guests-form {
+    max-width: 600px !important;
+    margin: 0 auto !important;
   }
 }
 
@@ -272,7 +299,7 @@ iframe[src*="calendly"] {
   position: sticky;
   top: 0;
   align-self: flex-start;
-  transform: translateX(-400px) translateY(200px) scale(0.85);
+  transform: none;
 }
 
 .calendly-brand {
@@ -361,7 +388,7 @@ iframe[src*="calendly"] {
 .calendly-main {
   display: flex;
   flex-direction: column;
-  transform: translateX(350px) translateY(-200px);
+  transform: none;
 }
 
 .calendly-card {
