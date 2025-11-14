@@ -94,22 +94,36 @@ export async function checkAvailability(date, time, service) {
     const endDateTime = new Date(new Date(startDateTime).getTime() + service.duration * 60000).toISOString();
 
     // Check BOTH room calendar AND master calendar
-    const [roomResponse, masterResponse] = await Promise.all([
-      calendar.events.list({
+    let roomResponse, masterResponse;
+    try {
+      [roomResponse, masterResponse] = await Promise.all([
+        calendar.events.list({
+          calendarId: roomCalendarId,
+          timeMin: startDateTime,
+          timeMax: endDateTime,
+          singleEvents: true,
+          orderBy: 'startTime',
+        }),
+        calendar.events.list({
+          calendarId: MASTER_CALENDAR_ID,
+          timeMin: startDateTime,
+          timeMax: endDateTime,
+          singleEvents: true,
+          orderBy: 'startTime',
+        }),
+      ]);
+    } catch (calError) {
+      console.error('Calendar API error in checkAvailability:', calError);
+      // If master calendar fails, just check room calendar
+      roomResponse = await calendar.events.list({
         calendarId: roomCalendarId,
         timeMin: startDateTime,
         timeMax: endDateTime,
         singleEvents: true,
         orderBy: 'startTime',
-      }),
-      calendar.events.list({
-        calendarId: MASTER_CALENDAR_ID,
-        timeMin: startDateTime,
-        timeMax: endDateTime,
-        singleEvents: true,
-        orderBy: 'startTime',
-      }),
-    ]);
+      });
+      masterResponse = { data: { items: [] } };
+    }
 
     // If there are ANY events on either calendar, the slot is not available
     return roomResponse.data.items.length === 0 && masterResponse.data.items.length === 0;
@@ -133,22 +147,36 @@ export async function getUnavailableSlots(date, service) {
     dayEnd.setHours(23, 59, 59, 999);
 
     // Check BOTH room calendar AND master calendar
-    const [roomResponse, masterResponse] = await Promise.all([
-      calendar.events.list({
+    let roomResponse, masterResponse;
+    try {
+      [roomResponse, masterResponse] = await Promise.all([
+        calendar.events.list({
+          calendarId: roomCalendarId,
+          timeMin: dayStart.toISOString(),
+          timeMax: dayEnd.toISOString(),
+          singleEvents: true,
+          orderBy: 'startTime',
+        }),
+        calendar.events.list({
+          calendarId: MASTER_CALENDAR_ID,
+          timeMin: dayStart.toISOString(),
+          timeMax: dayEnd.toISOString(),
+          singleEvents: true,
+          orderBy: 'startTime',
+        }),
+      ]);
+    } catch (calError) {
+      console.error('Calendar API error:', calError);
+      // If master calendar fails, just use room calendar
+      roomResponse = await calendar.events.list({
         calendarId: roomCalendarId,
         timeMin: dayStart.toISOString(),
         timeMax: dayEnd.toISOString(),
         singleEvents: true,
         orderBy: 'startTime',
-      }),
-      calendar.events.list({
-        calendarId: MASTER_CALENDAR_ID,
-        timeMin: dayStart.toISOString(),
-        timeMax: dayEnd.toISOString(),
-        singleEvents: true,
-        orderBy: 'startTime',
-      }),
-    ]);
+      });
+      masterResponse = { data: { items: [] } };
+    }
 
     // Combine events from both calendars
     const allEvents = [...roomResponse.data.items, ...masterResponse.data.items];
