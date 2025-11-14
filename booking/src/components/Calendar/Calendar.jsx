@@ -10,6 +10,7 @@ const Calendar = ({ service, onSelectDateTime }) => {
   const [loadingAvailability, setLoadingAvailability] = useState(false);
   const [settings, setSettings] = useState(null);
   const [showTimeSelection, setShowTimeSelection] = useState(false);
+  const [dailyAvailability, setDailyAvailability] = useState({}); // Cache: { 'YYYY-MM-DD': hasSlots }
 
   useEffect(() => {
     // Load settings
@@ -30,6 +31,46 @@ const Calendar = ({ service, onSelectDateTime }) => {
         setLoadingAvailability(false);
       });
   }, []);
+
+  // Pre-fetch availability for all days in current month
+  useEffect(() => {
+    if (!settings || !service) return;
+
+    const year = currentMonth.getFullYear();
+    const month = currentMonth.getMonth();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    // Fetch availability for each day
+    const fetchPromises = [];
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(year, month, day);
+      const dateStr = date.toISOString().split('T')[0];
+
+      fetchPromises.push(
+        fetch('/api/calendar/availability', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ date: dateStr, service })
+        })
+          .then(res => res.json())
+          .then(data => {
+            // Check if there are ANY available slots
+            const slots = getAvailableTimeSlotsForDate(date);
+            const hasAvailableSlots = slots.length > 0;
+            return { dateStr, hasAvailableSlots };
+          })
+          .catch(() => ({ dateStr, hasAvailableSlots: false }))
+      );
+    }
+
+    Promise.all(fetchPromises).then(results => {
+      const availabilityMap = {};
+      results.forEach(({ dateStr, hasAvailableSlots }) => {
+        availabilityMap[dateStr] = hasAvailableSlots;
+      });
+      setDailyAvailability(availabilityMap);
+    });
+  }, [currentMonth, settings, service]);
 
   // Generate calendar days
   const getDaysInMonth = (date) => {
@@ -362,7 +403,9 @@ const Calendar = ({ service, onSelectDateTime }) => {
               const isToday = isSameDay(date, new Date());
 
               // Check if this day has ANY available time slots
-              const hasAvailableSlots = !isPast && dayHasAvailableSlots(date);
+              const dateStr = date.toISOString().split('T')[0];
+              const cachedAvailability = dailyAvailability[dateStr];
+              const hasAvailableSlots = !isPast && (cachedAvailability !== undefined ? cachedAvailability : dayHasAvailableSlots(date));
               const isDisabled = !hasAvailableSlots;
 
               return (
