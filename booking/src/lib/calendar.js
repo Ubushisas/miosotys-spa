@@ -181,6 +181,14 @@ export async function getUnavailableSlots(date, service) {
     // Combine events from both calendars
     const allEvents = [...roomResponse.data.items, ...masterResponse.data.items];
 
+    // Debug logging
+    const dateStr = date.toISOString().split('T')[0];
+    console.log(`📅 getUnavailableSlots for ${dateStr}:`, {
+      roomEvents: roomResponse.data.items.length,
+      masterEvents: masterResponse.data.items.length,
+      totalEvents: allEvents.length
+    });
+
     // Load buffer time from environment variable or use default
     const bufferTime = parseInt(process.env.CALENDAR_BUFFER_TIME || '15'); // in minutes
 

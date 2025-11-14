@@ -120,6 +120,7 @@ const Calendar = ({ service, onSelectDateTime }) => {
       results.forEach(({ dateStr, hasAvailableSlots }) => {
         availabilityMap[dateStr] = hasAvailableSlots;
       });
+      console.log('📊 Daily Availability Map:', availabilityMap);
       setDailyAvailability(availabilityMap);
     });
   }, [currentMonth, settings, service]);
