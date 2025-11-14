@@ -1,5 +1,8 @@
 import { google } from 'googleapis';
 
+// Master calendar receives ALL bookings
+const MASTER_CALENDAR_ID = 'myosotisbymo@gmail.com';
+
 // Using room-specific calendars for bookings
 const CALENDAR_IDS = {
   individual: '44b404aad9e13f877c9af362787bf2a0212fbcad1a073bfa3439392167bd0c5f@group.calendar.google.com', // Sala Individual
@@ -84,23 +87,32 @@ export function getCalendarId(service) {
 export async function checkAvailability(date, time, service) {
   try {
     const calendar = getCalendarClient();
-    const calendarId = getCalendarId(service);
+    const roomCalendarId = getCalendarId(service);
 
     // Convert date and 12-hour time to ISO datetime in Colombia timezone
     const startDateTime = convertToISODateTime(date, time);
     const endDateTime = new Date(new Date(startDateTime).getTime() + service.duration * 60000).toISOString();
 
-    // Query for events during this time
-    const response = await calendar.events.list({
-      calendarId,
-      timeMin: startDateTime,
-      timeMax: endDateTime,
-      singleEvents: true,
-      orderBy: 'startTime',
-    });
+    // Check BOTH room calendar AND master calendar
+    const [roomResponse, masterResponse] = await Promise.all([
+      calendar.events.list({
+        calendarId: roomCalendarId,
+        timeMin: startDateTime,
+        timeMax: endDateTime,
+        singleEvents: true,
+        orderBy: 'startTime',
+      }),
+      calendar.events.list({
+        calendarId: MASTER_CALENDAR_ID,
+        timeMin: startDateTime,
+        timeMax: endDateTime,
+        singleEvents: true,
+        orderBy: 'startTime',
+      }),
+    ]);
 
-    // If there are any events, the slot is not available
-    return response.data.items.length === 0;
+    // If there are ANY events on either calendar, the slot is not available
+    return roomResponse.data.items.length === 0 && masterResponse.data.items.length === 0;
   } catch (error) {
     console.error('Error checking availability:', error);
     throw error;
@@ -111,7 +123,7 @@ export async function checkAvailability(date, time, service) {
 export async function getUnavailableSlots(date, service) {
   try {
     const calendar = getCalendarClient();
-    const calendarId = getCalendarId(service);
+    const roomCalendarId = getCalendarId(service);
 
     // Get start and end of day in Colombia timezone
     const dayStart = new Date(date);
@@ -120,19 +132,32 @@ export async function getUnavailableSlots(date, service) {
     const dayEnd = new Date(date);
     dayEnd.setHours(23, 59, 59, 999);
 
-    const response = await calendar.events.list({
-      calendarId,
-      timeMin: dayStart.toISOString(),
-      timeMax: dayEnd.toISOString(),
-      singleEvents: true,
-      orderBy: 'startTime',
-    });
+    // Check BOTH room calendar AND master calendar
+    const [roomResponse, masterResponse] = await Promise.all([
+      calendar.events.list({
+        calendarId: roomCalendarId,
+        timeMin: dayStart.toISOString(),
+        timeMax: dayEnd.toISOString(),
+        singleEvents: true,
+        orderBy: 'startTime',
+      }),
+      calendar.events.list({
+        calendarId: MASTER_CALENDAR_ID,
+        timeMin: dayStart.toISOString(),
+        timeMax: dayEnd.toISOString(),
+        singleEvents: true,
+        orderBy: 'startTime',
+      }),
+    ]);
+
+    // Combine events from both calendars
+    const allEvents = [...roomResponse.data.items, ...masterResponse.data.items];
 
     // Load buffer time from environment variable or use default
     const bufferTime = parseInt(process.env.CALENDAR_BUFFER_TIME || '15'); // in minutes
 
     // Extract booked time ranges and add buffer time
-    const bookedSlots = response.data.items.map(event => {
+    const bookedSlots = allEvents.map(event => {
       const eventStart = new Date(event.start.dateTime || event.start.date);
       const eventEnd = new Date(event.end.dateTime || event.end.date);
 
@@ -203,11 +228,24 @@ export async function createBooking(date, time, service, guestNames, customerInf
       },
     };
 
+    // Create event on room-specific calendar
     const response = await calendar.events.insert({
       calendarId,
       resource: event,
       sendUpdates: 'all', // Send email to attendees
     });
+
+    // Also create on master calendar (myosotisbymo@gmail.com) for complete overview
+    try {
+      await calendar.events.insert({
+        calendarId: MASTER_CALENDAR_ID,
+        resource: event,
+        sendUpdates: 'none', // Don't send duplicate emails
+      });
+    } catch (masterError) {
+      console.error('Warning: Failed to sync to master calendar:', masterError);
+      // Don't fail the booking if master calendar sync fails
+    }
 
     return response.data;
   } catch (error) {
