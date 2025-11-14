@@ -54,12 +54,64 @@ const Calendar = ({ service, onSelectDateTime }) => {
         })
           .then(res => res.json())
           .then(data => {
-            // Check if there are ANY available slots
-            const slots = getAvailableTimeSlotsForDate(date);
-            const hasAvailableSlots = slots.length > 0;
-            return { dateStr, hasAvailableSlots };
+            // The API returns { unavailableSlots: [...] }
+            // We need to check if ALL possible slots are unavailable
+
+            // Get day working hours
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const dayName = dayNames[date.getDay()];
+            const daySettings = settings.workingHours[dayName];
+
+            if (!daySettings?.enabled) {
+              return { dateStr, hasAvailableSlots: false };
+            }
+
+            // Generate all possible 30-min slots for this day
+            const [startHour, startMin] = daySettings.start.split(':').map(Number);
+            const [endHour, endMin] = daySettings.end.split(':').map(Number);
+
+            let totalSlots = 0;
+            let currentHour = startHour;
+            let currentMin = 0;
+            const now = new Date();
+            const minimumAdvanceHours = settings.minimumAdvanceBookingHours || 12;
+
+            while (currentHour < endHour || (currentHour === endHour && currentMin < endMin)) {
+              const slotStart = new Date(date);
+              slotStart.setHours(currentHour, currentMin, 0, 0);
+
+              // Only count slots that are in the future and meet minimum advance time
+              if (slotStart > now) {
+                const hoursUntilBooking = (slotStart - now) / (1000 * 60 * 60);
+                if (hoursUntilBooking >= minimumAdvanceHours) {
+                  // Check if this slot is NOT blocked by checking unavailableSlots
+                  const slotEnd = new Date(slotStart.getTime() + service.duration * 60000);
+                  const isSlotBlocked = data.unavailableSlots?.some(blocked => {
+                    const blockedStart = new Date(blocked.start);
+                    const blockedEnd = new Date(blocked.end);
+                    // Slot is blocked if it overlaps with any unavailable period
+                    return slotStart < blockedEnd && slotEnd > blockedStart;
+                  });
+
+                  if (!isSlotBlocked) {
+                    totalSlots++;
+                  }
+                }
+              }
+
+              currentMin += 30;
+              if (currentMin >= 60) {
+                currentMin = 0;
+                currentHour++;
+              }
+            }
+
+            return { dateStr, hasAvailableSlots: totalSlots > 0 };
           })
-          .catch(() => ({ dateStr, hasAvailableSlots: false }))
+          .catch(err => {
+            console.error(`Error fetching availability for ${dateStr}:`, err);
+            return { dateStr, hasAvailableSlots: false };
+          })
       );
     }
 
