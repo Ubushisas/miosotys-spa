@@ -132,9 +132,9 @@
       function checkComingSoonModal() {
         const modal = document.getElementById('comingSoonModal');
 
-        // Always show modal on index page
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        // Modal hidden - opening date has passed
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
       }
 
       // Close modal function
