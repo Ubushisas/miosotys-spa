@@ -152,6 +152,15 @@
         "minPeople": 2,
         "maxPeople": 2,
         "enabled": true
+      },
+      {
+        "id": "papa_hijo",
+        "name": "Día de Spa para Papá e Hijo",
+        "duration": 150,
+        "price": 380000,
+        "minPeople": 2,
+        "maxPeople": 2,
+        "enabled": true
       }
     ],
     "luxury": [
