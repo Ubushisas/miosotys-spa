@@ -944,11 +944,12 @@
             let includesContent = '';
 
             // Check if description contains includes or benefits sections
-            if (pkg.description.includes('<strong>Incluye:</strong>') || pkg.description.includes('<strong>Beneficios:</strong>')) {
-              // Find where the Incluye/Beneficios section starts
+            if (pkg.description.includes('<strong>Incluye:</strong>') || pkg.description.includes('<strong>Beneficios:</strong>') || pkg.description.includes('<strong>Objetivo:</strong>')) {
+              // Find where the Incluye/Beneficios/Objetivo section starts
               const includeIndex = pkg.description.indexOf('<strong>Incluye:</strong>');
               const benefitIndex = pkg.description.indexOf('<strong>Beneficios:</strong>');
-              const splitIndex = includeIndex !== -1 ? includeIndex : benefitIndex;
+              const objectiveIndex = pkg.description.indexOf('<strong>Objetivo:</strong>');
+              const splitIndex = includeIndex !== -1 ? includeIndex : (benefitIndex !== -1 ? benefitIndex : objectiveIndex);
 
               // Split the description
               mainDescription = pkg.description.substring(0, splitIndex).trim();
@@ -1028,11 +1029,12 @@
             let includesContent = '';
 
             // Check if description contains includes or benefits sections
-            if (pkg.description.includes('<strong>Incluye:</strong>') || pkg.description.includes('<strong>Beneficios:</strong>')) {
-              // Find where the Incluye/Beneficios section starts
+            if (pkg.description.includes('<strong>Incluye:</strong>') || pkg.description.includes('<strong>Beneficios:</strong>') || pkg.description.includes('<strong>Objetivo:</strong>')) {
+              // Find where the Incluye/Beneficios/Objetivo section starts
               const includeIndex = pkg.description.indexOf('<strong>Incluye:</strong>');
               const benefitIndex = pkg.description.indexOf('<strong>Beneficios:</strong>');
-              const splitIndex = includeIndex !== -1 ? includeIndex : benefitIndex;
+              const objectiveIndex = pkg.description.indexOf('<strong>Objetivo:</strong>');
+              const splitIndex = includeIndex !== -1 ? includeIndex : (benefitIndex !== -1 ? benefitIndex : objectiveIndex);
 
               // Split the description
               mainDescription = pkg.description.substring(0, splitIndex).trim();
