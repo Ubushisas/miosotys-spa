@@ -1,4 +1,5 @@
 import { google } from 'googleapis';
+import { getSettings } from './calendar-settings';
 
 // Master calendar receives ALL bookings
 const MASTER_CALENDAR_ID = 'myosotisbymo@gmail.com';
@@ -148,6 +149,13 @@ export async function getUnavailableSlots(date, service) {
 
     // Check BOTH room calendar AND master calendar
     let roomResponse, masterResponse;
+    console.log(`🔍 Checking calendars:`, {
+      room: roomCalendarId,
+      master: MASTER_CALENDAR_ID,
+      dayStart: dayStart.toISOString(),
+      dayEnd: dayEnd.toISOString()
+    });
+
     try {
       [roomResponse, masterResponse] = await Promise.all([
         calendar.events.list({
@@ -165,8 +173,18 @@ export async function getUnavailableSlots(date, service) {
           orderBy: 'startTime',
         }),
       ]);
+
+      console.log(`📊 Events found:`, {
+        room: roomResponse.data.items.map(e => ({ summary: e.summary, start: e.start.dateTime })),
+        master: masterResponse.data.items.map(e => ({ summary: e.summary, start: e.start.dateTime }))
+      });
     } catch (calError) {
       console.error('Calendar API error:', calError);
+      console.error('Calendar API error details:', {
+        message: calError.message,
+        code: calError.code,
+        errors: calError.errors
+      });
       // If master calendar fails, just use room calendar
       roomResponse = await calendar.events.list({
         calendarId: roomCalendarId,
@@ -189,8 +207,9 @@ export async function getUnavailableSlots(date, service) {
       totalEvents: allEvents.length
     });
 
-    // Load buffer time from environment variable or use default
-    const bufferTime = parseInt(process.env.CALENDAR_BUFFER_TIME || '15'); // in minutes
+    // Load buffer time from database settings
+    const settings = await getSettings();
+    const bufferTime = settings.bufferTime || 30; // in minutes
 
     // Extract booked time ranges and add buffer time
     const bookedSlots = allEvents.map(event => {
