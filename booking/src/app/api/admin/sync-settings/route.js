@@ -2,6 +2,30 @@ import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import calendarSettings from '../../../../../calendar-settings.json';
 
+// GET endpoint to check status
+export async function GET(request) {
+  try {
+    const settings = await prisma.calendarSettings.findFirst();
+
+    return NextResponse.json({
+      status: 'ok',
+      hasSettings: !!settings,
+      serviceCategories: settings ? Object.keys(settings.services) : [],
+      endpoint: '/api/admin/sync-settings',
+      method: 'POST',
+      headers: {
+        'Authorization': 'Bearer sync-secret-2025',
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    return NextResponse.json({
+      status: 'error',
+      error: error.message
+    }, { status: 500 });
+  }
+}
+
 export async function POST(request) {
   try {
     // Simple auth check - you can enhance this
