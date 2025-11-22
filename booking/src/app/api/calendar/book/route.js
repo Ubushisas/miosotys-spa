@@ -75,7 +75,7 @@ export async function POST(request) {
         day: 'numeric',
       });
 
-      const confirmationMessage = `¡Hola ${customerInfo.name}! ✨\n\nTu reserva ha sido confirmada:\n\n📅 Servicio: ${service.name}\n⏰ Fecha: ${formattedDate}\n🕐 Hora: ${time}\n📍 Miosotys Spa, Colombia\n\n¡Te esperamos! 🌿`;
+      const confirmationMessage = `¡Hola ${customerInfo.name}! ✨\n\nTu reserva ha sido confirmada:\n\n📅 Servicio: ${service.name}\n⏰ Fecha: ${formattedDate}\n🕐 Hora: ${time}\n📍 Myosotis Spa, Colombia\n\n¡Te esperamos! 🌿`;
 
       // Use correct production URL for Vercel deployment
       const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||

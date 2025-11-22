@@ -5,8 +5,8 @@ const MASTER_CALENDAR_ID = 'myosotisbymo@gmail.com';
 
 // Using room-specific calendars for bookings
 const CALENDAR_IDS = {
-  individual: '44b404aad9e13f877c9af362787bf2a0212fbcad1a073bfa3439392167bd0c5f@group.calendar.google.com', // Sala Individual
-  principal: '5f7b7d0630cdbfe75c87101e63c334ccc2a875971b4c26d4a39003210b5bf393@group.calendar.google.com', // Sala Grupal (Principal)
+  individual: 'c_83f3b9184bb03652fe4f7b9858ba4dc022f6ae195245d233c9b7e3603d64dc9a@group.calendar.google.com', // Sala Individual
+  principal: 'c_388f36cd098bb4f42b02cd43b728000ddb283db209570fc4e80c626a177d1f74@group.calendar.google.com', // Sala Grupal (Principal)
 };
 
 // Initialize OAuth2 client
@@ -245,7 +245,7 @@ export async function createBooking(date, time, service, guestNames, customerInf
 
     const event = {
       summary: `${service.name}`,
-      description: `[BOOKING]\n\n✨ RESERVA DE ${service.name.toUpperCase()} ✨\n\n📋 Detalles del Servicio:\n${durationText}\n${priceText}${peopleText}${guestsText}\n\n👤 Información de Contacto:\nNombre: ${customerInfo.name}\nTeléfono: ${customerInfo.phone}\nEmail: ${customerInfo.email}\n\n🏨 Miosotys Spa - Colombia`,
+      description: `[BOOKING]\n\n✨ RESERVA DE ${service.name.toUpperCase()} ✨\n\n📋 Detalles del Servicio:\n${durationText}\n${priceText}${peopleText}${guestsText}\n\n👤 Información de Contacto:\nNombre: ${customerInfo.name}\nTeléfono: ${customerInfo.phone}\nEmail: ${customerInfo.email}\n\n🏨 Myosotis Spa - Colombia`,
       start: {
         dateTime: startDateTime,
         timeZone: 'America/Bogota',

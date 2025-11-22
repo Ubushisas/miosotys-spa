@@ -23,8 +23,12 @@ export async function POST(request) {
         where: { id: existingSettings.id },
         data: {
           calendarEnabled: calendarSettings.calendarEnabled,
+          bufferTime: calendarSettings.bufferTime,
+          minimumAdvanceBookingHours: calendarSettings.minimumAdvanceBookingHours,
           rooms: calendarSettings.rooms,
           services: calendarSettings.services,
+          workingHours: calendarSettings.workingHours,
+          blockedDates: calendarSettings.blockedDates,
         },
       });
     } else {
@@ -32,20 +36,12 @@ export async function POST(request) {
       await prisma.calendarSettings.create({
         data: {
           calendarEnabled: calendarSettings.calendarEnabled,
-          bufferTime: 30,
-          minimumAdvanceBookingHours: 13,
+          bufferTime: calendarSettings.bufferTime,
+          minimumAdvanceBookingHours: calendarSettings.minimumAdvanceBookingHours,
           rooms: calendarSettings.rooms,
           services: calendarSettings.services,
-          workingHours: {
-            monday: { enabled: true, start: '08:00', end: '18:00' },
-            tuesday: { enabled: true, start: '08:00', end: '18:00' },
-            wednesday: { enabled: true, start: '08:00', end: '18:00' },
-            thursday: { enabled: true, start: '08:00', end: '18:00' },
-            friday: { enabled: true, start: '08:00', end: '18:00' },
-            saturday: { enabled: true, start: '09:00', end: '17:00' },
-            sunday: { enabled: false, start: '09:00', end: '17:00' },
-          },
-          blockedDates: [],
+          workingHours: calendarSettings.workingHours,
+          blockedDates: calendarSettings.blockedDates,
         },
       });
     }
