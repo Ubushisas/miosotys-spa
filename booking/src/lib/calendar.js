@@ -283,24 +283,12 @@ export async function createBooking(date, time, service, guestNames, customerInf
       },
     };
 
-    // Create event on room-specific calendar
+    // Create event on room-specific calendar only
     const response = await calendar.events.insert({
       calendarId,
       resource: event,
       sendUpdates: 'all', // Send email to attendees
     });
-
-    // Also create on master calendar (myosotisbymo@gmail.com) for complete overview
-    try {
-      await calendar.events.insert({
-        calendarId: MASTER_CALENDAR_ID,
-        resource: event,
-        sendUpdates: 'none', // Don't send duplicate emails
-      });
-    } catch (masterError) {
-      console.error('Warning: Failed to sync to master calendar:', masterError);
-      // Don't fail the booking if master calendar sync fails
-    }
 
     return response.data;
   } catch (error) {
