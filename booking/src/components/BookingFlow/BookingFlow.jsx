@@ -498,7 +498,7 @@ const BookingFlow = () => {
                 </p>
               </Copy>
               <div className="confirmation-note">
-                <p>¡Nos vemos pronto en Miosotys Spa!</p>
+                <p>¡Nos vemos pronto en Myosotis Spa!</p>
               </div>
               <div className="confirmation-actions">
                 <div onClick={() => window.location.href = '/'}>

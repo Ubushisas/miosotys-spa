@@ -109,7 +109,7 @@ export default function AdminLayout({
               </div>
               <div>
                 <h1 className="text-xl font-bold text-foreground">
-                  Miosotys
+                  Myosotis
                 </h1>
                 <p className="text-xs text-muted-foreground">Gestión de Spa</p>
               </div>

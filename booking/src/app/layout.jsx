@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Miosotys Spa - Reservas",
-  description: "Sistema de reservas para Miosotys Spa",
+  title: "Myosotis Spa - Reservas",
+  description: "Sistema de reservas para Myosotis Spa",
 };
 
 export default function RootLayout({ children }) {

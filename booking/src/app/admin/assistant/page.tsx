@@ -13,7 +13,7 @@ export default function AssistantPage() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: "Hi! I'm your Miosotys Spa assistant. I can help you manage appointments, patients, and calendar settings. Try asking me to:\n\n- Show today's schedule\n- Block off next Tuesday afternoon\n- Add a 15-minute buffer between appointments\n- Find available slots for a 60-minute massage\n- Show patient information",
+      content: "Hi! I'm your Myosotis Spa assistant. I can help you manage appointments, patients, and calendar settings. Try asking me to:\n\n- Show today's schedule\n- Block off next Tuesday afternoon\n- Add a 15-minute buffer between appointments\n- Find available slots for a 60-minute massage\n- Show patient information",
       timestamp: new Date(),
     },
   ])

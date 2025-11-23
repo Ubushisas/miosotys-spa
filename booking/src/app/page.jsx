@@ -35,7 +35,7 @@ function HomeContent() {
           <div className="container">
             <div className="spa-hero-content">
               <Copy delay={0.85}>
-                <h1>Miosotys Spa</h1>
+                <h1>Myosotis Spa</h1>
               </Copy>
               <Copy delay={1}>
                 <p className="lg">

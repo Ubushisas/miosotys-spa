@@ -373,7 +373,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
         const deposit = Math.round(selectedService.price * 0.5);
 
         // Create simple WhatsApp message
-        const whatsappMessage = `Hola! Reserva en Miosotys Spa:%0A%0A` +
+        const whatsappMessage = `Hola! Reserva en Myosotis Spa:%0A%0A` +
           `Servicio: ${selectedService.name}%0A` +
           `Fecha: ${formattedDate}%0A` +
           `Hora: ${selectedTime}%0A` +
@@ -418,7 +418,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
         {/* Left sidebar - Info panel */}
         <div className="calendly-sidebar">
           <div className="calendly-brand">
-            <h1>Miosotys Spa</h1>
+            <h1>Myosotis Spa</h1>
             <p>Experiencias de bienestar</p>
           </div>
 
@@ -441,7 +441,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                 </div>
                 <div className="calendly-info-item">
                   <MapPin className="w-4 h-4" />
-                  <span>Miosotys Spa, Colombia</span>
+                  <span>Myosotis Spa, Colombia</span>
                 </div>
                 {peopleCount && (
                   <div className="calendly-info-item">
