@@ -37,13 +37,6 @@
         "enabled": true
       },
       {
-        "id": "bano_luna",
-        "name": "Baño de Luna",
-        "duration": 70,
-        "price": 140000,
-        "enabled": true
-      },
-      {
         "id": "exfoliacion",
         "name": "Exfoliación Corporal",
         "duration": 80,
@@ -61,6 +54,27 @@
         "id": "piedras_calientes",
         "name": "Masaje con Piedras Calientes",
         "duration": 70,
+        "price": 110000,
+        "enabled": true
+      },
+      {
+        "id": "masaje_relajante",
+        "name": "Masaje Relajante",
+        "duration": 60,
+        "price": 110000,
+        "enabled": true
+      },
+      {
+        "id": "masaje_linfatico",
+        "name": "Masaje Linfático",
+        "duration": 60,
+        "price": 110000,
+        "enabled": true
+      },
+      {
+        "id": "masaje_moldeador",
+        "name": "Masaje Moldeador",
+        "duration": 60,
         "price": 110000,
         "enabled": true
       }
@@ -106,7 +120,7 @@
       },
       {
         "id": "pasabordo",
-        "name": "Pasabordo Rápido de Desestrés",
+        "name": "Pasabordo Express de Desestrés",
         "duration": 80,
         "price": 130000,
         "minPeople": 3,
@@ -145,21 +159,12 @@
     ],
     "familia": [
       {
-        "id": "mama_hija",
-        "name": "Día de Spa para Mamá e Hija",
+        "id": "familiar_premium",
+        "name": "Paquete Familiar Premium: Mamá, Papá e Hij@s",
         "duration": 150,
-        "price": 380000,
+        "price": 460000,
         "minPeople": 2,
-        "maxPeople": 2,
-        "enabled": true
-      },
-      {
-        "id": "papa_hijo",
-        "name": "Día de Spa para Papá e Hijo",
-        "duration": 150,
-        "price": 380000,
-        "minPeople": 2,
-        "maxPeople": 2,
+        "maxPeople": 6,
         "enabled": true
       }
     ],
