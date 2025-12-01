@@ -774,6 +774,18 @@
           title: "Spa Familiar - Planes",
           packages: [
             {
+              name: "Día de Spa para Mamá e Hija",
+              description: "Fortalece el vínculo entre madre e hija(s) con un día de tratamientos especiales diseñados para las dos, incluyendo masajes relajantes, tratamientos faciales y tiempo de calidad juntas en nuestras instalaciones.<br><br><strong>Incluye:</strong><br>• Comienza con una bebida de bienvenida de té de hierbas o agua refrescante con frutas para establecer el ánimo de relajación.<br>• Disfruten de masajes de cuerpo completo, diseñados para relajar los músculos y nutrir el vínculo entre madre e hija(s).<br>• Sumérjanse en nuestra tina con sales minerales calmantes y suaves burbujas, brindando el ambiente perfecto para la conversación y el vínculo.<br>• Exploren las áreas húmedas que incluyen un tranquilo baño de vapor y una sauna refrescante. Estas instalaciones ofrecen momentos para relajarse, liberar el estrés y compartir tiempo de paz juntas.<br>• Disfruten de un delicioso surtido de bocadillos saludables, junto con una variedad de bebidas revitalizantes.<br>• Despídete con un recuerdo especial para atesorar la experiencia.<br><br>Este paquete asegura tanto la relajación como el tiempo de calidad, diseñado para fortalecer las conexiones y crear recuerdos duraderos entre Mamá e Hija(s).",
+              duration: "2 horas 30 minutos / 150 min",
+              price: "Paquete Mamá e Hija: $380.000"
+            },
+            {
+              name: "Día de Spa para Papá e Hijo",
+              description: "Comienza con una bienvenida de Smoothie de Temporada o agua refrescante con frutas para establecer el ánimo de relajación.<br><br><strong>Incluye:</strong><br>• Disfruten juntos un recorrido renovador por nuestra zona húmeda, con sauna, turco y jacuzzi, ideal para soltar tensiones y activar el cuerpo.<br>• Continúen con una sesión de Terapia de frío revitalizante ❄️ el cual es un toque de frío puro que acaricia la piel y despierta la energía interior. El cuerpo se aligera, la tensión se disuelve y surge una sensación de claridad y renovación, como si el invierno dejara paso a un nuevo amanecer. Además mejorar la circulación y da ese impulso de vitalidad que todo hombre necesita.<br>• Finalicen con un masaje relajante que ayuda a liberar estrés y fortalecer ese vínculo único entre papá e hijo.<br>• Un ritual masculino, poderoso y especial, perfecto para compartir, desconectar y recargar.",
+              duration: "2 horas 30 minutos / 150 min",
+              price: "Paquete Papá e Hijo: $380.000"
+            },
+            {
               name: "Paquete Familiar Premium: Mamá, Papá e Hijos",
               description: "Un espacio familiar donde el bienestar se convierte en un gesto de amor.<br><br>• Permitan que cada detalle los envuelva en serenidad. Un masaje relajante cuidadosamente diseñado para equilibrar esa paz y tranquilidad que nuestro cuerpo necesita; continúe en nuestra exclusiva zona húmeda, donde el sauna, el turco y el jacuzzi brindan una experiencia de purificación y descanso profundo.<br><br>Un encuentro sublime para reconectar, celebrar la unión y regalarse un instante que quedará en la memoria de todos.<br><br><strong>Límite de edad:</strong> desde los 5 años en adelante! 🔆<br><strong>Máximo de niños:</strong> 2 🔆<br><br>(Si desea incluir otras personas, el valor automáticamente se eleva, tener en cuenta que son máximo 6 personas en cuánto a paquetes grupales)",
               duration: "2 horas 30 minutos / 150 min",
@@ -896,6 +908,8 @@
           'Aventura Spa para Preadolescentes': './Test_Images/Catalogo/Spa_para_Niñas/Tween Spa Adventure.jpg',
 
           // Spa para Familias
+          'Día de Spa para Mamá e Hija': './Test_Images/Catalogo/Spa_para_Familiar/Mother & Daughter Spa Day.jpg',
+          'Día de Spa para Papá e Hijo': './Test_Images/Catalogo/Spa_para_Familiar/Dia-de-spa-papa-e-hijo.jpg',
           'Paquete Familiar Premium: Mamá, Papá e Hijos': './Test_Images/Catalogo/Spa_para_Familiar/Paquete_Familiar_Premium.jpg',
 
           // Spa Luxury
@@ -1242,8 +1256,72 @@
         ).join(' ');
       }
 
+      // AUTO-OPEN BOOKING FROM URL PARAMETER (for ManyChat integration)
+      function autoOpenBookingFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const reservar = urlParams.get('reservar') || urlParams.get('service');
+
+        if (reservar) {
+          console.log('🔗 Auto-opening booking for:', reservar);
+
+          // Map URL-friendly names to actual service names
+          const serviceMap = {
+            // Spa Individual
+            'limpieza-facial-basica': 'Limpieza Facial Básica',
+            'limpieza-facial-completa': 'Limpieza Facial Completa',
+            'elixir-juventud': 'Limpieza Facial Elixir de la Juventud',
+            'masaje-relajante': 'Masaje Relajante',
+            'masaje-linfatico': 'Masaje Linfático',
+            'masaje-moldeador': 'Masaje Moldeador',
+            'exfoliacion-corporal': 'Exfoliación Corporal',
+            'veloterapia': 'Veloterapia',
+            'piedras-calientes': 'Masaje con Piedras Calientes',
+
+            // Spa Parejas
+            'romantico-oasis': 'Romántico Oasis para Dos',
+            'retiro-reconciliacion': 'Retiro de Reconciliación para Dos',
+            'aniversario': 'Paquete de Aniversario',
+
+            // Spa Amigas
+            'tarde-chicas': 'Tarde de Chicas',
+            'pasabordo-express': 'Pasabordo Express de Desestrés',
+            'renovacion-corporal': 'Experiencia de Renovación Corporal',
+
+            // Spa Niñas
+            'adolescentes': 'Día de Spa para Adolescentes',
+            'preadolescentes': 'Aventura Spa para Preadolescentes',
+
+            // Spa Familiar
+            'familiar-premium': 'Paquete Familiar Premium: Mamá, Papá e Hijos',
+
+            // Spa Luxury
+            'masaje-relajacion': 'Masaje de Relajación',
+            'drenaje-linfatico': 'Drenaje Linfático',
+            'masaje-modelacion': 'Masaje de Modelación',
+            'miracle-touch': 'Miracle Touch',
+            'miracle-face': 'Miracle Face',
+
+            // Eventos Especiales
+            '15-anos': 'Feliz 15 Años con tus Mejores Amigas',
+            'cumpleanos': 'Celebración de Cumpleaños',
+            'despedida-soltera': 'Despedida de Soltera'
+          };
+
+          // Get the full service name (or use the parameter as-is if not in map)
+          const serviceName = serviceMap[reservar.toLowerCase()] || reservar;
+
+          // Wait a bit for the page to load, then auto-open the booking
+          setTimeout(() => {
+            bookPackage(serviceName);
+          }, 800);
+        }
+      }
+
       // Sticky cards animation
       document.addEventListener('DOMContentLoaded', () => {
+        // AUTO-OPEN BOOKING if URL parameter is present
+        autoOpenBookingFromURL();
+
         // Handle background music continuity
         const backgroundMusic = document.getElementById('backgroundMusic');
         const musicPreference = localStorage.getItem('musicPreference');
