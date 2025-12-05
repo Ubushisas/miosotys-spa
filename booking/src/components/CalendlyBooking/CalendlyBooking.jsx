@@ -257,18 +257,47 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   // Auto-select service when preselectedService is provided
   useEffect(() => {
-    if (settings && preselectedService && !selectedService) {
+    if (settings && settings.services && preselectedService && !selectedService) {
       console.log('🔍 Searching for service:', preselectedService);
       let foundService = null;
       let foundCategory = null;
+
+      // Normalize the search term
+      const searchTerm = preselectedService.toLowerCase().trim();
 
       // Search for the service across all categories
       for (const categoryId of Object.keys(settings.services)) {
         const services = settings.services[categoryId].filter(s => s.enabled);
         console.log(`Checking category "${categoryId}":`, services.map(s => s.name));
-        const matchingService = services.find(s =>
-          s.name.toLowerCase() === preselectedService.toLowerCase()
+
+        // Try exact match first
+        let matchingService = services.find(s =>
+          s.name.toLowerCase() === searchTerm
         );
+
+        // If no exact match, try partial match (contains)
+        if (!matchingService) {
+          matchingService = services.find(s =>
+            s.name.toLowerCase().includes(searchTerm) ||
+            searchTerm.includes(s.name.toLowerCase())
+          );
+        }
+
+        // If still no match, try fuzzy match (ignoring accents and special chars)
+        if (!matchingService) {
+          const normalize = (str) => str.toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^a-z0-9]/g, "");
+
+          const normalizedSearch = normalize(searchTerm);
+          matchingService = services.find(s => {
+            const normalizedName = normalize(s.name);
+            return normalizedName === normalizedSearch ||
+                   normalizedName.includes(normalizedSearch) ||
+                   normalizedSearch.includes(normalizedName);
+          });
+        }
 
         if (matchingService) {
           console.log('✅ Found matching service:', matchingService);
@@ -369,8 +398,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
         const year = selectedDate.getFullYear();
         const formattedDate = `${day}/${month}/${year}`;
 
-        // Calculate deposit (50% of price)
-        const deposit = Math.round(selectedService.price * 0.5);
+        // Calculate total price and deposit (50% of total)
+        const totalPrice = selectedService.price * peopleCount;
+        const deposit = Math.round(totalPrice * 0.5);
 
         // Create simple WhatsApp message
         const whatsappMessage = `Hola! Reserva en Myosotis Spa:%0A%0A` +
@@ -378,7 +408,8 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
           `Fecha: ${formattedDate}%0A` +
           `Hora: ${selectedTime}%0A` +
           `Nombre: ${formData.name}%0A` +
-          `Telefono: ${formData.phone}%0A%0A` +
+          `Telefono: ${formData.phone}%0A` +
+          `Personas: ${peopleCount}%0A%0A` +
           `Deposito 50%: $${deposit.toLocaleString('es-CO')}%0A%0A` +
           `Por favor confirma y envia detalles de pago`;
 
