@@ -119,7 +119,7 @@
           "4": 930000,
           "6": 1368000
         },
-        "minPeople": 2,
+        "minPeople": 1,
         "maxPeople": 6,
         "enabled": true
       },
@@ -133,7 +133,7 @@
           "4": 504000,
           "6": 740000
         },
-        "minPeople": 2,
+        "minPeople": 1,
         "maxPeople": 6,
         "enabled": true
       },
@@ -147,7 +147,7 @@
           "4": 815000,
           "6": 1190000
         },
-        "minPeople": 2,
+        "minPeople": 1,
         "maxPeople": 6,
         "enabled": true
       }
@@ -163,7 +163,7 @@
           "4": 910000,
           "6": 1370000
         },
-        "minPeople": 2,
+        "minPeople": 1,
         "maxPeople": 6,
         "enabled": true
       },
@@ -177,7 +177,7 @@
           "4": 1020000,
           "6": 1540000
         },
-        "minPeople": 2,
+        "minPeople": 1,
         "maxPeople": 6,
         "enabled": true
       }
