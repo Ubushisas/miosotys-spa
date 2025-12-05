@@ -237,12 +237,12 @@
   },
   "workingHours": {
     "monday": {
-      "enabled": false,
+      "enabled": true,
       "start": "08:00",
       "end": "18:00"
     },
     "tuesday": {
-      "enabled": false,
+      "enabled": true,
       "start": "08:00",
       "end": "18:00"
     },

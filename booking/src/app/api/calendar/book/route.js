@@ -81,7 +81,20 @@ export async function POST(request) {
         day: 'numeric',
       });
 
-      const confirmationMessage = `¡Hola ${customerInfo.name}! ✨\n\nTu reserva ha sido confirmada:\n\n📅 Servicio: ${service.name}\n⏰ Fecha: ${formattedDate}\n🕐 Hora: ${time}\n📍 Myosotis Spa, Colombia\n\n¡Te esperamos! 🌿`;
+      // Format prices
+      const formattedTotal = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0
+      }).format(totalPrice);
+
+      const formattedDeposit = new Intl.NumberFormat('es-CO', {
+        style: 'currency',
+        currency: 'COP',
+        minimumFractionDigits: 0
+      }).format(depositAmount);
+
+      const confirmationMessage = `¡Hola ${customerInfo.name}! ✨\n\nTu reserva ha sido confirmada:\n\n📅 Servicio: ${service.name}\n⏰ Fecha: ${formattedDate}\n🕐 Hora: ${time}\n👥 Personas: ${peopleCount}\n💰 Total: ${formattedTotal}\n💳 Depósito (50%): ${formattedDeposit}\n📍 Myosotis Spa, Colombia\n\n¡Te esperamos! 🌿`;
 
       // Use correct production URL for Vercel deployment
       const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ||
