@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ChevronLeft, ChevronRight, ChevronDown, Clock, MapPin, Calendar as CalendarIcon, Globe } from "lucide-react";
 import "./CalendlyBooking.css";
+import { calculateTotalPrice, calculateDeposit } from '@/lib/pricing';
 
 export default function CalendlyBooking({ onBack, preselectedService }) {
   const [settings, setSettings] = useState(null);
@@ -398,9 +399,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
         const year = selectedDate.getFullYear();
         const formattedDate = `${day}/${month}/${year}`;
 
-        // Calculate total price and deposit (50% of total)
-        const totalPrice = selectedService.price * peopleCount;
-        const deposit = Math.round(totalPrice * 0.5);
+        // Calculate total price and deposit using pricing helper
+        const totalPrice = calculateTotalPrice(selectedService, peopleCount);
+        const deposit = calculateDeposit(selectedService, peopleCount);
 
         // Create simple WhatsApp message
         const whatsappMessage = `Hola! Reserva en Myosotis Spa:%0A%0A` +

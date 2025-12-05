@@ -113,7 +113,12 @@
         "id": "tarde_chicas",
         "name": "Tarde de Chicas",
         "duration": 180,
-        "price": 310000,
+        "price": 240000,
+        "pricePerPerson": true,
+        "packagePricing": {
+          "4": 930000,
+          "6": 1368000
+        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
@@ -123,6 +128,11 @@
         "name": "Pasabordo Express de Desestrés",
         "duration": 80,
         "price": 130000,
+        "pricePerPerson": true,
+        "packagePricing": {
+          "4": 504000,
+          "6": 740000
+        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
@@ -132,6 +142,11 @@
         "name": "Experiencia de Renovación Corporal",
         "duration": 140,
         "price": 210000,
+        "pricePerPerson": true,
+        "packagePricing": {
+          "4": 815000,
+          "6": 1190000
+        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
@@ -143,6 +158,11 @@
         "name": "Día de Spa para Adolescentes",
         "duration": 165,
         "price": 240000,
+        "pricePerPerson": true,
+        "packagePricing": {
+          "4": 910000,
+          "6": 1370000
+        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
@@ -152,6 +172,11 @@
         "name": "Aventura Spa para Preadolescentes",
         "duration": 195,
         "price": 250000,
+        "pricePerPerson": true,
+        "packagePricing": {
+          "4": 1020000,
+          "6": 1540000
+        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true

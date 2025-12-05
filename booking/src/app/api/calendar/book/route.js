@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { createBooking, checkAvailability } from '@/lib/calendar';
 import { saveAppointmentToSheet } from '@/lib/google-sheets';
 import { isBookingAllowed } from '@/lib/calendar-settings';
+import { calculateTotalPrice, calculateDeposit } from '@/lib/pricing';
 
 export async function POST(request) {
   try {
@@ -56,8 +57,8 @@ export async function POST(request) {
 
     // Calculate total price based on number of people
     const peopleCount = guestNames && guestNames.length > 0 ? guestNames.length : (service.minPeople ? service.minPeople : 1);
-    const totalPrice = service.price * peopleCount;
-    const depositAmount = totalPrice * 0.5;
+    const totalPrice = calculateTotalPrice(service, peopleCount);
+    const depositAmount = calculateDeposit(service, peopleCount);
 
     // Save to Google Sheets
     await saveAppointmentToSheet({

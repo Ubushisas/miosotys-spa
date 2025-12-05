@@ -4,6 +4,7 @@ import "./BookingFlow.css";
 import Copy from "@/components/Copy/Copy";
 import AnimatedButton from "@/components/AnimatedButton/AnimatedButton";
 import Calendar from "@/components/Calendar/Calendar";
+import { calculateTotalPrice, calculateDeposit } from "@/lib/pricing";
 
 // Services will be loaded from settings
 
@@ -121,8 +122,8 @@ const BookingFlow = () => {
       // Send WhatsApp confirmation
       try {
         const peopleCount = service.minPeople ? numPeople : 1;
-        const totalPrice = service.price * peopleCount;
-        const depositAmount = totalPrice * 0.5;
+        const totalPrice = calculateTotalPrice(service, peopleCount);
+        const depositAmount = calculateDeposit(service, peopleCount);
 
         await fetch('/api/whatsapp/send', {
           method: 'POST',
@@ -579,11 +580,11 @@ const BookingFlow = () => {
                 </div>
                 <div className="summary-item total">
                   <span>Total:</span>
-                  <span>{formatPrice(service.price * (service.minPeople ? numPeople : 1))}</span>
+                  <span>{formatPrice(calculateTotalPrice(service, service.minPeople ? numPeople : 1))}</span>
                 </div>
                 <div className="summary-item deposit">
                   <span>Depósito requerido (50%):</span>
-                  <span>{formatPrice(service.price * (service.minPeople ? numPeople : 1) * 0.5)}</span>
+                  <span>{formatPrice(calculateDeposit(service, service.minPeople ? numPeople : 1))}</span>
                 </div>
               </div>
 
