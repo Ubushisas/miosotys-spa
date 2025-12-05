@@ -120,6 +120,10 @@ const BookingFlow = () => {
 
       // Send WhatsApp confirmation
       try {
+        const peopleCount = service.minPeople ? numPeople : 1;
+        const totalPrice = service.price * peopleCount;
+        const depositAmount = totalPrice * 0.5;
+
         await fetch('/api/whatsapp/send', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -136,9 +140,10 @@ const BookingFlow = () => {
                 year: 'numeric'
               }),
               time: selectedDateTime.time,
-              numberOfPeople: service.minPeople ? numPeople : 1,
+              numberOfPeople: peopleCount,
               guestNames: guestNames.filter(n => n),
-              deposit: service.price * 0.5,
+              totalPrice: totalPrice,
+              deposit: depositAmount,
             },
           }),
         });
@@ -574,11 +579,11 @@ const BookingFlow = () => {
                 </div>
                 <div className="summary-item total">
                   <span>Total:</span>
-                  <span>{formatPrice(service.price)}</span>
+                  <span>{formatPrice(service.price * (service.minPeople ? numPeople : 1))}</span>
                 </div>
                 <div className="summary-item deposit">
                   <span>Depósito requerido (50%):</span>
-                  <span>{formatPrice(service.price * 0.5)}</span>
+                  <span>{formatPrice(service.price * (service.minPeople ? numPeople : 1) * 0.5)}</span>
                 </div>
               </div>
 

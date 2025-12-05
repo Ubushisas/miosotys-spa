@@ -54,8 +54,12 @@ export async function POST(request) {
       customerInfo || {}
     );
 
+    // Calculate total price based on number of people
+    const peopleCount = guestNames && guestNames.length > 0 ? guestNames.length : (service.minPeople ? service.minPeople : 1);
+    const totalPrice = service.price * peopleCount;
+    const depositAmount = totalPrice * 0.5;
+
     // Save to Google Sheets
-    const depositAmount = service.price ? service.price * 0.5 : 0;
     await saveAppointmentToSheet({
       customerInfo,
       service,
@@ -64,6 +68,8 @@ export async function POST(request) {
       guestNames,
       googleEventId: booking.id,
       depositAmount,
+      totalPrice,
+      peopleCount,
     });
 
     // Send WhatsApp confirmation message

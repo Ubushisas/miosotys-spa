@@ -121,6 +121,8 @@ export async function saveAppointmentToSheet(appointmentData) {
       guestNames = [],
       googleEventId,
       depositAmount,
+      totalPrice,
+      peopleCount,
     } = appointmentData;
 
     const now = new Date();
@@ -147,8 +149,8 @@ export async function saveAppointmentToSheet(appointmentData) {
       customerInfo.email || '',
       service.name,
       service.duration,
-      service.price,
-      guestNames.length > 0 ? guestNames.length + 1 : 1,
+      totalPrice || service.price,
+      peopleCount || (guestNames.length > 0 ? guestNames.length + 1 : 1),
       guestNames.join(', '),
       'Pendiente',
       'No',
