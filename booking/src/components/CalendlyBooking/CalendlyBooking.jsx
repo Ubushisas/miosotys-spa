@@ -224,19 +224,11 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   const handleServiceSelect = (service) => {
     setSelectedService(service);
-    const needsPeople = requiresPeopleCount(service);
-    console.log('🔍 Service selected:', service.name);
-    console.log('🔍 Has minPeople property:', service.hasOwnProperty('minPeople'));
-    console.log('🔍 minPeople value:', service.minPeople);
-    console.log('🔍 maxPeople value:', service.maxPeople);
-    console.log('🔍 requiresPeopleCount result:', needsPeople);
     // If service requires people count, show people selector first
-    if (needsPeople) {
-      console.log('✅ Showing people selection');
+    if (requiresPeopleCount(service)) {
       setDateTimeSubStep('people');
       setPeopleCount(null); // Reset count
     } else {
-      console.log('❌ Skipping people selection - going to date');
       setDateTimeSubStep('date');
       setPeopleCount(null); // Not needed for this service
     }
