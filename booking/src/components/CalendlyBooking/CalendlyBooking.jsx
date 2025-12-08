@@ -32,10 +32,10 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
 
   // Check if service requires people count selection (group packages only, excluding couples and fixed-count services)
   const requiresPeopleCount = (service) => {
-    if (!service || !service.minPeople) return false;
-    // Only show person count for services with 3+ people OR services with flexible count (min != max)
-    // This excludes couples (2 people fixed) and includes group packages like amigas, familia, eventos
-    return service.minPeople >= 3 || (service.minPeople !== service.maxPeople && service.minPeople >= 2);
+    if (!service || !service.hasOwnProperty('minPeople')) return false;
+    // Only show person count for services with flexible count (min != max)
+    // This includes group packages like amigas, familia, eventos
+    return service.minPeople !== service.maxPeople;
   };
 
   // Check if form is complete and valid
