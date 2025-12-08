@@ -121,7 +121,7 @@ const BookingFlow = () => {
 
       // Send WhatsApp confirmation
       try {
-        const peopleCount = service.minPeople >= 1 ? numPeople : 1;
+        const peopleCount = service.hasOwnProperty('minPeople') ? numPeople : 1;
         const totalPrice = calculateTotalPrice(service, peopleCount);
         const depositAmount = calculateDeposit(service, peopleCount);
 
@@ -269,7 +269,7 @@ const BookingFlow = () => {
       {step === 3 && service && (
         <div className="booking-step">
           <Copy delay={0.1}>
-            <p className="mono">Paso 3 de {service.minPeople >= 1 ? '5' : '4'}</p>
+            <p className="mono">Paso 3 de {service.hasOwnProperty('minPeople') ? '5' : '4'}</p>
           </Copy>
           {service && (
             <p className="service-name-indicator">{service.name}</p>
@@ -285,7 +285,7 @@ const BookingFlow = () => {
 
           {selectedDateTime && (
             <div className="confirmation-actions">
-              <div onClick={() => setStep(service.minPeople >= 1 ? 4 : 4.5)}>
+              <div onClick={() => setStep(service.hasOwnProperty('minPeople') ? 4 : 4.5)}>
                 <AnimatedButton
                   label="Continuar"
                   animate={false}
@@ -398,7 +398,7 @@ const BookingFlow = () => {
       {step === 4.5 && service && selectedDateTime && (
         <div className="booking-step">
           <Copy delay={0.1}>
-            <p className="mono">Paso {service.minPeople >= 1 ? '5' : '4'} de {service.minPeople >= 1 ? '5' : '4'}</p>
+            <p className="mono">Paso {service.hasOwnProperty('minPeople') ? '5' : '4'} de {service.hasOwnProperty('minPeople') ? '5' : '4'}</p>
           </Copy>
           {service && (
             <p className="service-name-indicator">{service.name}</p>
@@ -470,7 +470,7 @@ const BookingFlow = () => {
           </div>
 
           <div className="step-actions">
-            <button className="back-button" onClick={() => setStep(service.minPeople >= 1 ? 4 : 3)}>
+            <button className="back-button" onClick={() => setStep(service.hasOwnProperty('minPeople') ? 4 : 3)}>
               ← Volver
             </button>
             <div onClick={handleContinueToConfirmation}>
@@ -580,11 +580,11 @@ const BookingFlow = () => {
                 </div>
                 <div className="summary-item total">
                   <span>Total:</span>
-                  <span>{formatPrice(calculateTotalPrice(service, service.minPeople >= 1 ? numPeople : 1))}</span>
+                  <span>{formatPrice(calculateTotalPrice(service, service.hasOwnProperty('minPeople') ? numPeople : 1))}</span>
                 </div>
                 <div className="summary-item deposit">
                   <span>Depósito requerido (50%):</span>
-                  <span>{formatPrice(calculateDeposit(service, service.minPeople >= 1 ? numPeople : 1))}</span>
+                  <span>{formatPrice(calculateDeposit(service, service.hasOwnProperty('minPeople') ? numPeople : 1))}</span>
                 </div>
               </div>
 
