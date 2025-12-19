@@ -188,7 +188,11 @@
         "name": "Paquete Familiar Premium: Mamá, Papá e Hijos",
         "duration": 150,
         "price": 460000,
-        "minPeople": 2,
+        "packagePricing": {
+          "5": 640000,
+          "6": 820000
+        },
+        "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
       }
