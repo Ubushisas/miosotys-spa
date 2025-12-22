@@ -3,7 +3,6 @@ import { createBooking, checkAvailability } from '@/lib/calendar';
 import { saveAppointmentToSheet } from '@/lib/google-sheets';
 import { isBookingAllowed } from '@/lib/calendar-settings';
 import { calculateTotalPrice, calculateDeposit } from '@/lib/pricing';
-import { sendOwnerNotification, sendCustomerConfirmation } from '@/lib/email';
 
 export async function POST(request) {
   try {
@@ -73,38 +72,6 @@ export async function POST(request) {
       totalPrice,
       peopleCount,
     });
-
-    // Send email notifications
-    const emailData = {
-      customerInfo,
-      service,
-      date,
-      time,
-      guestNames,
-      totalPrice,
-      depositAmount,
-      peopleCount,
-    };
-
-    // Send email to spa owner (CRITICAL - owner must be notified!)
-    try {
-      await sendOwnerNotification(emailData);
-      console.log('✅ Spa owner notified by email');
-    } catch (emailError) {
-      console.error('❌ CRITICAL: Failed to notify spa owner:', emailError);
-      // Log but don't fail the booking
-    }
-
-    // Send confirmation email to customer
-    if (customerInfo.email) {
-      try {
-        await sendCustomerConfirmation(emailData);
-        console.log('✅ Customer confirmation email sent');
-      } catch (emailError) {
-        console.error('❌ Failed to send customer confirmation:', emailError);
-        // Don't fail the booking if customer email fails
-      }
-    }
 
     // Send WhatsApp confirmation message
     try {
