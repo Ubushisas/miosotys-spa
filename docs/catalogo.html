@@ -975,8 +975,8 @@
               mainDescription = pkg.description.substring(0, splitIndex).trim();
               includesContent = pkg.description.substring(splitIndex);
 
-              // Add pricing information at the end only if price exists
-              if (pkg.price && pkg.price.trim() !== '') {
+              // Add pricing information at the end only if price exists (skip for Limpieza Facial Básica)
+              if (pkg.price && pkg.price.trim() !== '' && pkg.name !== 'Limpieza Facial Básica') {
                 if (pkg.price.includes('→') || pkg.price.includes('<br>')) {
                   includesContent += `<br><br><strong>Precios:</strong><br>${pkg.price}`;
                 } else {
@@ -984,14 +984,22 @@
                 }
               }
             } else {
-              // If no includes/benefits found, create a basic includes section with pricing
-              includesContent = `<strong>Información del paquete:</strong><br>${mainDescription.split('.').slice(-2).join('.').trim()}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              // If no includes/benefits found, create a basic includes section with pricing (skip for Limpieza Facial Básica)
+              if (pkg.name !== 'Limpieza Facial Básica') {
+                includesContent = `<strong>Información del paquete:</strong><br>${mainDescription.split('.').slice(-2).join('.').trim()}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              } else {
+                includesContent = `<strong>Información del paquete:</strong><br>${mainDescription.split('.').slice(-2).join('.').trim()}`;
+              }
               mainDescription = mainDescription.split('.').slice(0, -2).join('.').trim() + '.';
             }
 
-            // Ensure includesContent is never empty
+            // Ensure includesContent is never empty (skip price for Limpieza Facial Básica)
             if (!includesContent || includesContent.trim() === '') {
-              includesContent = `<strong>Detalles del paquete:</strong><br>Duración: ${pkg.duration}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              if (pkg.name !== 'Limpieza Facial Básica') {
+                includesContent = `<strong>Detalles del paquete:</strong><br>Duración: ${pkg.duration}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              } else {
+                includesContent = `<strong>Detalles del paquete:</strong><br>Duración: ${pkg.duration}`;
+              }
             }
 
             const packageId = `package-${serviceId}-${pkg.name.replace(/[\s\/]+/g, '-').replace(/[^\w\-]/g, '')}`;
@@ -1060,8 +1068,8 @@
               mainDescription = pkg.description.substring(0, splitIndex).trim();
               includesContent = pkg.description.substring(splitIndex);
 
-              // Add pricing information at the end only if price exists
-              if (pkg.price && pkg.price.trim() !== '') {
+              // Add pricing information at the end only if price exists (skip for Limpieza Facial Básica)
+              if (pkg.price && pkg.price.trim() !== '' && pkg.name !== 'Limpieza Facial Básica') {
                 if (pkg.price.includes('→') || pkg.price.includes('<br>')) {
                   includesContent += `<br><br><strong>Precios:</strong><br>${pkg.price}`;
                 } else {
@@ -1069,14 +1077,22 @@
                 }
               }
             } else {
-              // If no includes/benefits found, create a basic includes section with pricing
-              includesContent = `<strong>Información del paquete:</strong><br>${mainDescription.split('.').slice(-2).join('.').trim()}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              // If no includes/benefits found, create a basic includes section with pricing (skip for Limpieza Facial Básica)
+              if (pkg.name !== 'Limpieza Facial Básica') {
+                includesContent = `<strong>Información del paquete:</strong><br>${mainDescription.split('.').slice(-2).join('.').trim()}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              } else {
+                includesContent = `<strong>Información del paquete:</strong><br>${mainDescription.split('.').slice(-2).join('.').trim()}`;
+              }
               mainDescription = mainDescription.split('.').slice(0, -2).join('.').trim() + '.';
             }
 
-            // Ensure includesContent is never empty
+            // Ensure includesContent is never empty (skip price for Limpieza Facial Básica)
             if (!includesContent || includesContent.trim() === '') {
-              includesContent = `<strong>Detalles del paquete:</strong><br>Duración: ${pkg.duration}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              if (pkg.name !== 'Limpieza Facial Básica') {
+                includesContent = `<strong>Detalles del paquete:</strong><br>Duración: ${pkg.duration}<br><br><strong>Precio:</strong> ${pkg.price}`;
+              } else {
+                includesContent = `<strong>Detalles del paquete:</strong><br>Duración: ${pkg.duration}`;
+              }
             }
 
             const packageId = `package-${serviceId}-${pkg.name.replace(/[\s\/]+/g, '-').replace(/[^\w\-]/g, '')}`;
