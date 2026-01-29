@@ -1002,6 +1002,9 @@
               }
             }
 
+            // Make "Incluye:" slightly larger (applied after parsing)
+            includesContent = includesContent.replace('<strong>Incluye:</strong>', '<strong style="font-size: 1.1em;">Incluye:</strong>');
+
             const packageId = `package-${serviceId}-${pkg.name.replace(/[\s\/]+/g, '-').replace(/[^\w\-]/g, '')}`;
 
             const packageImage = packageImageMap[pkg.name] || serviceImage;
@@ -1094,6 +1097,9 @@
                 includesContent = `<strong>Detalles del paquete:</strong><br>Duración: ${pkg.duration}`;
               }
             }
+
+            // Make "Incluye:" slightly larger (applied after parsing)
+            includesContent = includesContent.replace('<strong>Incluye:</strong>', '<strong style="font-size: 1.1em;">Incluye:</strong>');
 
             const packageId = `package-${serviceId}-${pkg.name.replace(/[\s\/]+/g, '-').replace(/[^\w\-]/g, '')}`;
 
