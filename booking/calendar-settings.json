@@ -240,7 +240,7 @@
         "name": "Feliz 15 Años con tus Mejores Amigas",
         "duration": 210,
         "price": 370000,
-        "minPeople": 2,
+        "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
       },
@@ -265,7 +265,7 @@
         "name": "Despedida de Soltera",
         "duration": 210,
         "price": 350000,
-        "minPeople": 2,
+        "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
       }
