@@ -276,7 +276,7 @@
                       <button onclick="scrollToNextCard(2)">Spa para Parejas</button>
                     </div>
                     <div class="sticky-card-button">
-                      <button onclick="scrollToNextCard(3)">Spa para Amigas</button>
+                      <button onclick="scrollToNextCard(3)">Spa para Amig<span style="font-family: 'Waking', Arial, sans-serif; font-size: 0.95em;">@</span>s</button>
                     </div>
                     <div class="sticky-card-button">
                       <button onclick="scrollToNextCard(4)">Spa para Niñas</button>
@@ -377,7 +377,7 @@
                 <img src="./Test_Images/Test2/Friends.jpg?v=2" alt="Spa para Amigas" loading="lazy" />
               </div>
               <div class="sticky-card-copy">
-                <h1 class="sticky-card-header">Spa para Amigas</h1>
+                <h1 class="sticky-card-header">Spa para Amig<span style="font-family: 'Waking', Arial, sans-serif; font-size: 0.95em;">@</span>s</h1>
                 <div class="sticky-card-copy-title">
                   <p>(Celebración de Amistad)</p>
                 </div>
@@ -730,8 +730,8 @@
             }
           ]
         },
-        3: { // Spa para Amigas
-          title: "Spa para Amigas - Planes",
+        3: { // Spa para Amig@s
+          title: "Spa para Amig<span style=\"font-family: 'Waking', Arial, sans-serif; font-size: 0.95em;\">@</span>s - Planes",
           packages: [
             {
               name: "Tarde de Chicas",
@@ -875,7 +875,7 @@
 
         const data = packageData[serviceId];
         const serviceImage = serviceImages[serviceId];
-        packageTitle.textContent = data.title;
+        packageTitle.innerHTML = data.title;
 
         // Get package-specific images
         const packageImageMap = {
