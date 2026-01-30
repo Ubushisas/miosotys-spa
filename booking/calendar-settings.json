@@ -246,10 +246,17 @@
       },
       {
         "id": "cumple",
-        "name": "Celebración de Cumpleaños",
-        "duration": 170,
-        "price": 280000,
-        "minPeople": 2,
+        "name": "Celebración de Cumpleaños Individual",
+        "duration": 180,
+        "price": 320000,
+        "enabled": true
+      },
+      {
+        "id": "cumple_grupal",
+        "name": "Celebración de Cumpleaños Grupal",
+        "duration": 180,
+        "price": 250000,
+        "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
       },
