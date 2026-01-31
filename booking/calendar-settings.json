@@ -100,7 +100,7 @@
       },
       {
         "id": "aniversario",
-        "name": "Paquete de Aniversario",
+        "name": "Feliz Aniversario",
         "duration": 120,
         "price": 400000,
         "minPeople": 2,
@@ -119,7 +119,7 @@
           "4": 930000,
           "6": 1368000
         },
-        "minPeople": 1,
+        "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
       },
@@ -133,7 +133,7 @@
           "4": 504000,
           "6": 740000
         },
-        "minPeople": 1,
+        "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
       },
@@ -147,47 +147,47 @@
           "4": 815000,
           "6": 1190000
         },
-        "minPeople": 1,
+        "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
       }
     ],
     "ninas": [
       {
-        "id": "teen_harmony",
-        "name": "Día de Spa para Adolescentes",
-        "duration": 165,
-        "price": 240000,
+        "id": "pre_adolescentes",
+        "name": "Día de Spa para Pre-Adolescentes y Adolescentes",
+        "duration": 180,
+        "price": 270000,
         "pricePerPerson": true,
-        "packagePricing": {
-          "4": 910000,
-          "6": 1370000
-        },
-        "minPeople": 1,
-        "maxPeople": 6,
-        "enabled": true
-      },
-      {
-        "id": "tween_adventure",
-        "name": "Aventura Spa para Preadolescentes",
-        "duration": 195,
-        "price": 250000,
-        "pricePerPerson": true,
-        "packagePricing": {
-          "4": 1020000,
-          "6": 1540000
-        },
-        "minPeople": 1,
+        "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
       }
     ],
     "familia": [
       {
-        "id": "familiar_premium",
-        "name": "Paquete Familiar Premium: Mamá, Papá e Hijos",
+        "id": "mama_hija",
+        "name": "Día de Spa para Mamá e Hija",
         "duration": 150,
-        "price": 460000,
+        "price": 390000,
+        "minPeople": 2,
+        "maxPeople": 2,
+        "enabled": true
+      },
+      {
+        "id": "papa_hijo",
+        "name": "Día de Spa para Papá e Hijo",
+        "duration": 150,
+        "price": 390000,
+        "minPeople": 2,
+        "maxPeople": 2,
+        "enabled": true
+      },
+      {
+        "id": "familiar_premium",
+        "name": "Paquete Familiar Premium: Mamá, Papá e Hijo/a",
+        "duration": 150,
+        "price": 520000,
         "packagePricing": {
           "5": 640000,
           "6": 820000
