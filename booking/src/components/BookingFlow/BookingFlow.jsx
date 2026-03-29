@@ -110,6 +110,7 @@ const BookingFlow = () => {
           service,
           guestNames,
           customerInfo,
+          numPeople: service.hasOwnProperty('minPeople') ? numPeople : 1,
         }),
       });
 

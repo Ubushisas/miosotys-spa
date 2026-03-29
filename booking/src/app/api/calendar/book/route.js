@@ -6,7 +6,7 @@ import { calculateTotalPrice, calculateDeposit } from '@/lib/pricing';
 
 export async function POST(request) {
   try {
-    const { date, time, service, guestNames, customerInfo } = await request.json();
+    const { date, time, service, guestNames, customerInfo, numPeople: requestedPeople } = await request.json();
 
     if (!date || !time || !service) {
       return NextResponse.json(
@@ -56,7 +56,7 @@ export async function POST(request) {
     );
 
     // Calculate total price based on number of people
-    const peopleCount = guestNames && guestNames.length > 0 ? guestNames.length : (service.minPeople ? service.minPeople : 1);
+    const peopleCount = requestedPeople || (guestNames && guestNames.length > 0 ? guestNames.length : (service.minPeople ? service.minPeople : 1));
     const totalPrice = calculateTotalPrice(service, peopleCount);
     const depositAmount = calculateDeposit(service, peopleCount);
 
