@@ -19,14 +19,14 @@
         "id": "limpieza_facial_basica",
         "name": "Limpieza Facial Básica",
         "duration": 60,
-        "price": 90000,
+        "price": 110000,
         "enabled": true
       },
       {
         "id": "limpieza_facial_completa",
         "name": "Limpieza Facial Completa",
         "duration": 80,
-        "price": 120000,
+        "price": 140000,
         "enabled": true
       },
       {
@@ -40,28 +40,28 @@
         "id": "exfoliacion",
         "name": "Exfoliación Corporal",
         "duration": 80,
-        "price": 130000,
+        "price": 170000,
         "enabled": true
       },
       {
         "id": "veloterapia",
         "name": "Veloterapia",
         "duration": 70,
-        "price": 110000,
+        "price": 150000,
         "enabled": true
       },
       {
         "id": "piedras_calientes",
         "name": "Masaje con Piedras Calientes",
         "duration": 70,
-        "price": 110000,
+        "price": 130000,
         "enabled": true
       },
       {
         "id": "masaje_relajante",
         "name": "Masaje Relajante",
         "duration": 60,
-        "price": 110000,
+        "price": 130000,
         "enabled": true
       },
       {
@@ -113,7 +113,7 @@
         "id": "tarde_chicas",
         "name": "Tarde de Chicas",
         "duration": 180,
-        "price": 240000,
+        "price": 260000,
         "pricePerPerson": true,
         "packagePricing": {
           "4": 930000,
@@ -127,7 +127,7 @@
         "id": "pasabordo",
         "name": "Pasabordo Express de Desestrés",
         "duration": 80,
-        "price": 130000,
+        "price": 180000,
         "pricePerPerson": true,
         "packagePricing": {
           "4": 504000,
@@ -239,7 +239,7 @@
         "id": "quince",
         "name": "Feliz 15 Años con tus Mejores Amigas",
         "duration": 210,
-        "price": 370000,
+        "price": 350000,
         "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
