@@ -141,7 +141,7 @@
         "id": "renovacion_corporal",
         "name": "Experiencia de Renovación Corporal",
         "duration": 140,
-        "price": 210000,
+        "price": 230000,
         "pricePerPerson": true,
         "packagePricing": {
           "4": 815000,
