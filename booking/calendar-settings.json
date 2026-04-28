@@ -238,8 +238,8 @@
       {
         "id": "quince",
         "name": "Feliz 15 Años con tus Mejores Amigas",
-        "duration": 210,
-        "price": 350000,
+        "duration": 180,
+        "price": 280000,
         "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
@@ -263,8 +263,8 @@
       {
         "id": "despedida",
         "name": "Despedida de Soltera",
-        "duration": 210,
-        "price": 350000,
+        "duration": 180,
+        "price": 280000,
         "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
