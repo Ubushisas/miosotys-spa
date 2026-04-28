@@ -92,7 +92,7 @@
       {
         "id": "reconciliacion",
         "name": "Retiro de Reconciliación para Dos",
-        "duration": 195,
+        "duration": 180,
         "price": 540000,
         "minPeople": 2,
         "maxPeople": 2,
