@@ -168,7 +168,7 @@
       {
         "id": "mama_hija",
         "name": "Día de Spa para Mamá e Hija",
-        "duration": 150,
+        "duration": 120,
         "price": 390000,
         "minPeople": 2,
         "maxPeople": 2,
@@ -177,7 +177,7 @@
       {
         "id": "papa_hijo",
         "name": "Día de Spa para Papá e Hijo",
-        "duration": 150,
+        "duration": 120,
         "price": 390000,
         "minPeople": 2,
         "maxPeople": 2,
@@ -187,7 +187,7 @@
         "id": "familiar_premium",
         "name": "Paquete Familiar Premium: Mamá, Papá e Hijo/a",
         "duration": 150,
-        "price": 520000,
+        "price": 620000,
         "packagePricing": {
           "5": 640000,
           "6": 820000
