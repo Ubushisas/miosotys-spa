@@ -46,14 +46,14 @@
       {
         "id": "veloterapia",
         "name": "Veloterapia",
-        "duration": 70,
+        "duration": 60,
         "price": 150000,
         "enabled": true
       },
       {
         "id": "piedras_calientes",
         "name": "Masaje con Piedras Calientes",
-        "duration": 70,
+        "duration": 60,
         "price": 130000,
         "enabled": true
       },
@@ -83,7 +83,7 @@
       {
         "id": "romantico_oasis",
         "name": "Romántico Oasis para Dos",
-        "duration": 165,
+        "duration": 150,
         "price": 470000,
         "minPeople": 2,
         "maxPeople": 2,
