@@ -68,14 +68,16 @@
         "id": "masaje_linfatico",
         "name": "Masaje Linfático",
         "duration": 60,
-        "price": 110000,
+        "quoteOnly": true,
+        "note": "El valor de este masaje depende del paquete. Te confirmamos el precio por WhatsApp.",
         "enabled": true
       },
       {
         "id": "masaje_moldeador",
         "name": "Masaje Moldeador",
         "duration": 60,
-        "price": 110000,
+        "quoteOnly": true,
+        "note": "El valor de este masaje depende del paquete. Te confirmamos el precio por WhatsApp.",
         "enabled": true
       }
     ],
@@ -115,10 +117,6 @@
         "duration": 180,
         "price": 260000,
         "pricePerPerson": true,
-        "packagePricing": {
-          "4": 930000,
-          "6": 1368000
-        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
@@ -129,10 +127,6 @@
         "duration": 80,
         "price": 180000,
         "pricePerPerson": true,
-        "packagePricing": {
-          "4": 504000,
-          "6": 740000
-        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
@@ -143,10 +137,6 @@
         "duration": 140,
         "price": 230000,
         "pricePerPerson": true,
-        "packagePricing": {
-          "4": 815000,
-          "6": 1190000
-        },
         "minPeople": 2,
         "maxPeople": 6,
         "enabled": true
@@ -187,13 +177,15 @@
         "id": "familiar_premium",
         "name": "Paquete Familiar Premium: Mamá, Papá e Hijo/a",
         "duration": 150,
-        "price": 620000,
+        "price": 650000,
         "packagePricing": {
-          "5": 640000,
-          "6": 820000
+          "4": 830000,
+          "5": 1010000,
+          "6": 1190000
         },
         "minPeople": 3,
-        "maxPeople": 6,
+        "maxPeople": 3,
+        "note": "¿Van más de 3 personas? Escríbenos por WhatsApp y armamos tu plan.",
         "enabled": true
       }
     ],
@@ -240,6 +232,7 @@
         "name": "Feliz 15 Años con tus Mejores Amigas",
         "duration": 180,
         "price": 280000,
+        "pricePerPerson": true,
         "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
@@ -256,6 +249,7 @@
         "name": "Celebración de Cumpleaños Grupal",
         "duration": 180,
         "price": 250000,
+        "pricePerPerson": true,
         "minPeople": 3,
         "maxPeople": 6,
         "enabled": true
@@ -265,6 +259,7 @@
         "name": "Despedida de Soltera",
         "duration": 180,
         "price": 280000,
+        "pricePerPerson": true,
         "minPeople": 3,
         "maxPeople": 6,
         "enabled": true

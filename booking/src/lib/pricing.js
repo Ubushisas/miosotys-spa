@@ -7,6 +7,12 @@
  * @returns {number} Total price
  */
 export function calculateTotalPrice(service, peopleCount) {
+  // Servicios que se cotizan según el paquete: no tienen precio publicado,
+  // así que no se les puede calcular total ni depósito.
+  if (service.quoteOnly || service.price == null) {
+    return null;
+  }
+
   // If service has package pricing for this specific count, use it
   if (service.packagePricing && service.packagePricing[peopleCount]) {
     return service.packagePricing[peopleCount];
@@ -30,5 +36,6 @@ export function calculateTotalPrice(service, peopleCount) {
  */
 export function calculateDeposit(service, peopleCount) {
   const totalPrice = calculateTotalPrice(service, peopleCount);
+  if (totalPrice == null) return null;
   return Math.round(totalPrice * 0.5);
 }

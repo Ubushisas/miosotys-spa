@@ -149,7 +149,7 @@ export async function saveAppointmentToSheet(appointmentData) {
       customerInfo.email || '',
       service.name,
       service.duration,
-      totalPrice || service.price,
+      totalPrice || service.price || 'Según paquete',
       peopleCount || (guestNames.length > 0 ? guestNames.length + 1 : 1),
       guestNames.join(', '),
       'Pendiente',

@@ -27,3 +27,4 @@ google-oauth-token.json
 # Misc
 *.bak
 .vercel
+.vercel/

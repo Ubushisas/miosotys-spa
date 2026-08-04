@@ -245,7 +245,7 @@ export async function getUnavailableSlots(date, service) {
 }
 
 // Create a booking in Google Calendar
-export async function createBooking(date, time, service, guestNames, customerInfo) {
+export async function createBooking(date, time, service, guestNames, customerInfo, pricing = {}) {
   try {
     const calendar = getCalendarClient();
     const calendarId = getCalendarId(service);
@@ -253,13 +253,27 @@ export async function createBooking(date, time, service, guestNames, customerInf
     const startDateTime = convertToISODateTime(date, time);
     const endDateTime = new Date(new Date(startDateTime).getTime() + service.duration * 60000).toISOString();
 
-    // Format service details
-    const durationText = `Duración: ${service.duration} minutos`;
-    const priceText = service.price ? `Precio: $${service.price.toLocaleString('es-CO')} COP` : '';
-
     // Format guest names for description
-    const peopleCount = guestNames.length > 0 ? guestNames.length : (service.minPeople || 1);
+    const peopleCount = pricing.peopleCount || (guestNames.length > 0 ? guestNames.length : (service.minPeople || 1));
     const peopleText = peopleCount > 1 ? `\nNúmero de personas: ${peopleCount}` : '';
+
+    // Format service details.
+    // El total viene calculado desde la ruta (respeta pricePerPerson y packagePricing).
+    // Solo si no llega, se cae al precio base — que para paquetes por persona es el valor unitario.
+    const durationText = `Duración: ${service.duration} minutos`;
+    const cop = (n) => `$${n.toLocaleString('es-CO')} COP`;
+    const quoteOnly = service.quoteOnly || service.price == null;
+    const totalPrice = pricing.totalPrice ?? service.price;
+    const depositAmount = pricing.depositAmount ?? (service.price ? Math.round(service.price * 0.5) : null);
+    const unitText = peopleCount > 1 && service.pricePerPerson
+      ? ` (${cop(service.price)} x ${peopleCount} personas)`
+      : '';
+    const priceText = quoteOnly
+      ? 'Precio: según paquete — pendiente de cotizar con el cliente'
+      : totalPrice
+        ? `Precio total: ${cop(totalPrice)}${unitText}` +
+          (depositAmount ? `\nDepósito (50%): ${cop(depositAmount)}` : '')
+        : '';
     const guestsText = guestNames.length > 0 ? `\n\nNombres de los asistentes:\n${guestNames.map((name, i) => `${i + 1}. ${name}`).join('\n')}` : '';
 
     const event = {

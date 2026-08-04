@@ -350,6 +350,17 @@ iframe[src*="calendly"] {
   font-family: 'Gragio', 'Cormorant Garamond', serif;
 }
 
+.calendly-service-note {
+  margin: -1rem 0 2rem;
+  padding: 0.75rem 1rem;
+  border-left: 2px solid #b77c4c;
+  background: rgba(183, 124, 76, 0.06);
+  color: rgb(68, 68, 68);
+  font-size: 1.15rem;
+  line-height: 1.4;
+  font-family: 'Gragio', 'Cormorant Garamond', serif;
+}
+
 .calendly-info-item svg {
   color: rgb(34, 34, 34);
   width: 1.25rem;

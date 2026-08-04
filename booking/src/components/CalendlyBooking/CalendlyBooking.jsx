@@ -203,6 +203,8 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
   };
 
   const formatPrice = (price) => {
+    // Sin precio publicado (se cotiza por paquete) no se muestra un valor.
+    if (price == null) return 'Según paquete';
     return `$${(price / 1000).toFixed(0)}k COP`;
   };
 
@@ -230,7 +232,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
       setPeopleCount(null); // Reset count
     } else {
       setDateTimeSubStep('date');
-      setPeopleCount(null); // Not needed for this service
+      // Sin selector: la cuenta es fija (parejas, planes de cuenta cerrada) o individual.
+      // Debe quedar en un número — si queda null el mensaje sale "Personas: null".
+      setPeopleCount(service.minPeople || 1);
     }
     setStep(2);
   };
@@ -403,6 +407,13 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
         const totalPrice = calculateTotalPrice(selectedService, peopleCount);
         const deposit = calculateDeposit(selectedService, peopleCount);
 
+        // Servicios sin precio publicado: se cotizan por WhatsApp, no se pide deposito.
+        const cierre = deposit == null
+          ? `Este servicio se cotiza segun el paquete.%0A%0A` +
+            `Por favor confirma el valor y los detalles de pago`
+          : `Deposito 50%: $${deposit.toLocaleString('es-CO')}%0A%0A` +
+            `Por favor confirma y envia detalles de pago`;
+
         // Create simple WhatsApp message
         const whatsappMessage = `Hola! Reserva en Myosotis Spa:%0A%0A` +
           `Servicio: ${selectedService.name}%0A` +
@@ -411,8 +422,7 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
           `Nombre: ${formData.name}%0A` +
           `Telefono: ${formData.phone}%0A` +
           `Personas: ${peopleCount}%0A%0A` +
-          `Deposito 50%: $${deposit.toLocaleString('es-CO')}%0A%0A` +
-          `Por favor confirma y envia detalles de pago`;
+          cierre;
 
         const spaWhatsAppNumber = '573337224223';
         const whatsappUrl = `https://wa.me/${spaWhatsAppNumber}?text=${whatsappMessage}`;
@@ -487,6 +497,9 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
                   </div>
                 )}
               </div>
+              {selectedService.note && (
+                <p className="calendly-service-note">{selectedService.note}</p>
+              )}
               {selectedDate && selectedTime && (
                 <div className="calendly-datetime-display">
                   <CalendarIcon className="w-5 h-5" />

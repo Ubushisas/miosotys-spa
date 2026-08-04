@@ -6,7 +6,10 @@ import { calculateTotalPrice, calculateDeposit } from '@/lib/pricing';
 
 export async function POST(request) {
   try {
-    const { date, time, service, guestNames, customerInfo, numPeople: requestedPeople } = await request.json();
+    // El flujo activo (CalendlyBooking) manda `peopleCount`; BookingFlow manda `numPeople`.
+    // Aceptamos ambos: si solo se lee uno, el conteo llega undefined y el total se calcula con minPeople.
+    const { date, time, service, guestNames, customerInfo, numPeople, peopleCount: requestedPeopleCount } = await request.json();
+    const requestedPeople = numPeople ?? requestedPeopleCount;
 
     if (!date || !time || !service) {
       return NextResponse.json(
@@ -46,19 +49,22 @@ export async function POST(request) {
       );
     }
 
+    // Calculate total price based on number of people.
+    // Se calcula ANTES de crear el evento para que el correo de Google Calendar
+    // muestre el total real y no el precio base por persona.
+    const peopleCount = requestedPeople || (guestNames && guestNames.length > 0 ? guestNames.length : (service.minPeople ? service.minPeople : 1));
+    const totalPrice = calculateTotalPrice(service, peopleCount);
+    const depositAmount = calculateDeposit(service, peopleCount);
+
     // Create the booking
     const booking = await createBooking(
       dateObj,
       time,
       service,
       guestNames || [],
-      customerInfo || {}
+      customerInfo || {},
+      { peopleCount, totalPrice, depositAmount }
     );
-
-    // Calculate total price based on number of people
-    const peopleCount = requestedPeople || (guestNames && guestNames.length > 0 ? guestNames.length : (service.minPeople ? service.minPeople : 1));
-    const totalPrice = calculateTotalPrice(service, peopleCount);
-    const depositAmount = calculateDeposit(service, peopleCount);
 
     // Save to Google Sheets
     await saveAppointmentToSheet({
