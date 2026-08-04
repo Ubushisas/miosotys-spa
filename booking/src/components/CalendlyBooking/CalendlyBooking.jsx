@@ -317,6 +317,12 @@ export default function CalendlyBooking({ onBack, preselectedService }) {
         setSelectedCategory(foundCategory);
         setActiveCategory(foundCategory);
         setDateTimeSubStep('date');
+        // Esta ruta (link "Agendar" del catalogo) no pasa por handleServiceSelect.
+        // Si el servicio no muestra selector de personas hay que fijar la cuenta aqui,
+        // o queda null y el mensaje sale "Personas: null".
+        if (!requiresPeopleCount(foundService)) {
+          setPeopleCount(foundService.minPeople || 1);
+        }
       } else {
         console.log('❌ No matching service found for:', preselectedService);
         console.log('Available categories:', Object.keys(settings.services));

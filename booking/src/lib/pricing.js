@@ -13,14 +13,18 @@ export function calculateTotalPrice(service, peopleCount) {
     return null;
   }
 
+  // Si el conteo no llega (null/undefined/0), se usa el minimo del paquete.
+  // Sin esta red, un paquete por persona con peopleCount null da total 0.
+  const count = Number(peopleCount) > 0 ? Number(peopleCount) : (service.minPeople || 1);
+
   // If service has package pricing for this specific count, use it
-  if (service.packagePricing && service.packagePricing[peopleCount]) {
-    return service.packagePricing[peopleCount];
+  if (service.packagePricing && service.packagePricing[count]) {
+    return service.packagePricing[count];
   }
 
   // Otherwise multiply base price by people count
   if (service.pricePerPerson) {
-    return service.price * peopleCount;
+    return service.price * count;
   }
 
   // For services without minPeople (individual services), just return price
